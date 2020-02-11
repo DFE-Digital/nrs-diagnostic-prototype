@@ -5,16 +5,41 @@ $govuk-global-styles: true;
 $govuk-assets-path: '/govuk/assets/';
 
 // Import GOV.UK Frontend and any extension styles if extensions have been configured
-@import "lib/extensions/extensions";
+@import 'lib/extensions/extensions';
 
 // Patterns that aren't in Frontend
-@import "patterns/step-by-step-header";
-@import "patterns/step-by-step-nav";
-@import "patterns/step-by-step-related";
-@import "patterns/task-list";
-@import "patterns/related-items";
+@import 'patterns/step-by-step-header';
+@import 'patterns/step-by-step-nav';
+@import 'patterns/step-by-step-related';
+@import 'patterns/task-list';
+@import 'patterns/related-items';
 
 // Components that aren't in Frontend
-@import "components/cookie-banner";
+@import 'components/cookie-banner';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+body {
+  min-height: 100vh;
+  height: 100%;
+  position: relative;
+}
+
+.help-link {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 56px;
+  left: 0;
+  bottom: 0;
+  background: #005da6;
+
+  a,
+  a:visited {
+    color: white;
+  }
+}
+
+a.govuk-button,
+button.govuk-button {
+  min-width: 50%;
+}

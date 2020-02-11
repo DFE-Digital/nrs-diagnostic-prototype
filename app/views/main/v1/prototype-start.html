@@ -1,0 +1,72 @@
+{% extends "layout.html" %} {% block pageTitle %} NRS Diagnostic Prototype {%
+endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list"></ol>
+</div>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      This is a Prototype
+    </h1>
+
+    <p>
+      Whilst it uses accurate styles and components, this is not a true
+      reflection of how it will actually look and function.
+    </p>
+
+    <p>*Not all links are clickable</p>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a
+      href="/main/v1/job-search"
+      role="button"
+      draggable="false"
+      class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-2"
+      data-module="govuk-button"
+    >
+      Start now
+      <svg
+        class="govuk-button__start-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="17.5"
+        height="19"
+        viewBox="0 0 33 40"
+        role="presentation"
+        focusable="false"
+      >
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a
+      href="/main/v1/prototype-content"
+      role="button"
+      draggable="false"
+      class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
+      data-module="govuk-button"
+    >
+      Content
+      <svg
+        class="govuk-button__start-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="17.5"
+        height="19"
+        viewBox="0 0 33 40"
+        role="presentation"
+        focusable="false"
+      >
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+      </svg>
+    </a>
+  </div>
+</div>
+{% endblock %}
