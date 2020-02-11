@@ -1,0 +1,94 @@
+{#- We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework. -#}
+{%- set assetPath = '/govuk/assets' -%}
+
+{% extends "govuk/template.njk" %}
+
+{% from "govuk/components/accordion/macro.njk"        import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk"        import govukBackLink %}
+{% from "govuk/components/breadcrumbs/macro.njk"      import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk"           import govukButton %}
+{% from "govuk/components/character-count/macro.njk"  import govukCharacterCount %}
+{% from "govuk/components/checkboxes/macro.njk"       import govukCheckboxes %}
+{% from "govuk/components/date-input/macro.njk"       import govukDateInput %}
+{% from "govuk/components/details/macro.njk"          import govukDetails %}
+{% from "govuk/components/error-message/macro.njk"    import govukErrorMessage %}
+{% from "govuk/components/error-summary/macro.njk"    import govukErrorSummary %}
+{% from "govuk/components/fieldset/macro.njk"         import govukFieldset %}
+{% from "govuk/components/file-upload/macro.njk"      import govukFileUpload %}
+{% from "govuk/components/input/macro.njk"            import govukInput %}
+{% from "govuk/components/inset-text/macro.njk"       import govukInsetText %}
+{% from "govuk/components/panel/macro.njk"            import govukPanel %}
+{% from "govuk/components/phase-banner/macro.njk"     import govukPhaseBanner %}
+{% from "govuk/components/radios/macro.njk"           import govukRadios %}
+{% from "govuk/components/select/macro.njk"           import govukSelect %}
+{% from "govuk/components/skip-link/macro.njk"        import govukSkipLink %}
+{% from "govuk/components/summary-list/macro.njk"     import govukSummaryList %}
+{% from "govuk/components/table/macro.njk"            import govukTable %}
+{% from "govuk/components/tabs/macro.njk"             import govukTabs %}
+{% from "govuk/components/tag/macro.njk"              import govukTag %}
+{% from "govuk/components/textarea/macro.njk"         import govukTextarea %}
+{% from "govuk/components/warning-text/macro.njk"     import govukWarningText %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "includes/cookie-banner.html" %}
+  {# Set serviceName in config.js. #}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container"
+  }) }}
+{% endblock %}
+
+{% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
+
+{% if useAutoStoreData %}
+  {% block footer %}
+    <div class="help-link">
+      <div>
+        <svg
+          style="padding: 12 16 12 16;"
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M0 16C0 7.16154 7.16154 0 16 0C24.8385 0 32 7.16154 32 16C32 24.8385 24.8385 32 16 32C7.16154 32 0 24.8385 0 16ZM25.7923 6.20769C23.1769 3.59231 19.7 2.15385 16 2.15385C12.3 2.15385 8.82308 3.59231 6.20769 6.20769C3.59231 8.82308 2.15385 12.3 2.15385 16C2.15385 19.7 3.59231 23.1769 6.20769 25.7923C8.82308 28.4077 12.3 29.8462 16 29.8462C19.7 29.8462 23.1769 28.4077 25.7923 25.7923C28.4077 23.1769 29.8462 19.7 29.8462 16C29.8462 12.3 28.4077 8.82308 25.7923 6.20769Z"
+            fill="white"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M21 12.9609C21 10.625 18.9844 9 16.0547 9C12.9141 9 11.0547 10.7734 11 13.2891H13.7734C13.8359 12.1328 14.6875 11.3672 15.8672 11.3672C17.0312 11.3672 17.9688 12.0781 17.9688 13.0469C17.9688 14.0156 17.4141 14.5156 16.0938 15.3047C14.6797 16.1328 14.1172 17.1328 14.25 18.7422L14.2734 19.4141H16.9844V18.7969C16.9844 17.7969 17.4453 17.2188 18.8047 16.4297C20.25 15.5781 21 14.5078 21 12.9609ZM15.6719 20.7812C14.75 20.7812 14 21.4922 14 22.3906C14 23.2969 14.7422 24 15.6719 24C16.6016 24 17.3516 23.2969 17.3516 22.3906C17.3516 21.4844 16.6016 20.7812 15.6719 20.7812Z"
+            fill="white"
+          />
+        </svg>
+      </div>
+      <div
+        style="padding: 15px 0 15px 0; font-family: 'GDS Transport'; font-size: 19px; line-height: 22px; text-decoration-line: underline; color: #FFFFFF;"
+      >
+        <a href="#">Click here if you need help</a>
+      </div>
+    </div>
+  {% endblock %}
+{% endif %}
+
+{% block bodyEnd %}
+  {% block scripts %}
+    {% include "includes/scripts.html" %}
+    {% block pageScripts %}{% endblock %}
+  {% endblock %}
+  <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
+{% endblock %}

@@ -1,0 +1,172 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">My Jobs</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/main/v1/job-search"
+        >Target job</a
+      >
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link">Math skills</a>
+    </li>
+  </ol>
+</div>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Improving your maths
+    </h1>
+
+    <p>
+      Here are the online courses available for you to start learning for free.
+      These courses will lead to a qualification in maths which will help you
+      apply for your next job.
+    </p>
+
+    <p>
+      Read the course description then select ‘Start course’ when you are ready
+      to start.
+    </p>
+
+    <img
+      src="/public/images/maths-course.png"
+      style="margin-left: -15px; width: 100vw"
+    /><br /><br />
+
+    <h2 class="govuk-heading-l">Mathematics Functional Skills</h2>
+
+    <p>
+      This course helps you develop the confidence and practical skills needed
+      to get your target job.<br /><br />
+    </p>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div
+      style="display: flex; font-family: 'GDS Transport'; font-size: 19px; line-height: 22px; color: #217F77;"
+    >
+      <div style="width: 50%;">
+        <span>Number of lessons</span>
+        <hr style="margin-right: 10px; border: 1px solid #BFC1C3" />
+        <div style="display: flex;">
+          <svg
+            style="margin-right: 10px;"
+            width="36"
+            height="32"
+            viewBox="0 0 36 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 11.0185L18 0.733887L36 11.0185V24.7339H32.7295V12.8906L18 21.303L0 11.0185ZM6 25.382V18.7339L17.5 25.0858L29 18.7339V25.382L17.5 31.7339L6 25.382Z"
+              fill="#1E7871"
+            />
+          </svg>
+
+          <span style="line-height: 30px;">60</span>
+        </div>
+      </div>
+      <div style="width: 50%;">
+        <span>Average duration</span>
+        <hr style="margin-right: 10px; border: 1px solid #BFC1C3" />
+        <div style="display: flex;">
+          <svg
+            style="margin-right: 10px;"
+            width="32"
+            height="31"
+            viewBox="0 0 32 31"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M7.20893 0L9.26915 2.38432L2.05933 8.3842L0 5.99988L7.20893 0ZM31.6889 5.99986L24.4002 0.0765381L22.3409 2.46173L29.6295 8.38425L31.6889 5.99986ZM16.6367 9.46143H14.26V18.6923L21.786 23.0772L22.9744 21.1539L16.6367 17.5384V9.46143ZM15.8444 3.3075C7.92222 3.3075 1.58437 9.53799 1.58437 17.1536C1.58437 24.7696 7.92222 31 15.8444 31C23.6879 31 30.1045 24.7696 30.1045 17.1536C30.1045 9.53806 23.6879 3.3075 15.8444 3.3075ZM4.75333 17.1537C4.75333 23.0772 9.7441 27.9231 15.8444 27.9231C21.9448 27.9231 26.9355 23.1537 26.9355 17.1537C26.9355 11.2305 21.9448 6.38452 15.8444 6.38452C9.7441 6.38452 4.75333 11.2306 4.75333 17.1537Z"
+              fill="#1E7871"
+            />
+          </svg>
+
+          <span style="line-height: 30px;">40 hours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div
+      style="display: flex; font-family: 'GDS Transport'; font-size: 19px; line-height: 22px; color: #217F77;"
+    >
+      <div style="width: 50%;">
+        <span>Offline learning</span>
+        <hr style="margin-right: 10px; border: 1px solid #BFC1C3" />
+      </div>
+    </div>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div style="display: flex;">
+      <svg
+        style="margin-right: 10px;"
+        width="29"
+        height="31"
+        viewBox="0 0 29 31"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.808162 18.0415L12.3595 30.2072C12.8595 30.7357 13.5405 31 14.2905 31H14.3249C15.0749 31 15.7559 30.7357 16.2559 30.2072L27.8072 18.0415C28.8848 16.9844 28.8848 15.2842 27.8072 14.2359C26.7297 13.1876 24.9884 13.1876 23.9108 14.2359L17.0662 21.5476V2.69565C17.0662 1.20688 15.8335 0 14.3077 0C12.756 0 11.5492 1.20688 11.5492 2.69565V21.5476L4.70458 14.2359C3.62703 13.1876 1.88571 13.1876 0.808162 14.2359C-0.269387 15.2842 -0.269387 16.9844 0.808162 18.0415Z"
+          fill="#1E7871"
+        />
+      </svg>
+
+      <span
+        style="line-height: 30px; font-family: 'GDS Transport'; font-size: 19px; color: #217F77;"
+        >Lessons available offline</span
+      >
+    </div>
+  </div>
+</div>
+<br />
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v1/diagnostic-explanation"
+      role="button"
+      draggable="false"
+      class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+      data-module="govuk-button"
+    >
+      Start course
+      <svg
+        class="govuk-button__start-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="17.5"
+        height="19"
+        viewBox="0 0 33 40"
+        role="presentation"
+        focusable="false"
+      >
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+      </svg>
+    </a>
+  </div>
+</div>
+<br />
+<br />
+{% endblock %}
