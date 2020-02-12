@@ -1,0 +1,165 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">My Jobs</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/main/v1/job-search"
+        >Target job</a
+      >
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/main/v1/maths-course"
+        >Math skills</a
+      >
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link">Functional Skills 2</a>
+    </li>
+  </ol>
+</div>
+{% endblock %} {% block content %}
+<form class="form" action="/main/v1/question/20" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Question 5 of 20
+            </h1>
+          </legend>
+          <span id="changed-name-hint" class="govuk-hint">
+            <p>
+              Convert 1380 centimetres into metres.
+            </p>
+          </span>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="question-five-a"
+                name="question-five"
+                type="radio"
+                value="0.138m"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="question-five-a"
+              >
+                0.138m
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="question-five-b"
+                name="question-five"
+                type="radio"
+                value="1.38m"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="question-five-b"
+              >
+                1.38m
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="question-five-c"
+                name="question-five"
+                type="radio"
+                value="138m"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="question-five-c"
+              >
+                138m
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="question-five-d"
+                name="question-five"
+                type="radio"
+                value="13.8m"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="question-five-d"
+              >
+                13.8m
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <button
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-2"
+        data-module="govuk-button"
+      >
+        Submit answer
+        <svg
+          class="govuk-button__start-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="17.5"
+          height="19"
+          viewBox="0 0 33 40"
+          role="presentation"
+          focusable="false"
+        >
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <a
+        href="/main/v1/job-search"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
+        data-module="govuk-button"
+      >
+        I don't know
+        <svg
+          class="govuk-button__start-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="17.5"
+          height="19"
+          viewBox="0 0 33 40"
+          role="presentation"
+          focusable="false"
+        >
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <p>
+    <a href="/main/v1/course/overview-skip-diagnostic"
+      >Click here to skip quiz</a
+    >
+  </p>
+  <br />
+</form>
+{% endblock %}

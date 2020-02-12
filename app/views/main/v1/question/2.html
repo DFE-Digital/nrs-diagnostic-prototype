@@ -1,0 +1,175 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">My Jobs</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/main/v1/job-search"
+        >Target job</a
+      >
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/main/v1/maths-course"
+        >Math skills</a
+      >
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link">Functional Skills 2</a>
+    </li>
+  </ol>
+</div>
+{% endblock %} {% block content %}
+<form class="form" action="/main/v1/question/3" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Question 2 of 20
+            </h1>
+          </legend>
+          <span id="changed-name-hint" class="govuk-hint">
+            <p>
+              Emily saved £254 last month. Today she received her £1,900 salary
+              and a bonus of £220. Later this week she will meet her friend to
+              pay back her debt of £120. It is also time to pay her rent, which
+              is £550.
+            </p>
+
+            <p>
+              <strong
+                >How much money in total is she left with following these
+                changes?</strong
+              >
+            </p>
+          </span>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="question-two-a"
+                name="question-two"
+                type="radio"
+                value="£1,944"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="question-two-a"
+              >
+                £1,944
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="question-two-b"
+                name="question-two"
+                type="radio"
+                value="£1,450"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="question-two-b"
+              >
+                £1,450
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="question-two-c"
+                name="question-two"
+                type="radio"
+                value="£1,704"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="question-two-c"
+              >
+                £1,704
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="question-two-d"
+                name="question-two"
+                type="radio"
+                value="£1,690"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="question-two-d"
+              >
+                £1,690
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <button
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-2"
+        data-module="govuk-button"
+      >
+        Submit answer
+        <svg
+          class="govuk-button__start-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="17.5"
+          height="19"
+          viewBox="0 0 33 40"
+          role="presentation"
+          focusable="false"
+        >
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <a
+        href="/main/v1/job-search"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
+        data-module="govuk-button"
+      >
+        I don't know
+        <svg
+          class="govuk-button__start-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="17.5"
+          height="19"
+          viewBox="0 0 33 40"
+          role="presentation"
+          focusable="false"
+        >
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <p>
+    <a href="/main/v1/course/overview-skip-diagnostic"
+      >Click here to skip quiz</a
+    >
+  </p>
+  <br />
+</form>
+{% endblock %}
