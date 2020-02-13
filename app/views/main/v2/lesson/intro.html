@@ -1,0 +1,123 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a href="/main/v2/course/overview" class="govuk-back-link">Back</a>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+      Lesson name
+    </h2>
+
+    <span
+      style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 26px;
+    /* identical to box height, or 186% */
+    
+    
+    color: #6F777B;"
+      >Lesson progress</span
+    >
+    <div
+      style="width: 100%; height: 18px; border: 1px solid #BFC1C3; background: white; margin-bottom: 10px;"
+    >
+      <div style="width: 55px; height: 100%; background-color: #005DA6;"></div>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">
+      Required learning
+    </h3>
+
+    <p>
+      Before starting this lesson, are you confident in the topics below? If
+      not, then please click on the link(s) provided which will take you to the
+      relevant lesson.
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="#"
+      style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 26px;
+    text-decoration-line: underline;
+    
+    color: #1D70B8;"
+      >Identifying how many products were sold during a particular month</a
+    >
+
+    <br />
+    <br />
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="#"
+      style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 26px;
+    text-decoration-line: underline;
+    
+    color: #1D70B8;"
+      >Adding the number of products sold in a set period of time</a
+    >
+
+    <br />
+    <br />
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>
+      If you are confident in these topics then please progress with the lesson.
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v2/lesson/select-learning-material"
+      role="button"
+      draggable="false"
+      class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+      data-module="govuk-button"
+    >
+      Continue
+      <svg
+        class="govuk-button__start-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="17.5"
+        height="19"
+        viewBox="0 0 33 40"
+        role="presentation"
+        focusable="false"
+      >
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<br />
+<br />
+{% endblock %}

@@ -1,0 +1,138 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">My Jobs</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Target job</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link">Math skills</a>
+    </li>
+  </ol>
+</div>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Studying for a Maths qualification
+    </h1>
+
+    <p>
+      These courses which are available to you are designed to help you study
+      and learn in preparation of getting a qualification. These courses are
+      online, free and are ready to start straight away.
+    </p>
+
+    <!-- <p>
+      Read the course description then select ‘Start course’ when you are ready
+      to start.
+    </p>
+
+    <img
+      src="/public/images/maths-course.png"
+      style="margin-left: -15px; width: 100vw"
+    /><br /><br /> -->
+
+    <h2 class="govuk-heading-l">Available courses</h2>
+    <hr style="border: 1px solid #BFC1C3;" />
+
+    <h3 class="govuk-heading-m" style="padding-top: 15px;">
+      Mathematics Functional Skills 2
+    </h3>
+
+    <p>
+      This course helps you develop the confidence and practical skills needed
+      to get your target job.<br /><br />
+    </p>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div
+      style="display: flex; font-family: 'GDS Transport'; font-size: 19px; line-height: 22px; color: #217F77;"
+    >
+      <div style="width: 50%;">
+        <span>Number of lessons</span>
+        <!-- <hr style="margin-right: 10px; border: 1px solid #BFC1C3" /> -->
+        <div style="display: flex; padding-top: 10px;">
+          <svg
+            style="margin-right: 10px;"
+            width="36"
+            height="32"
+            viewBox="0 0 36 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 11.0185L18 0.733887L36 11.0185V24.7339H32.7295V12.8906L18 21.303L0 11.0185ZM6 25.382V18.7339L17.5 25.0858L29 18.7339V25.382L17.5 31.7339L6 25.382Z"
+              fill="#1E7871"
+            />
+          </svg>
+
+          <span style="line-height: 30px;">60</span>
+        </div>
+      </div>
+      <div style="width: 50%;">
+        <span>Average duration</span>
+        <!-- <hr style="margin-right: 10px; border: 1px solid #BFC1C3" /> -->
+        <div style="display: flex; padding-top: 10px;">
+          <svg
+            style="margin-right: 10px;"
+            width="32"
+            height="31"
+            viewBox="0 0 32 31"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M7.20893 0L9.26915 2.38432L2.05933 8.3842L0 5.99988L7.20893 0ZM31.6889 5.99986L24.4002 0.0765381L22.3409 2.46173L29.6295 8.38425L31.6889 5.99986ZM16.6367 9.46143H14.26V18.6923L21.786 23.0772L22.9744 21.1539L16.6367 17.5384V9.46143ZM15.8444 3.3075C7.92222 3.3075 1.58437 9.53799 1.58437 17.1536C1.58437 24.7696 7.92222 31 15.8444 31C23.6879 31 30.1045 24.7696 30.1045 17.1536C30.1045 9.53806 23.6879 3.3075 15.8444 3.3075ZM4.75333 17.1537C4.75333 23.0772 9.7441 27.9231 15.8444 27.9231C21.9448 27.9231 26.9355 23.1537 26.9355 17.1537C26.9355 11.2305 21.9448 6.38452 15.8444 6.38452C9.7441 6.38452 4.75333 11.2306 4.75333 17.1537Z"
+              fill="#1E7871"
+            />
+          </svg>
+
+          <span style="line-height: 30px;">40 hours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v2/intro/math-course"
+      role="button"
+      draggable="false"
+      class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+      data-module="govuk-button"
+    >
+      Find out more
+      <svg
+        class="govuk-button__start-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="17.5"
+        height="19"
+        viewBox="0 0 33 40"
+        role="presentation"
+        focusable="false"
+      >
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+      </svg>
+    </a>
+  </div>
+</div>
+<br />
+<br />
+{% endblock %}

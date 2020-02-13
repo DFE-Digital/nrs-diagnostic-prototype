@@ -1,0 +1,136 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">My Jobs</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Target job</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Math skills</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link">Functional skills 2</a>
+    </li>
+  </ol>
+</div>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <img
+      src="/public/images/maths-course.png"
+      style="margin-left: -15px; width: 100vw"
+    /><br /><br />
+
+    <h1 class="govuk-heading-xl">
+      Course name
+    </h1>
+
+    <h2 class="govuk-heading-l">Introduction</h2>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel volutpat vel,
+      mattis cursus. Hendrerit imperdiet quisque in bibendum vitae viverra
+      tristique aliquet. Tortor eget ut a sagittis eu nulla mattis ac.
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          What is the course structure?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Tables and graphs help us to understand data quickly. This will help you
+        monitor your team's performance and motivate them to reach targets.
+      </div>
+    </details>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          What will I learn on this course?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod
+        bibendum maximus. Curabitur lobortis non lacus pulvinar vehicula.
+        Vestibulum in.
+      </div>
+    </details>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          How long is the course?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod
+        bibendum maximus. Curabitur lobortis non lacus pulvinar vehicula.
+        Vestibulum in.
+      </div>
+    </details>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          How will this help me with getting a qualification?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod
+        bibendum maximus. Curabitur lobortis non lacus pulvinar vehicula.
+        Vestibulum in.
+      </div>
+    </details>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v2/course/overview"
+      role="button"
+      draggable="false"
+      class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+      data-module="govuk-button"
+    >
+      Start course
+      <svg
+        class="govuk-button__start-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="17.5"
+        height="19"
+        viewBox="0 0 33 40"
+        role="presentation"
+        focusable="false"
+      >
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+      </svg>
+    </a>
+  </div>
+</div>
+<br />
+<br />
+{% endblock %}
