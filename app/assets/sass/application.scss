@@ -102,3 +102,38 @@ button.govuk-button {
     line-height: 26px;
   }
 }
+
+.email-task-bar {
+  width: 100%;
+  height: 32px;
+  background-color: #202124;
+
+  .dot {
+    margin: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+}
+
+.email-body {
+  width: 100%;
+  background-color: #f2f2f2;
+  margin-bottom: 10px;
+
+  span,
+  p {
+    font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 25px;
+    color: #0b0c0c;
+    padding: 8px;
+  }
+
+  hr {
+    margin: 5px 8px;
+    border: 1px solid #bfc1c3;
+  }
+}
