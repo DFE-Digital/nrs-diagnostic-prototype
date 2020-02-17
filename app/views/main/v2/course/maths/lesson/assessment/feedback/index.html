@@ -169,6 +169,7 @@ Prototype {% endblock %} {% block header %}
       draggable="false"
       class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
       data-module="govuk-button"
+      onclick="return retryAssessment();"
     >
       Retry
       <svg
@@ -221,6 +222,11 @@ Prototype {% endblock %} {% block header %}
     } else if (percentage > 70) {
       $('#feedback-high').removeClass('hidden')
     }
+  }
+
+  function retryAssessment() {
+    addToLocalStorageObject('maths', 'answers', [])
+    return true
   }
 
   setResult()
