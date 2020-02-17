@@ -6,7 +6,10 @@ Prototype {% endblock %} {% block header %}
   >Save and return to overview</a
 >
 {% endblock %} {% block content %}
-<form class="form" onsubmit="return submitAnswer();">
+<form
+  class="form"
+  onsubmit="return submitAnswer('english', 'english-question-three', 'english-question-three-a');"
+>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
@@ -35,7 +38,7 @@ Prototype {% endblock %} {% block header %}
         <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
             <h2 class="govuk-heading-l">
-              Question 3 of 10
+              Question 3 of 5
             </h2>
           </legend>
           <span id="changed-name-hint" class="govuk-hint">
@@ -219,7 +222,7 @@ Prototype {% endblock %} {% block header %}
         draggable="false"
         class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
         data-module="govuk-button"
-        onclick="return skipAnswer();"
+        onclick="return skipAnswer('english', 'english-question-three');"
       >
         I don't know
         <svg
@@ -241,37 +244,8 @@ Prototype {% endblock %} {% block header %}
 </form>
 {% endblock %} {% block pageScripts %}
 <script type="text/javascript">
-  function submitAnswer(event) {
-    if (!$('input:radio[name=english-question-three]').is(':checked')) {
-      return false
-    }
-
-    $('[name=question-feedback]').addClass('hidden')
-    var $radio = $('input[name=english-question-three]:checked')
-    var id = $radio.attr('id')
-
-    if (id === 'english-question-three-a') {
-      addAnswer('english', 'correct')
-    } else {
-      addAnswer('english', 'incorrect')
-    }
-
-    $('#' + id + '-feedback').removeClass('hidden')
-    lockQuestion()
-
-    return false
-  }
-
-  function skipAnswer() {
-    addAnswer('english', 'skipped')
-    return true
-  }
-
-  function lockQuestion() {
-    $('input[name=english-question-three]').attr('disabled', true)
-    $('#submitButton').addClass('hidden')
-    $('#iDontKnowButton').addClass('hidden')
-    $('#continueButton').removeClass('hidden')
-  }
+  $(document).ready(function() {
+    validateQuestion('english', 'english-question-three')
+  })
 </script>
 {% endblock %}

@@ -37,7 +37,7 @@ function addCourseToLocalStorage(name) {
   setLocalStorageObject(name, course)
 }
 
-function addAnswer(courseName, answer) {
+function addAnswer(courseName, question, answer, result) {
   var course = getLocalStorageObject(courseName)
   if (!course) {
     console.log('Could not find course ' + courseName)
@@ -45,8 +45,15 @@ function addAnswer(courseName, answer) {
   }
 
   var answers = course.answers
-  answers.push(answer)
+
+  answers.push({
+    question,
+    answer,
+    result
+  })
+
   course.answers = answers
+  console.log('1', course.answers)
 
   localStorage.setItem(courseName, JSON.stringify(course))
 }
@@ -65,9 +72,11 @@ function getAssessmentResults(courseName) {
     return 0
   }
 
-  var correct = answers.filter(answer => answer === 'correct').length
-  var incorrect = answers.filter(answer => answer === 'incorrect').length
-  var skipped = answers.filter(answer => answer === 'skipped').length
+  console.log(answers)
+
+  var correct = answers.filter(x => x.result === 'correct').length
+  var incorrect = answers.filter(x => x.result === 'incorrect').length
+  var skipped = answers.filter(x => x.result === 'skipped').length
 
   var percentage = ((correct / answers.length) * 100).toFixed(0)
 
@@ -76,5 +85,53 @@ function getAssessmentResults(courseName) {
     incorrect,
     skipped,
     percentage
+  }
+}
+
+function submitAnswer(course, question, correctAnswer) {
+  if (!$('input:radio[name=' + question + ']').is(':checked')) {
+    return false
+  }
+
+  $('[name=question-feedback]').addClass('hidden')
+  var $radio = $('input[name=' + question + ']:checked')
+  var id = $radio.attr('id')
+
+  if (id === correctAnswer) {
+    addAnswer(course, question, id, 'correct')
+  } else {
+    addAnswer(course, question, id, 'incorrect')
+  }
+
+  showFeedback(id)
+  lockQuestion(question)
+
+  return false
+}
+
+function skipAnswer(course, question) {
+  addAnswer(course, question, '', 'skipped')
+  return true
+}
+
+function showFeedback(id) {
+  $('#' + id + '-feedback').removeClass('hidden')
+}
+
+function lockQuestion(question) {
+  $('input[name=' + question + ']').attr('disabled', true)
+  $('#submitButton').addClass('hidden')
+  $('#iDontKnowButton').addClass('hidden')
+  $('#continueButton').removeClass('hidden')
+}
+
+function validateQuestion(course, question) {
+  var course = getLocalStorageObject(course)
+  var answers = course.answers
+  var currentAnswer = answers.find(x => x.question === question)
+  if (currentAnswer) {
+    showFeedback(currentAnswer.answer)
+    lockQuestion(question)
+    $('#' + currentAnswer.answer).prop('checked', true)
   }
 }
