@@ -1,0 +1,283 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a href="/main/v2/course/maths/overview" class="govuk-back-link"
+  >Save and return to overview</a
+>
+{% endblock %} {% block content %}
+<form class="form" onsubmit="return submitAnswer();">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+        Recipe ratio
+      </h2>
+
+      <span
+        style="font-family: 'GDS Transport';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 26px;
+        color: rgb(95, 134, 153);"
+        >Lesson progress</span
+      >
+      <div class="progress-bar">
+        <div class="progress-bar-fill" style="width: 55px;"></div>
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h2 class="govuk-heading-l">
+              Question 2 of 10
+            </h2>
+          </legend>
+          <span id="changed-name-hint" class="govuk-hint">
+            <p>
+              Tina is using the following mix to make concrete:
+              <br />
+              <br />
+              <i>10kg Concrete Mix:</i><br />
+              2kg Cement<br />
+              3kg Sand<br />
+              4kg Stone<br />
+              1l Water<br />
+            </p>
+
+            <p>
+              <strong
+                >How much cement will Tina need to make 50kg of
+                concrete?</strong
+              >
+            </p>
+          </span>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="maths-question-two-a"
+                name="maths-question-two"
+                type="radio"
+                value="10kg"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="maths-question-two-a"
+              >
+                10kg
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="maths-question-two-b"
+                name="maths-question-two"
+                type="radio"
+                value="15kg"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="maths-question-two-b"
+              >
+                15kg
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="maths-question-two-c"
+                name="maths-question-two"
+                type="radio"
+                value="20kg"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="maths-question-two-c"
+              >
+                20kg
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="maths-question-two-d"
+                name="maths-question-two"
+                type="radio"
+                value="42kg"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="maths-question-two-d"
+              >
+                42kg
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div
+        id="maths-question-two-a-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-correct"
+      >
+        <span class="feedback-title">Correct answer!</span><br />
+        <span class="feedback-message">
+          Well done!
+        </span>
+      </div>
+      <div
+        id="maths-question-two-b-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          This is how much sand she will need.
+        </span>
+      </div>
+      <div
+        id="maths-question-two-c-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          This is how much stone she will need.
+        </span>
+      </div>
+      <div
+        id="maths-question-two-d-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          Remember, when working with ratios you must always use multiplication
+          and division.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <button
+        id="submitButton"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-2"
+        data-module="govuk-button"
+      >
+        Submit answer
+        <svg
+          class="govuk-button__start-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="17.5"
+          height="19"
+          viewBox="0 0 33 40"
+          role="presentation"
+          focusable="false"
+        >
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+        </svg>
+      </button>
+
+      <a
+        id="continueButton"
+        href="/main/v2/course/maths/lesson/assessment/3"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6 hidden"
+        data-module="govuk-button"
+      >
+        Next question
+        <svg
+          class="govuk-button__start-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="17.5"
+          height="19"
+          viewBox="0 0 33 40"
+          role="presentation"
+          focusable="false"
+        >
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <a
+        id="iDontKnowButton"
+        href="/main/v2/course/maths/lesson/assessment/3"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
+        data-module="govuk-button"
+        onclick="return skipAnswer();"
+      >
+        I don't know
+        <svg
+          class="govuk-button__start-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="17.5"
+          height="19"
+          viewBox="0 0 33 40"
+          role="presentation"
+          focusable="false"
+        >
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <br />
+  <br />
+</form>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  function submitAnswer(event) {
+    if (!$('input:radio[name=maths-question-two]').is(':checked')) {
+      return false
+    }
+
+    $('[name=question-feedback]').addClass('hidden')
+    var $radio = $('input[name=maths-question-two]:checked')
+    var id = $radio.attr('id')
+
+    if (id === 'maths-question-two-a') {
+      addAnswer('maths', 'correct')
+    } else {
+      addAnswer('maths', 'incorrect')
+    }
+
+    $('#' + id + '-feedback').removeClass('hidden')
+    lockQuestion()
+
+    return false
+  }
+
+  function skipAnswer() {
+    addAnswer('maths', 'skipped')
+    return true
+  }
+
+  function lockQuestion() {
+    $('input[name=maths-question-two]').attr('disabled', true)
+    $('#submitButton').addClass('hidden')
+    $('#iDontKnowButton').addClass('hidden')
+    $('#continueButton').removeClass('hidden')
+  }
+</script>
+{% endblock %}

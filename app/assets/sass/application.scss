@@ -47,3 +47,58 @@ button.govuk-button {
 .hidden {
   display: none;
 }
+
+.progress-bar {
+  width: 100%;
+  height: 18px;
+  border: 1px solid #bfc1c3;
+  background: white;
+  margin-bottom: 10px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #005da6;
+}
+
+.feedback-correct {
+  border-left: 10px solid #00703c;
+
+  span.feedback-title {
+    font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 26px;
+    color: #00703c;
+  }
+
+  span.feedback-message {
+    font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 26px;
+  }
+}
+
+.feedback-incorrect {
+  border-left: 10px solid #d4351c;
+
+  span.feedback-title {
+    font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 26px;
+    color: #d4351c;
+  }
+
+  span.feedback-message {
+    font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 26px;
+  }
+}

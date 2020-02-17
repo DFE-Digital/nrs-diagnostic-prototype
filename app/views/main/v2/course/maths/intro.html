@@ -5,19 +5,18 @@ Prototype {% endblock %} {% block header %}
 <div class="govuk-breadcrumbs">
   <ol class="govuk-breadcrumbs__list">
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="/">Home</a>
+      <a class="govuk-breadcrumbs__link" href="/main/v2/intro/learning-profile"
+        >Profile</a
+      >
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="#">My Jobs</a>
+      <a class="govuk-breadcrumbs__link" href="/main/v2/intro/available-courses"
+        >Online courses</a
+      >
     </li>
+
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="#">Target job</a>
-    </li>
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="#">Math skills</a>
-    </li>
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link">Functional skills 2</a>
+      <a class="govuk-breadcrumbs__link">Maths functional skills 2</a>
     </li>
   </ol>
 </div>
@@ -30,7 +29,7 @@ Prototype {% endblock %} {% block header %}
     /><br /><br />
 
     <h1 class="govuk-heading-xl">
-      Course name
+      Maths functional skills 2
     </h1>
 
     <h2 class="govuk-heading-l">Introduction</h2>
@@ -110,13 +109,14 @@ Prototype {% endblock %} {% block header %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <a
-      href="/main/v2/course/overview"
+      href="/main/v2/intro/learning-profile"
       role="button"
       draggable="false"
       class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
       data-module="govuk-button"
+      onclick="return addCourse();"
     >
-      Start course
+      Add course
       <svg
         class="govuk-button__start-icon"
         xmlns="http://www.w3.org/2000/svg"
@@ -133,4 +133,11 @@ Prototype {% endblock %} {% block header %}
 </div>
 <br />
 <br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  function addCourse() {
+    addCourseToLocalStorage('maths')
+    return true
+  }
+</script>
 {% endblock %}

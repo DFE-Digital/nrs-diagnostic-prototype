@@ -4,7 +4,7 @@ Prototype {% endblock %} {% block header %}
 {{ govukHeader() }} {% endblock %} {% block beforeContent %}
 <div class="govuk-breadcrumbs">
   <ol class="govuk-breadcrumbs__list">
-    <li class="govuk-breadcrumbs__list-item">
+    <!-- <li class="govuk-breadcrumbs__list-item">
       <a class="govuk-breadcrumbs__link" href="/">Home</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
@@ -21,19 +21,36 @@ Prototype {% endblock %} {% block header %}
     </li>
     <li class="govuk-breadcrumbs__list-item">
       <a class="govuk-breadcrumbs__link">Course overview</a>
-    </li>
+    </li> -->
   </ol>
 </div>
 {% endblock %} {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <!-- <h4 class="govuk-heading-s">
+      Your target job is:
+    </h4> -->
+    <p style="font-size: 24px; margin-bottom: 5px">Your target job is:</p>
     <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-      Course name
+      {{ data["target-job"] }}
     </h1>
+
+    <h2 class="govuk-heading-l">Overview</h2>
 
     <div
       style="width: 100%; height: 18px; border: 1px solid #BFC1C3; background: white; margin-bottom: 10px;"
     ></div>
+
+    <div
+      style="font-family: 'GDS Transport'; font-size: 19px; line-height: 26px; color: #6F777B;"
+    >
+      <span style="font-weight: 300; text-decoration: underline;"
+        >Job application</span
+      ><br />
+      <span style="font-size: 0.8rem;"
+        >Not ready. You need to acquire more skills</span
+      >
+    </div>
   </div>
 </div>
 

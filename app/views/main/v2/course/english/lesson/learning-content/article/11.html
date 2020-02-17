@@ -1,0 +1,91 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a href="/main/v2/course/english/overview" class="govuk-back-link"
+  >Save and return to overview</a
+>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+      Writing an email
+    </h2>
+
+    <span
+      style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 26px;
+    color: #6F777B;"
+      >Lesson progress</span
+    >
+    <div
+      style="width: 100%; height: 18px; border: 1px solid #BFC1C3; background: white; margin-bottom: 10px;"
+    >
+      <div style="width: 55px; height: 100%; background-color: #005DA6;"></div>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m" style="margin-bottom: 0;">
+      Introduction
+    </h3>
+    <span
+      style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 26px;
+    color: #6F777B;"
+      >1 of 12</span
+    >
+    <br />
+    <br />
+
+    <p>
+      In this lesson you will be learn how to calculate with ratios.
+    </p>
+    <p>
+      The ratios we will be looking at are Writing an emails, which help in many
+      industries and in everyday life.
+    </p>
+    <p>
+      You will need to know how to calculate with ratios as part of your Maths
+      Functional skills exam.
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v2/course/english/lesson/learning-content/article/2"
+      role="button"
+      draggable="false"
+      class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
+      data-module="govuk-button"
+    >
+      Next
+      <svg
+        class="govuk-button__start-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="17.5"
+        height="19"
+        viewBox="0 0 33 40"
+        role="presentation"
+        focusable="false"
+      >
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<br />
+<br />
+{% endblock %}

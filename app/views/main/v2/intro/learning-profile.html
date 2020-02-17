@@ -1,0 +1,397 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list"></ol>
+</div>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Your online learning profile
+    </h1>
+
+    <p>
+      Your dashboard for viewing progress on preparing to apply for your target
+      job, improving skills and online courses.
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div
+      style="width: 100%; height: 10px; background-color: #005DA6; margin-bottom: 15px;"
+    ></div>
+    <h2 class="govuk-heading-l">Your target job</h2>
+
+    <p>
+      You have chosen this type of work to target.
+    </p>
+
+    <div style="width: 100%; margin-bottom: 15px;">
+      <a
+        href="#"
+        style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: inherit;
+    line-height: 26px;
+    text-decoration-line: underline;
+    
+    color: #1D70B8;"
+        >Job title</a
+      >
+      <a
+        href="#"
+        style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: inherit;
+    line-height: 26px;
+    text-decoration-line: underline;
+    color: #1D70B8;
+    float: right;"
+        >change target job</a
+      >
+      <!-- <span
+        style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: inherit;
+    line-height: 26px;
+    text-decoration-line: underline;
+    color: #1D70B8;
+    float: right;"
+        >change target job</span
+      > -->
+    </div>
+
+    <hr
+      style="margin-right: 10px; border: 1px solid #BFC1C3; margin-bottom: 15px;"
+    />
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">Your skills</h2>
+
+    <p>
+      You have added skills based on your education and previous work
+      experience.
+    </p>
+
+    <div style="width: 100%; margin-bottom: 15px;">
+      <a
+        href="#"
+        style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: inherit;
+    line-height: 26px;
+    text-decoration-line: underline;
+    
+    color: #1D70B8;"
+        >View / edit skills</a
+      >
+    </div>
+
+    <div
+      style="width: 100%; height: 10px; background-color: #005DA6; margin-bottom: 15px;"
+    ></div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">Your courses</h2>
+
+    <p>
+      Once you’ve completed your course(s), you will be contacted on how to get
+      your qualification.
+    </p>
+    <a
+      href="#"
+      style="font-family: 'GDS Transport';
+font-style: normal;
+font-weight: 300;
+font-size: inherit;
+line-height: 26px;
+text-decoration-line: underline;
+color: #1D70B8;"
+      >Edit courses</a
+    >
+    <br />
+    <br />
+  </div>
+</div>
+
+<div class="hidden" id="maths-course">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <a
+        href="/main/v2/course/maths/overview"
+        style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 26px;
+    text-decoration-line: underline;
+    color: #1D70B8;"
+        >Maths functional skills</a
+      >
+      <br />
+      <br />
+      <div style="display: flex; margin-bottom: 10px;">
+        <div style="margin-right: 10px; margin-top: 5px;">
+          <svg
+            width="22"
+            height="13"
+            viewBox="0 0 22 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.4 0L17.9192 2.47918L12.5518 7.76617L8.15179 3.43606L0 11.4729L1.55179 13L8.15179 6.5L12.5518 10.8349L19.4808 4.02082L22 6.5V0H15.4Z"
+              fill="#6F777B"
+            />
+          </svg>
+        </div>
+        <div
+          style="font-family: 'GDS Transport'; font-size: 19px; line-height: 26px; color: #6F777B;"
+        >
+          <span style="font-weight: 300; text-decoration: underline;"
+            >Course progress</span
+          ><br />
+          <span style="font-size: 0.8rem;">Completion: 0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div style="display: flex; margin-bottom: 10px;">
+        <div style="margin-right: 10px; margin-top: 5px;">
+          <svg
+            width="19"
+            height="18"
+            viewBox="0 0 19 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M4.18583 0L5.38209 1.38444L1.19574 4.86824L0 3.4838L4.18583 0ZM18.4 3.4838L14.1679 0.0444533L12.9721 1.4294L17.2042 4.86828L18.4 3.4838ZM9.66 5.4937H8.28V10.8536L12.65 13.3996L13.34 12.2829L9.66 10.1836V5.4937ZM9.2 1.92049C4.6 1.92049 0.919957 5.5382 0.919957 9.96018C0.919957 14.3823 4.6 18 9.2 18C13.7543 18 17.48 14.3823 17.48 9.96018C17.48 5.53824 13.7543 1.92049 9.2 1.92049ZM2.76 9.96022C2.76 13.3997 5.65787 16.2135 9.2 16.2135C12.7422 16.2135 15.64 13.4441 15.64 9.96022C15.64 6.52096 12.7422 3.70716 9.2 3.70716C5.65787 3.70716 2.76 6.521 2.76 9.96022Z"
+              fill="#6F777B"
+            />
+          </svg>
+        </div>
+        <div
+          style="font-family: 'GDS Transport'; font-size: 19px; line-height: 26px; color: #6F777B;"
+        >
+          <span style="font-weight: 300; text-decoration: underline;"
+            >Course usage</span
+          ><br />
+          <span style="font-size: 0.8rem;">40 hours remaining</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div style="display: flex; margin-bottom: 10px;">
+        <div style="margin-right: 10px; margin-top: 5px;">
+          <svg
+            width="21"
+            height="18"
+            viewBox="0 0 21 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 5.99933L10.5 0L21 5.99933V14H19.0922V7.0914L10.5 11.9987L0 5.99933ZM4 14.0911V10L10.5 13.9089L17 10V14.0911L10.5 18L4 14.0911Z"
+              fill="#6F777B"
+            />
+          </svg>
+        </div>
+        <div
+          style="font-family: 'GDS Transport'; font-size: 19px; line-height: 26px; color: #6F777B;"
+        >
+          <span style="font-weight: 300; text-decoration: underline;"
+            >Completed lessons</span
+          ><br />
+          <span style="font-size: 0.8rem;">0 out of 60</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <hr
+        style="margin-right: 10px; border: 1px solid #BFC1C3; margin-bottom: 15px;"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="hidden" id="english-course">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <a
+        href="/main/v2/course/english/overview"
+        style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 26px;
+    text-decoration-line: underline;
+    color: #1D70B8;"
+        >English</a
+      >
+      <br />
+      <br />
+      <div style="display: flex; margin-bottom: 10px;">
+        <div style="margin-right: 10px; margin-top: 5px;">
+          <svg
+            width="22"
+            height="13"
+            viewBox="0 0 22 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.4 0L17.9192 2.47918L12.5518 7.76617L8.15179 3.43606L0 11.4729L1.55179 13L8.15179 6.5L12.5518 10.8349L19.4808 4.02082L22 6.5V0H15.4Z"
+              fill="#6F777B"
+            />
+          </svg>
+        </div>
+        <div
+          style="font-family: 'GDS Transport'; font-size: 19px; line-height: 26px; color: #6F777B;"
+        >
+          <span style="font-weight: 300; text-decoration: underline;"
+            >Course progress</span
+          ><br />
+          <span style="font-size: 0.8rem;">Completion: 0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div style="display: flex; margin-bottom: 10px;">
+        <div style="margin-right: 10px; margin-top: 5px;">
+          <svg
+            width="19"
+            height="18"
+            viewBox="0 0 19 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M4.18583 0L5.38209 1.38444L1.19574 4.86824L0 3.4838L4.18583 0ZM18.4 3.4838L14.1679 0.0444533L12.9721 1.4294L17.2042 4.86828L18.4 3.4838ZM9.66 5.4937H8.28V10.8536L12.65 13.3996L13.34 12.2829L9.66 10.1836V5.4937ZM9.2 1.92049C4.6 1.92049 0.919957 5.5382 0.919957 9.96018C0.919957 14.3823 4.6 18 9.2 18C13.7543 18 17.48 14.3823 17.48 9.96018C17.48 5.53824 13.7543 1.92049 9.2 1.92049ZM2.76 9.96022C2.76 13.3997 5.65787 16.2135 9.2 16.2135C12.7422 16.2135 15.64 13.4441 15.64 9.96022C15.64 6.52096 12.7422 3.70716 9.2 3.70716C5.65787 3.70716 2.76 6.521 2.76 9.96022Z"
+              fill="#6F777B"
+            />
+          </svg>
+        </div>
+        <div
+          style="font-family: 'GDS Transport'; font-size: 19px; line-height: 26px; color: #6F777B;"
+        >
+          <span style="font-weight: 300; text-decoration: underline;"
+            >Course usage</span
+          ><br />
+          <span style="font-size: 0.8rem;">40 hours remaining</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div style="display: flex; margin-bottom: 10px;">
+        <div style="margin-right: 10px; margin-top: 5px;">
+          <svg
+            width="21"
+            height="18"
+            viewBox="0 0 21 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 5.99933L10.5 0L21 5.99933V14H19.0922V7.0914L10.5 11.9987L0 5.99933ZM4 14.0911V10L10.5 13.9089L17 10V14.0911L10.5 18L4 14.0911Z"
+              fill="#6F777B"
+            />
+          </svg>
+        </div>
+        <div
+          style="font-family: 'GDS Transport'; font-size: 19px; line-height: 26px; color: #6F777B;"
+        >
+          <span style="font-weight: 300; text-decoration: underline;"
+            >Completed lessons</span
+          ><br />
+          <span style="font-size: 0.8rem;">0 out of 60</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <hr
+        style="margin-right: 10px; border: 1px solid #BFC1C3; margin-bottom: 15px;"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v2/intro/available-courses"
+      role="button"
+      draggable="false"
+      class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+      data-module="govuk-button"
+    >
+      Add course
+      <svg
+        class="govuk-button__start-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="17.5"
+        height="19"
+        viewBox="0 0 33 40"
+        role="presentation"
+        focusable="false"
+      >
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+      </svg>
+    </a>
+  </div>
+</div>
+<br />
+<br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    checkCourseSubscription('maths')
+    checkCourseSubscription('english')
+  })
+
+  function checkCourseSubscription(name) {
+    var course = localStorage.getItem(name)
+    if (course) {
+      $('#' + name + '-course').removeClass('hidden')
+    }
+  }
+</script>
+{% endblock %}

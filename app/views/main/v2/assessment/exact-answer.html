@@ -187,11 +187,21 @@ Prototype {% endblock %} {% block header %}
       $('input[name=question-two]').attr('disabled', true)
       $('#submitButton').addClass('hidden')
       $('#continueButton').removeClass('hidden')
+      increaseCorrect()
     } else {
       $('#question-two-incorrect-feedback').removeClass('hidden')
     }
 
     return false
+  }
+
+  function increaseCorrect() {
+    var correctAnswers = localStorage.getItem('mathsCorrect')
+    if (correctAnswers === null) {
+      localStorage.setItem('mathsCorrect', 1)
+    } else {
+      localStorage.setItem('mathsCorrect', parseInt(correctAnswers) + 1)
+    }
   }
 </script>
 {% endblock %}
