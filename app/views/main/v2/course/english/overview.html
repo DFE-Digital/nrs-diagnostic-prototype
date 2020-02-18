@@ -25,9 +25,13 @@ Prototype {% endblock %} {% block header %}
       English
     </h1>
 
-    <div
-      style="width: 100%; height: 18px; border: 1px solid #BFC1C3; background: white; margin-bottom: 10px;"
-    ></div>
+    <div class="progress-bar">
+      <div
+        id="course-progress"
+        class="progress-bar-fill"
+        style="width: 0;"
+      ></div>
+    </div>
   </div>
 </div>
 
@@ -54,7 +58,9 @@ Prototype {% endblock %} {% block header %}
         <span style="font-weight: 300; text-decoration: underline;"
           >Course progress</span
         ><br />
-        <span style="font-size: 0.8rem;">Completion: 0%</span>
+        <span id="course-percentage" style="font-size: 0.8rem;"
+          >Completion: 0%</span
+        >
       </div>
     </div>
   </div>
@@ -116,7 +122,7 @@ Prototype {% endblock %} {% block header %}
         <span style="font-weight: 300; text-decoration: underline;"
           >Completed lessons</span
         ><br />
-        <span style="font-size: 0.8rem;">0 out of 60</span>
+        <span style="font-size: 0.8rem;">0 out of 40</span>
       </div>
     </div>
   </div>
@@ -155,58 +161,121 @@ Prototype {% endblock %} {% block header %}
 <br />
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h3 class="govuk-heading-m">Lessons</h3>
+    <h3 class="govuk-heading-m">Recommended lessons</h3>
   </div>
 </div>
+
+<div
+  style="width: 100%; background-color: #F8F8F8; padding-top: 15px; margin-left: -15px; padding-left: 15px; padding-right: 15px;"
+>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p><strong>Unlock a badge!</strong></p>
+      <p>
+        Complete these two lessons to unlock the badge [achievement name].
+      </p>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds lesson-stats">
+      <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 1</a>
+      <div class="progress-bar">
+        <div
+          id="lesson-progress"
+          class="progress-bar-fill"
+          style="width: 0;"
+        ></div>
+      </div>
+      <div style="display: flex; height: 34px;">
+        <div style="margin-right: 8px;">
+          <svg
+            style="padding: 4px;"
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M4.09483 0L5.26508 1.38444L1.16975 4.86824L0 3.4838L4.09483 0ZM17.9996 3.48378L13.8594 0.0444336L12.6897 1.42938L16.8298 4.86827L17.9996 3.48378ZM9.45027 5.49371H8.10027V10.8536L12.3752 13.3996L13.0503 12.2829L9.45027 10.1836V5.49371ZM8.99997 1.92047C4.49997 1.92047 0.899924 5.53818 0.899924 9.96016C0.899924 14.3823 4.49997 18 8.99997 18C13.4552 18 17.1 14.3823 17.1 9.96016C17.1 5.53822 13.4552 1.92047 8.99997 1.92047ZM2.69977 9.96022C2.69977 13.3996 5.53464 16.2135 8.99977 16.2135C12.4649 16.2135 15.2998 13.4441 15.2998 9.96022C15.2998 6.52096 12.4649 3.70715 8.99977 3.70715C5.53464 3.70715 2.69977 6.521 2.69977 9.96022Z"
+              fill="#6F777B"
+            />
+          </svg>
+        </div>
+        <div style="width: 100%;">
+          <span>20 mins</span>
+          <span id="lesson-percentage" style="float: right;">Score: 0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds lesson-stats">
+      <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 2</a>
+      <div class="progress-bar">
+        <div class="progress-bar-fill" style="width: 0;"></div>
+      </div>
+      <div style="display: flex; height: 34px;">
+        <div style="margin-right: 8px;">
+          <svg
+            style="padding: 4px;"
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M4.09483 0L5.26508 1.38444L1.16975 4.86824L0 3.4838L4.09483 0ZM17.9996 3.48378L13.8594 0.0444336L12.6897 1.42938L16.8298 4.86827L17.9996 3.48378ZM9.45027 5.49371H8.10027V10.8536L12.3752 13.3996L13.0503 12.2829L9.45027 10.1836V5.49371ZM8.99997 1.92047C4.49997 1.92047 0.899924 5.53818 0.899924 9.96016C0.899924 14.3823 4.49997 18 8.99997 18C13.4552 18 17.1 14.3823 17.1 9.96016C17.1 5.53822 13.4552 1.92047 8.99997 1.92047ZM2.69977 9.96022C2.69977 13.3996 5.53464 16.2135 8.99977 16.2135C12.4649 16.2135 15.2998 13.4441 15.2998 9.96022C15.2998 6.52096 12.4649 3.70715 8.99977 3.70715C5.53464 3.70715 2.69977 6.521 2.69977 9.96022Z"
+              fill="#6F777B"
+            />
+          </svg>
+        </div>
+        <div style="width: 100%;">
+          <span>20 mins</span>
+          <span style="float: right;">Score: 0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            How can I use this in my job?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          The course is divided into different units which are delivered in a
+          series of mini lessons. This quick and effective way of learning,
+          provides plenty of opportunites for learners to practise key maths
+          skills in a focused and practical way.
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <br />
+</div>
+<br />
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p><strong>Unlock a badge!</strong></p>
-    <p>
-      Complete these two lessons to unlock the badge [achievement name].
-    </p>
+    <h3 class="govuk-heading-m">More Lessons</h3>
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds lesson-stats">
-    <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 1</a>
-    <div class="progress-bar">
-      <div
-        id="lesson-progress"
-        class="progress-bar-fill"
-        style="width: 0;"
-      ></div>
-    </div>
-    <div style="display: flex; height: 34px;">
-      <div style="margin-right: 8px;">
-        <svg
-          style="padding: 4px;"
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M4.09483 0L5.26508 1.38444L1.16975 4.86824L0 3.4838L4.09483 0ZM17.9996 3.48378L13.8594 0.0444336L12.6897 1.42938L16.8298 4.86827L17.9996 3.48378ZM9.45027 5.49371H8.10027V10.8536L12.3752 13.3996L13.0503 12.2829L9.45027 10.1836V5.49371ZM8.99997 1.92047C4.49997 1.92047 0.899924 5.53818 0.899924 9.96016C0.899924 14.3823 4.49997 18 8.99997 18C13.4552 18 17.1 14.3823 17.1 9.96016C17.1 5.53822 13.4552 1.92047 8.99997 1.92047ZM2.69977 9.96022C2.69977 13.3996 5.53464 16.2135 8.99977 16.2135C12.4649 16.2135 15.2998 13.4441 15.2998 9.96022C15.2998 6.52096 12.4649 3.70715 8.99977 3.70715C5.53464 3.70715 2.69977 6.521 2.69977 9.96022Z"
-            fill="#6F777B"
-          />
-        </svg>
-      </div>
-      <div style="width: 100%;">
-        <span>20 mins</span>
-        <span id="lesson-percentage" style="float: right;">Score: 0%</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds lesson-stats">
-    <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 1</a>
+    <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 3</a>
     <div class="progress-bar">
       <div class="progress-bar-fill" style="width: 0;"></div>
     </div>
@@ -238,7 +307,7 @@ Prototype {% endblock %} {% block header %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds lesson-stats">
-    <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 1</a>
+    <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 4</a>
     <div class="progress-bar">
       <div class="progress-bar-fill" style="width: 0;"></div>
     </div>
@@ -270,39 +339,7 @@ Prototype {% endblock %} {% block header %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds lesson-stats">
-    <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 1</a>
-    <div class="progress-bar">
-      <div class="progress-bar-fill" style="width: 0;"></div>
-    </div>
-    <div style="display: flex; height: 34px;">
-      <div style="margin-right: 8px;">
-        <svg
-          style="padding: 4px;"
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M4.09483 0L5.26508 1.38444L1.16975 4.86824L0 3.4838L4.09483 0ZM17.9996 3.48378L13.8594 0.0444336L12.6897 1.42938L16.8298 4.86827L17.9996 3.48378ZM9.45027 5.49371H8.10027V10.8536L12.3752 13.3996L13.0503 12.2829L9.45027 10.1836V5.49371ZM8.99997 1.92047C4.49997 1.92047 0.899924 5.53818 0.899924 9.96016C0.899924 14.3823 4.49997 18 8.99997 18C13.4552 18 17.1 14.3823 17.1 9.96016C17.1 5.53822 13.4552 1.92047 8.99997 1.92047ZM2.69977 9.96022C2.69977 13.3996 5.53464 16.2135 8.99977 16.2135C12.4649 16.2135 15.2998 13.4441 15.2998 9.96022C15.2998 6.52096 12.4649 3.70715 8.99977 3.70715C5.53464 3.70715 2.69977 6.521 2.69977 9.96022Z"
-            fill="#6F777B"
-          />
-        </svg>
-      </div>
-      <div style="width: 100%;">
-        <span>20 mins</span>
-        <span style="float: right;">Score: 0%</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds lesson-stats">
-    <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 1</a>
+    <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 5</a>
     <div class="progress-bar">
       <div class="progress-bar-fill" style="width: 0;"></div>
     </div>
@@ -432,12 +469,19 @@ Prototype {% endblock %} {% block header %}
 
 <br />
 <br />
+<br />
 {% endblock %} {% block pageScripts %}
 <script type="text/javascript">
   $(document).ready(function() {
     var percentage = getLessonProgress('english')
     $('#lesson-progress').css('width', percentage + '%')
     $('#lesson-percentage').text('Score: ' + percentage + '%')
+
+    var coursePercentage = getCourseProgress('english')
+    $('#course-progress').css('width', coursePercentage + '%')
+    $('#course-percentage').text(
+      'Completion: ' + coursePercentage.toFixed(0) + '%'
+    )
   })
 </script>
 {% endblock %}

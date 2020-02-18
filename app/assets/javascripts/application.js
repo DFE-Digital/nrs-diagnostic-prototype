@@ -37,7 +37,8 @@ function addCourseToLocalStorage(name) {
 
   var course = {
     answers: [],
-    steps: getLessonSteps(name)
+    steps: getLessonSteps(name),
+    noOfLessons: name === 'maths' ? 60 : 40
   }
 
   setLocalStorageObject(name, course)
@@ -83,6 +84,31 @@ function getLessonProgress(courseName) {
   var completedSteps = steps.filter(x => x === 1).length
 
   return ((completedSteps / steps.length) * 100).toFixed(0)
+}
+
+function getCourseProgress(courseName) {
+  var course = getLocalStorageObject(courseName)
+  if (!course) {
+    return
+  }
+
+  var steps = course.steps
+  var completedSteps = steps.filter(x => x === 1).length
+
+  var lessonPercentage = ((completedSteps / steps.length) * 100).toFixed(0)
+
+  return (lessonPercentage = 0
+    ? 0
+    : (1 / course.noOfLessons) * lessonPercentage)
+}
+
+function getNoOfLessons(courseName) {
+  var course = getLocalStorageObject(courseName)
+  if (!course) {
+    return
+  }
+
+  return course.noOfLessons
 }
 
 function addAnswer(courseName, question, answer, result) {
