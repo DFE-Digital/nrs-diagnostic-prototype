@@ -26,7 +26,11 @@ Prototype {% endblock %} {% block header %}
         >Lesson progress</span
       >
       <div class="progress-bar">
-        <div class="progress-bar-fill" style="width: 55px;"></div>
+        <div
+          id="lesson-progress"
+          class="progress-bar-fill"
+          style="width: 0;"
+        ></div>
       </div>
     </div>
   </div>
@@ -246,6 +250,11 @@ Prototype {% endblock %} {% block header %}
 <script type="text/javascript">
   $(document).ready(function() {
     validateQuestion('english', 'english-question-three')
+
+    updateProgress('english', [21], 1)
+
+    var percentage = getLessonProgress('english')
+    $('#lesson-progress').css('width', percentage + '%')
   })
 </script>
 {% endblock %}

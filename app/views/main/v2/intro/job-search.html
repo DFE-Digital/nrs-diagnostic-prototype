@@ -16,15 +16,21 @@ Prototype {% endblock %} {% block header %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
-      Search for your target job
+      What is your target job?
     </h1>
 
     <p>
-      Tell us which job you are aiming for so we can provide what desirable
-      skills you need for that role.
+      Search for your target job so we can identify which skills it is that you
+      need to acquire before being in a position to apply for the role.
     </p>
 
-    <form class="form" action="/main/v2/intro/select-skills" method="post">
+    <!-- <form class="form" action="/main/v2/intro/select-skills" method="post"> -->
+    <form
+      class="form"
+      onclick="return submitTargetJob();"
+      action="/main/v2/intro/select-skills"
+      method="post"
+    >
       <div class="govuk-form-group">
         <input
           class="govuk-input"
@@ -54,4 +60,16 @@ Prototype {% endblock %} {% block header %}
     </form>
   </div>
 </div>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  // $(document).ready(function() {
+  //   validateQuestion('english', 'english-question-one')
+  // })
+
+  function submitTargetJob() {
+    var targetJob = $('#target-job').val()
+
+    localStorage.setItem('targetJob', targetJob)
+  }
+</script>
 {% endblock %}

@@ -2,163 +2,59 @@
 Prototype {% endblock %} {% block header %}
 <!-- Blank header with no service name for the start page -->
 {{ govukHeader() }} {% endblock %} {% block beforeContent %}
-<div class="govuk-breadcrumbs">
-  <ol class="govuk-breadcrumbs__list">
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="/">Home</a>
-    </li>
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="#">My Jobs</a>
-    </li>
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link">Target job</a>
-    </li>
-  </ol>
-</div>
+<a href="/main/v2/intro/job-search" class="govuk-back-link">Return to search</a>
 {% endblock %} {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">
+    <h1 class="govuk-heading-xl" id="target-job">
       Your target job
     </h1>
 
-    <h2 class="govuk-heading-l">Which skills are required?</h2>
+    <h2 class="govuk-heading-l">What skills do you need?</h2>
 
     <p>
-      For this role employers often say they want a candidate with English,
-      maths, digital and employability skills. Getting a qualification is one
-      way to show you have these skills.
+      Based on the current skills you have and what
+      <strong>employers</strong> say they want in a candidate for this role,
+      these are the skills that we recommend you work on.
     </p>
-    <form class="form" action="/main/v2/intro/math-course" method="post">
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-          <span id="waste-hint" class="govuk-hint">
-            Tick the box that applies to you. You will then be shown the online
-            courses available to you.
-          </span>
-          <div class="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input
-                class="govuk-checkboxes__input"
-                id="english"
-                name="skills"
-                type="checkbox"
-                value="english"
-              />
-              <label class="govuk-label govuk-checkboxes__label" for="english">
-                I need to improve my English skills
-              </label>
-            </div>
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  What will you learn on an English skills course?
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                euismod bibendum maximus. Curabitur lobortis non lacus pulvinar
-                vehicula. Vestibulum in.
-              </div>
-            </details>
-            <div class="govuk-checkboxes__item">
-              <input
-                class="govuk-checkboxes__input"
-                id="digital"
-                name="skills"
-                type="checkbox"
-                value="digital"
-              />
-              <label class="govuk-label govuk-checkboxes__label" for="digital">
-                I need to improve my digital skills
-              </label>
-            </div>
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  What will you learn on a digital skills course?
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                euismod bibendum maximus. Curabitur lobortis non lacus pulvinar
-                vehicula. Vestibulum in.
-              </div>
-            </details>
-            <div class="govuk-checkboxes__item">
-              <input
-                class="govuk-checkboxes__input"
-                id="maths"
-                name="skills"
-                type="checkbox"
-                value="maths"
-              />
-              <label class="govuk-label govuk-checkboxes__label" for="maths">
-                I need to improve my Maths skills
-              </label>
-            </div>
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  What will you learn on a Maths skills course?
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                euismod bibendum maximus. Curabitur lobortis non lacus pulvinar
-                vehicula. Vestibulum in.
-              </div>
-            </details>
-            <div class="govuk-checkboxes__item">
-              <input
-                class="govuk-checkboxes__input"
-                id="employability"
-                name="skills"
-                type="checkbox"
-                value="employability"
-              />
-              <label
-                class="govuk-label govuk-checkboxes__label"
-                for="employability"
-              >
-                I need to improve my employability skills
-              </label>
-            </div>
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  What will you learn on an employability skills course?
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                euismod bibendum maximus. Curabitur lobortis non lacus pulvinar
-                vehicula. Vestibulum in.
-              </div>
-            </details>
-          </div>
-        </fieldset>
-      </div>
-      <button
-        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
-        data-module="govuk-button"
-      >
-        Continue
-        <svg
-          class="govuk-button__start-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="17.5"
-          height="19"
-          viewBox="0 0 33 40"
-          role="presentation"
-          focusable="false"
-        >
-          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
-        </svg>
-      </button>
-    </form>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v2/course/english/intro"
+      style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: inherit;
+    line-height: 26px;
+    text-decoration-line: underline;
+    color: #1D70B8;"
+      >English skills</a
+    >
+    <br />
+    <a
+      href="/main/v2/course/maths/intro"
+      style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: inherit;
+    line-height: 26px;
+    text-decoration-line: underline;
+    color: #1D70B8;"
+      >Maths skills</a
+    >
+    <br />
+    <br />
   </div>
 </div>
 <br />
 <br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    var targetJob = localStorage.getItem('targetJob')
+    $('#target-job').text(targetJob ? targetJob : 'Your target job')
+  })
+</script>
 {% endblock %}

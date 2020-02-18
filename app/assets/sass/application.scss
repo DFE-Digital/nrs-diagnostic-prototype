@@ -53,7 +53,7 @@ button.govuk-button {
   height: 18px;
   border: 1px solid #bfc1c3;
   background: white;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .progress-bar-fill {
@@ -135,5 +135,26 @@ button.govuk-button {
   hr {
     margin: 5px 8px;
     border: 1px solid #bfc1c3;
+  }
+}
+
+.lesson-stats {
+  a,
+  a:visited {
+    font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: inherit;
+    line-height: 26px;
+    text-decoration-line: underline;
+    color: #1d70b8;
+  }
+
+  span {
+    padding: 4px 10px 4px 0;
+    font-family: 'GDS Transport';
+    font-size: 1rem;
+    line-height: 26px;
+    color: #6f777b;
   }
 }

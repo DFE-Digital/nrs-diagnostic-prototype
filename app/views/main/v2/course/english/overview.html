@@ -5,12 +5,16 @@ Prototype {% endblock %} {% block header %}
 <div class="govuk-breadcrumbs">
   <ol class="govuk-breadcrumbs__list">
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="/main/v2/intro/learning-profile"
-        >Home</a
-      >
+      <a class="govuk-breadcrumbs__link" href="#">Skills</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link">Course overview</a>
+      <a class="govuk-breadcrumbs__link" href="#">English skills</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">English course</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link">Overview</a>
     </li>
   </ol>
 </div>
@@ -45,7 +49,7 @@ Prototype {% endblock %} {% block header %}
         </svg>
       </div>
       <div
-        style="font-family: 'GDS Transport'; font-size: 19px; line-height: 26px; color: #6F777B;"
+        style="font-family: 'GDS Transport'; font-size: inherit; line-height: 26px; color: #6F777B;"
       >
         <span style="font-weight: 300; text-decoration: underline;"
           >Course progress</span
@@ -76,7 +80,7 @@ Prototype {% endblock %} {% block header %}
         </svg>
       </div>
       <div
-        style="font-family: 'GDS Transport'; font-size: 19px; line-height: 26px; color: #6F777B;"
+        style="font-family: 'GDS Transport'; font-size: inherit; line-height: 26px; color: #6F777B;"
       >
         <span style="font-weight: 300; text-decoration: underline;"
           >Course usage</span
@@ -107,7 +111,7 @@ Prototype {% endblock %} {% block header %}
         </svg>
       </div>
       <div
-        style="font-family: 'GDS Transport'; font-size: 19px; line-height: 26px; color: #6F777B;"
+        style="font-family: 'GDS Transport'; font-size: inherit; line-height: 26px; color: #6F777B;"
       >
         <span style="font-weight: 300; text-decoration: underline;"
           >Completed lessons</span
@@ -115,9 +119,39 @@ Prototype {% endblock %} {% block header %}
         <span style="font-size: 0.8rem;">0 out of 60</span>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div style="display: flex; margin-bottom: 10px;">
+      <div style="margin-right: 10px; margin-top: 5px;">
+        <svg
+          width="21"
+          height="21"
+          viewBox="0 0 21 21"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20.25 2.25H17.4328C17.3831 2.25 17.3354 2.23025 17.3002 2.19508C17.2651 2.15992 17.2453 2.11223 17.2453 2.0625C17.2453 1.83328 17.2453 1.64062 17.2453 1.49625C17.2443 1.09908 17.0858 0.718507 16.8046 0.438013C16.5235 0.157519 16.1425 -1.24117e-06 15.7453 0L5.25516 0.0121874C4.85839 0.0129304 4.47807 0.170844 4.19747 0.451359C3.91687 0.731873 3.75884 1.11214 3.75797 1.50891C3.75797 1.66031 3.75797 1.84734 3.75797 2.0625C3.75797 2.11223 3.73821 2.15992 3.70305 2.19508C3.66789 2.23025 3.6202 2.25 3.57047 2.25H0.75C0.551088 2.25 0.360322 2.32902 0.21967 2.46967C0.0790176 2.61032 0 2.80109 0 3V3.75C0 6.30609 1.40625 9.02109 3.58687 9.62578C3.65136 9.64373 3.70969 9.679 3.75555 9.72775C3.80141 9.77651 3.83305 9.83689 3.84703 9.90234C4.1175 11.1628 4.94953 12.3633 6.25688 13.3528C7.23703 14.0948 8.40609 14.6419 9.45703 14.8753C9.54012 14.8939 9.6144 14.9403 9.66764 15.0067C9.72089 15.0732 9.74993 15.1558 9.75 15.2409V19.3125C9.75 19.3622 9.73025 19.4099 9.69508 19.4451C9.65992 19.4802 9.61223 19.5 9.5625 19.5H6.77109C6.3675 19.5 6.02109 19.8103 6.00094 20.2139C5.99605 20.3153 6.01181 20.4167 6.04724 20.5118C6.08268 20.6069 6.13707 20.6939 6.2071 20.7674C6.27714 20.8409 6.36137 20.8994 6.45469 20.9394C6.54801 20.9794 6.64848 21 6.75 21H14.2289C14.6325 21 14.9789 20.6897 14.9991 20.2861C15.0039 20.1847 14.9882 20.0833 14.9528 19.9882C14.9173 19.8931 14.8629 19.8061 14.7929 19.7326C14.7229 19.6591 14.6386 19.6006 14.5453 19.5606C14.452 19.5206 14.3515 19.5 14.25 19.5H11.4375C11.3878 19.5 11.3401 19.4802 11.3049 19.4451C11.2698 19.4099 11.25 19.3622 11.25 19.3125V15.2409C11.2501 15.1558 11.2791 15.0732 11.3324 15.0067C11.3856 14.9403 11.4599 14.8939 11.543 14.8753C12.5939 14.6409 13.763 14.0948 14.7431 13.3528C16.0505 12.3633 16.8825 11.1628 17.153 9.90234C17.167 9.83689 17.1986 9.77651 17.2444 9.72775C17.2903 9.679 17.3486 9.64373 17.4131 9.62578C19.5938 9.02109 21 6.30609 21 3.75V3C21 2.80109 20.921 2.61032 20.7803 2.46967C20.6397 2.32902 20.4489 2.25 20.25 2.25ZM3.75 7.79156C3.74988 7.82442 3.74114 7.85667 3.72463 7.88508C3.70813 7.91349 3.68445 7.93707 3.65596 7.95345C3.62748 7.96983 3.59519 7.97843 3.56234 7.9784C3.52948 7.97837 3.49721 7.96971 3.46875 7.95328C2.98781 7.66687 2.63672 7.23281 2.43094 6.92719C1.87266 6.09797 1.54031 5.02078 1.50328 3.94453C1.50234 3.91932 1.50649 3.89418 1.51548 3.87062C1.52448 3.84705 1.53814 3.82554 1.55565 3.80738C1.57316 3.78922 1.59415 3.77477 1.61737 3.76491C1.64059 3.75505 1.66556 3.74998 1.69078 3.75H3.56578C3.61551 3.75 3.6632 3.76975 3.69836 3.80492C3.73353 3.84008 3.75328 3.88777 3.75328 3.9375C3.75234 5.22422 3.75 6.69703 3.75 7.79156ZM18.5686 6.92719C18.3628 7.23281 18.0122 7.66687 17.5312 7.95328C17.5028 7.96973 17.4704 7.97839 17.4375 7.9784C17.4047 7.97841 17.3723 7.96976 17.3438 7.95333C17.3153 7.9369 17.2917 7.91325 17.2752 7.88478C17.2587 7.8563 17.25 7.82399 17.25 7.79109C17.25 6.54844 17.25 5.13656 17.2477 3.9375C17.2477 3.88777 17.2674 3.84008 17.3026 3.80492C17.3377 3.76975 17.3854 3.75 17.4352 3.75H19.3102C19.3354 3.74998 19.3604 3.75505 19.3836 3.76491C19.4068 3.77477 19.4278 3.78922 19.4453 3.80738C19.4628 3.82554 19.4765 3.84705 19.4855 3.87062C19.4945 3.89418 19.4986 3.91932 19.4977 3.94453C19.4606 5.02078 19.1273 6.09797 18.5691 6.92719H18.5686Z"
+            fill="#6F777B"
+          />
+        </svg>
+      </div>
+      <div
+        style="font-family: 'GDS Transport'; font-size: inherit; line-height: 26px; color: #6F777B;"
+      >
+        <span style="font-weight: 300; text-decoration: underline;"
+          >Your achievements</span
+        ><br />
+        <span style="font-size: 0.8rem;">0 out of 20</span>
+      </div>
+    </div>
     <hr style="border: 1px solid #BFC1C3" />
   </div>
 </div>
+
 <br />
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -127,21 +161,23 @@ Prototype {% endblock %} {% block header %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <a
-      href="/main/v2/course/english/lesson/lesson-objective"
-      style="font-family: 'GDS Transport';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 19px;
-    line-height: 26px;
-    text-decoration-line: underline;
-    
-    color: #1D70B8;"
-      >Lesson 1</a
-    >
-    <div
-      style="width: 100%; height: 18px; border: 1px solid #BFC1C3; background: white; margin-bottom: 10px;"
-    ></div>
+    <p><strong>Unlock a badge!</strong></p>
+    <p>
+      Complete these two lessons to unlock the badge [achievement name].
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds lesson-stats">
+    <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 1</a>
+    <div class="progress-bar">
+      <div
+        id="lesson-progress"
+        class="progress-bar-fill"
+        style="width: 0;"
+      ></div>
+    </div>
     <div style="display: flex; height: 34px;">
       <div style="margin-right: 8px;">
         <svg
@@ -161,27 +197,149 @@ Prototype {% endblock %} {% block header %}
         </svg>
       </div>
       <div style="width: 100%;">
-        <span
-          style="padding: 4px 10px 4px 0; font-family: 'GDS Transport'; font-size: 1rem; line-height: 26px; color: #6F777B;"
-          >20 mins</span
-        >
-        <span
-          style="float: right; padding: 4px 10px 4px 0; font-family: 'GDS Transport'; font-size: 1rem; color: #6F777B;"
-          >Score: 0%</span
-        >
+        <span>20 mins</span>
+        <span id="lesson-percentage" style="float: right;">Score: 0%</span>
       </div>
     </div>
   </div>
 </div>
 
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds lesson-stats">
+    <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 1</a>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" style="width: 0;"></div>
+    </div>
+    <div style="display: flex; height: 34px;">
+      <div style="margin-right: 8px;">
+        <svg
+          style="padding: 4px;"
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.09483 0L5.26508 1.38444L1.16975 4.86824L0 3.4838L4.09483 0ZM17.9996 3.48378L13.8594 0.0444336L12.6897 1.42938L16.8298 4.86827L17.9996 3.48378ZM9.45027 5.49371H8.10027V10.8536L12.3752 13.3996L13.0503 12.2829L9.45027 10.1836V5.49371ZM8.99997 1.92047C4.49997 1.92047 0.899924 5.53818 0.899924 9.96016C0.899924 14.3823 4.49997 18 8.99997 18C13.4552 18 17.1 14.3823 17.1 9.96016C17.1 5.53822 13.4552 1.92047 8.99997 1.92047ZM2.69977 9.96022C2.69977 13.3996 5.53464 16.2135 8.99977 16.2135C12.4649 16.2135 15.2998 13.4441 15.2998 9.96022C15.2998 6.52096 12.4649 3.70715 8.99977 3.70715C5.53464 3.70715 2.69977 6.521 2.69977 9.96022Z"
+            fill="#6F777B"
+          />
+        </svg>
+      </div>
+      <div style="width: 100%;">
+        <span>20 mins</span>
+        <span style="float: right;">Score: 0%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds lesson-stats">
+    <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 1</a>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" style="width: 0;"></div>
+    </div>
+    <div style="display: flex; height: 34px;">
+      <div style="margin-right: 8px;">
+        <svg
+          style="padding: 4px;"
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.09483 0L5.26508 1.38444L1.16975 4.86824L0 3.4838L4.09483 0ZM17.9996 3.48378L13.8594 0.0444336L12.6897 1.42938L16.8298 4.86827L17.9996 3.48378ZM9.45027 5.49371H8.10027V10.8536L12.3752 13.3996L13.0503 12.2829L9.45027 10.1836V5.49371ZM8.99997 1.92047C4.49997 1.92047 0.899924 5.53818 0.899924 9.96016C0.899924 14.3823 4.49997 18 8.99997 18C13.4552 18 17.1 14.3823 17.1 9.96016C17.1 5.53822 13.4552 1.92047 8.99997 1.92047ZM2.69977 9.96022C2.69977 13.3996 5.53464 16.2135 8.99977 16.2135C12.4649 16.2135 15.2998 13.4441 15.2998 9.96022C15.2998 6.52096 12.4649 3.70715 8.99977 3.70715C5.53464 3.70715 2.69977 6.521 2.69977 9.96022Z"
+            fill="#6F777B"
+          />
+        </svg>
+      </div>
+      <div style="width: 100%;">
+        <span>20 mins</span>
+        <span style="float: right;">Score: 0%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds lesson-stats">
+    <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 1</a>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" style="width: 0;"></div>
+    </div>
+    <div style="display: flex; height: 34px;">
+      <div style="margin-right: 8px;">
+        <svg
+          style="padding: 4px;"
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.09483 0L5.26508 1.38444L1.16975 4.86824L0 3.4838L4.09483 0ZM17.9996 3.48378L13.8594 0.0444336L12.6897 1.42938L16.8298 4.86827L17.9996 3.48378ZM9.45027 5.49371H8.10027V10.8536L12.3752 13.3996L13.0503 12.2829L9.45027 10.1836V5.49371ZM8.99997 1.92047C4.49997 1.92047 0.899924 5.53818 0.899924 9.96016C0.899924 14.3823 4.49997 18 8.99997 18C13.4552 18 17.1 14.3823 17.1 9.96016C17.1 5.53822 13.4552 1.92047 8.99997 1.92047ZM2.69977 9.96022C2.69977 13.3996 5.53464 16.2135 8.99977 16.2135C12.4649 16.2135 15.2998 13.4441 15.2998 9.96022C15.2998 6.52096 12.4649 3.70715 8.99977 3.70715C5.53464 3.70715 2.69977 6.521 2.69977 9.96022Z"
+            fill="#6F777B"
+          />
+        </svg>
+      </div>
+      <div style="width: 100%;">
+        <span>20 mins</span>
+        <span style="float: right;">Score: 0%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds lesson-stats">
+    <a href="/main/v2/course/english/lesson/lesson-objective">Lesson 1</a>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" style="width: 0;"></div>
+    </div>
+    <div style="display: flex; height: 34px;">
+      <div style="margin-right: 8px;">
+        <svg
+          style="padding: 4px;"
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.09483 0L5.26508 1.38444L1.16975 4.86824L0 3.4838L4.09483 0ZM17.9996 3.48378L13.8594 0.0444336L12.6897 1.42938L16.8298 4.86827L17.9996 3.48378ZM9.45027 5.49371H8.10027V10.8536L12.3752 13.3996L13.0503 12.2829L9.45027 10.1836V5.49371ZM8.99997 1.92047C4.49997 1.92047 0.899924 5.53818 0.899924 9.96016C0.899924 14.3823 4.49997 18 8.99997 18C13.4552 18 17.1 14.3823 17.1 9.96016C17.1 5.53822 13.4552 1.92047 8.99997 1.92047ZM2.69977 9.96022C2.69977 13.3996 5.53464 16.2135 8.99977 16.2135C12.4649 16.2135 15.2998 13.4441 15.2998 9.96022C15.2998 6.52096 12.4649 3.70715 8.99977 3.70715C5.53464 3.70715 2.69977 6.521 2.69977 9.96022Z"
+            fill="#6F777B"
+          />
+        </svg>
+      </div>
+      <div style="width: 100%;">
+        <span>20 mins</span>
+        <span style="float: right;">Score: 0%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <a
       href="#"
       style="font-family: 'GDS Transport';
     font-style: normal;
     font-weight: 300;
-    font-size: 19px;
+    font-size: inherit;
     line-height: 26px;
     text-decoration-line: underline;
     
@@ -230,7 +388,7 @@ Prototype {% endblock %} {% block header %}
       style="font-family: 'GDS Transport';
     font-style: normal;
     font-weight: 300;
-    font-size: 19px;
+    font-size: inherit;
     line-height: 26px;
     text-decoration-line: underline;
     
@@ -270,8 +428,16 @@ Prototype {% endblock %} {% block header %}
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <br />
 <br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    var percentage = getLessonProgress('english')
+    $('#lesson-progress').css('width', percentage + '%')
+    $('#lesson-percentage').text('Score: ' + percentage + '%')
+  })
+</script>
 {% endblock %}

@@ -21,10 +21,12 @@ Prototype {% endblock %} {% block header %}
     color: #6F777B;"
       >Lesson progress</span
     >
-    <div
-      style="width: 100%; height: 18px; border: 1px solid #BFC1C3; background: white; margin-bottom: 10px;"
-    >
-      <div style="width: 55px; height: 100%; background-color: #005DA6;"></div>
+    <div class="progress-bar">
+      <div
+        id="lesson-progress"
+        class="progress-bar-fill"
+        style="width: 0;"
+      ></div>
     </div>
   </div>
 </div>
@@ -133,4 +135,13 @@ Prototype {% endblock %} {% block header %}
 <br />
 <br />
 <br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    updateProgress('english', [6], 1)
+
+    var percentage = getLessonProgress('english')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
 {% endblock %}

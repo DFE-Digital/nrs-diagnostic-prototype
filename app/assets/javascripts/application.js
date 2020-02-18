@@ -30,11 +30,61 @@ function addToLocalStorageObject(name, key, value) {
 }
 
 function addCourseToLocalStorage(name) {
-  var course = {
-    answers: []
+  var existing = localStorage.getItem(name)
+  if (existing) {
+    return
   }
 
+  var course = {
+    answers: [],
+    steps: getLessonSteps(name)
+  }
+
+  console.log(course)
+
   setLocalStorageObject(name, course)
+}
+
+function getLessonSteps(name) {
+  var data = []
+  var length = 0
+  if (name === 'maths') {
+    length = 19
+  } else if (name === 'english') {
+    length = 25
+  }
+
+  for (var i = 0; i < length; i++) {
+    data.push(0)
+  }
+
+  return data
+}
+
+function updateProgress(course, indexArray, value) {
+  var existing = getLocalStorageObject(course)
+
+  if (!existing) {
+    return
+  }
+
+  indexArray.forEach(element => {
+    existing.steps[element] = value
+  })
+
+  setLocalStorageObject(course, existing)
+}
+
+function getLessonProgress(courseName) {
+  var course = getLocalStorageObject(courseName)
+  if (!course) {
+    return
+  }
+
+  var steps = course.steps
+  var completedSteps = steps.filter(x => x === 1).length
+
+  return ((completedSteps / steps.length) * 100).toFixed(0)
 }
 
 function addAnswer(courseName, question, answer, result) {
