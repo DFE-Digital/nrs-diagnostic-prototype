@@ -1,0 +1,223 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a href="/main/v3/course/english/intro" class="govuk-back-link"
+  >Save and exit lesson</a
+>
+{% endblock %} {% block content %}
+<form
+  class="form"
+  onsubmit="return submitAnswer('english', 'english-question-five', 'english-question-five-a');"
+>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+        Writing an email
+      </h2>
+      <div class="progress-bar">
+        <div
+          id="lesson-progress"
+          class="progress-bar-fill"
+          style="width: 0;"
+        ></div>
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h2 class="govuk-heading-l">
+              Question 5 of 5
+            </h2>
+          </legend>
+          <span id="changed-name-hint" class="govuk-hint">
+            <p>
+              You are asked to write an email requesting a refund from an online
+              shop.
+            </p>
+
+            <p>
+              <strong
+                >Which of the following answers would be the appropriate subject
+                for this email?</strong
+              >
+            </p>
+          </span>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="english-question-five-a"
+                name="english-question-five"
+                type="radio"
+                value="Request for Refund"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="english-question-five-a"
+              >
+                Request for Refund
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="english-question-five-b"
+                name="english-question-five"
+                type="radio"
+                value="Give me a refund!"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="english-question-five-b"
+              >
+                Give me a refund!
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="english-question-five-c"
+                name="english-question-five"
+                type="radio"
+                value="Dear Sir/ Madam"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="english-question-five-c"
+              >
+                Dear Sir/ Madam
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="english-question-five-d"
+                name="english-question-five"
+                type="radio"
+                value="I regret to inform you that the clothes I ordered online did not fit. 
+                Therefore I would like to request a refund."
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="english-question-five-d"
+              >
+                I regret to inform you that the clothes I ordered online did not
+                fit. Therefore I would like to request a refund.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div
+        id="english-question-five-a-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-correct"
+      >
+        <span class="feedback-title"> Correct answer!</span><br />
+        <span class="feedback-message">
+          Well done!
+        </span>
+      </div>
+      <div
+        id="english-question-five-b-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title"> Incorrect answer! </span><br />
+        <span class="feedback-message">
+          The language here is too informal. In a formal email, even the subject
+          must use formal language.
+        </span>
+      </div>
+      <div
+        id="english-question-five-c-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title"> Incorrect answer! </span><br />
+        <span class="feedback-message">
+          The subject of an email must tell the reader what the email will be
+          about. This would be an appropriate greeting to use at the start of a
+          formal email.
+        </span>
+      </div>
+      <div
+        id="english-question-five-d-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title"> Incorrect answer! </span><br />
+        <span class="feedback-message">
+          The subject of your email must contain only a brief summary of what
+          the email will be about. This is too detailed. You would put this
+          information in the body of your email.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <button
+        id="submitButton"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-2"
+        data-module="govuk-button"
+      >
+        Submit answer
+      </button>
+
+      <a
+        id="continueButton"
+        href="/main/v3/course/english/lesson/assessment/feedback"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6 hidden"
+        data-module="govuk-button"
+      >
+        Finish
+      </a>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <a
+        id="iDontKnowButton"
+        href="/main/v3/course/english/lesson/assessment/2"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
+        data-module="govuk-button"
+        onclick="return skipAnswer('english', 'english-question-five');"
+      >
+        I don't know
+      </a>
+    </div>
+  </div>
+  <br />
+  <br />
+</form>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    validateQuestion('english', 'english-question-five')
+
+    updateProgress('english', [23], 1)
+
+    var percentage = getLessonProgress('english')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
+{% endblock %}

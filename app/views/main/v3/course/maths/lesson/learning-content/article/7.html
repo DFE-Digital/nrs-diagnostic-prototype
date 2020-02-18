@@ -1,0 +1,105 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a
+  href="/main/v3/course/maths/lesson/learning-content/article/6"
+  class="govuk-back-link"
+  >Back</a
+>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+      Recipe Ratio
+    </h2>
+
+    <span class="progress-bar-label">Lesson progress</span>
+    <div class="progress-bar">
+      <div
+        id="lesson-progress"
+        class="progress-bar-fill"
+        style="width: 0;"
+      ></div>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m" style="margin-bottom: 0;">
+      Example question
+    </h3>
+    <span
+      style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 26px;
+    color: #6F777B;"
+      >7 of 12</span
+    >
+    <br />
+    <br />
+
+    <p>
+      Betty wants to make a cake for 6 people. She has the following recipe:
+    </p>
+    <p>
+      How much flour will she need for 6 people?
+    </p>
+
+    <div class="recipe">
+      <span><strong>Cake recipe: Serves 3</strong></span>
+    </div>
+    <div class="recipe">
+      <span>75g flour</span><br />
+      <span>3 eggs</span><br />
+      <span>75ml milk</span><br />
+      <span>25g sugar</span><br />
+    </div>
+    <br />
+    <p>All the values have been multiplied by 2:</p>
+
+    <div class="recipe">
+      <span><strong>Cake recipe: Serves 6</strong></span>
+    </div>
+    <div class="recipe">
+      <span>150g flour</span><br />
+      <span>6 eggs</span><br />
+      <span>150ml milk</span><br />
+      <span>50g sugar</span><br />
+    </div>
+    <br />
+    <p>So the answer to the question is:</p>
+    <p><strong>She will need 150g of flour</strong></p>
+  </div>
+</div>
+
+<a
+  href="/main/v3/course/maths/lesson/learning-content/article/8"
+  class="large-link"
+  >Next slide</a
+>
+<br />
+<br />
+
+<a href="/main/v3/course/maths/lesson/assessment/start" class="small-link"
+  >Skip and go to quiz</a
+>
+
+<br />
+<br />
+<br />
+<br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    updateProgress('maths', [8], 1)
+
+    var percentage = getLessonProgress('maths')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
+{% endblock %}

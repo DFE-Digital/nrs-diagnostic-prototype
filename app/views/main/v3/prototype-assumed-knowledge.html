@@ -1,0 +1,26 @@
+{% extends "layout.html" %} {% block pageTitle %} NRS Diagnostic Prototype {%
+endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a href="/main/v3/prototype-content" class="govuk-back-link">Back</a>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Assumed knowledge
+    </h1>
+    <p>
+      User has gone through Get help to retrain
+    </p>
+    <p>
+      We know their existing skills, qualifications, work experience etc.
+    </p>
+    <p>
+      We know their target job / User has already idenfitied their target job
+    </p>
+    <p>
+      They understand that the course will lead to a qualification?
+    </p>
+  </div>
+</div>
+{% endblock %}

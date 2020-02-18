@@ -1,0 +1,91 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a
+  href="/main/v3/course/english/lesson/learning-content/article/4"
+  class="govuk-back-link"
+  >Back</a
+>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+      Writing an email
+    </h2>
+
+    <span class="progress-bar-label">Lesson progress</span>
+    <div class="progress-bar">
+      <div
+        id="lesson-progress"
+        class="progress-bar-fill"
+        style="width: 0;"
+      ></div>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m" style="margin-bottom: 0;">
+      Things to consider
+    </h3>
+    <span
+      style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 26px;
+    color: #6F777B;"
+      >5 of 16</span
+    >
+    <br />
+    <br />
+
+    <p>
+      It is also really important that you know how to write an email in an
+      appropriate style for your target audience. So, before you begin writing
+      your email, you must ask yourself the following:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        What is the purpose of your email?<br />
+        Are you writing a formal work-related email or an informal email to a
+        friend?
+      </li>
+      <li>What are the key features you must include?</li>
+      <li>What kind of language should you use?</li>
+    </ul>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v3/course/english/lesson/learning-content/article/6"
+      class="large-link"
+      >Next slide</a
+    >
+    <br />
+    <br />
+
+    <a href="/main/v3/course/english/lesson/assessment/start" class="small-link"
+      >Skip and go to quiz</a
+    >
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    updateProgress('english', [6], 1)
+
+    var percentage = getLessonProgress('english')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
+{% endblock %}

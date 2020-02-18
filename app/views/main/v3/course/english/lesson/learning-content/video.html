@@ -1,0 +1,65 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a
+  href="/main/v3/course/english/lesson/static-learning-content"
+  class="govuk-back-link"
+  >Back</a
+>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+      Writing an email
+    </h2>
+    <div class="progress-bar">
+      <div
+        id="lesson-progress"
+        class="progress-bar-fill"
+        style="width: 0;"
+      ></div>
+    </div>
+    <p>
+      In this lesson you will be learning about how to write a formal email. You
+      may already write emails at work or to communicate with friends. Knowing
+      how to write a professional email is a key skill required in many
+      industries.
+    </p>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <iframe
+      width="100%"
+      src="https://www.youtube.com/embed/b3-3DjuZ52g"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/main/v3/course/english/lesson/assessment/start" class="small-link"
+      >Skip and go to quiz</a
+    >
+  </div>
+</div>
+
+<br />
+<br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    updateProgress('english', [2], 1)
+
+    var percentage = getLessonProgress('english')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
+{% endblock %}

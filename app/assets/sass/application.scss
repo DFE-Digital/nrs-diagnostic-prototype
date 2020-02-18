@@ -181,3 +181,23 @@ button.govuk-button {
   margin-top: 4px;
   padding: 8px;
 }
+
+.small-link {
+  font-family: 'GDS Transport';
+  font-style: normal;
+  font-weight: 300;
+  font-size: inherit;
+  line-height: 26px;
+  text-decoration-line: underline;
+  color: #1d70b8;
+}
+
+.large-link {
+  font-family: 'GDS Transport';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 33px;
+  text-decoration-line: underline;
+  color: #1d70b8;
+}

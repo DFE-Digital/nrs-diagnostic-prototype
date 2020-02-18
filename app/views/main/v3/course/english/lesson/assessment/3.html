@@ -1,0 +1,217 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a href="/main/v3/course/english/intro" class="govuk-back-link"
+  >Save and exit lesson</a
+>
+{% endblock %} {% block content %}
+<form
+  class="form"
+  onsubmit="return submitAnswer('english', 'english-question-three', 'english-question-three-a');"
+>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+        Writing an email
+      </h2>
+      <div class="progress-bar">
+        <div
+          id="lesson-progress"
+          class="progress-bar-fill"
+          style="width: 0;"
+        ></div>
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h2 class="govuk-heading-l">
+              Question 3 of 5
+            </h2>
+          </legend>
+          <span id="changed-name-hint" class="govuk-hint">
+            <p>
+              You are writing an email to apply for a job at a restaurant.
+            </p>
+
+            <p>
+              <strong
+                >Which of the following sign offs would you use at the end of
+                your email?</strong
+              >
+            </p>
+          </span>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="english-question-three-a"
+                name="english-question-three"
+                type="radio"
+                value="Yours sincerely"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="english-question-three-a"
+              >
+                Yours sincerely
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="english-question-three-b"
+                name="english-question-three"
+                type="radio"
+                value="Thank you"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="english-question-three-b"
+              >
+                Thank you
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="english-question-three-c"
+                name="english-question-three"
+                type="radio"
+                value="Speak to you soon!"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="english-question-three-c"
+              >
+                Speak to you soon!
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="english-question-three-d"
+                name="english-question-three"
+                type="radio"
+                value="Hope to hear from you soon."
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="english-question-three-d"
+              >
+                Hope to hear from you soon.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div
+        id="english-question-three-a-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-correct"
+      >
+        <span class="feedback-title">Correct answer!</span><br />
+        <span class="feedback-message">
+          Well done!
+        </span>
+      </div>
+      <div
+        id="english-question-three-b-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          The restaurant have not done anything for which you would thank them.
+          Therefore it would be better to use a more formal sign off.
+        </span>
+      </div>
+      <div
+        id="english-question-three-c-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          You may use this informal sign off to a friend. You would not use it
+          in an email to someone you do not know.
+        </span>
+      </div>
+      <div
+        id="english-question-three-d-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          The language used here is too informal.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <button
+        id="submitButton"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-2"
+        data-module="govuk-button"
+      >
+        Submit answer
+      </button>
+
+      <a
+        id="continueButton"
+        href="/main/v3/course/english/lesson/assessment/4"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6 hidden"
+        data-module="govuk-button"
+      >
+        Next question
+      </a>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <a
+        id="iDontKnowButton"
+        href="/main/v3/course/english/lesson/assessment/4"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
+        data-module="govuk-button"
+        onclick="return skipAnswer('english', 'english-question-three');"
+      >
+        I don't know
+      </a>
+    </div>
+  </div>
+  <br />
+  <br />
+</form>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    validateQuestion('english', 'english-question-three')
+
+    updateProgress('english', [21], 1)
+
+    var percentage = getLessonProgress('english')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
+{% endblock %}

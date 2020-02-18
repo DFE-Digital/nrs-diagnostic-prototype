@@ -1,0 +1,138 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a
+  href="/main/v3/course/english/lesson/learning-content/article/11"
+  class="govuk-back-link"
+  >Back</a
+>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+      Writing an email
+    </h2>
+
+    <span class="progress-bar-label">Lesson progress</span>
+    <div class="progress-bar">
+      <div
+        id="lesson-progress"
+        class="progress-bar-fill"
+        style="width: 0;"
+      ></div>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m" style="margin-bottom: 0;">
+      Content
+    </h3>
+    <span
+      style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 26px;
+    color: #6F777B;"
+      >12 of 16</span
+    >
+    <br />
+    <br />
+
+    <p>
+      The main body of your email needs to add information to the purpose for
+      writing.
+    </p>
+
+    <p>
+      This is a job application, so you need to:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Explain why you are applying for the role.</li>
+      <li>Describe the experience and skills you currently have.</li>
+    </ul>
+
+    <div class="email-task-bar">
+      <div style="float:right;display:flex;">
+        <span class="dot" style="background-color:#ED6559;"></span>
+        <span class="dot" style="background-color:#E0BF4C;"></span>
+        <span class="dot" style="background-color:#72BE46;"></span>
+      </div>
+    </div>
+    <div class="email-body">
+      <div style="display: flex; width: 100%;">
+        <span style="width: 30%;"><strong>To:</strong></span>
+        <span style="width: 70%;">Sony Electronics</span>
+      </div>
+      <hr />
+      <div style="display: flex; width: 100%;">
+        <span style="width: 30%;"><strong>Subject:</strong></span>
+        <span style="width: 70%;"
+          >Jane Smith - Application for Sales Manager at Sony</span
+        >
+      </div>
+      <hr />
+      <div style="width: 100%;">
+        <p>Dear Sir/Madam</p>
+        <p>
+          I am writing to apply for the position of Sales Manager at Sony
+          Electronics.
+        </p>
+        <p>
+          <strong>
+            After reading the job description and requirements on your job
+            portal, I believe...</strong
+          >
+        </p>
+        <p>
+          <strong>
+            Currently, I am employed as…<br />
+            Having been in this role for…<br />
+            I have recently completed an... <br />
+            I now want to apply these skills in....<br />
+          </strong>
+        </p>
+        <br />
+      </div>
+    </div>
+    <p>
+      Practice: Now pause and practise writing (or thinking about) the rest of
+      this application email. You can use the sentence starters that have been
+      provided to guide you.
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v3/course/english/lesson/learning-content/article/13"
+      class="large-link"
+      >Next slide</a
+    >
+    <br />
+    <br />
+
+    <a href="/main/v3/course/english/lesson/assessment/start" class="small-link"
+      >Skip and go to quiz</a
+    >
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    updateProgress('english', [13], 1)
+
+    var percentage = getLessonProgress('english')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a
+  href="/main/v3/course/english/lesson/learning-content/article/14"
+  class="govuk-back-link"
+  >Back</a
+>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+      Writing an email
+    </h2>
+
+    <span class="progress-bar-label">Lesson progress</span>
+    <div class="progress-bar">
+      <div
+        id="lesson-progress"
+        class="progress-bar-fill"
+        style="width: 0;"
+      ></div>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m" style="margin-bottom: 0;">
+      Closing a formal email
+    </h3>
+    <span
+      style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 26px;
+    color: #6F777B;"
+      >15 of 16</span
+    >
+    <br />
+    <br />
+
+    <p>
+      A formal email needs to use a sign-off such as:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Yours faithfully</li>
+      <li>Yours sincerely</li>
+      <li>Kind regards</li>
+    </ul>
+
+    <p>
+      You can also add a brief summary or ‘next steps’ paragraph to conclude
+      your email.
+    </p>
+
+    <div class="email-task-bar">
+      <div style="float:right;display:flex;">
+        <span class="dot" style="background-color:#ED6559;"></span>
+        <span class="dot" style="background-color:#E0BF4C;"></span>
+        <span class="dot" style="background-color:#72BE46;"></span>
+      </div>
+    </div>
+    <div class="email-body">
+      <div style="display: flex; width: 100%;">
+        <span style="width: 30%;"><strong>To:</strong></span>
+        <span style="width: 70%;">Sony Electronics</span>
+      </div>
+      <hr />
+      <div style="display: flex; width: 100%;">
+        <span style="width: 30%;"><strong>Subject:</strong></span>
+        <span style="width: 70%;"
+          >Jane Smith - Application for Sales Manager at Sony</span
+        >
+      </div>
+      <hr />
+      <div style="width: 100%;">
+        <p><u>Dear Sir/Madam</u></p>
+        <p>
+          I have attached a cover letter and CV for your consideration. Please
+          take a moment to read through them to get a better picture of who I
+          am. I look forward to hearing from you and I hope that I get a chance
+          to discuss the role in more depth with a member of the Sony team.
+        </p>
+        <p>
+          <strong>
+            Yours sincerely, <br />
+            Jane Smith</strong
+          >
+        </p>
+        <br />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v3/course/english/lesson/learning-content/article/16"
+      class="large-link"
+      >Next slide</a
+    >
+    <br />
+    <br />
+
+    <a href="/main/v3/course/english/lesson/assessment/start" class="small-link"
+      >Skip and go to quiz</a
+    >
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    updateProgress('english', [16], 1)
+
+    var percentage = getLessonProgress('english')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
+{% endblock %}

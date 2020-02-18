@@ -1,0 +1,221 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a href="/main/v3/course/maths/intro" class="govuk-back-link"
+  >Save and exit lesson</a
+>
+{% endblock %} {% block content %}
+<form
+  class="form"
+  onsubmit="return submitAnswer('maths', 'maths-question-four', 'maths-question-four-a');"
+>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+        Recipe ratio
+      </h2>
+      <div class="progress-bar">
+        <div
+          id="lesson-progress"
+          class="progress-bar-fill"
+          style="width: 0;"
+        ></div>
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h2 class="govuk-heading-l">
+              Question 4 of 5
+            </h2>
+          </legend>
+          <span id="changed-name-hint" class="govuk-hint">
+            <p>
+              For the perfect cup of tea, Sue uses:
+              <br />
+              <br />
+              1 teabag<br />
+              180ml boiling water<br />
+              2 sugars<br />
+              50 ml of milk<br />
+            </p>
+
+            <p>
+              <strong
+                >How much milk will she need to make 5 cups of tea?</strong
+              >
+            </p>
+          </span>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="maths-question-four-a"
+                name="maths-question-four"
+                type="radio"
+                value="250ml"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="maths-question-four-a"
+              >
+                250ml
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="maths-question-four-b"
+                name="maths-question-four"
+                type="radio"
+                value="10ml"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="maths-question-four-b"
+              >
+                10ml
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="maths-question-four-c"
+                name="maths-question-four"
+                type="radio"
+                value="900ml"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="maths-question-four-c"
+              >
+                900ml
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="maths-question-four-d"
+                name="maths-question-four"
+                type="radio"
+                value="180ml"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="maths-question-four-d"
+              >
+                180ml
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div
+        id="maths-question-four-a-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-correct"
+      >
+        <span class="feedback-title">Correct answer!</span><br />
+        <span class="feedback-message">
+          Well done!
+        </span>
+      </div>
+      <div
+        id="maths-question-four-b-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          You have divided by 5 instead of multiplying by 5.
+        </span>
+      </div>
+      <div
+        id="maths-question-four-c-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          This is how much boiling water she will need.
+        </span>
+      </div>
+      <div
+        id="maths-question-four-d-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          Remember, when working with ratios you must always use multiplication
+          and division.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <button
+        id="submitButton"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-2"
+        data-module="govuk-button"
+      >
+        Submit answer
+      </button>
+
+      <a
+        id="continueButton"
+        href="/main/v3/course/maths/lesson/assessment/5"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6 hidden"
+        data-module="govuk-button"
+      >
+        Next question
+      </a>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <a
+        id="iDontKnowButton"
+        href="/main/v3/course/maths/lesson/assessment/5"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
+        data-module="govuk-button"
+        onclick="return skipAnswer('maths', 'maths-question-four');"
+      >
+        I don't know
+      </a>
+    </div>
+  </div>
+  <br />
+  <br />
+</form>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    validateQuestion('maths', 'maths-question-four')
+
+    updateProgress('maths', [18], 1)
+
+    var percentage = getLessonProgress('maths')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
+{% endblock %}

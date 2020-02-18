@@ -1,0 +1,216 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a href="/main/v3/course/english/intro" class="govuk-back-link"
+  >Save and exit lesson</a
+>
+{% endblock %} {% block content %}
+<form
+  class="form"
+  onsubmit="return submitAnswer('english', 'english-question-four', 'english-question-four-a');"
+>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+        Writing an email
+      </h2>
+      <div class="progress-bar">
+        <div
+          id="lesson-progress"
+          class="progress-bar-fill"
+          style="width: 0;"
+        ></div>
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h2 class="govuk-heading-l">
+              Question 4 of 5
+            </h2>
+          </legend>
+          <span id="changed-name-hint" class="govuk-hint">
+            <p>
+              You are writing an email to a colleague to invite them to a
+              meeting.
+            </p>
+
+            <p>
+              <strong>Which feature should you include in your email?</strong>
+            </p>
+          </span>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="english-question-four-a"
+                name="english-question-four"
+                type="radio"
+                value="A subject line"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="english-question-four-a"
+              >
+                A subject line
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="english-question-four-b"
+                name="english-question-four"
+                type="radio"
+                value="Your address"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="english-question-four-b"
+              >
+                Your address
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="english-question-four-c"
+                name="english-question-four"
+                type="radio"
+                value="Images"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="english-question-four-c"
+              >
+                Images
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="english-question-four-d"
+                name="english-question-four"
+                type="radio"
+                value="Subheadings"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="english-question-four-d"
+              >
+                Subheadings
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div
+        id="english-question-four-a-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-correct"
+      >
+        <span class="feedback-title">Correct answer!</span><br />
+        <span class="feedback-message">
+          Well done!
+        </span>
+      </div>
+      <div
+        id="english-question-four-b-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          You do not need to include your address in an email unless it is
+          relevant to the place of the meeting.
+        </span>
+      </div>
+      <div
+        id="english-question-four-c-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          You do not need to include images in an email unless they are relevant
+          to the subject.
+        </span>
+      </div>
+      <div
+        id="english-question-four-d-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          Although you should write in full paragraphs, it is not necessary to
+          have subheadings to separate sections of your email.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <button
+        id="submitButton"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-2"
+        data-module="govuk-button"
+      >
+        Submit answer
+      </button>
+
+      <a
+        id="continueButton"
+        href="/main/v3/course/english/lesson/assessment/5"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6 hidden"
+        data-module="govuk-button"
+      >
+        Next question
+      </a>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <a
+        id="iDontKnowButton"
+        href="/main/v3/course/english/lesson/assessment/5"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
+        data-module="govuk-button"
+        onclick="return skipAnswer('english', 'english-question-four');"
+      >
+        I don't know
+      </a>
+    </div>
+  </div>
+  <br />
+  <br />
+</form>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    validateQuestion('english', 'english-question-four')
+
+    updateProgress('english', [22], 1)
+
+    var percentage = getLessonProgress('english')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
+{% endblock %}

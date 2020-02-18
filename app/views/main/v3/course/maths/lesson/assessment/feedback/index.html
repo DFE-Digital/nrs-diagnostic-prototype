@@ -1,0 +1,242 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list"></ol>
+</div>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title" style="font-size: 3rem;">
+        Lesson complete
+      </h1>
+    </div> -->
+
+    <span
+      style="font-family: 'GDS Transport'; font-size: 19px; line-height: 22px; color: #005EA5; text-decoration: underline;"
+      >Your results</span
+    >
+    <h1
+      class="govuk-heading-xl"
+      id="results-percentage"
+      style="margin-bottom: 15px; color: #00703C;"
+    >
+      0%
+    </h1>
+
+    <p id="results-summary"></p>
+
+    <p>
+      <a
+        href="/main/v3/course/maths/lesson/assessment/1"
+        style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: inherit;
+    line-height: 26px;
+    text-decoration-line: underline;
+    color: #1D70B8;"
+        >Review answers</a
+      >
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">Lesson feedback</h2>
+    <p id="feedback-low" class="hidden">
+      You may not be quite there yet, but it's only your first attempt. You will
+      be soon. Try having another go.
+    </p>
+    <p id="feedback-middle" class="hidden">
+      Not bad for a first try! With hard work, practice, and perseverance, you
+      have the power to develop your intelligence.
+    </p>
+    <p id="feedback-high" class="hidden">
+      Good job. In order to remember something long-term, be sure to review this
+      content regularly.
+    </p>
+  </div>
+</div>
+
+<div id="badge-feedback-success" class="hidden">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">
+        Congratulations<br />
+        You’ve unlocked a badge!
+      </h2>
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title" style="font-size: 3rem;">
+          Ratio Expert
+        </h1>
+        <svg
+          width="71"
+          height="71"
+          viewBox="0 0 71 71"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M58.7115 9.72603C58.8651 5.11896 58.7457 0.170632 58.7286 0H12.169C12.169 0.0183249 12.1674 0.0917537 12.1648 0.213946L12.1648 0.214213C12.143 1.23031 12.049 5.6141 12.1861 9.72603H0C0 21.329 1.68966 27.1817 3.58413 31.3451C5.47861 35.5085 8.0899 39.0747 13.6026 43.3405C18.7399 47.3163 29.9019 52.4864 31.4038 53.1689V57.9978C30.6188 59.7042 27.393 62.8097 17.1868 62.8097H13.6538V71H57.3462V62.8097H52.9599C42.6 62.8097 40.1594 59.5506 39.5962 57.9978V53.1689C41.1834 52.384 53.4036 46.2925 57.4144 43.3576C61.7154 40.218 66.1017 34.5701 67.4329 31.3622C68.7642 28.1543 71 20.3052 71 9.72603H58.7115ZM10.4812 28.9043C8.84003 25.7358 7.87024 22.306 7.55319 18.1277H12.9057C13.0362 19.1722 13.1668 20.095 13.3346 20.9655C14.5655 27.7901 16.0948 33.1872 18.1277 37.766C14.9012 35.4156 12.2903 32.4037 10.4812 28.9043ZM52.8723 37.766C56.1147 35.4066 58.7122 32.388 60.5361 28.8663C62.1757 25.7089 63.1152 22.2913 63.4468 18.1277H58.049C57.9201 19.1686 57.7727 20.088 57.6253 20.9554C56.3726 27.9121 54.8988 33.2207 52.8723 37.766Z"
+            fill="white"
+          />
+        </svg>
+        <br />
+        <br />
+        <span>
+          You understand how to use ratios. Ratios are needed in a range of
+          tasks, such as calculating costs, comparing values, and working out
+          the quantities of materials required to make a product.
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="badge-feedback-fail" class="hidden">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">
+        You haven’t unlocked this badge yet.
+      </h2>
+      <div
+        class="govuk-panel govuk-panel--confirmation"
+        style="background-color: #F8F8F8; color:#0B0C0C"
+      >
+        <h1 class="govuk-panel__title" style="font-size: 3rem;">
+          Email Expert
+        </h1>
+        <svg
+          width="71"
+          height="71"
+          viewBox="0 0 71 71"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M58.7115 9.72603C58.8651 5.11896 58.7457 0.170632 58.7286 0H12.169C12.169 0.0183249 12.1674 0.0917537 12.1648 0.213946L12.1648 0.214213C12.143 1.23031 12.049 5.6141 12.1861 9.72603H0C0 21.329 1.68966 27.1817 3.58413 31.3451C5.47861 35.5085 8.0899 39.0747 13.6026 43.3405C18.7399 47.3163 29.9019 52.4864 31.4038 53.1689V57.9978C30.6188 59.7042 27.393 62.8097 17.1868 62.8097H13.6538V71H57.3462V62.8097H52.9599C42.6 62.8097 40.1594 59.5506 39.5962 57.9978V53.1689C41.1834 52.384 53.4036 46.2925 57.4144 43.3576C61.7154 40.218 66.1017 34.5701 67.4329 31.3622C68.7642 28.1543 71 20.3052 71 9.72603H58.7115ZM10.4812 28.9043C8.84003 25.7358 7.87024 22.306 7.55319 18.1277H12.9057C13.0362 19.1722 13.1668 20.095 13.3346 20.9655C14.5655 27.7901 16.0948 33.1872 18.1277 37.766C14.9012 35.4156 12.2903 32.4037 10.4812 28.9043ZM52.8723 37.766C56.1147 35.4066 58.7122 32.388 60.5361 28.8663C62.1757 25.7089 63.1152 22.2913 63.4468 18.1277H58.049C57.9201 19.1686 57.7727 20.088 57.6253 20.9554C56.3726 27.9121 54.8988 33.2207 52.8723 37.766Z"
+            fill="rgba(11, 12, 12, 0.2)"
+          />
+        </svg>
+        <br />
+        <br />
+        <span>
+          You understand the key features of a professional email to apply for a
+          new job, such as the appropriate greeting, useful formal language and
+          how to sign off.
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">
+      See your progress
+    </h3>
+
+    <p>
+      Badges like this can be used to show how you are getting closer to the
+      qualification employers want.
+      <br />
+      <br />
+      <a href="#" class="small-link">View all badges</a>
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v3/course/maths/overview"
+      role="button"
+      draggable="false"
+      class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-2"
+      data-module="govuk-button"
+    >
+      Next lesson
+    </a>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v3/course/maths/lesson/assessment/start"
+      role="button"
+      draggable="false"
+      class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
+      data-module="govuk-button"
+      onclick="return retryAssessment();"
+    >
+      Retry
+    </a>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v3/course/maths/intro"
+      class="govuk-back-link"
+      style="margin-bottom: 0; margin-top: 0;"
+      >Exit lesson</a
+    >
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  function setResult() {
+    var results = getAssessmentResults('maths')
+    var totalQuestions = results.correct + results.incorrect + results.skipped
+    var percentage = results ? results.percentage : '0'
+    $('#results-percentage').text(percentage + '%')
+    $('#results-summary').text(
+      'You answered ' +
+        results.correct +
+        ' out of ' +
+        totalQuestions +
+        ' questions correctly.'
+    )
+
+    if (percentage <= 40) {
+      $('#feedback-low').removeClass('hidden')
+    } else if (percentage > 40 && percentage <= 70) {
+      $('#feedback-middle').removeClass('hidden')
+    } else if (percentage > 70) {
+      $('#feedback-high').removeClass('hidden')
+    }
+
+    if (percentage < 70) {
+      $('#badge-feedback-fail').removeClass('hidden')
+    } else if (percentage >= 70) {
+      $('#badge-feedback-success').removeClass('hidden')
+    }
+  }
+
+  function retryAssessment() {
+    addToLocalStorageObject('maths', 'answers', [])
+    return true
+  }
+
+  $(document).ready(function() {
+    setResult()
+
+    updateProgress('maths', [20], 1)
+
+    var percentage = getLessonProgress('maths')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
+{% endblock %}

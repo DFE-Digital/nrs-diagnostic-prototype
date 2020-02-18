@@ -1,0 +1,224 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a href="/main/v3/course/maths/intro" class="govuk-back-link"
+  >Save and exit lesson</a
+>
+{% endblock %} {% block content %}
+<form
+  class="form"
+  onsubmit="return submitAnswer('maths', 'maths-question-three', 'maths-question-three-a');"
+>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+        Recipe ratio
+      </h2>
+      <div class="progress-bar">
+        <div
+          id="lesson-progress"
+          class="progress-bar-fill"
+          style="width: 0;"
+        ></div>
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h2 class="govuk-heading-l">
+              Question 3 of 5
+            </h2>
+          </legend>
+          <span id="changed-name-hint" class="govuk-hint">
+            <p>
+              Sam is using the following hair dye recipe.
+              <br />
+              <br />
+              <i>100ml of Hair Dye:</i><br />
+              30ml colour 1<br />
+              20 ml colour 2<br />
+              50ml peroxide<br />
+            </p>
+
+            <p>
+              She wants to make as much hair dye as she can, but she only has
+              200ml of peroxide.
+            </p>
+
+            <p>
+              <strong>How much hair dye can she make?</strong>
+            </p>
+          </span>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="maths-question-three-a"
+                name="maths-question-three"
+                type="radio"
+                value="400ml"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="maths-question-three-a"
+              >
+                400ml
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="maths-question-three-b"
+                name="maths-question-three"
+                type="radio"
+                value="120ml"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="maths-question-three-b"
+              >
+                120ml
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="maths-question-three-c"
+                name="maths-question-three"
+                type="radio"
+                value="80ml"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="maths-question-three-c"
+              >
+                80ml
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="maths-question-three-d"
+                name="maths-question-three"
+                type="radio"
+                value="100ml"
+              />
+              <label
+                class="govuk-label govuk-radios__label"
+                for="maths-question-three-d"
+              >
+                100ml
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div
+        id="maths-question-three-a-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-correct"
+      >
+        <span class="feedback-title">Correct answer!</span><br />
+        <span class="feedback-message">
+          Well done!
+        </span>
+      </div>
+      <div
+        id="maths-question-three-b-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          This is how much Sam needs of colour 1.
+        </span>
+      </div>
+      <div
+        id="maths-question-three-c-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          This is how much Sam needs of colour 2.
+        </span>
+      </div>
+      <div
+        id="maths-question-three-d-feedback"
+        name="question-feedback"
+        class="govuk-inset-text hidden feedback-incorrect"
+      >
+        <span class="feedback-title">Incorrect answer! </span><br />
+        <span class="feedback-message">
+          She has 200ml of peroxide, so will be able to make more than 100ml of
+          hair dye.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <button
+        id="submitButton"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-2"
+        data-module="govuk-button"
+      >
+        Submit answer
+      </button>
+
+      <a
+        id="continueButton"
+        href="/main/v3/course/maths/lesson/assessment/4"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6 hidden"
+        data-module="govuk-button"
+      >
+        Next question
+      </a>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <a
+        id="iDontKnowButton"
+        href="/main/v3/course/maths/lesson/assessment/4"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
+        data-module="govuk-button"
+        onclick="return skipAnswer('maths', 'maths-question-three');"
+      >
+        I don't know
+      </a>
+    </div>
+  </div>
+  <br />
+  <br />
+</form>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    validateQuestion('maths', 'maths-question-three')
+
+    updateProgress('maths', [17], 1)
+
+    var percentage = getLessonProgress('maths')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
+{% endblock %}

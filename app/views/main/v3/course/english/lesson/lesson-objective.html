@@ -1,0 +1,73 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a href="/main/v3/course/english/intro" class="govuk-back-link">Back</a>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">
+      Writing an email
+    </h2>
+    <div class="progress-bar">
+      <div
+        id="lesson-progress"
+        class="progress-bar-fill"
+        style="width: 0;"
+      ></div>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">
+      Lesson objective
+    </h3>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Identify formal language</li>
+      <li>Learn how to write a professional email</li>
+    </ul>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">
+      How can this be used in your target job?
+    </h3>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Writing an application (for a job)</li>
+      <li>Writing to a colleague at work</li>
+      <li>Writing an informational email to a company</li>
+      <li>
+        Writing a complaint and/ or asking for a refund (usually to a company
+        who has failed to provide their services as you would expect)
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/main/v3/course/english/lesson/lesson-award" class="large-link"
+      >Continue</a
+    >
+  </div>
+</div>
+
+<br />
+<br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    updateProgress('english', [0], 1)
+
+    var percentage = getLessonProgress('english')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
+{% endblock %}

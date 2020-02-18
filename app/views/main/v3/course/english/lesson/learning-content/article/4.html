@@ -1,0 +1,85 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a
+  href="/main/v3/course/english/lesson/learning-content/article/3"
+  class="govuk-back-link"
+  >Back</a
+>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+      Writing an email
+    </h2>
+
+    <span class="progress-bar-label">Lesson progress</span>
+    <div class="progress-bar">
+      <div
+        id="lesson-progress"
+        class="progress-bar-fill"
+        style="width: 0;"
+      ></div>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m" style="margin-bottom: 0;">
+      What are the common reasons to send an email?
+    </h3>
+    <span
+      style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 26px;
+    color: #6F777B;"
+      >4 of 16</span
+    >
+    <br />
+    <br />
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Writing an application (for a job)</li>
+      <li>Writing to a colleague at work</li>
+      <li>Writing an email to a company</li>
+      <li>
+        Writing a complaint and/ or asking for a refund (usually to a company
+        who has failed to provide their services as you would expect)
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v3/course/english/lesson/learning-content/article/5"
+      class="large-link"
+      >Next slide</a
+    >
+    <br />
+    <br />
+
+    <a href="/main/v3/course/english/lesson/assessment/start" class="small-link"
+      >Skip and go to quiz</a
+    >
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    updateProgress('english', [5], 1)
+
+    var percentage = getLessonProgress('english')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
+{% endblock %}

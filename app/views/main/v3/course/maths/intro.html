@@ -1,0 +1,198 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a href="/main/v3/intro/select-skills" class="govuk-back-link">Back</a>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <img
+      src="/public/images/maths-course.png"
+      style="margin-left: -15px; width: 100vw"
+    /><br /><br />
+
+    <h1 class="govuk-heading-xl">
+      Maths Functional Skills 2
+    </h1>
+
+    <h2 class="govuk-heading-l">Introduction</h2>
+
+    <p>
+      This course helps you develop your maths skills including proportion and
+      handling data as well as providing you with the opportunity to apply them
+      to real-life problems. The skills developed during this course will help
+      learners get onto college courses, apprenticeships, further education and
+      unlock more opportunities in the world of work.
+    </p>
+
+    <div
+      style="display: flex; font-family: 'GDS Transport'; font-size: 19px; line-height: 22px; color: #217F77;"
+    >
+      <div style="width: 50%;">
+        <span>Number of lessons</span>
+        <div style="display: flex; padding-top: 10px;">
+          <svg
+            style="margin-right: 10px;"
+            width="36"
+            height="32"
+            viewBox="0 0 36 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 11.0185L18 0.733887L36 11.0185V24.7339H32.7295V12.8906L18 21.303L0 11.0185ZM6 25.382V18.7339L17.5 25.0858L29 18.7339V25.382L17.5 31.7339L6 25.382Z"
+              fill="#1E7871"
+            />
+          </svg>
+
+          <span style="line-height: 30px;">60</span>
+        </div>
+      </div>
+      <div style="width: 50%;">
+        <span>Average duration</span>
+        <div style="display: flex; padding-top: 10px;">
+          <svg
+            style="margin-right: 10px;"
+            width="32"
+            height="31"
+            viewBox="0 0 32 31"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M7.20893 0L9.26915 2.38432L2.05933 8.3842L0 5.99988L7.20893 0ZM31.6889 5.99986L24.4002 0.0765381L22.3409 2.46173L29.6295 8.38425L31.6889 5.99986ZM16.6367 9.46143H14.26V18.6923L21.786 23.0772L22.9744 21.1539L16.6367 17.5384V9.46143ZM15.8444 3.3075C7.92222 3.3075 1.58437 9.53799 1.58437 17.1536C1.58437 24.7696 7.92222 31 15.8444 31C23.6879 31 30.1045 24.7696 30.1045 17.1536C30.1045 9.53806 23.6879 3.3075 15.8444 3.3075ZM4.75333 17.1537C4.75333 23.0772 9.7441 27.9231 15.8444 27.9231C21.9448 27.9231 26.9355 23.1537 26.9355 17.1537C26.9355 11.2305 21.9448 6.38452 15.8444 6.38452C9.7441 6.38452 4.75333 11.2306 4.75333 17.1537Z"
+              fill="#1E7871"
+            />
+          </svg>
+
+          <span style="line-height: 30px;">40 hours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          What is the course structure?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        The course is divided into different units which are delivered in a
+        series of mini lessons. This quick and effective way of learning,
+        provides plenty of opportunites for learners to practise key maths
+        skills in a focused and practical way.
+      </div>
+    </details>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          What will I learn on this course?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>This course is broken down into the following chapters;</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Integers</li>
+          <li>Decimals</li>
+          <li>Fractions</li>
+          <li>Percentages</li>
+          <li>Rounding</li>
+          <li>Money</li>
+          <li>Proportion</li>
+          <li>Algebra</li>
+          <li>Measures</li>
+          <li>Angles</li>
+          <li>2D and 3D shapes</li>
+          <li>Area and Perimeter</li>
+          <li>Volume and Surface Area</li>
+          <li>Handling Data</li>
+          <li>Probability</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          How long is the course?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        The course is designed in a way so that you can study in your spare
+        time. On average, the couse is around 40 hours long, with each lesson
+        lasting between 15 - 30 minutes to complete. Adult learning is taught in
+        a relaxed and positive way, so don't be discouraged by the course
+        length. Take your time and study when it suits you best.
+      </div>
+    </details>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          How will this help me with getting a qualification?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Completing this course will fully prepare you to sit the two Functional
+        Skills Level 2 exam papers (Calculator and Non-calculator exams), which
+        you will need to pass in order to be awarded the qualification.
+      </div>
+    </details>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a
+      href="/main/v3/course/maths/lesson/lesson-objective"
+      role="button"
+      draggable="false"
+      class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+      data-module="govuk-button"
+      onclick="return addCourse();"
+    >
+      Start course
+      <svg
+        class="govuk-button__start-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="17.5"
+        height="19"
+        viewBox="0 0 33 40"
+        role="presentation"
+        focusable="false"
+      >
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+      </svg>
+    </a>
+  </div>
+</div>
+<br />
+<br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  function addCourse() {
+    addCourseToLocalStorage('maths')
+    return true
+  }
+</script>
+{% endblock %}

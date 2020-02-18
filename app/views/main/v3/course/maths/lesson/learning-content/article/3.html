@@ -1,0 +1,121 @@
+{% extends "layout_with_help.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+<a
+  href="/main/v3/course/maths/lesson/learning-content/article/2"
+  class="govuk-back-link"
+  >Back</a
+>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l" style="margin-bottom: 20px;">
+      Recipe Ratio
+    </h2>
+
+    <span class="progress-bar-label">Lesson progress</span>
+    <div class="progress-bar">
+      <div
+        id="lesson-progress"
+        class="progress-bar-fill"
+        style="width: 0;"
+      ></div>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m" style="margin-bottom: 0;">
+      What do I need to remember?
+    </h3>
+    <span
+      style="font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 26px;
+    color: #6F777B;"
+      >3 of 12</span
+    >
+    <br />
+    <br />
+
+    <p>
+      When working with ratio and proportion, it is important to remember to
+      always calculate by multiplying and dividing values.
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div style="display:flex;">
+      <div style="width:30%;">
+        <img width="44px" src="/public/images/coffee-cup.png" /><br /><br />
+      </div>
+      <div style="display: flex; margin-top: auto; margin-bottom: auto;">
+        <p>
+          <strong>Small</strong> Coffee <br />
+          <strong>2</strong> sugars<br />
+          <strong>100ml</strong> milk<br />
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div style="display:flex;">
+      <div style="width:30%;">
+        <img width="74px" src="/public/images/coffee-cup.png" /><br /><br />
+      </div>
+      <div style="display: flex; margin-top: auto; margin-bottom: auto;">
+        <p>
+          <strong>Large</strong> Coffee <br />
+          <strong>2</strong> sugars<br />
+          <strong>200ml</strong> milk<br />
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>
+      These coffees will both taste the same as we have kept the same ratio (we
+      have multiplied everything by 2).
+    </p>
+  </div>
+</div>
+
+<a
+  href="/main/v3/course/maths/lesson/learning-content/article/4"
+  class="large-link"
+  >Next slide</a
+>
+<br />
+<br />
+
+<a href="/main/v3/course/maths/lesson/assessment/start" class="small-link"
+  >Skip and go to quiz</a
+>
+
+<br />
+<br />
+<br />
+<br />
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    updateProgress('maths', [4], 1)
+
+    var percentage = getLessonProgress('maths')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
+</script>
+{% endblock %}
