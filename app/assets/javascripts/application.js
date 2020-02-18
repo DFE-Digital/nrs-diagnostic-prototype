@@ -9,6 +9,10 @@ $(document).ready(function() {
   window.GOVUKFrontend.initAll()
 })
 
+function clearLocalStorageData() {
+  localStorage.clear()
+}
+
 function setLocalStorageObject(name, value) {
   localStorage.setItem(name, JSON.stringify(value))
 }

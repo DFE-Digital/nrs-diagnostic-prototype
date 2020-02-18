@@ -12,15 +12,7 @@ Prototype {% endblock %} {% block header %}
       Recipe Ratio
     </h2>
 
-    <span
-      style="font-family: 'GDS Transport';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 26px;
-    color: #6F777B;"
-      >Lesson progress</span
-    >
+    <span class="progress-bar-label">Lesson progress</span>
     <div class="progress-bar">
       <div
         id="lesson-progress"
@@ -35,7 +27,7 @@ Prototype {% endblock %} {% block header %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h3 class="govuk-heading-m" style="margin-bottom: 0;">
-      Introduction
+      Example question
     </h3>
     <span
       style="font-family: 'GDS Transport';
@@ -50,16 +42,34 @@ Prototype {% endblock %} {% block header %}
     <br />
 
     <p>
-      In this lesson you will be learn how to calculate with ratios.
+      Betty wants to make a cake for 6 people. She has the following recipe:
     </p>
     <p>
-      The ratios we will be looking at are recipe ratios, which help in many
-      industries and in everyday life.
+      How much flour will she need for 6 people?
     </p>
-    <p>
-      You will need to know how to calculate with ratios as part of your Maths
-      Functional skills exam.
-    </p>
+
+    <div class="recipe">
+      <span><strong>Cake recipe: Serves 3</strong></span>
+    </div>
+    <div class="recipe">
+      <span>75g flour</span><br />
+      <span>3 eggs</span><br />
+      <span>75ml milk</span><br />
+      <span>25g sugar</span><br />
+    </div>
+    <br />
+    <p>All the values have been multiplied by 2:</p>
+
+    <div class="recipe">
+      <span><strong>Cake recipe: Serves 6</strong></span>
+    </div>
+    <div class="recipe">
+      <span>- flour</span><br />
+      <span>6 eggs</span><br />
+      <span>150ml milk</span><br />
+      <span>50g sugar</span><br />
+    </div>
+    <br />
   </div>
 </div>
 

@@ -69,4 +69,10 @@ endblock %} {% block header %}
     </a>
   </div>
 </div>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    clearLocalStorageData()
+  })
+</script>
 {% endblock %}

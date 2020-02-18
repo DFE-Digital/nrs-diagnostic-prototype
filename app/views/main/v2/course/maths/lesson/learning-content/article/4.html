@@ -12,15 +12,7 @@ Prototype {% endblock %} {% block header %}
       Recipe Ratio
     </h2>
 
-    <span
-      style="font-family: 'GDS Transport';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 26px;
-    color: #6F777B;"
-      >Lesson progress</span
-    >
+    <span class="progress-bar-label">Lesson progress</span>
     <div class="progress-bar">
       <div
         id="lesson-progress"
@@ -48,16 +40,20 @@ Prototype {% endblock %} {% block header %}
     >
     <br />
     <br />
-
     <p>
       Betty wants to make a cake for 6 people. She has the following recipe:
-      <br />
-      <br />
-      <i>Cake serves 3:</i><br />
-      75g flour<br />
-      3 eggs<br />
-      75ml milk<br />
     </p>
+
+    <div class="recipe">
+      <span><strong>Cake recipe: Serves 3</strong></span>
+    </div>
+    <div class="recipe">
+      <span>75g flour</span><br />
+      <span>3 eggs</span><br />
+      <span>75ml milk</span><br />
+      <span>25g sugar</span><br />
+    </div>
+    <br />
 
     <p>
       How much flour will she need for 6 people?

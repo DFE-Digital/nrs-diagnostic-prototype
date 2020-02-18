@@ -48,12 +48,23 @@ button.govuk-button {
   display: none;
 }
 
+.progress-bar-label {
+  font-family: 'GDS Transport';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 26px;
+  color: #6f777b;
+  display: none;
+}
+
 .progress-bar {
   width: 100%;
   height: 18px;
   border: 1px solid #bfc1c3;
   background: white;
   margin-bottom: 5px;
+  display: none;
 }
 
 .progress-bar-fill {
@@ -157,4 +168,16 @@ button.govuk-button {
     line-height: 26px;
     color: #6f777b;
   }
+}
+
+.recipe {
+  background-color: #f2f2f2;
+  font-family: 'GDS Transport';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 25px;
+  color: #0b0c0c;
+  margin-top: 4px;
+  padding: 8px;
 }
