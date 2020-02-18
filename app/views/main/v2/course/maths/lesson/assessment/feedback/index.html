@@ -30,7 +30,7 @@ Prototype {% endblock %} {% block header %}
 
     <p>
       <a
-        href="#"
+        href="/main/v2/course/maths/lesson/assessment/1"
         style="font-family: 'GDS Transport';
     font-style: normal;
     font-weight: 300;
@@ -229,6 +229,13 @@ Prototype {% endblock %} {% block header %}
     return true
   }
 
-  setResult()
+  $(document).ready(function() {
+    setResult()
+
+    updateProgress('maths', [20], 1)
+
+    var percentage = getLessonProgress('maths')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
 </script>
 {% endblock %}

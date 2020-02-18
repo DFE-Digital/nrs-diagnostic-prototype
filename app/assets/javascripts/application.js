@@ -47,7 +47,7 @@ function getLessonSteps(name) {
   var data = []
   var length = 0
   if (name === 'maths') {
-    length = 19
+    length = 21
   } else if (name === 'english') {
     length = 25
   }

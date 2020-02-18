@@ -169,6 +169,7 @@ Prototype {% endblock %} {% block header %}
       draggable="false"
       class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
       data-module="govuk-button"
+      onclick="return retryAssessment();"
     >
       Retry
       <svg
@@ -224,6 +225,18 @@ Prototype {% endblock %} {% block header %}
     }
   }
 
-  setResult()
+  function retryAssessment() {
+    addToLocalStorageObject('maths', 'answers', [])
+    return true
+  }
+
+  $(document).ready(function() {
+    setResult()
+
+    updateProgress('english', [24], 1)
+
+    var percentage = getLessonProgress('english')
+    $('#lesson-progress').css('width', percentage + '%')
+  })
 </script>
 {% endblock %}
