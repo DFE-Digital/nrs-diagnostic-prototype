@@ -40,8 +40,6 @@ function addCourseToLocalStorage(name) {
     steps: getLessonSteps(name)
   }
 
-  console.log(course)
-
   setLocalStorageObject(name, course)
 }
 
@@ -103,7 +101,6 @@ function addAnswer(courseName, question, answer, result) {
   })
 
   course.answers = answers
-  console.log('1', course.answers)
 
   localStorage.setItem(courseName, JSON.stringify(course))
 }
@@ -121,8 +118,6 @@ function getAssessmentResults(courseName) {
   if (answers.length <= 0) {
     return 0
   }
-
-  console.log(answers)
 
   var correct = answers.filter(x => x.result === 'correct').length
   var incorrect = answers.filter(x => x.result === 'incorrect').length
