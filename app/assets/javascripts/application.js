@@ -210,3 +210,11 @@ function validateQuestion(course, question) {
     $('#' + currentAnswer.answer).prop('checked', true)
   }
 }
+
+function openHelp() {
+  $('#help-overlay').removeClass('hidden')
+}
+
+function closeHelp() {
+  $('#help-overlay').addClass('hidden')
+}

@@ -39,6 +39,41 @@ body {
   }
 }
 
+.help-overlay {
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #005da6;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  h1,
+  h2,
+  h3,
+  div,
+  span,
+  p,
+  .govuk-details__summary:hover,
+  .govuk-details__summary,
+  .large-link,
+  .small-link {
+    color: #ffffff;
+  }
+
+  .help-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+  }
+
+  hr {
+    border: 1px solid #ffffff;
+  }
+}
+
 a.govuk-button,
 button.govuk-button {
   min-width: 50%;
