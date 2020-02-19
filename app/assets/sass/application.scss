@@ -236,3 +236,14 @@ button.govuk-button {
   text-decoration-line: underline;
   color: #1d70b8;
 }
+
+.course-image {
+  @media screen and (max-width: 640px) {
+    margin-left: -15px;
+    width: 100vw;
+  }
+
+  @media screen and (min-width: 640px) {
+    width: 100%;
+  }
+}
