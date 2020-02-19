@@ -13,6 +13,38 @@ endblock %} {% block header %}
     <p>
       <a href="/main/v3/prototype-assumed-knowledge">Assumed knowledge</a>
     </p>
+    <p>
+      <a href="/main/v3/course/maths/intro">Start of Maths lesson</a>
+    </p>
+    <p>
+      <a href="/main/v3/course/english/intro">Start of English lesson</a>
+    </p>
+    <p>
+      <a
+        onclick="return addMathsCourse();"
+        href="/main/v3/course/maths/lesson/assessment/start"
+        >Start of Maths test</a
+      >
+    </p>
+    <p>
+      <a
+        onclick="return addEnglishCourse();"
+        href="/main/v3/course/english/lesson/assessment/start"
+        >Start of English test</a
+      >
+    </p>
   </div>
 </div>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  function addMathsCourse() {
+    addCourseToLocalStorage('maths')
+    return true
+  }
+
+  function addEnglishCourse() {
+    addCourseToLocalStorage('english')
+    return true
+  }
+</script>
 {% endblock %}
