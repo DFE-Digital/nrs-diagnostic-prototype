@@ -70,24 +70,30 @@ index 0000000..b830c97
 +{% endmacro %}
 diff --git a/node_modules/govuk-frontend/govuk/components/custom/helpLinks/template.njk b/node_modules/govuk-frontend/govuk/components/custom/helpLinks/template.njk
 new file mode 100644
-index 0000000..b1f01f9
+index 0000000..9186f6c
 --- /dev/null
 +++ b/node_modules/govuk-frontend/govuk/components/custom/helpLinks/template.njk
-@@ -0,0 +1,16 @@
-+{% set description = params.description %}
-+{% set links = params.links %}
-+
+@@ -0,0 +1,22 @@
 +<div class="govuk-width-container">
-+  <div class="govuk-grid-row">
-+    <div class="govuk-grid-column-two-thirds">
-+      <hr style="border: 5px solid #005DA6; margin-bottom: 15px" />
-+      <p>{{ description }}</p>
-+      {% for link in params.links %}
-+        {% if link %}
-+          <a class="small-link" href="link.href">{{ link.text }}</a>
-+        {% endif %}
-+      {% endfor %}
-+    </div>
-+  </div>
++{% for help in params.helpSections %}
++  {% if help %}
++    {% set title = help.title %}
++    {% set description = help.description %}
++    {% set links = help.links %}
++      <div class="govuk-grid-row">
++        <div class="govuk-grid-column-two-thirds">
++          <hr style="border: 5px solid #005DA6; margin-bottom: 15px" />
++          <h3 class="govuk-heading-m">{{ title }}</h3>
++          <p>{{ description }}</p>
++          {% for link in links %}
++            {% if link %}
++              <a class="small-link" href="link.href">{{ link.text }}</a><br />
++            {% endif %}
++          {% endfor %}
++        </div>
++      </div>
++      <br />
++  {% endif %}
++{% endfor %}
 +</div>
 \ No newline at end of file
