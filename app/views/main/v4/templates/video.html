@@ -19,7 +19,7 @@ Prototype {% endblock %} {% block header %}
     }) }}
 
     <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-      Video (Part {{ videoNo }} of 3)
+      Video (Part {{ videoNo }} of {{ totalVideos }})
     </h1>
 
   </div>
@@ -38,9 +38,9 @@ Prototype {% endblock %} {% block header %}
   <div class="govuk-grid-column-two-thirds">
     <iframe width="100%" src="{{ url }}" frameborder="0"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br />
+    <br />
   </div>
-</div>
-</div>
 </div>
 
 <div class="govuk-grid-row">

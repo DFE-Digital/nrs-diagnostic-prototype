@@ -50,17 +50,19 @@ router.get('/v4/topic/lesson/select-learning-content', function(req, res) {
     title: 'How would you like to learn?',
     description:
       'Once you’re ready, select how you would like the lesson delivered.',
-    help: {
-      title: 'Feeling confident?',
-      description:
-        'If you’re confident, you may skip the learning material and go straight to the lesson quiz.',
-      links: [
-        {
-          text: 'Skip lesson and go to quiz',
-          href: '#'
-        }
-      ]
-    }
+    help: [
+      {
+        title: 'Feeling confident?',
+        description:
+          'If you’re confident, you may skip the learning material and go straight to the lesson quiz.',
+        links: [
+          {
+            text: 'Skip lesson and go to quiz',
+            href: '#'
+          }
+        ]
+      }
+    ]
   })
 })
 
@@ -73,17 +75,38 @@ const videoContentList = [
     url: 'https://www.youtube.com/embed/nXIZzBuDzTg',
     backLink: '',
     nextLink: '',
-    help: {
-      title: 'Feeling confident?',
-      description:
-        'If you’re confident, you may skip the learning material and go straight to the lesson quiz.',
-      links: [
-        {
-          text: 'Skip lesson and go to quiz',
-          href: '#'
-        }
-      ]
-    }
+    help: [
+      {
+        title: 'Need help?',
+        description:
+          'The options below are available to you should you need help in regards to the lesson or more broader questions.',
+        links: [
+          {
+            text: 'Speak to a tutor (via email)',
+            href: '#'
+          },
+          {
+            text: 'Return to lesson',
+            href: '#'
+          },
+          {
+            text: 'View comments by other users',
+            href: '#'
+          }
+        ]
+      },
+      {
+        title: 'Feeling confident?',
+        description:
+          'If you’re confident, you may skip the learning material and go straight to the lesson quiz.',
+        links: [
+          {
+            text: 'Skip lesson and go to quiz',
+            href: '#'
+          }
+        ]
+      }
+    ]
   }
 ]
 
@@ -101,6 +124,7 @@ router.get('/topic/lesson/video/:videoNo', function(req, res) {
     },
     heading: videoContent.lessonName,
     videoNo,
+    totalVideos: videoContentList.length,
     description: videoContent.description,
     url: videoContent.url,
     nextLink: videoContent.nextLink,
