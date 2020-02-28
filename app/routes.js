@@ -51,6 +51,7 @@ router.get('/v4/topic/lesson/select-learning-content', function(req, res) {
     description:
       'Once you’re ready, select how you would like the lesson delivered.',
     help: {
+      title: 'Feeling confident?',
       description:
         'If you’re confident, you may skip the learning material and go straight to the lesson quiz.',
       links: [
@@ -63,6 +64,50 @@ router.get('/v4/topic/lesson/select-learning-content', function(req, res) {
   })
 })
 
+const videoContentList = [
+  {
+    id: '1',
+    lessonName: '[Lesson name]',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.',
+    url: 'https://www.youtube.com/embed/nXIZzBuDzTg',
+    backLink: '',
+    nextLink: '',
+    help: {
+      title: 'Feeling confident?',
+      description:
+        'If you’re confident, you may skip the learning material and go straight to the lesson quiz.',
+      links: [
+        {
+          text: 'Skip lesson and go to quiz',
+          href: '#'
+        }
+      ]
+    }
+  }
+]
+
+router.get('/topic/lesson/video/:videoNo', function(req, res) {
+  const videoNo = req.params.videoNo
+  const videoContent = videoContentList.find(x => x.id === videoNo)
+  if (!videoContent) {
+    res.redirect('/v4/topic/lesson/select-learning-content')
+  }
+
+  res.render('main/v4/templates/video', {
+    back: {
+      text: 'Back',
+      href: videoContent.backLink
+    },
+    heading: videoContent.lessonName,
+    videoNo,
+    description: videoContent.description,
+    url: videoContent.url,
+    nextLink: videoContent.nextLink,
+    help: videoContent.help
+  })
+})
+
 router.get('/v4/topic/lesson/learning-content', function(req, res) {
   let learningContent = req.session.data['select-learning-material']
   if (learningContent === 'slideshow') {
@@ -70,7 +115,7 @@ router.get('/v4/topic/lesson/learning-content', function(req, res) {
   } else if (learningContent === 'text') {
     res.redirect('')
   } else if (learningContent === 'video') {
-    res.redirect('')
+    res.redirect('/topic/lesson/video/1')
   } else {
     res.redirect('/v4/topic/lesson/select-learning-content')
   }
