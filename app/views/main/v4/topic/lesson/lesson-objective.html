@@ -1,0 +1,55 @@
+{% extends "layout.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ heading }}
+    </h1>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">
+      Lesson objective
+    </h3>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Learn to use a ratio to scale quantities</li>
+      <li>Learn how to adapt a recipe or mixing ratio</li>
+    </ul>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">
+      How can this be used in your target job?
+    </h3>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        Mixing substances such as cement, hair dye, or even making a cup of tea
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/main/v3/course/maths/lesson/lesson-award" class="large-link">Continue with lesson</a>
+  </div>
+</div>
+{% endblock %}
