@@ -176,7 +176,7 @@ const lessonList = [
           }
         ],
         backLink: '/v4/topic/lesson/1/video/3',
-        nextLink: '#'
+        nextLink: '/v4/topic/lesson/1/start-quiz'
       }
     ],
     assessmentQuestions: [
