@@ -485,7 +485,7 @@ router.get('/v4/topic/lesson/:lessonId/practice/:questionId', function(
   const questionId = req.params.questionId
   const question = lesson.practiceQuestions.find(x => x.id === questionId)
   if (!question) {
-    res.redirect('/v4/topic/lesson/select-learning-content')
+    res.redirect(`/v4/topic/lesson/${lessonId}/select-learning-content`)
   }
 
   res.render('main/v4/templates/question', {
@@ -527,7 +527,7 @@ router.get('/v4/topic/lesson/:lessonId/learning-content', function(req, res) {
   } else if (learningContent === 'video') {
     res.redirect(`/v4/topic/lesson/${lessonId}/video/${video.id}`)
   } else {
-    res.redirect('/v4/topic/lesson/select-learning-content')
+    res.redirect(`/v4/topic/lesson/${lessonId}/select-learning-content`)
   }
 })
 
@@ -563,7 +563,7 @@ router.get('/v4/topic/lesson/:lessonId/assessment/:questionId', function(
   const questionId = req.params.questionId
   const question = lesson.assessmentQuestions.find(x => x.id === questionId)
   if (!question) {
-    res.redirect('/v4/topic/lesson/select-learning-content')
+    res.redirect(`/v4/topic/lesson/${lessonId}/select-learning-content`)
   }
 
   const questionNo = lesson.assessmentQuestions.indexOf(question) + 1
