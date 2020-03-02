@@ -19,55 +19,50 @@ Prototype {% endblock %} {% block header %}
     }) }}
 
     <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-      Video (Part {{ videoNo }} of {{ totalVideos }})
+      Slideshow (Part {{ slideshowNo }} of {{ totalSlideshows }})
     </h1>
 
   </div>
 </div>
-<br />
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <p>
-      {{ video.description }}
+      {{ slideshow.description }}
     </p>
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <!-- <iframe width="100%" src="{{ video.url }}" frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <br />
-    <br /> -->
-
-    <div class="swiper-container" style="z-index: 2; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-      <!-- Additional required wrapper -->
+    <div class="swiper-container">
       <div class="swiper-wrapper">
         {% for slide in slideshow.slides %}
         {% if slide %}
         <div class="swiper-slide"><img width="100%" src="{{ slide }}" /></div>
-        <!-- <div class="swiper-slide" style="background-image:url('{{ slide }}')"></div> -->
         {% endif %}
         {% endfor %}
-
-
-        <!-- Slides -->
-        <!-- <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div> -->
-        ...
       </div>
-      <!-- If we need pagination -->
       <div class="swiper-pagination"></div>
-
-      <!-- If we need navigation buttons -->
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
-
-      <!-- If we need scrollbar -->
       <div class="swiper-scrollbar"></div>
     </div>
+  </div>
+</div>
+<div style="width: 100%; height: 42px;">
+  <div id="button-fullscreen" style="float: right; padding: 5px;" onclick="return toggleFullscreen();">
+    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1.20239 4.01613V1H4.21852" stroke="#C2C2C2" stroke-linejoin="bevel" />
+      <path d="M4.21852 18H1.20239V14.9839" stroke="#C2C2C2" stroke-linejoin="bevel" />
+      <path d="M18.2024 14.9839V18H15.1863" stroke="#C2C2C2" stroke-linejoin="bevel" />
+      <path d="M15.1863 1H18.2024V4.01613" stroke="#C2C2C2" stroke-linejoin="bevel" />
+      <path d="M1.47656 1.27417L6.96043 6.75804" stroke="#C2C2C2" />
+      <path d="M12.4443 12.2419L17.9282 17.7258" stroke="#C2C2C2" />
+      <path d="M1.47656 17.7258L6.96043 12.2419" stroke="#C2C2C2" />
+      <path d="M12.4443 6.75804L17.9282 1.27417" stroke="#C2C2C2" />
+    </svg>
+
   </div>
 </div>
 
@@ -76,19 +71,26 @@ Prototype {% endblock %} {% block header %}
     <a class="large-link" href="{{ video.nextLink }}">Continue with lesson</a>
   </div>
 </div>
+<div class="slide-overlay hidden"></div>
 {% endblock %} {% block pageScripts %}
 <script type="text/javascript">
 
-
+  function toggleFullscreen() {
+    const slideshow = $('.swiper-container')
+    if ((slideshow).hasClass('swiper-fullscreen')) {
+      $('.slide-overlay').addClass('hidden')
+      $('.swiper-container').removeClass('swiper-fullscreen')
+      $('#button-fullscreen').removeClass('swiper-fullscreen-button')
+    } else {
+      $('.slide-overlay').removeClass('hidden')
+      $('.swiper-container').addClass('swiper-fullscreen')
+      $('#button-fullscreen').addClass('swiper-fullscreen-button')
+    }
+  }
 
   $(document).ready(function () {
 
     var mySwiper = new Swiper('.swiper-container', {
-      // Optional parameters
-      // direction: 'vertical',
-      // loop: true,
-
-      // If we need pagination
       pagination: {
         el: '.swiper-pagination',
       },
@@ -97,11 +99,6 @@ Prototype {% endblock %} {% block header %}
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-      },
-
-      // And if we need scrollbar
-      scrollbar: {
-        el: '.swiper-scrollbar',
       },
     })
 

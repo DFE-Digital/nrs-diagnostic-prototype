@@ -18,7 +18,7 @@ $govuk-assets-path: '/govuk/assets/';
 @import 'components/cookie-banner';
 
 // Import swiper
-@import 'node_modules/swiper/swiper';
+// @import 'node_modules/swiper/swiper';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 body {
@@ -290,4 +290,39 @@ button.govuk-button {
   left: 0;
   width: 40px;
   height: 40px;
+}
+
+.slide-overlay {
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.swiper-fullscreen {
+  z-index: 2 !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-fullscreen-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 3;
+  color: black;
+
+  // svg {
+  //   path: {
+  //     stroke: #007aff;
+  //   }
+  // }
 }

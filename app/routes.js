@@ -43,7 +43,7 @@ const lessonList = [
       {
         id: '1',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.',
+          'In this presentation, you will learn how to start a formal email.',
         // url: 'https://www.youtube.com/embed/nXIZzBuDzTg',
         slides: [
           '/public/images/slideshow/1/slideshow-1-slide-1.png',
@@ -527,8 +527,8 @@ router.get('/v4/topic/lesson/:lessonId/slideshow/:slideshowId', function(
     },
     heading: lesson.title,
     slideshow,
-    videoNo: lesson.slideshows.indexOf(slideshow) + 1,
-    totalVideos: lesson.slideshows.length,
+    slideshowNo: lesson.slideshows.indexOf(slideshow) + 1,
+    totalSlideshows: lesson.slideshows.length,
     help: helpLinks
   })
 })
