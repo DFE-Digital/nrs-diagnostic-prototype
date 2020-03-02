@@ -81,10 +81,12 @@ Prototype {% endblock %} {% block header %}
       $('.slide-overlay').addClass('hidden')
       $('.swiper-container').removeClass('swiper-fullscreen')
       $('#button-fullscreen').removeClass('swiper-fullscreen-button')
+      $('.swiper-slide').width('100%')
     } else {
       $('.slide-overlay').removeClass('hidden')
       $('.swiper-container').addClass('swiper-fullscreen')
       $('#button-fullscreen').addClass('swiper-fullscreen-button')
+      $('.swiper-slide').width('100%')
     }
   }
 
