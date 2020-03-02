@@ -14,7 +14,7 @@ Prototype {% endblock %} {% block header %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-      {{ heading }}
+      {{ lesson.title }}
     </h1>
   </div>
 </div>
@@ -27,8 +27,9 @@ Prototype {% endblock %} {% block header %}
     </h3>
 
     <ul class="govuk-list govuk-list--bullet">
-      <li>Learn to use a ratio to scale quantities</li>
-      <li>Learn how to adapt a recipe or mixing ratio</li>
+      <li>Learn how to write a formal email</li>
+      <li>Identify the key features of a formal email</li>
+      <li>Practice writing a formal email</li>
     </ul>
   </div>
 </div>
@@ -41,7 +42,14 @@ Prototype {% endblock %} {% block header %}
 
     <ul class="govuk-list govuk-list--bullet">
       <li>
-        Mixing substances such as cement, hair dye, or even making a cup of tea
+        Writing a job application
+      </li>
+      <li>
+        Writing to a colleague at work (to request time off or arrange a meeting)
+      </li>
+      <li>
+        Writing a complaint and/ or asking for a refund (usually to a company who has failed to provide their services
+        as you would expect)
       </li>
     </ul>
   </div>
@@ -49,7 +57,7 @@ Prototype {% endblock %} {% block header %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <a href="/main/v3/course/maths/lesson/lesson-award" class="large-link">Continue with lesson</a>
+    <a href="/v4/topic/lesson/{{ lesson.id }}/select-learning-content" class="large-link">Continue with lesson</a>
   </div>
 </div>
 {% endblock %}

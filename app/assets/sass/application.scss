@@ -129,7 +129,7 @@ button.govuk-button {
 }
 
 .feedback-incorrect {
-  border-left: 10px solid #d4351c;
+  border-left: 10px solid #6f777b;
 
   span.feedback-title {
     font-family: 'GDS Transport';
@@ -137,7 +137,7 @@ button.govuk-button {
     font-weight: bold;
     font-size: 19px;
     line-height: 26px;
-    color: #d4351c;
+    color: #000000;
   }
 
   span.feedback-message {
@@ -246,4 +246,45 @@ button.govuk-button {
   @media screen and (min-width: 640px) {
     width: 100%;
   }
+}
+
+/* Custom radios (v4) */
+.govuk-radios__label__correct {
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 8px 15px 5px;
+  cursor: pointer;
+  // remove 300ms pause on mobile
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+.govuk-radios__label__correct::before {
+  content: url('/public/images/tick-logo.svg');
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.govuk-radios__label__incorrect {
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 8px 15px 5px;
+  cursor: pointer;
+  // remove 300ms pause on mobile
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+.govuk-radios__label__incorrect::before {
+  content: url('/public/images/cross-logo.svg');
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
 }

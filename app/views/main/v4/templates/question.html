@@ -21,60 +21,139 @@ NRS Prototype
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
     {{ headingSuper({
-      text: heading
+      text: heading.sub
     }) }}
 
     <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-      Question<br />
-      ({{ questionNo }} out of 10)
+      {{ heading.html | safe if heading.html else heading.main }}
     </h1>
-
-    <form class="form" action="/url/of/next/page" method="post">
-
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
-      {{ govukRadios({
-  idPrefix: "where-do-you-live",
-  name: "where-do-you-live",
-  fieldset: {
-    legend: {
-      text: "Where do you live?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
-    }
-  },
-  items: [
-    {
-      value: "england",
-      text: "England"
-    },
-    {
-      value: "scotland",
-      text: "Scotland"
-    },
-    {
-      value: "wales",
-      text: "Wales"
-    },
-    {
-      value: "northern-ireland",
-      text: "Northern Ireland"
-    }
-  ]
-}) }}
-
-      <p>[See <a href="https://design-system.service.gov.uk">the GOV.UK Design System</a> for examples]</p>
-
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
-
-    </form>
-
   </div>
 </div>
 
+{% if description %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>
+      {{ description }}
+    </p>
+    <hr />
+  </div>
+</div>
+{% endif %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ question.html | safe if question.html else question.text }}
+  </div>
+</div>
+
+<form class="form" action="/url/of/next/page" method="post" onsubmit="return v4SubmitAnswer();">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <input type="hidden" id="_correct_answer_id" value="{{ question.name }}-{{ question.correctAnswerId }}" />
+      <input type="hidden" id="_question_name" value="{{ question.name }}" />
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios">
+            {% for answer in question.answers %}
+            {% if answer %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="{{ question.name }}-{{ answer.id }}" name="{{ question.name }}"
+                type="radio" value="{{ answer.value }}">
+              <label id="{{ question.name }}-{{ answer.id }}-label" class="govuk-label govuk-radios__label"
+                for="{{ question.name }}">
+                {{ answer.text }}
+              </label>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <button class="govuk-button" data-module="govuk-button">Continue</button> -->
+
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% for answer in question.answers %}
+      {% if answer %}
+      <div id="{{ question.name }}-{{ answer.id }}-feedback" name="question-feedback"
+        class="govuk-inset-text hidden {% if answer.isCorrect %} feedback-correct {% else %} feedback-incorrect {% endif %}">
+        <span class="feedback-title">{% if answer.isCorrect %} Correct {% else %} Not quite! {% endif %}
+        </span><br />
+        <span class="feedback-message">
+          The language used here is too informal. A job application is a formal
+          piece of writing. You should use formal language throughout your
+          email.
+        </span>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <button id="button-submit" class="govuk-button" data-module="govuk-button">Submit answer</button>
+      <a href="#help" id="button-skip" class="govuk-button" data-module="govuk-button">I don't know</a>
+      <a href="{{ question.nextLink }}" id="button-continue" class="large-link hidden">Continue with lesson</a>
+    </div>
+  </div>
+</form>
+
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+
+  function v4SubmitAnswer() {
+    var question = $('#_question_name').val()
+
+    if (!$('input:radio[name=' + question + ']').is(':checked')) {
+      return false
+    }
+
+    $('[name=question-feedback]').addClass('hidden')
+
+    var $radio = $('input[name=' + question + ']:checked')
+    var selectedId = $radio.attr('id')
+
+    var correctAnswer = $('#_correct_answer_id').val()
+
+    // if (selectedId === correctAnswer) {
+    //   // save correct?
+    // } else {
+    //   // save incorrect?
+    // }
+
+    v4LockQuestion(question)
+    v4ShowFeedback(selectedId, correctAnswer)
+
+    return false
+  }
+
+  function v4ShowFeedback(selectedId, correctAnswer) {
+    if (selectedId !== correctAnswer) {
+      $('#' + selectedId + '-label').removeClass('govuk-radios__label')
+      $('#' + selectedId + '-label').addClass('govuk-radios__label__incorrect')
+    }
+
+    $('#' + correctAnswer + '-label').removeClass('govuk-radios__label')
+    $('#' + correctAnswer + '-label').addClass('govuk-radios__label__correct')
+
+    $('#' + selectedId + '-feedback').removeClass('hidden')
+  }
+
+  function v4LockQuestion(question) {
+    $('input[name=' + question + ']').attr('disabled', true)
+    $('#button-submit').addClass('hidden')
+    $('#button-skip').addClass('hidden')
+    $('#button-continue').removeClass('hidden')
+  }
+</script>
 {% endblock %}

@@ -15,7 +15,7 @@ Prototype {% endblock %} {% block header %}
   <div class="govuk-grid-column-two-thirds">
 
     {{ headingSuper({
-      text: heading
+      text: lesson.title
     }) }}
 
     <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
@@ -37,7 +37,7 @@ Prototype {% endblock %} {% block header %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="/v4/topic/lesson/learning-content" method="post" class="form">
+    <form action="/v4/topic/lesson/{{ lesson.id }}/learning-content" method="post" class="form">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
@@ -59,7 +59,7 @@ Prototype {% endblock %} {% block header %}
                     </svg>
                   </div>
                   <div>
-                    Slideshow (low data)
+                    Slideshow (3MB)
                   </div>
                 </div>
 
@@ -99,7 +99,7 @@ Prototype {% endblock %} {% block header %}
                     </svg>
                   </div>
                   <div>
-                    Video (200mb)
+                    Video (30MB)
                   </div>
                 </div>
 
