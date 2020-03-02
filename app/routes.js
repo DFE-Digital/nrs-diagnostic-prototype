@@ -39,10 +39,33 @@ const lessonList = [
         nextLink: '/v4/topic/lesson/1/practice/3'
       }
     ],
+    slideshows: [
+      {
+        id: '1',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.',
+        // url: 'https://www.youtube.com/embed/nXIZzBuDzTg',
+        slides: [
+          '/public/images/slideshow/1/slideshow-1-slide-1.png',
+          '/public/images/slideshow/1/slideshow-1-slide-2.png',
+          '/public/images/slideshow/1/slideshow-1-slide-3.png',
+          '/public/images/slideshow/1/slideshow-1-slide-4.png',
+          '/public/images/slideshow/1/slideshow-1-slide-5.png',
+          '/public/images/slideshow/1/slideshow-1-slide-6.png',
+          '/public/images/slideshow/1/slideshow-1-slide-7.png',
+          '/public/images/slideshow/1/slideshow-1-slide-8.png',
+          '/public/images/slideshow/1/slideshow-1-slide-9.png',
+          '/public/images/slideshow/1/slideshow-1-slide-10.png',
+          '/public/images/slideshow/1/slideshow-1-slide-11.png'
+        ],
+        backLink: '/v4/topic/lesson/1/select-learning-content',
+        nextLink: '/v4/topic/lesson/1/practice/1'
+      }
+    ],
     practiceQuestions: [
       {
         id: '1',
-        name: 'practice-question',
+        name: 'practice-question-one',
         type: 'multiplechoice',
         title: '',
         text: '',
@@ -88,7 +111,7 @@ const lessonList = [
       },
       {
         id: '2',
-        name: 'practice-question',
+        name: 'practice-question-two',
         type: 'multiplechoice',
         title: '',
         text: '',
@@ -134,7 +157,7 @@ const lessonList = [
       },
       {
         id: '3',
-        name: 'practice-question',
+        name: 'practice-question-three',
         type: 'multiplechoice',
         title: '',
         text: '',
@@ -182,7 +205,7 @@ const lessonList = [
     assessmentQuestions: [
       {
         id: '1',
-        name: 'assessment-question',
+        name: 'assessment-question-one',
         type: 'multiplechoice',
         title: '',
         text: '',
@@ -228,7 +251,7 @@ const lessonList = [
       },
       {
         id: '2',
-        name: 'assessment-question',
+        name: 'assessment-question-two',
         type: 'multiplechoice',
         title: '',
         text: '',
@@ -383,6 +406,15 @@ var shuffleArray = function(array) {
 }
 
 // Add your routes here - above the module.exports line
+router.get('/v4', function(req, res) {
+  res.render('main/v4/context-page', {
+    heading: {
+      main: 'Get an English Functional Skills 2 qualifcation'
+    },
+    nextLink: '/v4/topic/select-lesson'
+  })
+})
+
 router.get('/v4/topic/select-lesson', function(req, res) {
   res.render('main/v4/topic/select-lesson', {
     heading: COURSE_NAME,
@@ -472,6 +504,35 @@ router.get('/v4/topic/lesson/:lessonId/video/:videoId', function(req, res) {
   })
 })
 
+router.get('/v4/topic/lesson/:lessonId/slideshow/:slideshowId', function(
+  req,
+  res
+) {
+  const lessonId = req.params.lessonId
+  const lesson = lessonList.find(x => x.id === lessonId)
+  if (!lesson) {
+    res.redirect('/v4/topic/select-lesson')
+  }
+
+  const slideshowId = req.params.slideshowId
+  const slideshow = lesson.slideshows.find(x => x.id === slideshowId)
+  if (!slideshow) {
+    res.redirect(`/v4/topic/lesson/${lessonId}/select-learning-content`)
+  }
+
+  res.render('main/v4/templates/slides', {
+    back: {
+      text: 'Back',
+      href: slideshow.backLink
+    },
+    heading: lesson.title,
+    slideshow,
+    videoNo: lesson.slideshows.indexOf(slideshow) + 1,
+    totalVideos: lesson.slideshows.length,
+    help: helpLinks
+  })
+})
+
 router.get('/v4/topic/lesson/:lessonId/practice/:questionId', function(
   req,
   res
@@ -499,10 +560,12 @@ router.get('/v4/topic/lesson/:lessonId/practice/:questionId', function(
     },
     description:
       'Here is a quick practise question to see if you understand what you have been taught so far.',
+    lessonId,
     question: {
       ...question,
       answers: shuffleArray(question.answers)
     },
+    saveAnswers: false,
     help: helpLinks
   })
 })
@@ -514,17 +577,17 @@ router.get('/v4/topic/lesson/:lessonId/learning-content', function(req, res) {
     res.redirect('/v4/topic/select-lesson')
   }
 
-  const video = lesson.videos[0]
-  if (!video) {
-    res.redirect(`/v4/topic/lesson/${lessonId}/select-learning-content`)
-  }
-
   let learningContent = req.session.data['select-learning-material']
   if (learningContent === 'slideshow') {
-    res.redirect('')
+    const slideshow = lesson.slideshows[0]
+    res.redirect(`/v4/topic/lesson/${lessonId}/slideshow/${slideshow.id}`)
   } else if (learningContent === 'text') {
     res.redirect('')
   } else if (learningContent === 'video') {
+    const video = lesson.videos[0]
+    if (!video) {
+      res.redirect(`/v4/topic/lesson/${lessonId}/select-learning-content`)
+    }
     res.redirect(`/v4/topic/lesson/${lessonId}/video/${video.id}`)
   } else {
     res.redirect(`/v4/topic/lesson/${lessonId}/select-learning-content`)
@@ -567,6 +630,7 @@ router.get('/v4/topic/lesson/:lessonId/assessment/:questionId', function(
   }
 
   const questionNo = lesson.assessmentQuestions.indexOf(question) + 1
+  const totalQuestions = lesson.assessmentQuestions.length
 
   res.render('main/v4/templates/question', {
     back: {
@@ -575,14 +639,46 @@ router.get('/v4/topic/lesson/:lessonId/assessment/:questionId', function(
     },
     heading: {
       sub: lesson.title,
-      main: `Question ${questionId} (out of 10)`,
-      html: `Question<br />(${questionNo} of 10)`
+      main: `Question ${questionId} (out of ${totalQuestions})`,
+      html: `Question<br />(${questionNo} of ${totalQuestions})`
     },
+    lessonId,
     question: {
       ...question,
       answers: shuffleArray(question.answers)
     },
+    saveAnswers: true,
     help: helpLinks
+  })
+})
+
+router.get('/v4/topic/lesson/:lessonId/feedback', function(req, res) {
+  const lessonId = req.params.lessonId
+  const lesson = lessonList.find(x => x.id === lessonId)
+  if (!lesson) {
+    res.redirect('/v4/topic/select-lesson')
+  }
+
+  res.render('main/v4/topic/lesson/feedback', {
+    back: {
+      text: 'Exit lesson',
+      href: '#' // videoContent.backLink
+    },
+    heading: {
+      sub: lesson.title,
+      main: 'Lesson complete'
+      // html: `Question<br />(${questionNo} of 10)`
+    },
+    lesson: {
+      ...lesson,
+      assessmentQuestions: [
+        ...lesson.assessmentQuestions.map(question => ({
+          ...question,
+          answers: shuffleArray(question.answers)
+        }))
+      ]
+    },
+    help: [helpLinks[0]]
   })
 })
 

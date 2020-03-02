@@ -49,11 +49,13 @@ NRS Prototype
   </div>
 </div>
 
-<form class="form" action="/url/of/next/page" method="post" onsubmit="return v4SubmitAnswer();">
+<form class="form" onsubmit="return v4SubmitAnswer();">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <input type="hidden" id="_lesson_id" value="{{ lessonId }}" />
       <input type="hidden" id="_correct_answer_id" value="{{ question.name }}-{{ question.correctAnswerId }}" />
       <input type="hidden" id="_question_name" value="{{ question.name }}" />
+      <input type="hidden" id="_save_answers" value="{{ saveAnswers }}" />
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <div class="govuk-radios">
@@ -72,11 +74,6 @@ NRS Prototype
           </div>
         </fieldset>
       </div>
-
-      <!-- <button class="govuk-button" data-module="govuk-button">Continue</button>
-      <button class="govuk-button" data-module="govuk-button">Continue</button> -->
-
-
     </div>
   </div>
 
@@ -112,24 +109,22 @@ NRS Prototype
 <script type="text/javascript">
 
   function v4SubmitAnswer() {
-    var question = $('#_question_name').val()
-
+    const question = $('#_question_name').val()
     if (!$('input:radio[name=' + question + ']').is(':checked')) {
       return false
     }
 
     $('[name=question-feedback]').addClass('hidden')
 
-    var $radio = $('input[name=' + question + ']:checked')
-    var selectedId = $radio.attr('id')
+    const lessonId = $('#_lesson_id').val()
+    const correctAnswer = $('#_correct_answer_id').val()
+    const saveAnswers = $('#_save_answers').val()
+    const $radio = $('input[name=' + question + ']:checked')
+    const selectedId = $radio.attr('id')
 
-    var correctAnswer = $('#_correct_answer_id').val()
-
-    // if (selectedId === correctAnswer) {
-    //   // save correct?
-    // } else {
-    //   // save incorrect?
-    // }
+    if (saveAnswers === 'true') {
+      v4SaveAnswerToLocalStorage(lessonId, question, selectedId, selectedId === correctAnswer)
+    }
 
     v4LockQuestion(question)
     v4ShowFeedback(selectedId, correctAnswer)
@@ -155,5 +150,58 @@ NRS Prototype
     $('#button-skip').addClass('hidden')
     $('#button-continue').removeClass('hidden')
   }
+
+  // function v4SaveAnswerToLocalStorage(question, selectedAnswer, isCorrect) {
+  //   const allowOverwrite = true // TODO: Move this to central config
+  //   if (!allowOverwrite) {
+  //     const existing = localStorage.getItem(name)
+  //     if (existing) {
+  //       return
+  //     }
+  //   }
+
+  //   const answer = {
+  //     selectedAnswer,
+  //     isCorrect
+  //   }
+
+  //   setLocalStorageObject(question, answer)
+  // }
+
+  function v4SaveAnswerToLocalStorage(lessonId, question, selectedAnswer, isCorrect) {
+
+    var lesson = getNewOrExistingLessonFromStorage(lessonId)
+
+    var allowOverwrite = false // TODO: Move this to central config
+    if (!allowOverwrite) {
+      const existing = lesson.answers.find(x => x.question === question)
+      if (existing) {
+        return
+      }
+    }
+
+    let answers = lesson.answers
+    answers.push({
+      question,
+      selectedAnswer,
+      isCorrect
+    })
+
+    lesson.answers = answers
+    setLocalStorageObject('lesson-' + lessonId, lesson)
+  }
+
+  function getNewOrExistingLessonFromStorage(lessonId) {
+    var existing = getLocalStorageObject('lesson-' + lessonId)
+    if (existing) {
+      return existing
+    }
+    const lesson = {
+      answers: []
+    }
+    setLocalStorageObject('lesson-' + lessonId, lesson)
+    return lesson
+  }
+
 </script>
 {% endblock %}

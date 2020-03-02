@@ -1,0 +1,163 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+NRS Prototype
+{% endblock %}
+
+{% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ headingSuper({
+      text: heading.sub
+    }) }}
+
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ heading.main }}
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="small-link">Your score</span>
+    <h1 class="govuk-heading-xl" id="results-percentage" style="margin-bottom: 15px; color: #00703C;">
+      0%
+    </h1>
+    <p id="results-summary">You answered 4 out of 5 questions correctly.</p>
+
+    <div id="badge-panel" class="hidden">
+      {{ badgePanel({
+        title: 'Email Expert',
+        text: 'Based on your score, you have unlocked the following badge:'
+      }) }}
+    </div>
+
+    <input type="hidden" id="_lesson_id" value="{{ lesson.id }}" />
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="#" class="govuk-button" data-module="govuk-button">Next lesson</a>
+    <a href="#" class="govuk-button" data-module="govuk-button">Retry</a>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">Feedback on your answers</h2>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      {% for question in lesson.assessmentQuestions %}
+      {% if question %}
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Question {{ question.id }}
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content"
+          aria-labelledby="accordion-default-heading-1">
+
+          <div class="govuk-grid-column-two-thirds">
+            {{ question.html | safe if question.html else question.text }}
+          </div>
+
+          <div class="govuk-grid-column-two-thirds">
+            <input type="hidden" id="_correct_answer_id" value="{{ question.name }}-{{ question.correctAnswerId }}" />
+            <input type="hidden" id="_question_name" value="{{ question.name }}" />
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <div class="govuk-radios">
+                  {% for answer in question.answers %}
+                  {% if answer %}
+                  <div class="govuk-radios__item">
+                    <input disabled class="govuk-radios__input" id="{{ question.name }}-{{ answer.id }}"
+                      name="{{ question.name }}" type="radio" value="{{ answer.value }}">
+                    <label id="{{ question.name }}-{{ answer.id }}-label"
+                      class="govuk-label {% if answer.isCorrect %} govuk-radios__label__correct {% else %} govuk-radios__label {% endif %}"
+                      for="{{ question.name }}">
+                      {{ answer.text }}
+                    </label>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+              </fieldset>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function () {
+    const lessonId = $('#_lesson_id').val()
+    v4GetAnswersForLesson(lessonId)
+  })
+
+  function v4GetAnswersForLesson(lessonId) {
+    var lesson = getLocalStorageObject('lesson-' + lessonId)
+    if (!lesson) {
+      return
+    }
+
+    const totalAnswers = lesson.answers.length
+    let correctAnswerCount = 0
+    lesson.answers.forEach(answer => {
+      // $('#' + answer.selectedAnswer).prop('checked', true)
+      if (!answer.isCorrect) {
+        $('#' + answer.selectedAnswer + '-label').removeClass('govuk-radios__label')
+        $('#' + answer.selectedAnswer + '-label').addClass('govuk-radios__label__incorrect')
+      } else {
+        correctAnswerCount++
+      }
+    });
+
+    const percentage = ((correctAnswerCount / totalAnswers) * 100).toFixed(0)
+
+    if (percentage >= 70) {
+      $('#badge-panel').removeClass('hidden')
+    }
+
+    $('#results-percentage').text(percentage + '%')
+    $('#results-summary').text(
+      'You answered ' +
+      correctAnswerCount +
+      ' out of ' +
+      totalAnswers +
+      ' questions correctly.'
+    )
+  }
+</script>
+{% endblock %}

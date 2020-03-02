@@ -1,0 +1,110 @@
+{% extends "layout.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ headingSuper({
+      text: heading
+    }) }}
+
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      Video (Part {{ videoNo }} of {{ totalVideos }})
+    </h1>
+
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>
+      {{ video.description }}
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- <iframe width="100%" src="{{ video.url }}" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br />
+    <br /> -->
+
+    <div class="swiper-container" style="z-index: 2; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        {% for slide in slideshow.slides %}
+        {% if slide %}
+        <div class="swiper-slide"><img width="100%" src="{{ slide }}" /></div>
+        <!-- <div class="swiper-slide" style="background-image:url('{{ slide }}')"></div> -->
+        {% endif %}
+        {% endfor %}
+
+
+        <!-- Slides -->
+        <!-- <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div> -->
+        ...
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a class="large-link" href="{{ video.nextLink }}">Continue with lesson</a>
+  </div>
+</div>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+
+
+
+  $(document).ready(function () {
+
+    var mySwiper = new Swiper('.swiper-container', {
+      // Optional parameters
+      // direction: 'vertical',
+      // loop: true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // And if we need scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    })
+
+  })
+</script>
+{% endblock %}
