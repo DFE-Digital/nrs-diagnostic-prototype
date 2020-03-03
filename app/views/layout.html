@@ -59,9 +59,13 @@ GOV.UK Prototype Kit
 {% if help %}
 
 <a name="help"></a>
-{{ helpLinks({
-    helpSections: help
-  }) }}
+<div id="helplinks-primary">
+  <div class="govuk-width-container">
+    {{ helpLinks({
+      helpSections: help
+    }) }}
+  </div>
+</div>
 
 {% endif %}
 {% endblock %}

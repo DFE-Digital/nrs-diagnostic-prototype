@@ -23,9 +23,68 @@ NRS Prototype
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    {{ headingSuper({
-      text: heading.sub
-    }) }}
+    {% for answer in question.answers %}
+    {% if answer %}
+
+    <div id="{{ question.name }}-{{ answer.id }}-feedback" name="question-feedback" class="feedback-box hidden">
+      <div style="padding: 15px;">
+
+        <h3 class="govuk-heading-m">{% if answer.isCorrect %} Correct answer! {% else %} Incorrect answer! {% endif %}
+        </h3>
+        {% if answer.isCorrect %}
+        <p>You have answered this correctly.</p>
+        {% else %}
+        <p>{{ answer.feedback }}</p>
+        {% if saveAnswers %} {% else %}
+        <hr />
+        <h3 class="govuk-heading-m">The correct answer is:</h3>
+        <p name="correct-answer-text"></p>
+        {% endif %}
+        {% endif %}
+        <a class="small-link" href="#question-anchor">View question</a>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="govuk-grid-row hidden" id="section-actions" style="margin-bottom: 20px;">
+  <div class="govuk-grid-column-two-thirds">
+    <hr />
+    <h3 class="govuk-heading-m">{{ actions.title }}</h3>
+    {% for link in actions.links %}
+    {% if link %}
+    <div style="margin-bottom: 5px;">
+      {% if link.html %}
+      {{ link.html | safe if link.html else heading.main }}
+      {% else %}
+      <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br />
+      {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<div id="helplinks-secondary" class="hidden">
+  {{ helpLinks({
+    helpSections: help
+  }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <hr />
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row" id="section-headings">
+  <div class="govuk-grid-column-two-thirds">
+    <div id="sub-heading">
+      {{ headingSuper({
+        text: heading.sub
+      }) }}
+    </div>
 
     <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
       {{ heading.html | safe if heading.html else heading.main }}
@@ -34,7 +93,7 @@ NRS Prototype
 </div>
 
 {% if description %}
-<div class="govuk-grid-row">
+<div class="govuk-grid-row" id="question-description">
   <div class="govuk-grid-column-two-thirds">
     <p>
       {{ description }}
@@ -50,6 +109,7 @@ NRS Prototype
 </div>
 
 <form class="form" onsubmit="return v4SubmitAnswer();">
+  <a name="question-anchor"></a>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <input type="hidden" id="_lesson_id" value="{{ lessonId }}" />
@@ -81,25 +141,23 @@ NRS Prototype
     <div class="govuk-grid-column-two-thirds">
       {% for answer in question.answers %}
       {% if answer %}
-      <div id="{{ question.name }}-{{ answer.id }}-feedback" name="question-feedback"
-        class="govuk-inset-text hidden {% if answer.isCorrect %} feedback-correct {% else %} feedback-incorrect {% endif %}">
-        <span class="feedback-title">{% if answer.isCorrect %} Correct answer! {% else %} Incorrect answer! {% endif %}
-        </span><br />
-        <span class="feedback-message">
+
+      <div id="{{ question.name }}-{{ answer.id }}-feedback" name="question-feedback" class="feedback-box hidden">
+        <div style="padding: 15px;">
+
+          <h3 class="govuk-heading-m">{% if answer.isCorrect %} Correct answer! {% else %} Incorrect answer! {% endif %}
+          </h3>
           {% if answer.isCorrect %}
-          You have answered this correctly.
+          <p>You have answered this correctly.</p>
           {% else %}
-          The correct answer is:
-          <br />
-          <br />
-          <span style="font-weight: bold;" name="correct-answer-text"></span>
-          {% endif %}
+          <p>{{ answer.feedback }}</p>
           {% if saveAnswers %} {% else %}
-          <br />
-          <br />
-          {{ answer.feedback }}
+          <hr />
+          <h3 class="govuk-heading-m">The correct answer is:</h3>
+          <p name="correct-answer-text"></p>
           {% endif %}
-        </span>
+          {% endif %}
+        </div>
       </div>
       {% endif %}
       {% endfor %}
@@ -133,7 +191,7 @@ NRS Prototype
     const selectedId = $radio.attr('id')
 
     const correctAnswerText = $('#' + correctAnswer).val()
-    $('.feedback-message span[name="correct-answer-text"]').text(correctAnswerText)
+    $('.feedback-box p[name="correct-answer-text"]').text(correctAnswerText)
 
     if (saveAnswers === 'true') {
       v4SaveAnswerToLocalStorage(lessonId, question, selectedId, selectedId === correctAnswer)
@@ -141,6 +199,8 @@ NRS Prototype
 
     v4LockQuestion(question)
     v4ShowFeedback(selectedId, correctAnswer)
+
+    window.scrollTo(0, 0)
 
     return false
   }
@@ -156,6 +216,12 @@ NRS Prototype
     // $('#' + correctAnswer + '-label').addClass('govuk-radios__label__correct')
 
     $('#' + selectedId + '-feedback').removeClass('hidden')
+    // $('#section-headings').addClass('hidden')
+    $('#sub-heading').addClass('hidden')
+    $('#helplinks-primary').addClass('hidden')
+    $('#helplinks-secondary').removeClass('hidden')
+    $('#section-actions').removeClass('hidden')
+    $('#question-description').addClass('hidden')
   }
 
   function v4LockQuestion(question) {

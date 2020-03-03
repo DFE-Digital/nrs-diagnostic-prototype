@@ -65,9 +65,9 @@ const lessonList = [
         description:
           'In this slideshow, you will learn how to start a formal email.',
         slides: [
-          // '/public/images/slideshow/1/slideshow-2-slide-1.jpeg',
-          '/public/images/slideshow/1/slideshow-2-slide-2.jpeg',
-          '/public/images/slideshow/1/slideshow-2-slide-3.jpeg'
+          '/public/images/slideshow/1/slideshow-2-slide-1.jpeg',
+          '/public/images/slideshow/1/slideshow-2-slide-2.jpeg'
+          // '/public/images/slideshow/1/slideshow-2-slide-3.jpeg'
         ],
         backLink: '/v4/topic/lesson/1/slideshow/1',
         nextLink: '/v4/topic/lesson/1/slideshow/practice/2'
@@ -1026,6 +1026,25 @@ router.get('/v4/topic/lesson/:lessonId/:media/practice/:questionId', function(
     },
     saveAnswers: false,
     // nextLink: `/v4/topic/lesson/${lessonId}/`,
+    actions: {
+      title: 'You can now:',
+      // description:
+      //   'The options below are available to you should you need help in regards to the lesson or more broader questions.',
+      links: [
+        {
+          text: 'Continue with lesson',
+          href: question.nextLink
+        },
+        {
+          text: 'Change learning material',
+          href: `/v4/topic/lesson/${lessonId}/select-learning-material`
+        },
+        {
+          text: 'Return to material',
+          href: question.backLink
+        }
+      ]
+    },
     help: helpLinks
   })
 })
@@ -1108,6 +1127,21 @@ router.get('/v4/topic/lesson/:lessonId/assessment/:questionId', function(
       answers: shuffleArray(question.answers)
     },
     saveAnswers: true,
+    actions: {
+      title: 'You can now:',
+      // description:
+      //   'The options below are available to you should you need help in regards to the lesson or more broader questions.',
+      links: [
+        {
+          text: 'Continue with quiz',
+          href: question.nextLink
+        },
+        {
+          text: 'Return to lesson',
+          href: question.backLink
+        }
+      ]
+    },
     help: [helpLinks[0]]
   })
 })
