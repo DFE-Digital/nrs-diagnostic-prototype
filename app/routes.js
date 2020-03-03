@@ -186,7 +186,7 @@ const lessonList = [
         title: '',
         text: '',
         html:
-          '<p>James has four children. The children are aged between 16, 18, 4, 10.</p><p><strong>Select the ages that are in order from the smallest to the largest.</strong></p>',
+          '<p>You are writing an email to a local restaurant applying for a job as Front of House Manager. You need to end your email with an appropriate closing line and sign off. You do not know the name of the person you are writing to.</p><p><strong>Write the end of your email, making sure you include closing line and a sign off.  use for this email?</strong></p>',
         correctAnswerId: '1',
         answers: [
           {
@@ -194,30 +194,6 @@ const lessonList = [
             value: '4, 10, 16, 18',
             text: '4, 10, 16, 18',
             isCorrect: true,
-            feedback:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
-          },
-          {
-            id: '2',
-            value: '10, 16, 18, 4',
-            text: '10, 16, 18, 4',
-            isCorrect: false,
-            feedback:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
-          },
-          {
-            id: '3',
-            value: '18, 16, 10, 4',
-            text: '18, 16, 10, 4',
-            isCorrect: false,
-            feedback:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
-          },
-          {
-            id: '4',
-            value: '16, 18 , 4, 10',
-            text: '16, 18 , 4, 10',
-            isCorrect: false,
             feedback:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
           }
@@ -954,6 +930,19 @@ router.get('/v4/topic/lesson/:lessonId/video/:videoId', function(req, res) {
     video,
     videoNo: lesson.videos.indexOf(video) + 1,
     totalVideos: lesson.videos.length,
+    actions: {
+      title: 'You can now:',
+      links: [
+        {
+          text: 'Continue with lesson',
+          href: video.nextLink
+        },
+        {
+          text: 'Change learning material',
+          href: `/v4/topic/lesson/${lessonId}/select-learning-material`
+        }
+      ]
+    },
     help: helpLinks
   })
 })
@@ -983,6 +972,19 @@ router.get('/v4/topic/lesson/:lessonId/slideshow/:slideshowId', function(
     slideshow,
     slideshowNo: lesson.slideshows.indexOf(slideshow) + 1,
     totalSlideshows: lesson.slideshows.length,
+    actions: {
+      title: 'You can now:',
+      links: [
+        {
+          text: 'Continue with lesson',
+          href: slideshow.nextLink
+        },
+        {
+          text: 'Change learning material',
+          href: `/v4/topic/lesson/${lessonId}/select-learning-material`
+        }
+      ]
+    },
     help: helpLinks
   })
 })
@@ -1008,7 +1010,12 @@ router.get('/v4/topic/lesson/:lessonId/:media/practice/:questionId', function(
     res.redirect(`/v4/topic/lesson/${lessonId}/select-learning-content`)
   }
 
-  res.render('main/v4/templates/question', {
+  const template =
+    question.type === 'input'
+      ? 'main/v4/templates/question-input'
+      : 'main/v4/templates/question'
+
+  res.render(template, {
     back: {
       text: 'Back to video (part 1)',
       href: '#' // videoContent.backLink
