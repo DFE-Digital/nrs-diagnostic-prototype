@@ -61,14 +61,32 @@ NRS Prototype
   </div>
 </div>
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row" id="section-actions" style="margin-bottom: 20px;">
+  <div class="govuk-grid-column-two-thirds">
+    <hr />
+    <h3 class="govuk-heading-m">{{ actions.title }}</h3>
+    {% for link in actions.links %}
+    {% if link %}
+    <div style="margin-bottom: 5px;">
+      {% if link.html %}
+      {{ link.html | safe if link.html else heading.main }}
+      {% else %}
+      <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br />
+      {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<!-- <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-inset-text">
       <a href="/v4/start-part-two" class="large-link" style="font-weight: bold;">Next lesson</a><br />
       <a href="#" class="large-link">Retry</a>
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

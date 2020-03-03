@@ -1179,6 +1179,19 @@ router.get('/v4/topic/lesson/:lessonId/feedback', function(req, res) {
         }))
       ]
     },
+    actions: {
+      title: 'You can now:',
+      links: [
+        {
+          text: 'Go to next lesson',
+          href: '/v4/start-part-two'
+        },
+        {
+          text: 'Retry this lesson',
+          href: `/v4/topic/lesson/${lessonId}/select-learning-material`
+        }
+      ]
+    },
     help: [helpLinks[0]]
   })
 })
