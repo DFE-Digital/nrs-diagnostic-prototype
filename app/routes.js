@@ -20,7 +20,7 @@ const lessonList = [
           'In this video, you will learn how to start a formal email.',
         url: 'https://www.youtube.com/embed/nXIZzBuDzTg',
         backLink: '/v4/topic/lesson/1/select-learning-content',
-        nextLink: '/v4/topic/lesson/1/practice/1'
+        nextLink: '/v4/topic/lesson/1/video/practice/1'
       },
       {
         id: '2',
@@ -28,7 +28,7 @@ const lessonList = [
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.',
         url: 'https://www.youtube.com/embed/nXIZzBuDzTg',
         backLink: '/v4/topic/lesson/1/video/1',
-        nextLink: '/v4/topic/lesson/1/practice/2'
+        nextLink: '/v4/topic/lesson/1/video/practice/2'
       },
       {
         id: '3',
@@ -36,7 +36,7 @@ const lessonList = [
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.',
         url: 'https://www.youtube.com/embed/nXIZzBuDzTg',
         backLink: '/v4/topic/lesson/1/video/2',
-        nextLink: '/v4/topic/lesson/1/practice/3'
+        nextLink: '/v4/topic/lesson/1/video/practice/3'
       }
     ],
     slideshows: [
@@ -44,25 +44,49 @@ const lessonList = [
         id: '1',
         description:
           'In this presentation, you will learn how to start a formal email.',
-        // url: 'https://www.youtube.com/embed/nXIZzBuDzTg',
         slides: [
-          '/public/images/slideshow/1/slideshow-1-slide-1.png',
-          '/public/images/slideshow/1/slideshow-1-slide-2.png',
-          '/public/images/slideshow/1/slideshow-1-slide-3.png',
-          '/public/images/slideshow/1/slideshow-1-slide-4.png',
-          '/public/images/slideshow/1/slideshow-1-slide-5.png',
-          '/public/images/slideshow/1/slideshow-1-slide-6.png',
-          '/public/images/slideshow/1/slideshow-1-slide-7.png',
-          '/public/images/slideshow/1/slideshow-1-slide-8.png',
-          '/public/images/slideshow/1/slideshow-1-slide-9.png',
-          '/public/images/slideshow/1/slideshow-1-slide-10.png',
-          '/public/images/slideshow/1/slideshow-1-slide-11.png'
+          '/public/images/slideshow/1/slideshow-1-slide-1.jpeg',
+          '/public/images/slideshow/1/slideshow-1-slide-2.jpeg',
+          '/public/images/slideshow/1/slideshow-1-slide-3.jpeg',
+          '/public/images/slideshow/1/slideshow-1-slide-4.jpeg',
+          '/public/images/slideshow/1/slideshow-1-slide-5.jpeg',
+          '/public/images/slideshow/1/slideshow-1-slide-6.jpeg',
+          // '/public/images/slideshow/1/slideshow-1-slide-7.jpeg',
+          '/public/images/slideshow/1/slideshow-1-slide-8.jpeg',
+          '/public/images/slideshow/1/slideshow-1-slide-9.jpeg',
+          '/public/images/slideshow/1/slideshow-1-slide-10.jpeg',
+          '/public/images/slideshow/1/slideshow-1-slide-11.jpeg'
         ],
         backLink: '/v4/topic/lesson/1/select-learning-content',
-        nextLink: '/v4/topic/lesson/1/practice/1'
+        nextLink: '/v4/topic/lesson/1/slideshow/practice/1'
+      },
+      {
+        id: '2',
+        description:
+          'In this presentation, you will learn how to start a formal email.',
+        slides: [
+          // '/public/images/slideshow/1/slideshow-2-slide-1.jpeg',
+          '/public/images/slideshow/1/slideshow-2-slide-2.jpeg',
+          '/public/images/slideshow/1/slideshow-2-slide-3.jpeg'
+        ],
+        backLink: '/v4/topic/lesson/1/slideshow/1',
+        nextLink: '/v4/topic/lesson/1/slideshow/practice/2'
+      },
+      {
+        id: '3',
+        description:
+          'In this presentation, you will learn how to start a formal email.',
+        slides: [
+          // '/public/images/slideshow/1/slideshow-3-slide-1.jpeg',
+          '/public/images/slideshow/1/slideshow-3-slide-2.jpeg',
+          '/public/images/slideshow/1/slideshow-3-slide-3.jpeg',
+          '/public/images/slideshow/1/slideshow-3-slide-4.jpeg'
+        ],
+        backLink: '/v4/topic/lesson/1/slideshow/2',
+        nextLink: '/v4/topic/lesson/1/slideshow/practice/3'
       }
     ],
-    practiceQuestions: [
+    practiceVideoQuestions: [
       {
         id: '1',
         name: 'practice-question-one',
@@ -199,6 +223,146 @@ const lessonList = [
           }
         ],
         backLink: '/v4/topic/lesson/1/video/3',
+        nextLink: '/v4/topic/lesson/1/start-quiz'
+      }
+    ],
+    practiceSlideshowQuestions: [
+      {
+        id: '1',
+        name: 'practice-question-one',
+        type: 'multiplechoice',
+        title: '',
+        text: '',
+        html:
+          '<p>James has four children. The children are aged between 16, 18, 4, 10.</p><p><strong>Select the ages that are in order from the smallest to the largest.</strong></p>',
+        correctAnswerId: '1',
+        answers: [
+          {
+            id: '1',
+            value: '4, 10, 16, 18',
+            text: '4, 10, 16, 18',
+            isCorrect: true,
+            feedback:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+          },
+          {
+            id: '2',
+            value: '10, 16, 18, 4',
+            text: '10, 16, 18, 4',
+            isCorrect: false,
+            feedback:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+          },
+          {
+            id: '3',
+            value: '18, 16, 10, 4',
+            text: '18, 16, 10, 4',
+            isCorrect: false,
+            feedback:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+          },
+          {
+            id: '4',
+            value: '16, 18 , 4, 10',
+            text: '16, 18 , 4, 10',
+            isCorrect: false,
+            feedback:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+          }
+        ],
+        backLink: '/v4/topic/lesson/1/slideshow/1',
+        nextLink: '/v4/topic/lesson/1/slideshow/2'
+      },
+      {
+        id: '2',
+        name: 'practice-question-two',
+        type: 'multiplechoice',
+        title: '',
+        text: '',
+        html:
+          '<p>James has four children. The children are aged between 16, 18, 4, 10.</p><p><strong>Select the ages that are in order from the smallest to the largest.</strong></p>',
+        correctAnswerId: '1',
+        answers: [
+          {
+            id: '1',
+            value: '4, 10, 16, 18',
+            text: '4, 10, 16, 18',
+            isCorrect: true,
+            feedback:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+          },
+          {
+            id: '2',
+            value: '10, 16, 18, 4',
+            text: '10, 16, 18, 4',
+            isCorrect: false,
+            feedback:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+          },
+          {
+            id: '3',
+            value: '18, 16, 10, 4',
+            text: '18, 16, 10, 4',
+            isCorrect: false,
+            feedback:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+          },
+          {
+            id: '4',
+            value: '16, 18 , 4, 10',
+            text: '16, 18 , 4, 10',
+            isCorrect: false,
+            feedback:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+          }
+        ],
+        backLink: '/v4/topic/lesson/1/slideshow/2',
+        nextLink: '/v4/topic/lesson/1/slideshow/3'
+      },
+      {
+        id: '3',
+        name: 'practice-question-three',
+        type: 'multiplechoice',
+        title: '',
+        text: '',
+        html:
+          '<p>James has four children. The children are aged between 16, 18, 4, 10.</p><p><strong>Select the ages that are in order from the smallest to the largest.</strong></p>',
+        correctAnswerId: '1',
+        answers: [
+          {
+            id: '1',
+            value: '4, 10, 16, 18',
+            text: '4, 10, 16, 18',
+            isCorrect: true,
+            feedback:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+          },
+          {
+            id: '2',
+            value: '10, 16, 18, 4',
+            text: '10, 16, 18, 4',
+            isCorrect: false,
+            feedback:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+          },
+          {
+            id: '3',
+            value: '18, 16, 10, 4',
+            text: '18, 16, 10, 4',
+            isCorrect: false,
+            feedback:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+          },
+          {
+            id: '4',
+            value: '16, 18 , 4, 10',
+            text: '16, 18 , 4, 10',
+            isCorrect: false,
+            feedback:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+          }
+        ],
+        backLink: '/v4/topic/lesson/1/slideshow/3',
         nextLink: '/v4/topic/lesson/1/start-quiz'
       }
     ],
@@ -523,7 +687,7 @@ router.get('/v4/topic/lesson/:lessonId/slideshow/:slideshowId', function(
   res.render('main/v4/templates/slides', {
     back: {
       text: 'Back',
-      href: slideshow.backLink
+      href: slideshow.backLink ? slideshow.backLink : '#'
     },
     heading: lesson.title,
     slideshow,
@@ -533,10 +697,11 @@ router.get('/v4/topic/lesson/:lessonId/slideshow/:slideshowId', function(
   })
 })
 
-router.get('/v4/topic/lesson/:lessonId/practice/:questionId', function(
+router.get('/v4/topic/lesson/:lessonId/:media/practice/:questionId', function(
   req,
   res
 ) {
+  const media = req.params.media
   const lessonId = req.params.lessonId
   const lesson = lessonList.find(x => x.id === lessonId)
   if (!lesson) {
@@ -544,7 +709,11 @@ router.get('/v4/topic/lesson/:lessonId/practice/:questionId', function(
   }
 
   const questionId = req.params.questionId
-  const question = lesson.practiceQuestions.find(x => x.id === questionId)
+  const practiceQuestions =
+    media === 'video'
+      ? lesson.practiceVideoQuestions
+      : lesson.practiceSlideshowQuestions
+  const question = practiceQuestions.find(x => x.id === questionId)
   if (!question) {
     res.redirect(`/v4/topic/lesson/${lessonId}/select-learning-content`)
   }
@@ -566,6 +735,7 @@ router.get('/v4/topic/lesson/:lessonId/practice/:questionId', function(
       answers: shuffleArray(question.answers)
     },
     saveAnswers: false,
+    // nextLink: `/v4/topic/lesson/${lessonId}/`,
     help: helpLinks
   })
 })

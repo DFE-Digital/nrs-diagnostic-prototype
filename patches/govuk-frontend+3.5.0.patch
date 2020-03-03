@@ -9,23 +9,30 @@ index 0000000..9a7358a
 +{% endmacro %}
 diff --git a/node_modules/govuk-frontend/govuk/components/custom/badgePanel/template.njk b/node_modules/govuk-frontend/govuk/components/custom/badgePanel/template.njk
 new file mode 100644
-index 0000000..ee71d94
+index 0000000..ffb5948
 --- /dev/null
 +++ b/node_modules/govuk-frontend/govuk/components/custom/badgePanel/template.njk
-@@ -0,0 +1,20 @@
+@@ -0,0 +1,27 @@
 +{% set title = params.title %}
 +{% set text = params.text %}
++{% set locked = params.locked %}
 +
-+<div class="govuk-panel govuk-panel--confirmation" style="padding:15px;">
++<div class="govuk-panel govuk-panel--confirmation" style="padding:15px; {% if locked %} background: #EAEAEA; {% endif %} ">
 +  <div style="display: flex;">
 +    <div style="padding-right: 15px;">
++      {% if locked %}
++      <svg style="padding-top:5px;" width="53" height="60" viewBox="0 0 53 60" fill="none" xmlns="http://www.w3.org/2000/svg">
++        <path d="M26.4407 0C16.7458 0 8.81356 7.71429 8.81356 17.1429V25.7143H0V60H52.8814V25.7143H44.0678V17.1429C44.0678 7.71429 36.1356 0 26.4407 0ZM26.4407 8.57143C31.3763 8.57143 35.2542 12.3429 35.2542 17.1429V25.7143H17.6271V17.1429C17.6271 12.3429 21.5051 8.57143 26.4407 8.57143Z" fill="black"/>
++      </svg>
++      {% else %}
 +      <svg style="padding-top:5px;" width="66" height="82" viewBox="0 0 66 82" fill="none" xmlns="http://www.w3.org/2000/svg">
 +        <path
 +          d="M6.50435 15.4135L9.08696 26.3216L6.50435 37.1822L16.1174 43.063L22 52.5957L33 50.0347L44 52.5957L49.8826 43.063L59.4957 37.1822L56.913 26.3216L59.4957 15.4135L49.9304 9.53268L44 0L33 2.60844L22.0478 0.0474262L16.0696 9.53268L6.50435 15.4135ZM33.0478 45.4818C27.9741 45.4818 23.1082 43.4831 19.5206 39.9254C15.9329 36.3678 13.9174 31.5426 13.9174 26.5113C13.9174 21.48 15.9329 16.6548 19.5206 13.0971C23.1082 9.53945 27.9741 7.54077 33.0478 7.54077C43.5696 7.54077 52.1304 16.0301 52.1304 26.4639C52.1304 36.9925 43.5696 45.4818 33.0478 45.4818ZM32.9522 40.7392C25.013 40.7392 18.6522 34.384 18.6522 26.5113C18.6522 18.6859 25.013 12.2834 32.9522 12.2834C40.8913 12.2834 47.3478 18.6859 47.3478 26.5113C47.3478 34.384 40.8913 40.7392 32.9522 40.7392ZM51.3174 45.956L45.1957 56.5795L35.2478 54.3505L47.3478 82L54.0435 71.5662H66L51.3174 45.956ZM14.4913 46.288L20.4696 56.9589L30.6565 54.5402L18.6522 82L11.9565 71.5662H0L14.4913 46.288Z"
 +          fill="white" />
 +      </svg>
++      {% endif %}
 +    </div>
-+    <div class="govuk-panel__body" style="text-align: left; font-size: 1.1rem;">
++    <div class="govuk-panel__body" style="text-align: left; font-size: 1.1rem; {% if locked %} color: #0B0C0C; {% endif %} ">
 +      {{ text }}
 +      <br />
 +      <br />
