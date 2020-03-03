@@ -1,0 +1,281 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+NRS Prototype
+{% endblock %}
+
+{% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% for answer in question.answers %}
+    {% if answer %}
+
+    <div id="{{ question.name }}-{{ answer.id }}-feedback" name="question-feedback" class="feedback-box hidden">
+      <div style="padding: 15px;">
+
+        <h3 class="govuk-heading-m">{% if answer.isCorrect %} Correct answer! {% else %} Incorrect answer! {% endif %}
+        </h3>
+        {% if answer.isCorrect %}
+        <p>You have answered this correctly.</p>
+        {% else %}
+        <p>{{ answer.feedback }}</p>
+        {% if saveAnswers %} {% else %}
+        <hr />
+        <h3 class="govuk-heading-m">The correct answer is:</h3>
+        <p name="correct-answer-text"></p>
+        {% endif %}
+        {% endif %}
+        <a class="small-link" href="#question-anchor">View question</a>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="govuk-grid-row hidden" id="section-actions" style="margin-bottom: 20px;">
+  <div class="govuk-grid-column-two-thirds">
+    <hr />
+    <h3 class="govuk-heading-m">{{ actions.title }}</h3>
+    {% for link in actions.links %}
+    {% if link %}
+    <div style="margin-bottom: 5px;">
+      {% if link.html %}
+      {{ link.html | safe if link.html else heading.main }}
+      {% else %}
+      <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br />
+      {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<div id="helplinks-secondary" class="hidden">
+  {{ helpLinks({
+    helpSections: help
+  }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <hr />
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row" id="section-headings">
+  <div class="govuk-grid-column-two-thirds">
+    <div id="sub-heading">
+      {{ headingSuper({
+        text: heading.sub
+      }) }}
+    </div>
+
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ heading.html | safe if heading.html else heading.main }}
+    </h1>
+  </div>
+</div>
+
+{% if description %}
+<div class="govuk-grid-row" id="question-description">
+  <div class="govuk-grid-column-two-thirds">
+    <p>
+      {{ description }}
+    </p>
+    <hr />
+  </div>
+</div>
+{% endif %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ question.html | safe if question.html else question.text }}
+  </div>
+</div>
+
+<form class="form" onsubmit="return v4SubmitAnswer();">
+  <a name="question-anchor"></a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <input type="hidden" id="_lesson_id" value="{{ lessonId }}" />
+      <input type="hidden" id="_correct_answer_id" value="{{ question.name }}-{{ question.correctAnswerId }}" />
+      <input type="hidden" id="_question_name" value="{{ question.name }}" />
+      <input type="hidden" id="_save_answers" value="{{ saveAnswers }}" />
+      <div class="govuk-form-group">
+
+        <label class="govuk-label" for="{{ question.name }}">
+          Event name
+        </label>
+        <span id="event-name-hint" class="govuk-hint">
+          Enter answer here
+        </span>
+        <input id="{{ question.name }}-{{ answer.id }}" name="{{ question.name }}" class="govuk-input" id="event-name"
+          name="event-name" type="text" aria-describedby="event-name-hint">
+
+
+        <!-- <fieldset class="govuk-fieldset">
+          <div class="govuk-radios">
+            {% for answer in question.answers %}
+            {% if answer %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="{{ question.name }}-{{ answer.id }}" name="{{ question.name }}"
+                type="radio" value="{{ answer.value }}">
+              <label id="{{ question.name }}-{{ answer.id }}-label" class="govuk-label govuk-radios__label"
+                for="{{ question.name }}">
+                {{ answer.text }}
+              </label>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </fieldset> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% for answer in question.answers %}
+      {% if answer %}
+
+      <div id="{{ question.name }}-{{ answer.id }}-feedback" name="question-feedback" class="feedback-box hidden">
+        <div style="padding: 15px;">
+
+          <h3 class="govuk-heading-m">{% if answer.isCorrect %} Correct answer! {% else %} Incorrect answer! {% endif %}
+          </h3>
+          {% if answer.isCorrect %}
+          <p>You have answered this correctly.</p>
+          {% else %}
+          <p>{{ answer.feedback }}</p>
+          {% if saveAnswers %} {% else %}
+          <hr />
+          <h3 class="govuk-heading-m">The correct answer is:</h3>
+          <p name="correct-answer-text"></p>
+          {% endif %}
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div> -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <button id="button-submit" class="govuk-button" data-module="govuk-button">Submit answer</button>
+      <a href="#help" id="button-skip" class="govuk-button" data-module="govuk-button">I don't know</a>
+      <a href="{{ question.nextLink }}" id="button-continue" class="large-link hidden">Continue with lesson</a>
+    </div>
+  </div>
+</form>
+
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+
+  function v4SubmitAnswer() {
+    const question = $('#_question_name').val()
+    if (!$('input[name=' + question + ']').val()) {
+      return false
+    }
+
+    $('[name=question-feedback]').addClass('hidden')
+
+    const lessonId = $('#_lesson_id').val()
+    const correctAnswer = $('#_correct_answer_id').val()
+    const saveAnswers = $('#_save_answers').val()
+    const $radio = $('input[name=' + question + ']:checked')
+    const selectedId = $radio.attr('id')
+
+    const correctAnswerText = $('#' + correctAnswer).val()
+    $('.feedback-box p[name="correct-answer-text"]').text(correctAnswerText)
+
+    if (saveAnswers === 'true') {
+      v4SaveAnswerToLocalStorage(lessonId, question, selectedId, selectedId === correctAnswer)
+    }
+
+    v4LockQuestion(question)
+    v4ShowFeedback(selectedId, correctAnswer)
+
+    window.scrollTo(0, 0)
+
+    return false
+  }
+
+  function v4ShowFeedback(selectedId, correctAnswer) {
+    // Code to show crosses / ticks after submitting answers
+    // if (selectedId !== correctAnswer) {
+    //   $('#' + selectedId + '-label').removeClass('govuk-radios__label')
+    //   $('#' + selectedId + '-label').addClass('govuk-radios__label__incorrect')
+    // }
+
+    // $('#' + correctAnswer + '-label').removeClass('govuk-radios__label')
+    // $('#' + correctAnswer + '-label').addClass('govuk-radios__label__correct')
+
+    $('#' + selectedId + '-feedback').removeClass('hidden')
+    // $('#section-headings').addClass('hidden')
+    $('#sub-heading').addClass('hidden')
+    $('#helplinks-primary').addClass('hidden')
+    $('#helplinks-secondary').removeClass('hidden')
+    $('#section-actions').removeClass('hidden')
+    $('#question-description').addClass('hidden')
+  }
+
+  function v4LockQuestion(question) {
+    $('input[name=' + question + ']').attr('disabled', true)
+    $('#button-submit').addClass('hidden')
+    $('#button-skip').addClass('hidden')
+    $('#button-continue').removeClass('hidden')
+  }
+
+  function v4SaveAnswerToLocalStorage(lessonId, question, selectedAnswer, isCorrect) {
+
+    var lesson = getNewOrExistingLessonFromStorage(lessonId)
+
+    var allowOverwrite = false // TODO: Move this to central config
+    if (!allowOverwrite) {
+      const existing = lesson.answers.find(x => x.question === question)
+      if (existing) {
+        return
+      }
+    }
+
+    let answers = lesson.answers
+    answers.push({
+      question,
+      selectedAnswer,
+      isCorrect
+    })
+
+    lesson.answers = answers
+    setLocalStorageObject('lesson-' + lessonId, lesson)
+  }
+
+  function getNewOrExistingLessonFromStorage(lessonId) {
+    var existing = getLocalStorageObject('lesson-' + lessonId)
+    if (existing) {
+      return existing
+    }
+    const lesson = {
+      answers: []
+    }
+    setLocalStorageObject('lesson-' + lessonId, lesson)
+    return lesson
+  }
+
+</script>
+{% endblock %}
