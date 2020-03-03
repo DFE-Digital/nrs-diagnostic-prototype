@@ -103,11 +103,13 @@ Prototype {% endblock %} {% block header %}
       $('.swiper-container').removeClass('swiper-fullscreen')
       $('#button-fullscreen').removeClass('swiper-fullscreen-button')
       $('.swiper-slide').width('100%')
+      window.scrollTo(0, 0)
     } else {
       $('.slide-overlay').removeClass('hidden')
       $('.swiper-container').addClass('swiper-fullscreen')
       $('#button-fullscreen').addClass('swiper-fullscreen-button')
       $('.swiper-slide').width('100%')
+      window.scrollTo(0, 0)
     }
   }
 
