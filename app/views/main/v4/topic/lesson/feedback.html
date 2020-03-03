@@ -37,15 +37,23 @@ NRS Prototype
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <span class="small-link">Your score</span>
-    <h1 class="govuk-heading-xl" id="results-percentage" style="margin-bottom: 15px; color: #00703C;">
+    <h1 class="govuk-heading-xl results-percentage" id="results-percentage">
       0%
     </h1>
-    <p id="results-summary">You answered 4 out of 5 questions correctly.</p>
+    <p id="results-summary"></p>
 
-    <div id="badge-panel" class="hidden">
+    <div id="badge-panel-success" class="hidden">
       {{ badgePanel({
         title: 'Email Expert',
-        text: 'Based on your score, you have unlocked the following badge:'
+        text: 'Based on your score, you have unlocked the following badge:',
+        locked: false
+      }) }}
+    </div>
+    <div id="badge-panel-unsuccessful" class="hidden">
+      {{ badgePanel({
+        title: 'Email Expert',
+        text: 'Score 70% or more in the lesson’s quiz to unlock a badge',
+        locked: true
       }) }}
     </div>
 
@@ -55,8 +63,10 @@ NRS Prototype
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <a href="#" class="govuk-button" data-module="govuk-button">Next lesson</a>
-    <a href="#" class="govuk-button" data-module="govuk-button">Retry</a>
+    <div class="govuk-inset-text">
+      <a href="/v4/start-part-two" class="large-link" style="font-weight: bold;">Next lesson</a><br />
+      <a href="#" class="large-link">Retry</a>
+    </div>
   </div>
 </div>
 
@@ -147,7 +157,15 @@ NRS Prototype
     const percentage = ((correctAnswerCount / totalAnswers) * 100).toFixed(0)
 
     if (percentage >= 70) {
-      $('#badge-panel').removeClass('hidden')
+      $('#badge-panel-success').removeClass('hidden')
+
+      $('#results-percentage').addClass('results-percentage')
+      $('#results-percentage').removeClass('results-percentage-fail')
+    } else {
+      $('#badge-panel-unsuccessful').removeClass('hidden')
+
+      $('#results-percentage').removeClass('results-percentage')
+      $('#results-percentage').addClass('results-percentage-fail')
     }
 
     $('#results-percentage').text(percentage + '%')

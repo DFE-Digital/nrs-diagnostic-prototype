@@ -43,7 +43,7 @@ const lessonList = [
       {
         id: '1',
         description:
-          'In this presentation, you will learn how to start a formal email.',
+          'In this slideshow, you will learn how to start a formal email.',
         slides: [
           '/public/images/slideshow/1/slideshow-1-slide-1.jpeg',
           '/public/images/slideshow/1/slideshow-1-slide-2.jpeg',
@@ -63,7 +63,7 @@ const lessonList = [
       {
         id: '2',
         description:
-          'In this presentation, you will learn how to start a formal email.',
+          'In this slideshow, you will learn how to start a formal email.',
         slides: [
           // '/public/images/slideshow/1/slideshow-2-slide-1.jpeg',
           '/public/images/slideshow/1/slideshow-2-slide-2.jpeg',
@@ -75,7 +75,7 @@ const lessonList = [
       {
         id: '3',
         description:
-          'In this presentation, you will learn how to start a formal email.',
+          'In this slideshow, you will learn how to start a formal email.',
         slides: [
           // '/public/images/slideshow/1/slideshow-3-slide-1.jpeg',
           '/public/images/slideshow/1/slideshow-3-slide-2.jpeg',
@@ -374,40 +374,40 @@ const lessonList = [
         title: '',
         text: '',
         html:
-          '<p>James has four children. The children are aged between 16, 18, 4, 10.</p><p><strong>Select the ages that are in order from the smallest to the largest.</strong></p>',
+          '<p>You are writing an email to apply for job as a Salon Assistant at a local hair salon.</p><p>You need to write a subject line to summarise the contents of your email.</p><p><strong>Which of the following would be an appropriate subject line for this email?</strong></p>',
         correctAnswerId: '1',
         answers: [
           {
             id: '1',
-            value: '4, 10, 16, 18',
-            text: '4, 10, 16, 18',
+            value: 'Application for Salon Assistant role.',
+            text: 'Application for Salon Assistant role.',
             isCorrect: true,
             feedback:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+              'A formal email should include a brief subject line that clearly summarises the content of the email for the recipient.'
           },
           {
             id: '2',
-            value: '10, 16, 18, 4',
-            text: '10, 16, 18, 4',
+            value: 'Job application.',
+            text: 'Job application.',
             isCorrect: false,
             feedback:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+              'The language here is too informal. In a formal email, even the subject must use formal language.'
           },
           {
             id: '3',
-            value: '18, 16, 10, 4',
-            text: '18, 16, 10, 4',
+            value: 'I am writing to apply for the Salon Assistant role.',
+            text: 'I am writing to apply for the Salon Assistant role.',
             isCorrect: false,
             feedback:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+              'The subject of your email must contain only a brief summary of what the email will be about. This is too detailed. It would be more appropriate as the opening line.'
           },
           {
             id: '4',
-            value: '16, 18 , 4, 10',
-            text: '16, 18 , 4, 10',
+            value: 'Dear Sir/Madam.',
+            text: 'Dear Sir/Madam.',
             isCorrect: false,
             feedback:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+              'The subject of an email must tell the reader what the email will be about. This would be an appropriate greeting to use at the start of a formal email.'
           }
         ],
         backLink: '#',
@@ -420,44 +420,143 @@ const lessonList = [
         title: '',
         text: '',
         html:
-          '<p>James has four children. The children are aged between 16, 18, 4, 10.</p><p><strong>Select the ages that are in order from the smallest to the largest.</strong></p>',
+          '<p>You are writing an email to apply for a job as a Sales Assistant at a local retailers. You do not know the name of the person you are sending the email to.</p><p><strong>Which of the following greetings would you use at the start of your email?</strong></p>',
         correctAnswerId: '1',
         answers: [
           {
             id: '1',
-            value: '4, 10, 16, 18',
-            text: '4, 10, 16, 18',
+            value: 'Dear Sir/ Madam',
+            text: 'Dear Sir/ Madam',
             isCorrect: true,
             feedback:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+              "Correct. A formal email should begin with a greeting such as 'Dear'. When you do not know the name of ther person you are writing to, you should use the title 'Sir' or 'Madam'."
           },
           {
             id: '2',
-            value: '10, 16, 18, 4',
-            text: '10, 16, 18, 4',
+            value: 'Hi Sir/ Madam',
+            text: 'Hi Sir/ Madam',
             isCorrect: false,
             feedback:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+              "The use of 'Hi' is too informal here. Remember, the purpose of this email is to apply for a job, so you should use a formal greeting such as 'Dear....'"
           },
           {
             id: '3',
-            value: '18, 16, 10, 4',
-            text: '18, 16, 10, 4',
+            value: 'Hello,',
+            text: 'Hello,',
             isCorrect: false,
             feedback:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+              "The use of 'Hello' is too informal here. Remember, the purpose of this email is to apply for a job, so you should use a formal greeting such as 'Dear...'."
           },
           {
             id: '4',
-            value: '16, 18 , 4, 10',
-            text: '16, 18 , 4, 10',
+            value: 'Dear Mr Jones',
+            text: 'Dear Mr Jones',
             isCorrect: false,
             feedback:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.'
+              "You have not been given the name of the person you are writing you email to, so you should use the title 'Sir/Madam' instead."
           }
         ],
         backLink: '#',
         nextLink: '/v4/topic/lesson/1/assessment/3'
+      },
+      {
+        id: '3',
+        name: 'assessment-question-three',
+        type: 'multiplechoice',
+        title: '',
+        text: '',
+        html:
+          '<p>You are asked to write an email applying for a job as a social worker at a local community centre.</p><p>After your greeting, the first line of your email should introduce your purpose for writing.</p><p><strong>Which of the following would be an appropriate first sentence to introduce your purpose for writing?</strong></p>',
+        correctAnswerId: '1',
+        answers: [
+          {
+            id: '1',
+            value:
+              'I am writing to apply for the role of Social Worker at Cranfield Community Centre.',
+            text:
+              'I am writing to apply for the role of Social Worker at Cranfield Community Centre.',
+            isCorrect: true,
+            feedback:
+              'This opening line makes the reason for your email immediately clear. The reader learns that this is a job application for a specific role at a specific plcae of work.'
+          },
+          {
+            id: '2',
+            value: 'Do you have any jobs available at the community centre?',
+            text: 'Do you have any jobs available at the community centre?',
+            isCorrect: false,
+            feedback:
+              'This is too informal for a job application. A formal email should begin with an opening line which clearly explains your reason for writing.'
+          },
+          {
+            id: '3',
+            value: 'I am writing because I want a job as a social worker.',
+            text: 'I am writing because I want a job as a social worker.',
+            isCorrect: false,
+            feedback:
+              'The language used here is too informal. A job application is a formal piece of writing. A formal email should begin with an opening line which clearly explains your reason for writing.'
+          },
+          {
+            id: '4',
+            value:
+              'I beleive I have the appropraite skills to make me eligible for a role as a social worker.',
+            text:
+              'I beleive I have the appropraite skills to make me eligible for a role as a social worker.',
+            isCorrect: false,
+            feedback:
+              'Before giving more detail about your skills and experience, a formal email should begin with an opening line which clearly explains your reason for writing. The sentence you have selected would be good to use after your opening line.'
+          }
+        ],
+        backLink: '#',
+        nextLink: '/v4/topic/lesson/1/assessment/4'
+      },
+      {
+        id: '4',
+        name: 'assessment-question-four',
+        type: 'multiplechoice',
+        title: '',
+        text: '',
+        html:
+          '<p>You are applying for a job as a secretary at local gym.</p><p><strong>Which of the following would be an appropriate closing line to include in your email?</strong></p>',
+        correctAnswerId: '1',
+        answers: [
+          {
+            id: '1',
+            value:
+              'I have attached my CV for you to review. I look forward to hearing from you.',
+            text:
+              'I have attached my CV for you to review. I look forward to hearing from you.',
+            isCorrect: true,
+            feedback:
+              "Correct: The closing line in your email should give a brief summary or 'next steps' statement, followed by a closing line such as 'I look forward to hearing from you.'"
+          },
+          {
+            id: '2',
+            value: 'I have attached my CV for you to review. Speak soon!',
+            text: 'I have attached my CV for you to review. Speak soon!',
+            isCorrect: false,
+            feedback:
+              "Incorrect: The phrase 'Speak soon!' is too informal for a job aplication email as you have not necessarily met the person you are writing to. It would be better to use a closing line such as 'I look forward to hearing from you'."
+          },
+          {
+            id: '3',
+            value: 'I have attached my CV. Hopefully speak to you soon!',
+            text: 'I have attached my CV. Hopefully speak to you soon!',
+            isCorrect: false,
+            feedback:
+              "Incorrect: The phrase 'Hopefully speak to you soon!' is too informal for a job aplication email as you have not necessarily met the person you are writing to. It would be better to use a closing line such as 'I look forward to hearing from you'."
+          },
+          {
+            id: '4',
+            value: 'Thanks for everything. ',
+            text: 'Thanks for everything. ',
+            isCorrect: false,
+            feedback:
+              'The guymhave not done anything you need to thank them for yet. Therefore it would be better to use a more formal sign off.'
+          }
+        ],
+        backLink: '#',
+        // nextLink: '/v4/topic/lesson/1/assessment/5'
+        nextLink: '/v4/topic/lesson/1/feedback'
       }
     ]
   },
@@ -529,10 +628,10 @@ const helpLinks = [
         text: 'Speak to a tutor (via email)',
         href: '#'
       },
-      {
-        text: 'Change media type',
-        href: '#'
-      },
+      // {
+      //   text: 'Change media type',
+      //   href: '#'
+      // },
       {
         text: 'View knowledge base',
         href: '#'
@@ -546,7 +645,7 @@ const helpLinks = [
     links: [
       {
         text: 'Skip lesson and go to quiz',
-        href: '#'
+        href: '/v4/topic/lesson/1/start-quiz'
       }
     ]
   }
@@ -571,6 +670,24 @@ var shuffleArray = function(array) {
 
 // Add your routes here - above the module.exports line
 router.get('/v4', function(req, res) {
+  res.render('main/v4/start', {
+    heading: {
+      main: 'This is a prototype'
+    },
+    nextLink: '/v4/context'
+  })
+})
+
+router.get('/v4/end', function(req, res) {
+  res.render('main/v4/end', {
+    heading: {
+      main: 'This is the end of the prototype'
+    },
+    nextLink: '/v4'
+  })
+})
+
+router.get('/v4/context', function(req, res) {
   res.render('main/v4/context-page', {
     heading: {
       main: 'Get an English Functional Skills 2 qualifcation'
@@ -579,10 +696,159 @@ router.get('/v4', function(req, res) {
   })
 })
 
+router.get('/v4/start-part-two', function(req, res) {
+  res.render('main/v4/start-part-two', {
+    heading: {
+      main: 'This is the end of this part of the prototype'
+    },
+    nextLink: '/v4/course/completed'
+  })
+})
+
+router.get('/v4/course/completed', function(req, res) {
+  res.render('main/v4/course/completed', {
+    heading: {
+      sub: COURSE_NAME,
+      main: 'Learning about different forms of writing'
+    }
+  })
+})
+
+router.get('/v4/course/actions', function(req, res) {
+  res.render('main/v4/course/actions', {
+    back: {
+      text: 'Return to course',
+      href: `/v4/course/completed`
+    },
+    heading: {
+      main: 'What do you need to do next?'
+    },
+    description:
+      'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or download a practise paper.',
+    help: [
+      {
+        title: 'Need help?',
+        description:
+          'The options below are available to you should you need help in regards to the lesson or more broader questions.',
+        links: [
+          {
+            text: 'Speak to a tutor (via email)',
+            href: '#'
+          },
+          {
+            html:
+              '<span class="govuk-body-s"><strong>Call</strong> 0800 100 900 or <a class="small-link">use webchat</a></span><br /><span class="media-type-label">9am to 10pm, 7 days a week</span><br />'
+          },
+          {
+            text: 'Finding a test centre',
+            href: '/v4/course/find-a-centre'
+          },
+          {
+            text: 'Applying for a job',
+            href: '#'
+          },
+          {
+            text: 'Getting a qualification',
+            href: '#'
+          }
+        ]
+      }
+    ]
+  })
+})
+
+router.get('/v4/course/find-a-centre', function(req, res) {
+  res.render('main/v4/course/find-a-centre', {
+    back: {
+      text: 'Back',
+      href: `/v4/course/actions`
+    },
+    heading: {
+      main: 'Find a test centre'
+    },
+    description:
+      'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or download a practise paper.',
+    lessonUrl: '/v4/topic/lesson/1/lesson-objective',
+    help: [
+      {
+        title: 'Need help?',
+        description:
+          'The options below are available to you should you need help in regards to the lesson or more broader questions.',
+        links: [
+          {
+            text: 'Speak to a tutor (via email)',
+            href: '#'
+          },
+          {
+            html:
+              '<span class="govuk-body-s"><strong>Call</strong> 0800 100 900 or <a class="small-link">use webchat</a></span><br /><span class="media-type-label">9am to 10pm, 7 days a week</span><br />'
+          },
+          {
+            text: 'Finding a test centre',
+            href: '/v4/course/find-a-centre'
+          },
+          {
+            text: 'Applying for a job',
+            href: '#'
+          },
+          {
+            text: 'Getting a qualification',
+            href: '#'
+          }
+        ]
+      }
+    ]
+  })
+})
+
+router.get('/v4/course/search-results', function(req, res) {
+  res.render('main/v4/course/search-results', {
+    back: {
+      text: 'Back',
+      href: `main/v4/course/find-a-centre`
+    },
+    heading: {
+      main: 'Search results'
+    },
+    lessonUrl: '/v4/topic/lesson/1/lesson-objective',
+    help: [
+      {
+        title: 'Need help?',
+        description:
+          'The options below are available to you should you need help in regards to the lesson or more broader questions.',
+        links: [
+          {
+            text: 'Speak to a tutor (via email)',
+            href: '#'
+          },
+          {
+            html:
+              '<span class="govuk-body-s"><strong>Call</strong> 0800 100 900 or <a class="small-link">use webchat</a></span><br /><span class="media-type-label">9am to 10pm, 7 days a week</span><br />'
+          },
+          {
+            text: 'Finding a test centre',
+            href: '/v4/course/find-a-centre'
+          },
+          {
+            text: 'Applying for a job',
+            href: '#'
+          },
+          {
+            text: 'Getting a qualification',
+            href: '#'
+          }
+        ]
+      }
+    ]
+  })
+})
+
 router.get('/v4/topic/select-lesson', function(req, res) {
   res.render('main/v4/topic/select-lesson', {
     heading: COURSE_NAME,
     topicName: TOPIC_NAME,
+    description:
+      'The lessons in this section will develop your skills in multiple forms of writing. These writing skills will be useful in both your everyday and professional life.',
     lessonUrl: '/v4/topic/lesson/1/lesson-objective'
     // lessons
     // lessons: [
@@ -638,7 +904,30 @@ router.get('/v4/topic/lesson/:lessonId/select-learning-content', function(
     title: 'How would you like to learn?',
     description:
       'Once you’re ready, select how you would like the lesson delivered.',
-    help: helpLinks
+    help: [
+      {
+        title: 'Need help?',
+        description:
+          'The options below are available to you should you need help in regards to the lesson or more broader questions.',
+        links: [
+          {
+            text: 'Speak to a tutor (via email)',
+            href: '#'
+          }
+        ]
+      },
+      {
+        title: 'Feeling confident?',
+        description:
+          'If you’re confident, you may skip the learning material and go straight to the lesson quiz.',
+        links: [
+          {
+            text: 'Skip lesson and go to quiz',
+            href: '/v4/topic/lesson/1/start-quiz'
+          }
+        ]
+      }
+    ]
   })
 })
 
@@ -660,6 +949,7 @@ router.get('/v4/topic/lesson/:lessonId/video/:videoId', function(req, res) {
       text: 'Back',
       href: video.backLink
     },
+    lessonId,
     heading: lesson.title,
     video,
     videoNo: lesson.videos.indexOf(video) + 1,
@@ -773,7 +1063,7 @@ router.get('/v4/topic/lesson/:lessonId/start-quiz', function(req, res) {
   res.render('main/v4/topic/lesson/start-quiz', {
     back: {
       text: 'Back to lesson',
-      href: '/v4/topic/lesson/select-learning-content'
+      href: `/v4/topic/lesson/${lessonId}/select-learning-content`
     },
     heading: {
       sub: lesson.title,
@@ -818,7 +1108,7 @@ router.get('/v4/topic/lesson/:lessonId/assessment/:questionId', function(
       answers: shuffleArray(question.answers)
     },
     saveAnswers: true,
-    help: helpLinks
+    help: [helpLinks[0]]
   })
 })
 

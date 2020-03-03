@@ -83,12 +83,22 @@ NRS Prototype
       {% if answer %}
       <div id="{{ question.name }}-{{ answer.id }}-feedback" name="question-feedback"
         class="govuk-inset-text hidden {% if answer.isCorrect %} feedback-correct {% else %} feedback-incorrect {% endif %}">
-        <span class="feedback-title">{% if answer.isCorrect %} Correct {% else %} Not quite! {% endif %}
+        <span class="feedback-title">{% if answer.isCorrect %} Correct answer! {% else %} Incorrect answer! {% endif %}
         </span><br />
         <span class="feedback-message">
-          The language used here is too informal. A job application is a formal
-          piece of writing. You should use formal language throughout your
-          email.
+          {% if answer.isCorrect %}
+          You have answered this correctly.
+          {% else %}
+          The correct answer is:
+          <br />
+          <br />
+          <span style="font-weight: bold;" name="correct-answer-text"></span>
+          {% endif %}
+          {% if saveAnswers %} {% else %}
+          <br />
+          <br />
+          {{ answer.feedback }}
+          {% endif %}
         </span>
       </div>
       {% endif %}
@@ -122,6 +132,9 @@ NRS Prototype
     const $radio = $('input[name=' + question + ']:checked')
     const selectedId = $radio.attr('id')
 
+    const correctAnswerText = $('#' + correctAnswer).val()
+    $('.feedback-message span[name="correct-answer-text"]').text(correctAnswerText)
+
     if (saveAnswers === 'true') {
       v4SaveAnswerToLocalStorage(lessonId, question, selectedId, selectedId === correctAnswer)
     }
@@ -133,13 +146,14 @@ NRS Prototype
   }
 
   function v4ShowFeedback(selectedId, correctAnswer) {
-    if (selectedId !== correctAnswer) {
-      $('#' + selectedId + '-label').removeClass('govuk-radios__label')
-      $('#' + selectedId + '-label').addClass('govuk-radios__label__incorrect')
-    }
+    // Code to show crosses / ticks after submitting answers
+    // if (selectedId !== correctAnswer) {
+    //   $('#' + selectedId + '-label').removeClass('govuk-radios__label')
+    //   $('#' + selectedId + '-label').addClass('govuk-radios__label__incorrect')
+    // }
 
-    $('#' + correctAnswer + '-label').removeClass('govuk-radios__label')
-    $('#' + correctAnswer + '-label').addClass('govuk-radios__label__correct')
+    // $('#' + correctAnswer + '-label').removeClass('govuk-radios__label')
+    // $('#' + correctAnswer + '-label').addClass('govuk-radios__label__correct')
 
     $('#' + selectedId + '-feedback').removeClass('hidden')
   }
@@ -150,23 +164,6 @@ NRS Prototype
     $('#button-skip').addClass('hidden')
     $('#button-continue').removeClass('hidden')
   }
-
-  // function v4SaveAnswerToLocalStorage(question, selectedAnswer, isCorrect) {
-  //   const allowOverwrite = true // TODO: Move this to central config
-  //   if (!allowOverwrite) {
-  //     const existing = localStorage.getItem(name)
-  //     if (existing) {
-  //       return
-  //     }
-  //   }
-
-  //   const answer = {
-  //     selectedAnswer,
-  //     isCorrect
-  //   }
-
-  //   setLocalStorageObject(question, answer)
-  // }
 
   function v4SaveAnswerToLocalStorage(lessonId, question, selectedAnswer, isCorrect) {
 

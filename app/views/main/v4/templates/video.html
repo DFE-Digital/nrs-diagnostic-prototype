@@ -24,13 +24,21 @@ Prototype {% endblock %} {% block header %}
 
   </div>
 </div>
-<br />
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <p>
       {{ video.description }}
     </p>
+    <p><strong>To use this video, you should:</strong></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        Tap the screen to bring up video controls
+      </li>
+      <li>
+        Rotate your device to make the video go fullscreen
+      </li>
+    </ul>
   </div>
 </div>
 
@@ -39,7 +47,14 @@ Prototype {% endblock %} {% block header %}
     <iframe width="100%" src="{{ video.url }}" frameborder="0"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <br />
-    <br />
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-inset-text">
+      <a href="/v4/topic/lesson/{{ lessonId }}/select-learning-content" class="small-link">Change learning material</a>
+    </div>
   </div>
 </div>
 

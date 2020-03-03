@@ -24,13 +24,18 @@ NRS Prototype
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <img class="course-image" src="/public/images/course-complete-v4.png" /><br /><br />
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
     {{ headingSuper({
-      text: heading
+      text: heading.sub
     }) }}
 
     <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-      Learning about<br />
-      {{ topicName }}
+      {{ heading.main }}
     </h1>
   </div>
 </div>
@@ -46,7 +51,7 @@ NRS Prototype
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-l">Choose a lesson</h2>
+    <h2 class="govuk-heading-l">Congratulations, you have completed the course!</h2>
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
@@ -58,7 +63,7 @@ NRS Prototype
         </div>
         <div id="accordion-default-content-1" class="govuk-accordion__section-content"
           aria-labelledby="accordion-default-heading-1">
-          <p class='govuk-body'>In this lesson you will be learning about how to write a formal email.</p>
+          <!-- <p class='govuk-body'>In this lesson you will be learning about how to write a formal email.</p>
           <p class='govuk-body'>Knowing how to write a formal email is a key skill required in many industries and in
             everyday life.</p>
           <p class='govuk-body'>You may already write emails, so some of the information in this lesson may be familiar
@@ -68,7 +73,7 @@ NRS Prototype
             text: 'This lesson will help you in unlocking the following badge:',
             locked: true
           }) }}
-          <a class="large-link" href="{{ lessonUrl }}">Start lesson</a>
+          <a class="large-link" href="{{ lessonUrl }}">Start lesson</a> -->
         </div>
       </div>
       <div class="govuk-accordion__section ">
@@ -81,7 +86,7 @@ NRS Prototype
         </div>
         <div id="accordion-default-content-2" class="govuk-accordion__section-content"
           aria-labelledby="accordion-default-heading-2">
-          <p class='govuk-body'>Complete the Writing an email lesson to unlock this lesson.</p>
+          <!-- <p class='govuk-body'>Complete the Writing an email lesson to unlock this lesson.</p> -->
         </div>
       </div>
       <div class="govuk-accordion__section ">
@@ -94,7 +99,7 @@ NRS Prototype
         </div>
         <div id="accordion-default-content-2" class="govuk-accordion__section-content"
           aria-labelledby="accordion-default-heading-2">
-          <p class='govuk-body'>Complete the Writing an email lesson to unlock this lesson.</p>
+          <!-- <p class='govuk-body'>Complete the Writing an email lesson to unlock this lesson.</p> -->
         </div>
       </div>
       <div class="govuk-accordion__section ">
@@ -107,7 +112,7 @@ NRS Prototype
         </div>
         <div id="accordion-default-content-3" class="govuk-accordion__section-content"
           aria-labelledby="accordion-default-heading-3">
-          <p class='govuk-body'>Complete the Writing an email lesson to unlock this lesson.</p>
+          <!-- <p class='govuk-body'>Complete the Writing an email lesson to unlock this lesson.</p> -->
         </div>
       </div>
       <div class="govuk-accordion__section ">
@@ -120,7 +125,7 @@ NRS Prototype
         </div>
         <div id="accordion-default-content-4" class="govuk-accordion__section-content"
           aria-labelledby="accordion-default-heading-4">
-          <p class='govuk-body'>Complete the Writing an email lesson to unlock this lesson.</p>
+          <!-- <p class='govuk-body'>Complete the Writing an email lesson to unlock this lesson.</p> -->
         </div>
       </div>
       <div class="govuk-accordion__section ">
@@ -133,7 +138,7 @@ NRS Prototype
         </div>
         <div id="accordion-default-content-4" class="govuk-accordion__section-content"
           aria-labelledby="accordion-default-heading-4">
-          <p class='govuk-body'>Complete the Writing an email lesson to unlock this lesson.</p>
+          <!-- <p class='govuk-body'>Complete the Writing an email lesson to unlock this lesson.</p> -->
         </div>
       </div>
       <div class="govuk-accordion__section ">
@@ -146,7 +151,7 @@ NRS Prototype
         </div>
         <div id="accordion-default-content-4" class="govuk-accordion__section-content"
           aria-labelledby="accordion-default-heading-4">
-          <p class='govuk-body'>Complete the Writing an email lesson to unlock this lesson.</p>
+          <!-- <p class='govuk-body'>Complete the Writing an email lesson to unlock this lesson.</p> -->
         </div>
       </div>
       <div class="govuk-accordion__section ">
@@ -159,17 +164,19 @@ NRS Prototype
         </div>
         <div id="accordion-default-content-4" class="govuk-accordion__section-content"
           aria-labelledby="accordion-default-heading-4">
-          <p class='govuk-body'>Complete the Writing an email lesson to unlock this lesson.</p>
+          <!-- <p class='govuk-body'>Complete the Writing an email lesson to unlock this lesson.</p> -->
         </div>
       </div>
     </div>
   </div>
 </div>
 
-{% endblock %} {% block pageScripts %}
-<script type="text/javascript">
-  $(document).ready(function () {
-    clearLocalStorageData()
-  })
-</script>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="#" class="govuk-button" data-module="govuk-button">Print certificate</a><br />
+    <a href="/v4/course/actions" class="govuk-button" data-module="govuk-button">Get qualification</a>
+  </div>
+</div>
+
+
 {% endblock %}

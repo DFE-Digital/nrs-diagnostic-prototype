@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+NRS Prototype
+{% endblock %}
+
+{% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ headingSuper({
+      text: heading.sub
+    }) }}
+
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ heading.main }}
+    </h1>
+  </div>
+</div>
+
+{% if description %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>{{ description }}</p>
+  </div>
+</div>
+{% endif %}
+
+<form class="form" action="/v4/course/search-results" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h3 class="govuk-heading-m">Location</h3>
+      {{ govukInput({
+        hint: {
+          text: "Enter a town or postcode. For example, Thetford"
+        },
+        id: "centre-location",
+        name: "centre-location"
+      }) }}
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <button class="govuk-button" data-module="govuk-button">Find an exam</button>
+    </div>
+  </div>
+
+  <!-- <button class="govuk-button" data-module="govuk-button">Continue</button> -->
+
+</form>
+
+
+
+{% endblock %}

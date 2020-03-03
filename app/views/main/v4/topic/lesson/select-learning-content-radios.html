@@ -1,0 +1,119 @@
+{% extends "layout.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ headingSuper({
+      text: lesson.title
+    }) }}
+
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ title }}
+    </h1>
+
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>
+      {{ description }}
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/v4/topic/lesson/{{ lesson.id }}/learning-content" method="post" class="form">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="select-learning-material" name="select-learning-material"
+                type="radio" value="slideshow">
+              <label class="govuk-label govuk-radios__label" for="select-learning-material">
+
+                <div style="display:flex;">
+                  <div style="margin-right: 8px;">
+                    <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M5.38563 21.2446H18.845C20.031 21.2446 20.9999 20.2753 20.9999 19.089V5.63087C20.9999 4.44457 20.031 3.47534 18.845 3.47534H5.38563C4.19967 3.47534 3.23071 4.44457 3.23071 5.63087V19.0941C3.23071 20.2753 4.19967 21.2446 5.38563 21.2446Z"
+                        fill="black" />
+                      <path
+                        d="M2.15492 0.244629H15.6143C16.8003 0.244629 17.7692 1.21386 17.7692 2.40016V2.66771H4.57731C3.39134 2.66771 2.42239 3.63694 2.42239 4.82323V18.0139H2.15492C0.968956 18.0139 0 17.0446 0 15.8583V2.40016C0 1.21386 0.968956 0.244629 2.15492 0.244629Z"
+                        fill="black" />
+                    </svg>
+                  </div>
+                  <div>
+                    Slideshow (3MB)
+                  </div>
+                </div>
+
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="select-learning-material-2" name="select-learning-material"
+                type="radio" value="text">
+              <label class="govuk-label govuk-radios__label" for="select-learning-material-2">
+
+                <div style="display:flex;">
+                  <div style="margin-right: 8px;">
+                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M19.6875 2.94463H1.3125C0.964403 2.94463 0.630564 2.8024 0.384423 2.54922C0.138281 2.29605 0 1.95267 0 1.59463C0 1.23659 0.138281 0.893209 0.384423 0.640035C0.630564 0.386861 0.964403 0.244629 1.3125 0.244629H19.6875C20.0356 0.244629 20.3694 0.386861 20.6156 0.640035C20.8617 0.893209 21 1.23659 21 1.59463C21 1.95267 20.8617 2.29605 20.6156 2.54922C20.3694 2.8024 20.0356 2.94463 19.6875 2.94463ZM14.4375 8.34463H1.3125C0.964403 8.34463 0.630564 8.2024 0.384423 7.94922C0.138281 7.69605 0 7.35267 0 6.99463C0 6.63659 0.138281 6.29321 0.384423 6.04004C0.630564 5.78686 0.964403 5.64463 1.3125 5.64463H14.4375C14.7856 5.64463 15.1194 5.78686 15.3656 6.04004C15.6117 6.29321 15.75 6.63659 15.75 6.99463C15.75 7.35267 15.6117 7.69605 15.3656 7.94922C15.1194 8.2024 14.7856 8.34463 14.4375 8.34463ZM19.6875 13.7446H1.3125C0.964403 13.7446 0.630564 13.6024 0.384423 13.3492C0.138281 13.096 0 12.7527 0 12.3946C0 12.0366 0.138281 11.6932 0.384423 11.44C0.630564 11.1869 0.964403 11.0446 1.3125 11.0446H19.6875C20.0356 11.0446 20.3694 11.1869 20.6156 11.44C20.8617 11.6932 21 12.0366 21 12.3946C21 12.7527 20.8617 13.096 20.6156 13.3492C20.3694 13.6024 20.0356 13.7446 19.6875 13.7446ZM14.4375 19.1446H1.3125C0.964403 19.1446 0.630564 19.0024 0.384423 18.7492C0.138281 18.496 0 18.1527 0 17.7946C0 17.4366 0.138281 17.0932 0.384423 16.84C0.630564 16.5869 0.964403 16.4446 1.3125 16.4446H14.4375C14.7856 16.4446 15.1194 16.5869 15.3656 16.84C15.6117 17.0932 15.75 17.4366 15.75 17.7946C15.75 18.1527 15.6117 18.496 15.3656 18.7492C15.1194 19.0024 14.7856 19.1446 14.4375 19.1446Z"
+                        fill="black" />
+                    </svg>
+                  </div>
+                  <div>
+                    Text (low data)
+                  </div>
+                </div>
+
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="select-learning-material-3" name="select-learning-material"
+                type="radio" value="video">
+              <label class="govuk-label govuk-radios__label" for="select-learning-material-3">
+
+                <div style="display:flex;">
+                  <div style="margin-right: 8px;">
+                    <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M0 10.7446C0 4.94944 4.70481 0.244629 10.5 0.244629C16.2952 0.244629 21 4.94944 21 10.7446C21 16.5398 16.2952 21.2446 10.5 21.2446C4.70481 21.2446 0 16.5398 0 10.7446ZM14.7 10.7446L8.4 6.01963V15.4696L14.7 10.7446Z"
+                        fill="black" />
+                    </svg>
+                  </div>
+                  <div>
+                    Video (30MB)
+                  </div>
+                </div>
+
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <a class="large-link" onclick="this.closest('form').submit();return false;" data-module="govuk-button">Continue
+        with lesson</a>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}
