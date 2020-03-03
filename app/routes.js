@@ -18,7 +18,7 @@ const lessonList = [
         id: '1',
         description:
           'In this video, you will learn how to start a formal email.',
-        url: 'https://www.youtube.com/embed/nXIZzBuDzTg',
+        url: 'https://www.youtube.com/embed/DzjrzefdYOw',
         backLink: '/v4/topic/lesson/1/select-learning-content',
         nextLink: '/v4/topic/lesson/1/video/practice/1'
       },
@@ -26,7 +26,7 @@ const lessonList = [
         id: '2',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.',
-        url: 'https://www.youtube.com/embed/nXIZzBuDzTg',
+        url: 'https://www.youtube.com/embed/Ckgy0yrL6VE',
         backLink: '/v4/topic/lesson/1/video/1',
         nextLink: '/v4/topic/lesson/1/video/practice/2'
       },
@@ -34,7 +34,7 @@ const lessonList = [
         id: '3',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.',
-        url: 'https://www.youtube.com/embed/nXIZzBuDzTg',
+        url: 'https://www.youtube.com/embed/kZIrEVDYPOI',
         backLink: '/v4/topic/lesson/1/video/2',
         nextLink: '/v4/topic/lesson/1/video/practice/3'
       }
@@ -182,7 +182,7 @@ const lessonList = [
       {
         id: '3',
         name: 'practice-question-three',
-        type: 'multiplechoice',
+        type: 'input',
         title: '',
         text: '',
         html:
@@ -709,7 +709,7 @@ router.get('/v4/course/completed', function(req, res) {
   res.render('main/v4/course/completed', {
     heading: {
       sub: COURSE_NAME,
-      main: 'Learning about different forms of writing'
+      main: 'Congratulations, you have completed the course!'
     }
   })
 })

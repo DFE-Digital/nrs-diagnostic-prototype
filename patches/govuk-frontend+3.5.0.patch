@@ -77,11 +77,10 @@ index 0000000..b830c97
 +{% endmacro %}
 diff --git a/node_modules/govuk-frontend/govuk/components/custom/helpLinks/template.njk b/node_modules/govuk-frontend/govuk/components/custom/helpLinks/template.njk
 new file mode 100644
-index 0000000..9186f6c
+index 0000000..de97cc5
 --- /dev/null
 +++ b/node_modules/govuk-frontend/govuk/components/custom/helpLinks/template.njk
-@@ -0,0 +1,22 @@
-+<div class="govuk-width-container">
+@@ -0,0 +1,26 @@
 +{% for help in params.helpSections %}
 +  {% if help %}
 +    {% set title = help.title %}
@@ -94,7 +93,13 @@ index 0000000..9186f6c
 +          <p>{{ description }}</p>
 +          {% for link in links %}
 +            {% if link %}
-+              <a class="small-link" href="link.href">{{ link.text }}</a><br />
++              <div style="margin-bottom: 5px;">
++                {% if link.html %}
++                  {{ link.html | safe if link.html else heading.main }}
++                {% else %}
++                  <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br />
++                {% endif %}
++              </div>
 +            {% endif %}
 +          {% endfor %}
 +        </div>
@@ -102,5 +107,4 @@ index 0000000..9186f6c
 +      <br />
 +  {% endif %}
 +{% endfor %}
-+</div>
 \ No newline at end of file
