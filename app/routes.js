@@ -407,7 +407,7 @@ const lessonList = [
             text: 'Dear Sir/ Madam',
             isCorrect: true,
             feedback:
-              "Correct. A formal email should begin with a greeting such as 'Dear'. When you do not know the name of ther person you are writing to, you should use the title 'Sir' or 'Madam'."
+              "A formal email should begin with a greeting such as 'Dear'. When you do not know the name of ther person you are writing to, you should use the title 'Sir' or 'Madam'."
           },
           {
             id: '2',
@@ -505,7 +505,7 @@ const lessonList = [
               'I have attached my CV for you to review. I look forward to hearing from you.',
             isCorrect: true,
             feedback:
-              "Correct: The closing line in your email should give a brief summary or 'next steps' statement, followed by a closing line such as 'I look forward to hearing from you.'"
+              "The closing line in your email should give a brief summary or 'next steps' statement, followed by a closing line such as 'I look forward to hearing from you.'"
           },
           {
             id: '2',
@@ -513,7 +513,7 @@ const lessonList = [
             text: 'I have attached my CV for you to review. Speak soon!',
             isCorrect: false,
             feedback:
-              "Incorrect: The phrase 'Speak soon!' is too informal for a job aplication email as you have not necessarily met the person you are writing to. It would be better to use a closing line such as 'I look forward to hearing from you'."
+              "The phrase 'Speak soon!' is too informal for a job aplication email as you have not necessarily met the person you are writing to. It would be better to use a closing line such as 'I look forward to hearing from you'."
           },
           {
             id: '3',
@@ -521,7 +521,7 @@ const lessonList = [
             text: 'I have attached my CV. Hopefully speak to you soon!',
             isCorrect: false,
             feedback:
-              "Incorrect: The phrase 'Hopefully speak to you soon!' is too informal for a job aplication email as you have not necessarily met the person you are writing to. It would be better to use a closing line such as 'I look forward to hearing from you'."
+              "The phrase 'Hopefully speak to you soon!' is too informal for a job aplication email as you have not necessarily met the person you are writing to. It would be better to use a closing line such as 'I look forward to hearing from you'."
           },
           {
             id: '4',
@@ -529,12 +529,11 @@ const lessonList = [
             text: 'Thanks for everything. ',
             isCorrect: false,
             feedback:
-              'The guymhave not done anything you need to thank them for yet. Therefore it would be better to use a more formal sign off.'
+              'The guy have not done anything you need to thank them for yet. Therefore it would be better to use a more formal sign off.'
           }
         ],
         backLink: '#',
-        // nextLink: '/v4/topic/lesson/1/assessment/5'
-        nextLink: '/v4/topic/lesson/1/feedback'
+        nextLink: '/v4/topic/lesson/1/assessment/5'
       },
       {
         id: '5',
@@ -568,7 +567,6 @@ const lessonList = [
           main: ''
         },
         backLink: '#',
-        // nextLink: '/v4/topic/lesson/1/assessment/5'
         nextLink: '/v4/topic/lesson/1/feedback'
       }
     ]
