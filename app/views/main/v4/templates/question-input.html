@@ -29,7 +29,11 @@ NRS Prototype
       <div style="padding: 15px;">
 
         <h3 class="govuk-heading-m">Correct answer!</h3>
+        {% if saveAnswers %}
+        <p>You answered this question correctly</p>
+        {% else %}
         {{ question.correctFeedback.html | safe if question.correctFeedback.html else question.correctFeedback.main }}
+        {% endif %}
         <a class="small-link" href="#question-anchor">View question</a>
       </div>
     </div>

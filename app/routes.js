@@ -63,7 +63,7 @@ const lessonList = [
       {
         id: '2',
         description:
-          'In this slideshow, you will learn how to start a formal email.',
+          'In this slideshow, you will learn how to write the main part of an email.',
         slides: [
           '/public/images/slideshow/1/slideshow-2-slide-1.jpeg',
           '/public/images/slideshow/1/slideshow-2-slide-2.jpeg'
@@ -75,7 +75,7 @@ const lessonList = [
       {
         id: '3',
         description:
-          'In this slideshow, you will learn how to start a formal email.',
+          'In this final slideshow, you will learn how to end a formal email appropriately.',
         slides: [
           // '/public/images/slideshow/1/slideshow-3-slide-1.jpeg',
           '/public/images/slideshow/1/slideshow-3-slide-2.jpeg',
@@ -623,7 +623,7 @@ const lessonList = [
         title: '',
         text: '',
         html:
-          '<p>You are applying for a job as a secretary at local gym.</p><p><strong>Which of the following would be an appropriate closing line to include in your email?</strong></p>',
+          '<p>You are applying for a job as a secretary at the local gym.</p><p><strong>Which of the following would be an appropriate closing line to include in your email?</strong></p>',
         correctAnswerId: '1',
         answers: [
           {
@@ -860,7 +860,7 @@ router.get('/v4/course/actions', function(req, res) {
       main: 'What do you need to do next?'
     },
     description:
-      'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or download a practise paper.',
+      'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or download a practice paper.',
     help: [
       {
         title: 'Need help?',
@@ -895,7 +895,7 @@ router.get('/v4/course/find-a-centre', function(req, res) {
       main: 'Find a test centre'
     },
     description:
-      'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or download a practise paper.',
+      'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or download a practice paper.',
     lessonUrl: '/v4/topic/lesson/1/lesson-objective',
     help: [
       {
@@ -1022,6 +1022,10 @@ router.get('/v4/topic/lesson/:lessonId/select-learning-content', function(
         description:
           'Choose one of the options below if you need any help with the lesson.',
         links: [
+          {
+            text: 'View knowledge base',
+            href: '#'
+          },
           {
             text: 'Speak to a tutor (via email)',
             href: '#'
@@ -1166,7 +1170,7 @@ router.get('/v4/topic/lesson/:lessonId/:media/practice/:questionId', function(
     description:
       question.type === 'input'
         ? 'Practice what you have been taught so far.'
-        : 'Here is a quick practise question to see if you understand what you have been taught so far.',
+        : 'Here is a quick practice question to see if you understand what you have been taught so far.',
     lessonId,
     question: {
       ...question,
