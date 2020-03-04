@@ -49,7 +49,7 @@ index 0000000..9a7358a
 +{% endmacro %}
 diff --git a/node_modules/govuk-frontend/govuk/components/custom/badgePanel/template.njk b/node_modules/govuk-frontend/govuk/components/custom/badgePanel/template.njk
 new file mode 100644
-index 0000000..ffb5948
+index 0000000..efaebc6
 --- /dev/null
 +++ b/node_modules/govuk-frontend/govuk/components/custom/badgePanel/template.njk
 @@ -0,0 +1,27 @@
@@ -57,7 +57,7 @@ index 0000000..ffb5948
 +{% set text = params.text %}
 +{% set locked = params.locked %}
 +
-+<div class="govuk-panel govuk-panel--confirmation" style="padding:15px; {% if locked %} background: #EAEAEA; {% endif %} ">
++<div class="govuk-panel govuk-panel--confirmation" style="padding:15px; {% if locked %} background: #EAEAEA; {% else %} background: #28A197 {% endif %} ">
 +  <div style="display: flex;">
 +    <div style="padding-right: 15px;">
 +      {% if locked %}

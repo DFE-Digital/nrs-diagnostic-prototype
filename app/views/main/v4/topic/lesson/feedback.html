@@ -155,36 +155,35 @@ NRS Prototype
 
           {% for answer in question.answers %}
           {% if answer %}
-
           <div id="{{ question.name }}-{{ answer.id }}-feedback" name="question-feedback" class="feedback-box hidden">
             <div style="padding: 15px;">
 
-              <h3 class="govuk-heading-m">{% if answer.isCorrect %} Correct answer! {% else %} Incorrect answer!
-                {% endif %}
-              </h3>
-              {% if answer.isCorrect %}
-              <p>You have answered this correctly.</p>
+              <h3 class="govuk-heading-m">{% if answer.isCorrect %} You correctly selected: {% else %} You incorrectly
+                selected: {% endif %}</h3>
+              <p id="{{ question.name }}-{{ answer.id }}-correct-answer-text"></p>
+              <h3 class="govuk-heading-m">Feedback:</h3>
+              <p>{{ answer.feedback }}</p>
+
+              {% if not answer.isCorrect %}
+              <hr />
+              <h3 class="govuk-heading-m">The correct answer is:</h3>
+              <p>{{ answer.text }}</p>
               {% else %}
-              {% if not saveAnswers and not answer.isCorrect %}
-              <p>{{ answer.feedback }}
-                {% endif %}
-                <hr />
-                <h3 class="govuk-heading-m">The correct answer is:</h3>
-                <p id="{{ question.name }}-{{ answer.id }}-correct-answer-text"></p>
-                {% endif %}
-                <a class="small-link" href="#question-anchor">View question</a>
+              <input type="hidden" id="{{ question.name }}-correct-text" value="{{ answer.text }}" />
+              <input type="hidden" id="{{ question.name }}-feedback-text" value="{{ answer.feedback }}" />
+              {% endif %}
             </div>
           </div>
           {% endif %}
           {% endfor %}
-          <div id="{{ question.name }}-{{ answer.id }}-skipped-feedback" name="question-feedback"
-            class="feedback-box hidden">
+          <div id="{{ question.name }}-skipped-feedback" name="question-feedback" class="feedback-box hidden">
             <div style="padding: 15px;">
               <h3 class="govuk-heading-m">You have skipped the question</h3>
               <hr />
               <h3 class="govuk-heading-m">The correct answer is:</h3>
-              <p name="correct-answer-text"></p>
-              <a class="small-link" href="#question-anchor">View question</a>
+              <p id="{{ question.name }}-skipped-correct-answer-text"></p>
+              <h3 class="govuk-heading-m">Feedback:</h3>
+              <p id="{{ question.name }}-skipped-correct-feedback-text">{{ answer.feedback }}</p>
             </div>
           </div>
 
@@ -214,14 +213,20 @@ NRS Prototype
     lesson.answers.forEach(answer => {
       $('#' + answer.question + '-result').text(capitalizeResult(answer.result))
       $('#' + answer.question + '-icon-' + answer.result).removeClass('hidden')
-      $('#' + answer.answerId + '-correct-answer-text').text(answer.answer)
 
       if (answer.result === 'skipped') {
-        $('#' + answer.answerId + '-skipped-feedback').removeClass('hidden')
+        const correctAnswerText = $('#' + answer.question + '-correct-text').val()
+        $('#' + answer.question + '-skipped-correct-answer-text').text(correctAnswerText)
+
+        const correctFeedbackText = $('#' + answer.question + '-feedback-text').val()
+        $('#' + answer.question + '-skipped-correct-feedback-text').text(correctFeedbackText)
+
+        $('#' + answer.question + '-skipped-feedback').removeClass('hidden')
       } else {
+        $('#' + answer.answerId + '-correct-answer-text').text(answer.answer)
         $('#' + answer.answerId + '-feedback').removeClass('hidden')
       }
-      console.log(answer.answerId)
+      // console.log(answer)
 
       if (!answer.isCorrect) {
         $('#' + answer.selectedAnswer + '-label').removeClass('govuk-radios__label')
