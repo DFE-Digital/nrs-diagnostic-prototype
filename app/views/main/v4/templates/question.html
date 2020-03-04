@@ -33,17 +33,17 @@ NRS Prototype
         </h3>
         {% if answer.isCorrect %}
         <p>You have answered this correctly.</p>{% if not saveAnswers %}
+        <p>{{ answer.feedback }}</p>
+        {% endif %}
+        {% else %}
+        {% if not saveAnswers and not answer.isCorrect %}
         <p>{{ answer.feedback }}
           {% endif %}
-          {% else %}
-          {% if not saveAnswers and not answer.isCorrect %}
-          <p>{{ answer.feedback }}
-            {% endif %}
-            <hr />
-            <h3 class="govuk-heading-m">The correct answer is:</h3>
-            <p name="correct-answer-text"></p>
-            {% endif %}
-            <a class="small-link" href="#question-anchor">View question</a>
+          <hr />
+          <h3 class="govuk-heading-m">The correct answer is:</h3>
+          <p name="correct-answer-text"></p>
+          {% endif %}
+          <a class="small-link" href="#question-anchor">See your answer</a>
       </div>
     </div>
     {% endif %}
@@ -54,7 +54,7 @@ NRS Prototype
         <hr />
         <h3 class="govuk-heading-m">The correct answer is:</h3>
         <p name="correct-answer-text"></p>
-        <a class="small-link" href="#question-anchor">View question</a>
+        <a class="small-link" href="#question-anchor">See your answer</a>
       </div>
     </div>
   </div>
