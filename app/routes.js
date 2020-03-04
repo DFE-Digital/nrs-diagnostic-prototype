@@ -677,8 +677,12 @@ const lessonList = [
         inputAnswers: [
           'sincerely',
           'yours sincerely',
+          'yours  sincerely',
+          'yours   sincerely',
           'faithfully',
-          'yours faithfully'
+          'yours faithfully',
+          'yours  faithfully',
+          'yours   faithfully'
         ],
         genericFeedback: {
           html:
