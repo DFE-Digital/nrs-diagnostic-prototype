@@ -25,7 +25,7 @@ const lessonList = [
       {
         id: '2',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.',
+          'In this video, you will learn how to write the main part of an email.',
         url: 'https://www.youtube.com/embed/Ckgy0yrL6VE',
         backLink: '/v4/topic/lesson/1/video/1',
         nextLink: '/v4/topic/lesson/1/video/practice/2'
@@ -33,7 +33,7 @@ const lessonList = [
       {
         id: '3',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor diam sit nibh consequat morbi vel.',
+          'In this final video, you will learn how to end a formal email appropriately.',
         url: 'https://www.youtube.com/embed/kZIrEVDYPOI',
         backLink: '/v4/topic/lesson/1/video/2',
         nextLink: '/v4/topic/lesson/1/video/practice/3'
@@ -481,7 +481,7 @@ const lessonList = [
         title: '',
         text: '',
         html:
-          '<p>You are writing an email to apply for job as a Salon Assistant at a local hair salon.</p><p>You need to write a subject line to summarise the contents of your email.</p><p><strong>Which of the following would be an appropriate subject line for this email?</strong></p>',
+          '<p>You are writing an email to apply for a job as a Salon Assistant at a local hair salon.</p><p>You need to write a subject line to summarise the contents of your email.</p><p><strong>Which of the following would be an appropriate subject line for this email?</strong></p>',
         correctAnswerId: '1',
         answers: [
           {
@@ -527,7 +527,7 @@ const lessonList = [
         title: '',
         text: '',
         html:
-          '<p>You are writing an email to apply for a job as a Sales Assistant at a local retailers. You do not know the name of the person you are sending the email to.</p><p><strong>Which of the following greetings would you use at the start of your email?</strong></p>',
+          '<p>You are writing an email to apply for a job as a Sales Assistant at a local retailer. You do not know the name of the person you are sending the email to.</p><p><strong>Which of the following greetings would you use at the start of your email?</strong></p>',
         correctAnswerId: '1',
         answers: [
           {
@@ -605,9 +605,9 @@ const lessonList = [
           {
             id: '4',
             value:
-              'I beleive I have the appropraite skills to make me eligible for a role as a social worker.',
+              'I believe I have the appropraite skills to make me eligible for a role as a social worker.',
             text:
-              'I beleive I have the appropraite skills to make me eligible for a role as a social worker.',
+              'I believe I have the appropraite skills to make me eligible for a role as a social worker.',
             isCorrect: false,
             feedback:
               'Before giving more detail about your skills and experience, a formal email should begin with an opening line which clearly explains your reason for writing. The sentence you have selected would be good to use after your opening line.'
@@ -671,7 +671,7 @@ const lessonList = [
         title: '',
         text: '',
         html:
-          '<p>You are writing an email to apply for a job at a restaurant. You do not know the name of the person you are writing to.</p><p>Fill in the word to complete the appropriate sign off to this email.</p><p><strong>Yours __________</strong></p>',
+          '<p>You are writing an email to apply for a job at a restaurant. When you do not know the name of the person you are writing to.</p><p>Fill in the word to complete the appropriate sign off to this email.</p><p><strong>Yours __________</strong></p>',
         correctAnswerId: '1',
         answers: [],
         inputAnswers: [
@@ -830,7 +830,7 @@ router.get('/v4/end', function(req, res) {
 router.get('/v4/context', function(req, res) {
   res.render('main/v4/context-page', {
     heading: {
-      main: 'Get an English Functional Skills 2 qualifcation'
+      main: 'English Functional Skills 2 course'
     },
     nextLink: '/v4/topic/select-lesson'
   })
@@ -864,7 +864,7 @@ router.get('/v4/course/actions', function(req, res) {
       main: 'What do you need to do next?'
     },
     description:
-      'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or download a practice paper.',
+      'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or by downloading a practice paper.',
     help: [
       {
         title: 'Need help?',
@@ -899,7 +899,7 @@ router.get('/v4/course/find-a-centre', function(req, res) {
       main: 'Find a test centre'
     },
     description:
-      'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or download a practice paper.',
+      'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or by downloading a practice paper.',
     lessonUrl: '/v4/topic/lesson/1/lesson-objective',
     help: [
       {
