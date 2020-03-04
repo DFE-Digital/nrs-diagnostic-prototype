@@ -344,6 +344,135 @@ const lessonList = [
         nextLink: '/v4/topic/lesson/1/start-quiz'
       }
     ],
+    practiceTextQuestions: [
+      {
+        id: '1',
+        name: 'practice-question-one',
+        type: 'multiplechoice',
+        title: '',
+        text: '',
+        html:
+          '<p>You are writing an email to apply for a job as a Construction Manager at Red Bricks Builders. The name of the person you are sending your email to is Mr Jones.</p><p><strong>Which of the following would be an appropriate way to start your email?</strong></p>',
+        correctAnswerId: '1',
+        answers: [
+          {
+            id: '1',
+            value:
+              'Dear Mr Jones, I am writing to apply for the Construction Manager role with Red Bricks Builders.',
+            text:
+              'Dear Mr Jones, I am writing to apply for the Construction Manager role with Red Bricks Builders.',
+            isCorrect: true,
+            feedback:
+              'A formal email should use the greeting ‘Dear’ instead of an informal greeting such as ‘Hi’ or ‘Hello’. As you know the name of the person you are writing to, you can use their name instead of ‘Sir/Madam’.'
+          },
+          {
+            id: '2',
+            value:
+              'Dear Sir/Madam, I am writing to apply for the Construction Manager role with Red Bricks Builders.',
+            text:
+              'Dear Sir/Madam, I am writing to apply for the Construction Manager role with Red Bricks Builders.',
+            isCorrect: false,
+            feedback:
+              'The question informs you that you know the person you are sending your email to. You only use the title ‘Sir/ Madam’ when you do not know the name of the person you are sending it to.'
+          },
+          {
+            id: '3',
+            value:
+              'Dear Mr Jones, I am writing because I think I am the right person for the Construction Manager role with Red Bricks Builders.',
+            text:
+              'Dear Mr Jones, I am writing because I think I am the right person for the Construction Manager role with Red Bricks Builders.',
+            isCorrect: false,
+            feedback:
+              'Although your greeting is correct, your opening line is not appropriate for a formal email. You should immediately state why you are writing, for example “I am writing to apply for...” The person who receives the email will decide whether you are ‘the right person’ for the job, you should not state this.'
+          },
+          {
+            id: '4',
+            value:
+              'Hi Mr Jones, I am writing to apply for the Construction Manager role with Red Bricks Builders.',
+            text:
+              'Hi Mr Jones, I am writing to apply for the Construction Manager role with Red Bricks Builders.',
+            isCorrect: false,
+            feedback:
+              'Using the greeting ‘Hi’ or ‘Hello’ is too informal for a formal email. You might use this greeting in an email to a friend. You should use the greeting ‘Dear...’ when writing a formal email.'
+          }
+        ],
+        backLink: '/v4/topic/lesson/1/text/1',
+        nextLink: '/v4/topic/lesson/1/text/2'
+      },
+      {
+        id: '2',
+        name: 'practice-question-two',
+        type: 'multiplechoice',
+        title: '',
+        text: '',
+        html:
+          '<p>You are writing an email to apply for a job as a Retail Assistant in a local cosmetics store called Carly’s Cosmetics.</p><p><strong>Which of the following would be best to include in your email?</strong></p>',
+        correctAnswerId: '1',
+        answers: [
+          {
+            id: '1',
+            value:
+              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. Currently, I am employed as a Junior Retail Assistant. Having been in this role for nearly 18 months, I have developed skills in sales and customer communication. I have also recently passed my Level 1 Diploma in Cosmetics, which has enhanced my beauty knowledge. I now want to apply my skills and experience further in a larger, nationwide store.',
+            text:
+              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. Currently, I am employed as a Junior Retail Assistant. Having been in this role for nearly 18 months, I have developed skills in sales and customer communication. I have also recently passed my Level 1 Diploma in Cosmetics, which has enhanced my beauty knowledge. I now want to apply my skills and experience further in a larger, nationwide store.',
+            isCorrect: true,
+            feedback:
+              'This gives clear and relevant information according to the reason you are sending the email. It clearly outlines the skills and experience which make you eligible for the role.'
+          },
+          {
+            id: '2',
+            value:
+              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. When I read the job description on your website, I thought I was perfect for the job. I’ve been working in a cosmetics store nearby for the last 18 months and I feel like now is the ideal time to make a move. This is partly because I want to work in a larger store, but also because I want to change things up a bit. By the way, I just passed my Level 1 Diploma in Cosmetics, so my beauty knowledge has improved.',
+            text:
+              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. When I read the job description on your website, I thought I was perfect for the job. I’ve been working in a cosmetics store nearby for the last 18 months and I feel like now is the ideal time to make a move. This is partly because I want to work in a larger store, but also because I want to change things up a bit. By the way, I just passed my Level 1 Diploma in Cosmetics, so my beauty knowledge has improved.',
+            isCorrect: false,
+            feedback:
+              'The language used in this example is too informal for a job application email. Phrases such as “I thought I was perfect for the job” and “I want to change things up a bit” are too informal. A job application should use formal language so it sounds professional.'
+          },
+          {
+            id: '3',
+            value:
+              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. This is because I currently work as a Junior Retail Assistant and I have also recently passed my Level 1 Diploma in Cosmetics.',
+            text:
+              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. This is because I currently work as a Junior Retail Assistant and I have also recently passed my Level 1 Diploma in Cosmetics.',
+            isCorrect: false,
+            feedback:
+              'Although this answer describes the experience and qualifications you have, it does go into enough detail. You need to explain how your skills have developed because of the experience and qualifications you have.'
+          }
+        ],
+        backLink: '/v4/topic/lesson/1/text/2',
+        nextLink: '/v4/topic/lesson/1/text/3'
+      },
+      {
+        id: '3',
+        name: 'practice-question-three',
+        type: 'input',
+        title: '',
+        text: '',
+        html:
+          '<p>You are writing an email to a local restaurant applying for a job as Front of House Manager. You need to end your email with an appropriate closing line and sign off. You <strong>do not know</strong> the name of the person you are writing to.</p><p><strong>Write the end of your email, making sure you include closing line and a sign off.  use for this email?</strong></p>',
+        correctAnswerId: '1',
+        answers: [],
+        inputAnswers: [],
+        genericFeedback: {
+          html:
+            '<h3 class="govuk-heading-m">Compare the end of your email to the example below:</h3><p>It would be greatly appreciated if you could take a moment to consider my CV, which is attached to this email. I look forward to hearing from you and I hope to discuss the role with you in more detail.<br /><br />Yours sincerely,<br />Paul Smith</p><hr /><h3 class="govuk-heading-m">How did you do on this question?</h3><p>Feedback: When you are writing a formal email, you should use a closing line such as ‘I look forward to hearing from you’ rather than ‘speak soon!’</p><p>When you do not know the name of the person you are writing to then you should use either of the following sign offs:</p><ul class="govuk-list govuk-list--bullet"><li>Yours sincerely</li><li>Yours faithfully</li></ul><p>If you did not give either of these answers, perhaps return to the learning content to remind yourself of this part of a formal email.</p>',
+          main: ''
+        },
+        // correctFeedback: {
+        //   html:
+        //     "<p>When you do not know the name of the person you are writing to, you should use a sign off such as 'Yours sincerely' or 'Yours faithfully'</p>",
+        //   main: ''
+        // },
+        // incorrectFeedback: {
+        //   html:
+        //     "<p>When you do not know the name of the person you are writing to, you should use a sign off such as 'Yours sincerely' or 'Yours faithfully'</p>",
+        //   main: ''
+        // },
+        backLink: '/v4/topic/lesson/1/text/3',
+        nextLink: '/v4/topic/lesson/1/start-quiz'
+      }
+    ],
     assessmentQuestions: [
       {
         id: '1',
@@ -1012,7 +1141,9 @@ router.get('/v4/topic/lesson/:lessonId/:media/practice/:questionId', function(
   const practiceQuestions =
     media === 'video'
       ? lesson.practiceVideoQuestions
-      : lesson.practiceSlideshowQuestions
+      : media === 'slideshow'
+      ? lesson.practiceSlideshowQuestions
+      : lesson.practiceTextQuestions
   const question = practiceQuestions.find(x => x.id === questionId)
   if (!question) {
     res.redirect(`/v4/topic/lesson/${lessonId}/select-learning-content`)
@@ -1079,7 +1210,7 @@ router.get('/v4/topic/lesson/:lessonId/learning-content', function(req, res) {
     const slideshow = lesson.slideshows[0]
     res.redirect(`/v4/topic/lesson/${lessonId}/slideshow/${slideshow.id}`)
   } else if (learningContent === 'text') {
-    res.redirect('')
+    res.redirect(`/v4/topic/lesson/${lessonId}/text/1`)
   } else if (learningContent === 'video') {
     const video = lesson.videos[0]
     if (!video) {
@@ -1233,6 +1364,108 @@ router.get('/v4/topic/lesson/:lessonId/feedback', function(req, res) {
       ]
     },
     help: [helpLinks[0]]
+  })
+})
+
+router.get('/v4/topic/lesson/:lessonId/text/1', function(req, res) {
+  const lessonId = req.params.lessonId
+  const lesson = lessonList.find(x => x.id === lessonId)
+  if (!lesson) {
+    res.redirect('/v4/topic/select-lesson')
+  }
+
+  res.render('main/v4/topic/lesson/text/1', {
+    back: {
+      text: 'Back',
+      href: `/v4/topic/lesson/${lessonId}/select-learning-content` // videoContent.backLink
+    },
+    heading: {
+      sub: lesson.title
+    },
+    nextLink: '/v4/context',
+    actions: {
+      title: 'You can also:',
+      links: [
+        {
+          text: 'Continue with lesson',
+          href: `/v4/topic/lesson/${lessonId}/text/practice/1`,
+          isButton: true
+        },
+        {
+          text: 'Change learning material',
+          href: `/v4/topic/lesson/${lessonId}/select-learning-content`
+        }
+      ]
+    },
+    help: helpLinks
+  })
+})
+
+router.get('/v4/topic/lesson/:lessonId/text/2', function(req, res) {
+  const lessonId = req.params.lessonId
+  const lesson = lessonList.find(x => x.id === lessonId)
+  if (!lesson) {
+    res.redirect('/v4/topic/select-lesson')
+  }
+
+  res.render('main/v4/topic/lesson/text/2', {
+    back: {
+      text: 'Back',
+      href: `/v4/topic/lesson/${lessonId}/text/1` // videoContent.backLink
+    },
+    heading: {
+      sub: lesson.title
+    },
+    nextLink: '/v4/context',
+    actions: {
+      title: 'You can also:',
+      links: [
+        {
+          text: 'Continue with lesson',
+          href: `/v4/topic/lesson/${lessonId}/text/practice/2`,
+          isButton: true
+        },
+        {
+          text: 'Change learning material',
+          href: `/v4/topic/lesson/${lessonId}/select-learning-content`
+        }
+      ]
+    },
+    help: helpLinks
+  })
+})
+
+router.get('/v4/topic/lesson/:lessonId/text/3', function(req, res) {
+  const lessonId = req.params.lessonId
+  const lesson = lessonList.find(x => x.id === lessonId)
+  if (!lesson) {
+    res.redirect('/v4/topic/select-lesson')
+  }
+
+  res.render('main/v4/topic/lesson/text/3', {
+    back: {
+      text: 'Back',
+      href: `/v4/topic/lesson/${lessonId}/text/2` // videoContent.backLink
+    },
+    heading: {
+      sub: lesson.title
+    },
+    nextLink: '/v4/context',
+    actions: {
+      title: 'You can also:',
+      links: [
+        {
+          text: 'Continue with lesson',
+          href: `/v4/topic/lesson/${lessonId}/text/practice/3`,
+          isButton: true
+        },
+        {
+          text: 'Change learning material',
+          href: `/v4/topic/lesson/${lessonId}/select-learning-content`
+        }
+      ]
+    },
+    help: helpLinks
   })
 })
 
