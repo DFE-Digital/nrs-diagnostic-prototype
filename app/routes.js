@@ -736,27 +736,19 @@ router.get('/v4/course/actions', function(req, res) {
       {
         title: 'Need help?',
         description:
-          'Choose one of the options below if you need any help with the lesson.',
+          'We can help you book an exam and apply for jobs. Find out more about the different ways we can support you.',
         links: [
-          {
-            text: 'Speak to a tutor (via email)',
-            href: '#'
-          },
-          {
-            html:
-              '<span class="govuk-body-s"><strong>Call</strong> 0800 100 900 or <a class="small-link">use webchat</a></span><br /><span class="media-type-label">9am to 10pm, 7 days a week</span><br />'
-          },
           {
             text: 'Finding a test centre',
             href: '/v4/course/find-a-centre'
           },
           {
-            text: 'Applying for a job',
+            text: 'Getting a qualification',
             href: '#'
           },
           {
-            text: 'Getting a qualification',
-            href: '#'
+            html:
+              '<span class="govuk-body-s"><a class="small-link">Use webchat </a><strong>or Call</strong> 0800 100 900</span><br /><span class="media-type-label">9am to 10pm, 7 days a week</span><br />'
           }
         ]
       }
@@ -780,27 +772,19 @@ router.get('/v4/course/find-a-centre', function(req, res) {
       {
         title: 'Need help?',
         description:
-          'Choose one of the options below if you need any help with the lesson.',
+          'We can help you book an exam and apply for jobs. Find out more about the different ways we can support you.',
         links: [
-          {
-            text: 'Speak to a tutor (via email)',
-            href: '#'
-          },
-          {
-            html:
-              '<span class="govuk-body-s"><strong>Call</strong> 0800 100 900 or <a class="small-link">use webchat</a></span><br /><span class="media-type-label">9am to 10pm, 7 days a week</span><br />'
-          },
           {
             text: 'Finding a test centre',
             href: '/v4/course/find-a-centre'
           },
           {
-            text: 'Applying for a job',
+            text: 'Getting a qualification',
             href: '#'
           },
           {
-            text: 'Getting a qualification',
-            href: '#'
+            html:
+              '<span class="govuk-body-s"><a class="small-link">Use webchat </a><strong>or Call</strong> 0800 100 900</span><br /><span class="media-type-label">9am to 10pm, 7 days a week</span><br />'
           }
         ]
       }
@@ -822,27 +806,19 @@ router.get('/v4/course/search-results', function(req, res) {
       {
         title: 'Need help?',
         description:
-          'Choose one of the options below if you need any help with the lesson.',
+          'We can help you book an exam and apply for jobs. Find out more about the different ways we can support you.',
         links: [
-          {
-            text: 'Speak to a tutor (via email)',
-            href: '#'
-          },
-          {
-            html:
-              '<span class="govuk-body-s"><strong>Call</strong> 0800 100 900 or <a class="small-link">use webchat</a></span><br /><span class="media-type-label">9am to 10pm, 7 days a week</span><br />'
-          },
           {
             text: 'Finding a test centre',
             href: '/v4/course/find-a-centre'
           },
           {
-            text: 'Applying for a job',
+            text: 'Getting a qualification',
             href: '#'
           },
           {
-            text: 'Getting a qualification',
-            href: '#'
+            html:
+              '<span class="govuk-body-s"><a class="small-link">Use webchat </a><strong>or Call</strong> 0800 100 900</span><br /><span class="media-type-label">9am to 10pm, 7 days a week</span><br />'
           }
         ]
       }
