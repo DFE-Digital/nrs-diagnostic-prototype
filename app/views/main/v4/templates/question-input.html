@@ -66,12 +66,16 @@ NRS Prototype
   </div>
 </div>
 
-<div class="govuk-grid-row hidden" id="section-actions" style="margin-bottom: 20px;">
+<!-- <div class="govuk-grid-row hidden" id="section-actions" style="margin-bottom: 20px;">
   <div class="govuk-grid-column-two-thirds">
-    <hr />
-    <h3 class="govuk-heading-m">{{ actions.title }}</h3>
+
     {% for link in actions.links %}
     {% if link %}
+    {% if link.isButton %}
+    <a href="{{ link.href }}" class="govuk-button" data-module="govuk-button">{{ link.text }}</a>
+    <hr />
+    <h3 class="govuk-heading-m">{{ actions.title }}</h3>
+    {% else %}
     <div style="margin-bottom: 5px;">
       {% if link.html %}
       {{ link.html | safe if link.html else heading.main }}
@@ -80,7 +84,16 @@ NRS Prototype
       {% endif %}
     </div>
     {% endif %}
+    {% endif %}
     {% endfor %}
+  </div>
+</div> -->
+
+<div class="govuk-grid-row hidden" id="section-actions" style="margin-bottom: 20px;">
+  <div class="govuk-grid-column-two-thirds">
+    {{ actionLinks({
+      actions: actions
+    }) }}
   </div>
 </div>
 
@@ -223,6 +236,7 @@ NRS Prototype
     $('#helplinks-secondary').removeClass('hidden')
     $('#section-actions').removeClass('hidden')
     $('#question-description').addClass('hidden')
+    $('#skip-link').addClass('hidden')
   }
 
   function v4LockQuestion(question) {

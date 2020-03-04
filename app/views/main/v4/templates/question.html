@@ -60,19 +60,9 @@ NRS Prototype
 
 <div class="govuk-grid-row hidden" id="section-actions" style="margin-bottom: 20px;">
   <div class="govuk-grid-column-two-thirds">
-    <hr />
-    <h3 class="govuk-heading-m">{{ actions.title }}</h3>
-    {% for link in actions.links %}
-    {% if link %}
-    <div style="margin-bottom: 5px;">
-      {% if link.html %}
-      {{ link.html | safe if link.html else heading.main }}
-      {% else %}
-      <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br />
-      {% endif %}
-    </div>
-    {% endif %}
-    {% endfor %}
+    {{ actionLinks({
+      actions: actions
+    }) }}
   </div>
 </div>
 
@@ -199,7 +189,6 @@ NRS Prototype
       const lessonId = $('#_lesson_id').val()
       v4SaveAnswerToLocalStorage(lessonId, question, answerId, answer, result === 'correct' ? true : false, result)
     }
-    // return result
   }
 
   function v4SkipQuestion() {
@@ -229,6 +218,7 @@ NRS Prototype
     $('#helplinks-secondary').removeClass('hidden')
     $('#section-actions').removeClass('hidden')
     $('#question-description').addClass('hidden')
+    $('#skip-link').addClass('hidden')
   }
 
   function v4LockQuestion(question) {

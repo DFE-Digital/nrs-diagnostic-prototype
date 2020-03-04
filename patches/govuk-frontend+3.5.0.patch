@@ -1,3 +1,43 @@
+diff --git a/node_modules/govuk-frontend/govuk/components/custom/actionLinks/macro.njk b/node_modules/govuk-frontend/govuk/components/custom/actionLinks/macro.njk
+new file mode 100644
+index 0000000..06283d9
+--- /dev/null
++++ b/node_modules/govuk-frontend/govuk/components/custom/actionLinks/macro.njk
+@@ -0,0 +1,3 @@
++{% macro actionLinks(params) %}
++  {%- include "./template.njk" -%}
++{% endmacro %}
+diff --git a/node_modules/govuk-frontend/govuk/components/custom/actionLinks/template.njk b/node_modules/govuk-frontend/govuk/components/custom/actionLinks/template.njk
+new file mode 100644
+index 0000000..fa4bcb7
+--- /dev/null
++++ b/node_modules/govuk-frontend/govuk/components/custom/actionLinks/template.njk
+@@ -0,0 +1,24 @@
++{% set actions = params.actions %}
++{% set links = actions.links %}
++{% set title = actions.title %}
++{% for link in links %}
++{% if link %}
++{% set isButton = link.isButton %}
++{% set linkHref = link.href %}
++{% set linkText = link.text %}
++{% set linkHtml = link.html %}
++{% if link.isButton %}
++<a href="{{ link.href }}" class="govuk-button" data-module="govuk-button">{{ link.text }}</a>
++<hr />
++<h2 class="govuk-heading-l">{{ title }}</h3>
++{% else %}
++<div style="margin-bottom: 5px;">
++  {% if link.html %}
++  {{ link.html | safe if link.html else heading.main }}
++  {% else %}
++  <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br />
++  {% endif %}
++</div>
++{% endif %}
++{% endif %}
++{% endfor %}
+\ No newline at end of file
 diff --git a/node_modules/govuk-frontend/govuk/components/custom/badgePanel/macro.njk b/node_modules/govuk-frontend/govuk/components/custom/badgePanel/macro.njk
 new file mode 100644
 index 0000000..9a7358a
@@ -77,7 +117,7 @@ index 0000000..b830c97
 +{% endmacro %}
 diff --git a/node_modules/govuk-frontend/govuk/components/custom/helpLinks/template.njk b/node_modules/govuk-frontend/govuk/components/custom/helpLinks/template.njk
 new file mode 100644
-index 0000000..4447318
+index 0000000..81d45c5
 --- /dev/null
 +++ b/node_modules/govuk-frontend/govuk/components/custom/helpLinks/template.njk
 @@ -0,0 +1,26 @@
@@ -89,11 +129,11 @@ index 0000000..4447318
 +      <div class="govuk-grid-row">
 +        <div class="govuk-grid-column-two-thirds">
 +          <hr style="border: 5px solid #005DA6; margin-bottom: 15px" />
-+          <h3 class="govuk-heading-m">{{ title }}</h3>
++          <h2 class="govuk-heading-l">{{ title }}</h2>
 +          <p>{{ description }}</p>
 +          {% for link in links %}
 +            {% if link %}
-+              <div style="margin-bottom: 5px;">
++              <div {% if link.id %} id="{{ link.id }}" {% endif %} style="margin-bottom: 5px;">
 +                {% if link.html %}
 +                  {{ link.html | safe if link.html else heading.main }}
 +                {% else %}
