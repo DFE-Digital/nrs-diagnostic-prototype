@@ -154,32 +154,32 @@ const lessonList = [
           {
             id: '1',
             value:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. Currently, I am employed as a Junior Retail Assistant. Having been in this role for nearly 18 months, I have developed skills in sales and customer communication. I have also recently passed my Level 1 Diploma in Cosmetics, which has enhanced my beauty knowledge. I now want to apply my skills and experience further in a larger, nationwide store.',
+              'Having been in a Junior Retail Assistant role for nearly 18 months, I have developed skills in sales and customer communication.',
             text:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. Currently, I am employed as a Junior Retail Assistant. Having been in this role for nearly 18 months, I have developed skills in sales and customer communication. I have also recently passed my Level 1 Diploma in Cosmetics, which has enhanced my beauty knowledge. I now want to apply my skills and experience further in a larger, nationwide store.',
+              'Having been in a Junior Retail Assistant role for nearly 18 months, I have developed skills in sales and customer communication.',
             isCorrect: true,
             feedback:
-              'This gives clear and relevant information according to the reason you are sending the email. It clearly outlines the skills and experience which make you eligible for the role.'
+              'This gives clear and relevant information outlining the skills and experience which make you eligible for the role.'
           },
           {
             id: '2',
             value:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. When I read the job description on your website, I thought I was perfect for the job. I’ve been working in a cosmetics store nearby for the last 18 months and I feel like now is the ideal time to make a move. This is partly because I want to work in a larger store, but also because I want to change things up a bit. By the way, I just passed my Level 1 Diploma in Cosmetics, so my beauty knowledge has improved.',
+              'I’ve been working in a cosmetics store nearby for the last 18 months and I feel like now is the ideal time to make a move.',
             text:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. When I read the job description on your website, I thought I was perfect for the job. I’ve been working in a cosmetics store nearby for the last 18 months and I feel like now is the ideal time to make a move. This is partly because I want to work in a larger store, but also because I want to change things up a bit. By the way, I just passed my Level 1 Diploma in Cosmetics, so my beauty knowledge has improved.',
+              'I’ve been working in a cosmetics store nearby for the last 18 months and I feel like now is the ideal time to make a move.',
             isCorrect: false,
             feedback:
-              'The language used in this example is too informal for a job application email. Phrases such as “I thought I was perfect for the job” and “I want to change things up a bit” are too informal. A job application should use formal language so it sounds professional.'
+              'The phrase “ideal time to make a move” is too informal for a formal email. A job application should use formal language so it sounds professional.'
           },
           {
             id: '3',
             value:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. This is because I currently work as a Junior Retail Assistant and I have also recently passed my Level 1 Diploma in Cosmetics.',
+              'I believe I have the relevant experience because I currently work as a Junior Retail Assistant.',
             text:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. This is because I currently work as a Junior Retail Assistant and I have also recently passed my Level 1 Diploma in Cosmetics.',
+              'I believe I have the relevant experience because I currently work as a Junior Retail Assistant.',
             isCorrect: false,
             feedback:
-              'Although this answer describes the experience and qualifications you have, it does go into enough detail. You need to explain how your skills have developed because of the experience and qualifications you have.'
+              'Although this answer states the experience you have, it does not go into enough detail. You need to explain how your skills have developed because of the experience you have.'
           }
         ],
         backLink: '/v4/topic/lesson/1/video/2',
@@ -283,32 +283,32 @@ const lessonList = [
           {
             id: '1',
             value:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. Currently, I am employed as a Junior Retail Assistant. Having been in this role for nearly 18 months, I have developed skills in sales and customer communication. I have also recently passed my Level 1 Diploma in Cosmetics, which has enhanced my beauty knowledge. I now want to apply my skills and experience further in a larger, nationwide store.',
+              'Having been in a Junior Retail Assistant role for nearly 18 months, I have developed skills in sales and customer communication.',
             text:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. Currently, I am employed as a Junior Retail Assistant. Having been in this role for nearly 18 months, I have developed skills in sales and customer communication. I have also recently passed my Level 1 Diploma in Cosmetics, which has enhanced my beauty knowledge. I now want to apply my skills and experience further in a larger, nationwide store.',
+              'Having been in a Junior Retail Assistant role for nearly 18 months, I have developed skills in sales and customer communication.',
             isCorrect: true,
             feedback:
-              'This gives clear and relevant information according to the reason you are sending the email. It clearly outlines the skills and experience which make you eligible for the role.'
+              'This gives clear and relevant information outlining the skills and experience which make you eligible for the role.'
           },
           {
             id: '2',
             value:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. When I read the job description on your website, I thought I was perfect for the job. I’ve been working in a cosmetics store nearby for the last 18 months and I feel like now is the ideal time to make a move. This is partly because I want to work in a larger store, but also because I want to change things up a bit. By the way, I just passed my Level 1 Diploma in Cosmetics, so my beauty knowledge has improved.',
+              'I’ve been working in a cosmetics store nearby for the last 18 months and I feel like now is the ideal time to make a move.',
             text:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. When I read the job description on your website, I thought I was perfect for the job. I’ve been working in a cosmetics store nearby for the last 18 months and I feel like now is the ideal time to make a move. This is partly because I want to work in a larger store, but also because I want to change things up a bit. By the way, I just passed my Level 1 Diploma in Cosmetics, so my beauty knowledge has improved.',
+              'I’ve been working in a cosmetics store nearby for the last 18 months and I feel like now is the ideal time to make a move.',
             isCorrect: false,
             feedback:
-              'The language used in this example is too informal for a job application email. Phrases such as “I thought I was perfect for the job” and “I want to change things up a bit” are too informal. A job application should use formal language so it sounds professional.'
+              'The phrase “ideal time to make a move” is too informal for a formal email. A job application should use formal language so it sounds professional.'
           },
           {
             id: '3',
             value:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. This is because I currently work as a Junior Retail Assistant and I have also recently passed my Level 1 Diploma in Cosmetics.',
+              'I believe I have the relevant experience because I currently work as a Junior Retail Assistant.',
             text:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. This is because I currently work as a Junior Retail Assistant and I have also recently passed my Level 1 Diploma in Cosmetics.',
+              'I believe I have the relevant experience because I currently work as a Junior Retail Assistant.',
             isCorrect: false,
             feedback:
-              'Although this answer describes the experience and qualifications you have, it does go into enough detail. You need to explain how your skills have developed because of the experience and qualifications you have.'
+              'Although this answer states the experience you have, it does not go into enough detail. You need to explain how your skills have developed because of the experience you have.'
           }
         ],
         backLink: '/v4/topic/lesson/1/slideshow/2',
@@ -412,32 +412,32 @@ const lessonList = [
           {
             id: '1',
             value:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. Currently, I am employed as a Junior Retail Assistant. Having been in this role for nearly 18 months, I have developed skills in sales and customer communication. I have also recently passed my Level 1 Diploma in Cosmetics, which has enhanced my beauty knowledge. I now want to apply my skills and experience further in a larger, nationwide store.',
+              'Having been in a Junior Retail Assistant role for nearly 18 months, I have developed skills in sales and customer communication.',
             text:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. Currently, I am employed as a Junior Retail Assistant. Having been in this role for nearly 18 months, I have developed skills in sales and customer communication. I have also recently passed my Level 1 Diploma in Cosmetics, which has enhanced my beauty knowledge. I now want to apply my skills and experience further in a larger, nationwide store.',
+              'Having been in a Junior Retail Assistant role for nearly 18 months, I have developed skills in sales and customer communication.',
             isCorrect: true,
             feedback:
-              'This gives clear and relevant information according to the reason you are sending the email. It clearly outlines the skills and experience which make you eligible for the role.'
+              'This gives clear and relevant information outlining the skills and experience which make you eligible for the role.'
           },
           {
             id: '2',
             value:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. When I read the job description on your website, I thought I was perfect for the job. I’ve been working in a cosmetics store nearby for the last 18 months and I feel like now is the ideal time to make a move. This is partly because I want to work in a larger store, but also because I want to change things up a bit. By the way, I just passed my Level 1 Diploma in Cosmetics, so my beauty knowledge has improved.',
+              'I’ve been working in a cosmetics store nearby for the last 18 months and I feel like now is the ideal time to make a move.',
             text:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. When I read the job description on your website, I thought I was perfect for the job. I’ve been working in a cosmetics store nearby for the last 18 months and I feel like now is the ideal time to make a move. This is partly because I want to work in a larger store, but also because I want to change things up a bit. By the way, I just passed my Level 1 Diploma in Cosmetics, so my beauty knowledge has improved.',
+              'I’ve been working in a cosmetics store nearby for the last 18 months and I feel like now is the ideal time to make a move.',
             isCorrect: false,
             feedback:
-              'The language used in this example is too informal for a job application email. Phrases such as “I thought I was perfect for the job” and “I want to change things up a bit” are too informal. A job application should use formal language so it sounds professional.'
+              'The phrase “ideal time to make a move” is too informal for a formal email. A job application should use formal language so it sounds professional.'
           },
           {
             id: '3',
             value:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. This is because I currently work as a Junior Retail Assistant and I have also recently passed my Level 1 Diploma in Cosmetics.',
+              'I believe I have the relevant experience because I currently work as a Junior Retail Assistant.',
             text:
-              'Dear Sir/Madam, I am writing to apply for the role of Retail Assistant at Carly’s Cosmetics. Having read the job description on your website, I believe I have the relevant experience to make a valuable contribution to your organisation. This is because I currently work as a Junior Retail Assistant and I have also recently passed my Level 1 Diploma in Cosmetics.',
+              'I believe I have the relevant experience because I currently work as a Junior Retail Assistant.',
             isCorrect: false,
             feedback:
-              'Although this answer describes the experience and qualifications you have, it does go into enough detail. You need to explain how your skills have developed because of the experience and qualifications you have.'
+              'Although this answer states the experience you have, it does not go into enough detail. You need to explain how your skills have developed because of the experience you have.'
           }
         ],
         backLink: '/v4/topic/lesson/1/text/2',
