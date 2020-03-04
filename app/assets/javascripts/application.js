@@ -218,3 +218,51 @@ function openHelp() {
 function closeHelp() {
   $('#help-overlay').addClass('hidden')
 }
+
+// v4
+function v4ResultIsValid(result) {
+  return result === 'correct' || result === 'incorrect' || result === 'skipped'
+}
+
+function v4SaveAnswerToLocalStorage(
+  lessonId,
+  question,
+  answerId,
+  answer,
+  isCorrect,
+  result
+) {
+  var lesson = v4GetNewOrExistingLessonFromStorage(lessonId)
+
+  var allowOverwrite = false // TODO: Move this to central config
+  if (!allowOverwrite) {
+    const existing = lesson.answers.find(x => x.question === question)
+    if (existing) {
+      return
+    }
+  }
+
+  let answers = lesson.answers
+  answers.push({
+    question,
+    answerId,
+    answer,
+    isCorrect,
+    result
+  })
+
+  lesson.answers = answers
+  setLocalStorageObject('lesson-' + lessonId, lesson)
+}
+
+function v4GetNewOrExistingLessonFromStorage(lessonId) {
+  var existing = getLocalStorageObject('lesson-' + lessonId)
+  if (existing) {
+    return existing
+  }
+  const lesson = {
+    answers: []
+  }
+  setLocalStorageObject('lesson-' + lessonId, lesson)
+  return lesson
+}
