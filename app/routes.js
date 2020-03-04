@@ -1184,8 +1184,6 @@ router.get('/v4/topic/lesson/:lessonId/:media/practice/:questionId', function(
     // nextLink: `/v4/topic/lesson/${lessonId}/`,
     actions: {
       title: 'You can also:',
-      // description:
-      //   'Choose one of the options below if you need any help with the lesson.',
       links: [
         {
           text: 'Continue with lesson',
