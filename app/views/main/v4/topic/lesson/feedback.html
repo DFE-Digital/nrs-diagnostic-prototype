@@ -69,33 +69,6 @@ NRS Prototype
   </div>
 </div>
 
-<!-- <div class="govuk-grid-row" id="section-actions" style="margin-bottom: 20px;">
-  <div class="govuk-grid-column-two-thirds">
-    <hr />
-    <h3 class="govuk-heading-m">{{ actions.title }}</h3>
-    {% for link in actions.links %}
-    {% if link %}
-    <div style="margin-bottom: 5px;">
-      {% if link.html %}
-      {{ link.html | safe if link.html else heading.main }}
-      {% else %}
-      <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br />
-      {% endif %}
-    </div>
-    {% endif %}
-    {% endfor %}
-  </div>
-</div> -->
-
-<!-- <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <div class="govuk-inset-text">
-      <a href="/v4/start-part-two" class="large-link" style="font-weight: bold;">Next lesson</a><br />
-      <a href="#" class="large-link">Retry</a>
-    </div>
-  </div>
-</div> -->
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h2 class="govuk-heading-l">Feedback on your answers</h2>
@@ -155,40 +128,75 @@ NRS Prototype
 
           {% for answer in question.answers %}
           {% if answer %}
+          {% if answer.isCorrect %}
+          <input type="hidden" id="{{ question.name }}-correct-text" value="{{ answer.text }}" />
+          <input type="hidden" id="{{ question.name }}-feedback-text" value="{{ answer.feedback }}" />
+          {% endif %}
           <div id="{{ question.name }}-{{ answer.id }}-feedback" name="question-feedback" class="feedback-box hidden">
             <div style="padding: 15px;">
-
               <h3 class="govuk-heading-m">{% if answer.isCorrect %} You correctly selected: {% else %} You incorrectly
                 selected: {% endif %}</h3>
-              <p id="{{ question.name }}-{{ answer.id }}-correct-answer-text"></p>
+              {% if not answer.isCorrect %}
+              <p>{{ answer.text }}</p>
+              <p id="{{ question.name }}-selected-answer-output"></p>
               <h3 class="govuk-heading-m">Feedback:</h3>
               <p>{{ answer.feedback }}</p>
-
-              {% if not answer.isCorrect %}
               <hr />
               <h3 class="govuk-heading-m">The correct answer is:</h3>
-              <p>{{ answer.text }}</p>
-              {% else %}
-              <input type="hidden" id="{{ question.name }}-correct-text" value="{{ answer.text }}" />
-              <input type="hidden" id="{{ question.name }}-feedback-text" value="{{ answer.feedback }}" />
               {% endif %}
+              <p id="{{ question.name }}-{{ answer.id }}-correct-answer-output"></p>
+              <h3 class="govuk-heading-m">Feedback:</h3>
+              <p id="{{ question.name }}-{{ answer.id }}-correct-feedback-output"></p>
             </div>
           </div>
-          {% endif %}
-          {% endfor %}
+          {% if answer.isCorrect %}
           <div id="{{ question.name }}-skipped-feedback" name="question-feedback" class="feedback-box hidden">
             <div style="padding: 15px;">
               <h3 class="govuk-heading-m">You have skipped the question</h3>
               <hr />
               <h3 class="govuk-heading-m">The correct answer is:</h3>
-              <p id="{{ question.name }}-skipped-correct-answer-text"></p>
+              <p>{{ answer.text }}</p>
               <h3 class="govuk-heading-m">Feedback:</h3>
-              <p id="{{ question.name }}-skipped-correct-feedback-text">{{ answer.feedback }}</p>
+              <p>{{ answer.feedback }}</p>
             </div>
           </div>
-
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+          {% if question.correctFeedback %}
+          <div id="{{ question.name }}-input-correct-feedback" name="question-feedback" class="feedback-box hidden">
+            <div style="padding: 15px;">
+              <h3 class="govuk-heading-m">You correctly answered:</h3>
+              <p id="{{ question.name }}-selected-answer-correct-output"></p>
+              <hr />
+              <h3 class="govuk-heading-m">Feedback:</h3>
+              {{ question.correctFeedback.html | safe if question.correctFeedback.html else question.correctFeedback.main }}
+            </div>
+          </div>
+          {% endif %}
+          {% if question.incorrectFeedback %}
+          <div id="{{ question.name }}-input-incorrect-feedback" name="question-feedback" class="feedback-box hidden">
+            <div style="padding: 15px;">
+              <h3 class="govuk-heading-m">You incorrectly answered:</h3>
+              <p id="{{ question.name }}-selected-answer-incorrect-output"></p>
+              <hr />
+              <h3 class="govuk-heading-m">Feedback:</h3>
+              {{ question.incorrectFeedback.html | safe if question.incorrectFeedback.html else question.incorrectFeedback }}
+            </div>
+          </div>
+          {% endif %}
+          <div id="{{ question.name }}-input-skipped-feedback" name="question-feedback" class="feedback-box hidden">
+            <div style="padding: 15px;">
+              <h3 class="govuk-heading-m">You have skipped the question</h3>
+              <hr />
+              <h3 class="govuk-heading-m">Feedback:</h3>
+              {{ question.incorrectFeedback.html | safe if question.incorrectFeedback.html else question.incorrectFeedback }}
+            </div>
+          </div>
         </div>
       </div>
+
+
       {% endif %}
       {% endfor %}
     </div>
@@ -214,19 +222,30 @@ NRS Prototype
       $('#' + answer.question + '-result').text(capitalizeResult(answer.result))
       $('#' + answer.question + '-icon-' + answer.result).removeClass('hidden')
 
+      const correctAnswerText = $('#' + answer.question + '-correct-text').val()
+      const correctFeedbackText = $('#' + answer.question + '-feedback-text').val()
+
+      $('#' + answer.answerId + '-correct-answer-output').text(correctAnswerText)
+      $('#' + answer.answerId + '-correct-feedback-output').text(correctFeedbackText)
+
       if (answer.result === 'skipped') {
-        const correctAnswerText = $('#' + answer.question + '-correct-text').val()
-        $('#' + answer.question + '-skipped-correct-answer-text').text(correctAnswerText)
-
-        const correctFeedbackText = $('#' + answer.question + '-feedback-text').val()
-        $('#' + answer.question + '-skipped-correct-feedback-text').text(correctFeedbackText)
-
         $('#' + answer.question + '-skipped-feedback').removeClass('hidden')
       } else {
-        $('#' + answer.answerId + '-correct-answer-text').text(answer.answer)
         $('#' + answer.answerId + '-feedback').removeClass('hidden')
       }
-      // console.log(answer)
+
+      // Input question types
+      if (answer.answerId === null) {
+        if (answer.result === 'correct') {
+          $('#' + answer.question + '-input-correct-feedback').removeClass('hidden')
+          $('#' + answer.question + '-selected-answer-correct-output').text(answer.answer)
+        } else if (answer.result === 'skipped') {
+          $('#' + answer.question + '-input-skipped-feedback').removeClass('hidden')
+        } else {
+          $('#' + answer.question + '-input-incorrect-feedback').removeClass('hidden')
+          $('#' + answer.question + '-selected-answer-incorrect-output').text(answer.answer)
+        }
+      }
 
       if (!answer.isCorrect) {
         $('#' + answer.selectedAnswer + '-label').removeClass('govuk-radios__label')

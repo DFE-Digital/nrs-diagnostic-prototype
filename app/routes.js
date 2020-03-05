@@ -1346,15 +1346,7 @@ router.get('/v4/topic/lesson/:lessonId/feedback', function(req, res) {
       main: 'Lesson complete'
       // html: `Question<br />(${questionNo} of 10)`
     },
-    lesson: {
-      ...lesson,
-      assessmentQuestions: [
-        ...lesson.assessmentQuestions.map(question => ({
-          ...question,
-          answers: shuffleArray(question.answers)
-        }))
-      ]
-    },
+    lesson,
     actions: {
       title: 'You can also:',
       links: [
