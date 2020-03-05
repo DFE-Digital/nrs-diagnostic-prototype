@@ -149,7 +149,7 @@ NRS Prototype
               <p id="{{ question.name }}-{{ answer.id }}-correct-feedback-output"></p>
             </div>
           </div>
-          {% if answer.isCorrect %}
+          {% if answer.isCorrect and question.type === 'multiplechoice' %}
           <div id="{{ question.name }}-skipped-feedback" name="question-feedback" class="feedback-box hidden">
             <div style="padding: 15px;">
               <h3 class="govuk-heading-m">You have skipped the question</h3>
@@ -185,6 +185,7 @@ NRS Prototype
             </div>
           </div>
           {% endif %}
+          {% if question.type === 'input' %}
           <div id="{{ question.name }}-input-skipped-feedback" name="question-feedback" class="feedback-box hidden">
             <div style="padding: 15px;">
               <h3 class="govuk-heading-m">You have skipped the question</h3>
@@ -193,6 +194,7 @@ NRS Prototype
               {{ question.incorrectFeedback.html | safe if question.incorrectFeedback.html else question.incorrectFeedback }}
             </div>
           </div>
+          {% endif %}
         </div>
       </div>
 
