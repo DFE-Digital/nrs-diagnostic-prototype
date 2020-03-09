@@ -1097,7 +1097,8 @@ module.exports = {
           links: [
             {
               text: 'Continue with lesson',
-              href: video.nextLink
+              href: video.nextLink,
+              isButton: true
             },
             {
               text: 'Change learning material',

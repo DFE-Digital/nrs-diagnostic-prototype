@@ -46,10 +46,10 @@ GOV.UK Prototype Kit
 {% include "includes/cookie-banner.html" %}
 {# Set serviceName in config.js. #}
 {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: serviceName,
+    homepageUrl: "/v4-2",
     serviceUrl: "/",
-    containerClasses: "govuk-width-container"
+    containerClasses: "govuk-width-container",
+    productName: serviceName
   }) }}
 {% endblock %}
 
