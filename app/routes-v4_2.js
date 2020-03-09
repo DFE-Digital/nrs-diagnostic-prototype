@@ -762,34 +762,36 @@ module.exports = {
       }
     ]
 
-    const helpLinks = [
-      {
-        title: 'Need help?',
-        description:
-          'Choose one of the options below if you need any help with the lesson.',
-        links: [
-          {
-            text: 'View knowledge base',
-            href: '#'
-          },
-          {
-            text: 'Speak to a tutor (via email)',
-            href: '#'
-          }
-        ]
-      },
-      {
-        title: 'Feeling confident?',
-        description:
-          'If you’re confident, you may skip the learning material and go straight to the lesson quiz.',
-        links: [
-          {
-            text: 'Skip lesson and go to quiz',
-            href: '/v4-2/topic/lesson/1/start-quiz'
-          }
-        ]
-      }
-    ]
+    function helpLinks(path) {
+      return [
+        {
+          title: 'Need help?',
+          description:
+            'Choose one of the options below if you need any help with the lesson.',
+          links: [
+            {
+              text: 'View knowledge base',
+              href: '/v4-2/prototype-limit/' + encodeURIComponent(path)
+            },
+            {
+              text: 'Speak to a tutor (via email)',
+              href: '/v4-2/prototype-limit/' + encodeURIComponent(path)
+            }
+          ]
+        },
+        {
+          title: 'Feeling confident?',
+          description:
+            'If you’re confident, you may skip the learning material and go straight to the lesson quiz.',
+          links: [
+            {
+              text: 'Skip lesson and go to quiz',
+              href: '/v4-2/topic/lesson/1/start-quiz'
+            }
+          ]
+        }
+      ]
+    }
 
     // Utilities
     var shuffleArray = function(array) {
@@ -1035,34 +1037,35 @@ module.exports = {
         title: 'How would you like to learn?',
         description:
           'Once you’re ready, select how you would like the lesson delivered.',
-        help: [
-          {
-            title: 'Need help?',
-            description:
-              'Choose one of the options below if you need any help with the lesson.',
-            links: [
-              {
-                text: 'View knowledge base',
-                href: '/v4-2/prototype-limit/' + encodeURIComponent(req.path)
-              },
-              {
-                text: 'Speak to a tutor (via email)',
-                href: '/v4-2/prototype-limit/' + encodeURIComponent(req.path)
-              }
-            ]
-          },
-          {
-            title: 'Feeling confident?',
-            description:
-              'If you’re confident, you may skip the learning material and go straight to the lesson quiz.',
-            links: [
-              {
-                text: 'Skip lesson and go to quiz',
-                href: `/v4-2/topic/lesson/${lessonId}/start-quiz`
-              }
-            ]
-          }
-        ]
+        // help: [
+        //   {
+        //     title: 'Need help?',
+        //     description:
+        //       'Choose one of the options below if you need any help with the lesson.',
+        //     links: [
+        //       {
+        //         text: 'View knowledge base',
+        //         href: '/v4-2/prototype-limit/' + encodeURIComponent(req.path)
+        //       },
+        //       {
+        //         text: 'Speak to a tutor (via email)',
+        //         href: '/v4-2/prototype-limit/' + encodeURIComponent(req.path)
+        //       }
+        //     ]
+        //   },
+        //   {
+        //     title: 'Feeling confident?',
+        //     description:
+        //       'If you’re confident, you may skip the learning material and go straight to the lesson quiz.',
+        //     links: [
+        //       {
+        //         text: 'Skip lesson and go to quiz',
+        //         href: `/v4-2/topic/lesson/${lessonId}/start-quiz`
+        //       }
+        //     ]
+        //   }
+        // ]
+        help: helpLinks(req.path)
       })
     })
 
@@ -1106,7 +1109,7 @@ module.exports = {
             }
           ]
         },
-        help: helpLinks
+        help: helpLinks(req.path)
       })
     })
 
@@ -1151,7 +1154,7 @@ module.exports = {
             }
           ]
         },
-        help: helpLinks
+        help: helpLinks(req.path)
       })
     })
 
@@ -1220,7 +1223,7 @@ module.exports = {
               }
             ]
           },
-          help: helpLinks
+          help: helpLinks(req.path)
         })
       }
     )
@@ -1389,7 +1392,7 @@ module.exports = {
             }
           ]
         },
-        help: [helpLinks[0]]
+        help: [helpLinks(req.path)[0]]
       })
     })
 
@@ -1423,7 +1426,7 @@ module.exports = {
             }
           ]
         },
-        help: helpLinks
+        help: helpLinks(req.path)
       })
     })
 
@@ -1457,7 +1460,7 @@ module.exports = {
             }
           ]
         },
-        help: helpLinks
+        help: helpLinks(req.path)
       })
     })
 
@@ -1491,7 +1494,7 @@ module.exports = {
             }
           ]
         },
-        help: helpLinks
+        help: helpLinks(req.path)
       })
     })
 
