@@ -1,0 +1,90 @@
+{% extends "layout.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ headingSuper({
+      text: lesson.title
+    }) }}
+
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ title }}
+    </h1>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>
+      {{ description }}
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">Learning material</h3>
+      <div style="display: flex; margin-bottom: 10px;">
+        <div style="padding-right: 16px;">
+          <img src="/public/images/media-slideshow.png" width="66px" height="88px" />
+        </div>
+        <div style="padding-top: 10px;">
+          <a class="large-link" href="/v4-2/topic/lesson/{{ lesson.id }}/slideshow/1">Slideshow</a><br />
+          <span class="media-type-label">3mb, 8 mins</span>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div style="display: flex; margin-bottom: 10px;">
+      <div style="padding-right: 16px;">
+        <img src="/public/images/media-html.png" width="66px" height="88px" />
+      </div>
+      <div style="padding-top: 10px;">
+        <a class="large-link" href="/v4-2/topic/lesson/{{ lesson.id }}/text/1">Text</a><br />
+        <span class="media-type-label">30kb, 5 mins</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div style="display: flex; margin-bottom: 10px;">
+      <div style="padding-right: 16px;">
+        <img src="/public/images/media-video.png" width="66px" height="88px" />
+      </div>
+      <div style="padding-top: 10px;">
+        <a class="large-link" href="/v4-2/topic/lesson/{{ lesson.id }}/video/1">Video</a><br />
+        <span class="media-type-label">30mb, 7 mins</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div style="display: flex; margin-bottom: 10px;">
+      <div style="padding-right: 16px;">
+        <img src="/public/images/media-mp3.png" width="66px" height="88px" />
+      </div>
+      <div style="padding-top: 10px;">
+        <a class="large-link">Audio</a><br />
+        <span class="media-type-label">1mb, 10 mins</span>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

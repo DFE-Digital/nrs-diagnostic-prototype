@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+NRS Prototype
+{% endblock %}
+
+{% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ headingSuper({
+      text: heading.sub
+    }) }}
+
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ heading.main }}
+    </h1>
+  </div>
+</div>
+
+{% if description %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>{{ description }}</p>
+  </div>
+</div>
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">Location</h3>
+    <div class="govuk-form-group">
+      <input class="govuk-input" type="text" aria-describedby="event-name-hint" value="{{ data['centre-location'] }}">
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          <a class="large-link" href="/v4-2/end" style="font-weight: bold;">Thetford Test Centre</a>
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <span class="media-type-label">Distance: <strong>12.7 miles</strong></span>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <span class="media-type-label">Location: <strong>2-3 Burrell Way, Thetford IP24 3RW</strong></span>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          <a class="large-link" href="/v4-2/end" style="font-weight: bold;">Thetford Academy</a>
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <span class="media-type-label">Distance: <strong>2 miles</strong></span>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <span class="media-type-label">Location: <strong>The Thetford Academy, Croxton Rd, Thetford IP24
+              1LH</strong></span>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          <a class="large-link" href="/v4-2/end" style="font-weight: bold;">Charles Burrell Centre</a>
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <span class="media-type-label">Distance: <strong>0.7 miles</strong></span>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <span class="media-type-label">Location: <strong>The Charles Burrell Centre, Staniforth Road, Thetford IP24
+              3LH</strong></span>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+{% endblock %}

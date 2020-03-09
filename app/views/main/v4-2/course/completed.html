@@ -1,0 +1,256 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+NRS Prototype
+{% endblock %}
+
+{% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <img class="course-image" src="/public/images/course-complete-v4.png" /><br /><br />
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ headingSuper({
+      text: heading.sub
+    }) }}
+
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ heading.main }}
+    </h1>
+  </div>
+</div>
+
+{% if description %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>{{ description }}</p>
+  </div>
+</div>
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>You have completed the course and shown that you have improved your skills. You can now do the following:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Print off a Course certificate to show you have completed some online training</li>
+      <li>Book a test centre to sit an exam where you may receive a formal qualification.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="#" class="govuk-button" data-module="govuk-button">Print certificate</a><br />
+    <a href="/v4-2/course/actions" class="govuk-button" data-module="govuk-button">Get qualification</a>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <ol class="app-task-list">
+      <li>
+        <h2 class="app-task-list__section">
+          <span class="app-task-list__section-number"></span> 60 Lessons completed
+        </h2>
+        <ul class="app-task-list__items" style="margin-bottom: 20px;">
+          <li class="app-task-list__item">
+            <span style="display: inline;" class="app-task-list__task-name">
+              <a class="small-link" style="font-weight: bold;" href="#" aria-describedby="eligibility-completed">
+                Writing an email
+              </a>
+            </span>
+            <strong style="float: right; margin: auto;" class="govuk-tag app-task-list__task-completed"
+              id="eligibility-completed">Completed</strong>
+          </li>
+          <li class="app-task-list__item">
+            <span style="display: inline;" class="app-task-list__task-name">
+              <a class="small-link" style="font-weight: bold;" href="#" aria-describedby="eligibility-completed">
+                Writing a letter
+              </a>
+            </span>
+            <strong style="float: right; margin: auto;" class="govuk-tag app-task-list__task-completed"
+              id="eligibility-completed">Completed</strong>
+          </li>
+          <li class="app-task-list__item">
+            <span style="display: inline;" class="app-task-list__task-name">
+              <a class="small-link" style="font-weight: bold;" href="#" aria-describedby="eligibility-completed">
+                Writing in a forum
+              </a>
+            </span>
+            <strong style="float: right; margin: auto;" class="govuk-tag app-task-list__task-completed"
+              id="eligibility-completed">Completed</strong>
+          </li>
+          <li class="app-task-list__item">
+            <span style="display: inline;" class="app-task-list__task-name">
+              <a class="small-link" style="font-weight: bold;" href="#" aria-describedby="eligibility-completed">
+                Writing a speech
+              </a>
+            </span>
+            <strong style="float: right; margin: auto;" class="govuk-tag app-task-list__task-completed"
+              id="eligibility-completed">Completed</strong>
+          </li>
+          <li class="app-task-list__item">
+            <span style="display: inline;" class="app-task-list__task-name">
+              <a class="small-link" style="font-weight: bold;" href="#" aria-describedby="eligibility-completed">
+                Writing a blog
+              </a>
+            </span>
+            <strong style="float: right; margin: auto;" class="govuk-tag app-task-list__task-completed"
+              id="eligibility-completed">Completed</strong>
+          </li>
+          <li class="app-task-list__item">
+            <span style="display: inline;" class="app-task-list__task-name">
+              <a class="small-link" style="font-weight: bold;" href="#" aria-describedby="eligibility-completed">
+                Writing a report
+              </a>
+            </span>
+            <strong style="float: right; margin: auto;" class="govuk-tag app-task-list__task-completed"
+              id="eligibility-completed">Completed</strong>
+          </li>
+          <li class="app-task-list__item">
+            <span style="display: inline;" class="app-task-list__task-name">
+              <a class="small-link" style="font-weight: bold;" href="#" aria-describedby="eligibility-completed">
+                Writing a leaflet
+              </a>
+            </span>
+            <strong style="float: right; margin: auto;" class="govuk-tag app-task-list__task-completed"
+              id="eligibility-completed">Completed</strong>
+          </li>
+          <li class="app-task-list__item">
+            <span style="display: inline;" class="app-task-list__task-name">
+              <a class="small-link" style="font-weight: bold;" href="#" aria-describedby="eligibility-completed">
+                Structuring writing
+              </a>
+            </span>
+            <strong style="float: right; margin: auto;" class="govuk-tag app-task-list__task-completed"
+              id="eligibility-completed">Completed</strong>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="#" class="small-link" data-module="govuk-button">See all lessons completed</a><br /><br />
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <ol class="app-task-list">
+      <li>
+        <h2 class="app-task-list__section">
+          <span class="app-task-list__section-number"></span> Badges you've unlocked
+        </h2>
+        <ul class="app-task-list__items" style="margin-bottom: 20px;">
+          <li class="app-task-list__item">
+            <span style="display: inline;" class="app-task-list__task-name">
+              <a class="small-link" style="font-weight: bold;" href="#" aria-describedby="eligibility-completed">
+                Customer Service
+              </a>
+            </span>
+            <div style="float: right; margin: auto;">
+              <svg width="19" height="23" viewBox="0 0 19 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1.87246 4.32331L2.61594 7.38288L1.87246 10.4291L4.63986 12.0787L6.33333 14.7525L9.5 14.0341L12.6667 14.7525L14.3601 12.0787L17.1275 10.4291L16.3841 7.38288L17.1275 4.32331L14.3739 2.6738L12.6667 0L9.5 0.731637L6.3471 0.0133025L4.62609 2.6738L1.87246 4.32331ZM9.51377 12.7571C8.05316 12.7571 6.65237 12.1965 5.61956 11.1986C4.58675 10.2007 4.00652 8.84731 4.00652 7.43609C4.00652 6.02487 4.58675 4.67146 5.61956 3.67358C6.65237 2.6757 8.05316 2.1151 9.51377 2.1151C12.5428 2.1151 15.0072 4.49624 15.0072 7.42279C15.0072 10.3759 12.5428 12.7571 9.51377 12.7571ZM9.48623 11.4268C7.20072 11.4268 5.36957 9.6443 5.36957 7.43609C5.36957 5.24118 7.20072 3.44534 9.48623 3.44534C11.7717 3.44534 13.6304 5.24118 13.6304 7.43609C13.6304 9.6443 11.7717 11.4268 9.48623 11.4268ZM14.7732 12.8901L13.0109 15.8699L10.1471 15.2446L13.6304 23L15.558 20.0735H19L14.7732 12.8901ZM4.17174 12.9832L5.89275 15.9763L8.82536 15.2979L5.36957 23L3.44203 20.0735H0L4.17174 12.9832Z"
+                  fill="#1D70B8" />
+              </svg>
+            </div>
+          </li>
+          <li class="app-task-list__item">
+            <span style="display: inline;" class="app-task-list__task-name">
+              <a class="small-link" style="font-weight: bold;" href="#" aria-describedby="eligibility-completed">
+                Effective communicator
+              </a>
+            </span>
+            <div style="float: right; margin: auto;">
+              <svg width="19" height="23" viewBox="0 0 19 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1.87246 4.32331L2.61594 7.38288L1.87246 10.4291L4.63986 12.0787L6.33333 14.7525L9.5 14.0341L12.6667 14.7525L14.3601 12.0787L17.1275 10.4291L16.3841 7.38288L17.1275 4.32331L14.3739 2.6738L12.6667 0L9.5 0.731637L6.3471 0.0133025L4.62609 2.6738L1.87246 4.32331ZM9.51377 12.7571C8.05316 12.7571 6.65237 12.1965 5.61956 11.1986C4.58675 10.2007 4.00652 8.84731 4.00652 7.43609C4.00652 6.02487 4.58675 4.67146 5.61956 3.67358C6.65237 2.6757 8.05316 2.1151 9.51377 2.1151C12.5428 2.1151 15.0072 4.49624 15.0072 7.42279C15.0072 10.3759 12.5428 12.7571 9.51377 12.7571ZM9.48623 11.4268C7.20072 11.4268 5.36957 9.6443 5.36957 7.43609C5.36957 5.24118 7.20072 3.44534 9.48623 3.44534C11.7717 3.44534 13.6304 5.24118 13.6304 7.43609C13.6304 9.6443 11.7717 11.4268 9.48623 11.4268ZM14.7732 12.8901L13.0109 15.8699L10.1471 15.2446L13.6304 23L15.558 20.0735H19L14.7732 12.8901ZM4.17174 12.9832L5.89275 15.9763L8.82536 15.2979L5.36957 23L3.44203 20.0735H0L4.17174 12.9832Z"
+                  fill="#1D70B8" />
+              </svg>
+            </div>
+          </li>
+          <li class="app-task-list__item">
+            <span style="display: inline;" class="app-task-list__task-name">
+              <a class="small-link" style="font-weight: bold;" href="#" aria-describedby="eligibility-completed">
+                Presentation skills
+              </a>
+            </span>
+            <div style="float: right; margin: auto;">
+              <svg width="19" height="23" viewBox="0 0 19 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1.87246 4.32331L2.61594 7.38288L1.87246 10.4291L4.63986 12.0787L6.33333 14.7525L9.5 14.0341L12.6667 14.7525L14.3601 12.0787L17.1275 10.4291L16.3841 7.38288L17.1275 4.32331L14.3739 2.6738L12.6667 0L9.5 0.731637L6.3471 0.0133025L4.62609 2.6738L1.87246 4.32331ZM9.51377 12.7571C8.05316 12.7571 6.65237 12.1965 5.61956 11.1986C4.58675 10.2007 4.00652 8.84731 4.00652 7.43609C4.00652 6.02487 4.58675 4.67146 5.61956 3.67358C6.65237 2.6757 8.05316 2.1151 9.51377 2.1151C12.5428 2.1151 15.0072 4.49624 15.0072 7.42279C15.0072 10.3759 12.5428 12.7571 9.51377 12.7571ZM9.48623 11.4268C7.20072 11.4268 5.36957 9.6443 5.36957 7.43609C5.36957 5.24118 7.20072 3.44534 9.48623 3.44534C11.7717 3.44534 13.6304 5.24118 13.6304 7.43609C13.6304 9.6443 11.7717 11.4268 9.48623 11.4268ZM14.7732 12.8901L13.0109 15.8699L10.1471 15.2446L13.6304 23L15.558 20.0735H19L14.7732 12.8901ZM4.17174 12.9832L5.89275 15.9763L8.82536 15.2979L5.36957 23L3.44203 20.0735H0L4.17174 12.9832Z"
+                  fill="#1D70B8" />
+              </svg>
+            </div>
+          </li>
+          <li class="app-task-list__item">
+            <span style="display: inline;" class="app-task-list__task-name">
+              <a class="small-link" style="font-weight: bold;" href="#" aria-describedby="eligibility-completed">
+                Giving clear feedback
+              </a>
+            </span>
+            <div style="float: right; margin: auto;">
+              <svg width="19" height="23" viewBox="0 0 19 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1.87246 4.32331L2.61594 7.38288L1.87246 10.4291L4.63986 12.0787L6.33333 14.7525L9.5 14.0341L12.6667 14.7525L14.3601 12.0787L17.1275 10.4291L16.3841 7.38288L17.1275 4.32331L14.3739 2.6738L12.6667 0L9.5 0.731637L6.3471 0.0133025L4.62609 2.6738L1.87246 4.32331ZM9.51377 12.7571C8.05316 12.7571 6.65237 12.1965 5.61956 11.1986C4.58675 10.2007 4.00652 8.84731 4.00652 7.43609C4.00652 6.02487 4.58675 4.67146 5.61956 3.67358C6.65237 2.6757 8.05316 2.1151 9.51377 2.1151C12.5428 2.1151 15.0072 4.49624 15.0072 7.42279C15.0072 10.3759 12.5428 12.7571 9.51377 12.7571ZM9.48623 11.4268C7.20072 11.4268 5.36957 9.6443 5.36957 7.43609C5.36957 5.24118 7.20072 3.44534 9.48623 3.44534C11.7717 3.44534 13.6304 5.24118 13.6304 7.43609C13.6304 9.6443 11.7717 11.4268 9.48623 11.4268ZM14.7732 12.8901L13.0109 15.8699L10.1471 15.2446L13.6304 23L15.558 20.0735H19L14.7732 12.8901ZM4.17174 12.9832L5.89275 15.9763L8.82536 15.2979L5.36957 23L3.44203 20.0735H0L4.17174 12.9832Z"
+                  fill="#1D70B8" />
+              </svg>
+            </div>
+          </li>
+          <li class="app-task-list__item">
+            <span style="display: inline;" class="app-task-list__task-name">
+              <a class="small-link" style="font-weight: bold;" href="#" aria-describedby="eligibility-completed">
+                Problem solving
+              </a>
+            </span>
+            <div style="float: right; margin: auto;">
+              <svg width="19" height="23" viewBox="0 0 19 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1.87246 4.32331L2.61594 7.38288L1.87246 10.4291L4.63986 12.0787L6.33333 14.7525L9.5 14.0341L12.6667 14.7525L14.3601 12.0787L17.1275 10.4291L16.3841 7.38288L17.1275 4.32331L14.3739 2.6738L12.6667 0L9.5 0.731637L6.3471 0.0133025L4.62609 2.6738L1.87246 4.32331ZM9.51377 12.7571C8.05316 12.7571 6.65237 12.1965 5.61956 11.1986C4.58675 10.2007 4.00652 8.84731 4.00652 7.43609C4.00652 6.02487 4.58675 4.67146 5.61956 3.67358C6.65237 2.6757 8.05316 2.1151 9.51377 2.1151C12.5428 2.1151 15.0072 4.49624 15.0072 7.42279C15.0072 10.3759 12.5428 12.7571 9.51377 12.7571ZM9.48623 11.4268C7.20072 11.4268 5.36957 9.6443 5.36957 7.43609C5.36957 5.24118 7.20072 3.44534 9.48623 3.44534C11.7717 3.44534 13.6304 5.24118 13.6304 7.43609C13.6304 9.6443 11.7717 11.4268 9.48623 11.4268ZM14.7732 12.8901L13.0109 15.8699L10.1471 15.2446L13.6304 23L15.558 20.0735H19L14.7732 12.8901ZM4.17174 12.9832L5.89275 15.9763L8.82536 15.2979L5.36957 23L3.44203 20.0735H0L4.17174 12.9832Z"
+                  fill="#1D70B8" />
+              </svg>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="#" class="small-link" data-module="govuk-button">See all badges</a><br /><br />
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="#" class="small-link" data-module="govuk-button">Share</a><br /><br />
+  </div>
+</div>
+{% endblock %}

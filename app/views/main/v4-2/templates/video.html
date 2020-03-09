@@ -1,0 +1,76 @@
+{% extends "layout.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %} {% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ headingSuper({
+      text: heading
+    }) }}
+
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      Video (Part {{ videoNo }} of {{ totalVideos }})
+    </h1>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>
+      {{ video.description }}
+    </p>
+    <p><strong>To use this video, you should:</strong></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        Tap the screen to bring up video controls
+      </li>
+      <li>
+        Rotate your device to make the video go fullscreen
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <iframe width="100%" src="{{ video.url }}" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br />
+  </div>
+</div>
+
+<div class="govuk-grid-row" id="section-actions" style="margin-bottom: 0px;">
+  <div class="govuk-grid-column-two-thirds">
+    <hr />
+    <h2 class="govuk-heading-l">{{ actions.title }}</h2>
+    {% for link in actions.links %}
+    {% if link %}
+    <div style="margin-bottom: 5px;">
+      {% if link.html %}
+      {{ link.html | safe if link.html else heading.main }}
+      {% else %}
+      <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br />
+      {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<!-- <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a class="large-link" href="{{ video.nextLink }}">Continue with lesson</a>
+  </div>
+</div> -->
+{% endblock %}
