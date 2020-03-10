@@ -66,29 +66,6 @@ NRS Prototype
   </div>
 </div>
 
-<!-- <div class="govuk-grid-row hidden" id="section-actions" style="margin-bottom: 20px;">
-  <div class="govuk-grid-column-two-thirds">
-
-    {% for link in actions.links %}
-    {% if link %}
-    {% if link.isButton %}
-    <a href="{{ link.href }}" class="govuk-button" data-module="govuk-button">{{ link.text }}</a>
-    <hr />
-    <h3 class="govuk-heading-m">{{ actions.title }}</h3>
-    {% else %}
-    <div style="margin-bottom: 5px;">
-      {% if link.html %}
-      {{ link.html | safe if link.html else heading.main }}
-      {% else %}
-      <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br />
-      {% endif %}
-    </div>
-    {% endif %}
-    {% endif %}
-    {% endfor %}
-  </div>
-</div> -->
-
 <div class="govuk-grid-row hidden" id="section-actions" style="margin-bottom: 20px;">
   <div class="govuk-grid-column-two-thirds">
     {{ actionLinks({
@@ -143,7 +120,6 @@ NRS Prototype
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <input type="hidden" id="_lesson_id" value="{{ lessonId }}" />
-      <!-- <input type="hidden" id="_correct_answer_id" value="{{ question.name }}-{{ question.correctAnswerId }}" /> -->
       <input type="hidden" id="_question_name" value="{{ question.name }}" />
       <input type="hidden" id="_save_answers" value="{{ saveAnswers }}" />
 
@@ -168,13 +144,16 @@ NRS Prototype
     <div class="govuk-grid-column-two-thirds">
       <button id="button-submit" class="govuk-button" data-module="govuk-button">Submit answer</button>
       <a href="#help" id="button-skip" class="govuk-button" data-module="govuk-button">I don't know</a>
-      <!-- <a href="{{ question.nextLink }}" id="button-continue" class="large-link hidden">Continue with lesson</a> -->
     </div>
   </div>
 </form>
 
 {% endblock %} {% block pageScripts %}
 <script type="text/javascript">
+
+  $(document).ready(function () {
+    v4ValidateInputQuestion()
+  })
 
   function v4SubmitAnswer() {
     const question = $('#_question_name').val()
@@ -194,6 +173,37 @@ NRS Prototype
     window.scrollTo(0, 0)
 
     return false
+  }
+
+  function v4ValidateInputQuestion() {
+    const saveAnswers = $('#_save_answers').val()
+    const question = $('#_question_name').val()
+    if (saveAnswers !== 'true') {
+      $('input[name=' + question + ']').val('')
+      return
+    }
+
+    const lessonId = $('#_lesson_id').val()
+    const lesson = getLocalStorageObject('lesson-' + lessonId)
+    if (!lesson) {
+      return
+    }
+
+    const currentAnswer = lesson.answers.find(x => x.question === question)
+    if (!currentAnswer) {
+      return
+    } else {
+      const result = getResult(question, currentAnswer.answer)
+
+      if (currentAnswer.result === 'skipped') {
+        v4LockQuestion(question)
+        v4ShowInputFeedback(question, 'skipped')
+      } else {
+        $('input[name=' + question + ']').val(currentAnswer.answer)
+        v4LockQuestion(question)
+        v4ShowInputFeedback(question, result)
+      }
+    }
   }
 
   function getResult(question, answer) {

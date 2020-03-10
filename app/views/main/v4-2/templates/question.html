@@ -138,13 +138,16 @@ NRS Prototype
     <div class="govuk-grid-column-two-thirds">
       <button id="button-submit" class="govuk-button" data-module="govuk-button">Submit answer</button>
       <a href="#help" id="button-skip" class="govuk-button" data-module="govuk-button">I don't know</a>
-      <!-- <a href="{{ question.nextLink }}" id="button-continue" class="large-link hidden">Continue with lesson</a> -->
     </div>
   </div>
 </form>
 
 {% endblock %} {% block pageScripts %}
 <script type="text/javascript">
+
+  $(document).ready(function () {
+    v4ValidateQuestion()
+  })
 
   function v4SubmitAnswer() {
     const question = $('#_question_name').val()
@@ -173,6 +176,39 @@ NRS Prototype
     window.scrollTo(0, 0)
 
     return false
+  }
+
+  function v4ValidateQuestion() {
+    const saveAnswers = $('#_save_answers').val()
+    const question = $('#_question_name').val()
+    if (saveAnswers !== 'true') {
+      $('input[name=' + question + ']').prop('checked', false)
+      return
+    }
+
+    const lessonId = $('#_lesson_id').val()
+    const lesson = getLocalStorageObject('lesson-' + lessonId)
+    if (!lesson) {
+      return
+    }
+
+    const currentAnswer = lesson.answers.find(x => x.question === question)
+    if (!currentAnswer) {
+      return
+    } else {
+      const correctAnswerId = $('#_correct_answer_id').val()
+      const selectedId = currentAnswer.answerId
+
+      if (!selectedId) {
+        v4ShowFeedback(question, 'skipped')
+        $('#skipped-feedback').removeClass('hidden')
+      } else {
+        $('#' + currentAnswer.answerId).prop('checked', true)
+        v4ShowFeedback(selectedId, correctAnswerId)
+      }
+
+      v4LockQuestion(question)
+    }
   }
 
   function getResult(question, selectedId, selectedAnswer) {
