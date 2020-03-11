@@ -1080,7 +1080,7 @@ module.exports = {
             {
               // text: 'Click here to change to slideshow, article or audio',
               // href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`
-              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Clear here</a> to change to slideshow, article or audio</p>`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Click here</a> to change to slideshow, article or audio</p>`
             }
           ]
         },
@@ -1126,7 +1126,7 @@ module.exports = {
             {
               // text: 'Click here to change to video, article or audio',
               // href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`
-              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Clear here</a> to change to video, article or audio</p>`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Click here</a> to change to video, article or audio</p>`
             }
           ]
         },
@@ -1297,11 +1297,11 @@ module.exports = {
               text: question.nextLinkText, // 'Continue with quiz',
               href: question.nextLink,
               isButton: true
-            },
-            {
-              text: 'Return to lesson',
-              href: question.backLink
             }
+            // {
+            //   text: 'Return to lesson',
+            //   href: question.backLink
+            // }
           ]
         },
         skipAction: {
@@ -1397,7 +1397,7 @@ module.exports = {
               isButton: true
             },
             {
-              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Clear here</a> to change to slideshow, video or audio</p>`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Click here</a> to change to slideshow, video or audio</p>`
             }
           ]
         },
@@ -1430,7 +1430,7 @@ module.exports = {
               isButton: true
             },
             {
-              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Clear here</a> to change to slideshow, video or audio</p>`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Click here</a> to change to slideshow, video or audio</p>`
             }
           ]
         },
@@ -1463,7 +1463,7 @@ module.exports = {
               isButton: true
             },
             {
-              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Clear here</a> to change to slideshow, video or audio</p>`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Click here</a> to change to slideshow, video or audio</p>`
             }
           ]
         },

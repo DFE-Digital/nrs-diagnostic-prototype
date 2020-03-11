@@ -39,7 +39,6 @@ NRS Prototype
           <h3 class="govuk-heading-m">The correct answer is:</h3>
           <p name="correct-answer-text"></p>
           {% endif %}
-          <!-- <a class="small-link" href="#question-anchor">See your answer</a> -->
           <a class="small-link" onclick="return v4ShowQuestion();">See your answer</a>
       </div>
     </div>
@@ -51,14 +50,13 @@ NRS Prototype
         <hr />
         <h3 class="govuk-heading-m">The correct answer is:</h3>
         <p name="correct-answer-text"></p>
-        <!-- <a class="small-link" href="#question-anchor">See your answer</a> -->
         <a class="small-link" onclick="return v4ShowQuestion();">See your answer</a>
       </div>
     </div>
   </div>
 </div>
 
-<div class="govuk-grid-row hidden" id="section-actions" style="margin-bottom: 20px;">
+<div class="govuk-grid-row hidden" id="section-actions">
   <div class="govuk-grid-column-two-thirds">
     {{ actionLinks({
       actions: actions
@@ -141,7 +139,7 @@ NRS Prototype
       <div class="govuk-grid-column-two-thirds">
         <button id="button-submit" class="govuk-button" data-module="govuk-button">Submit answer</button>
         <a id="button-show-feeedback" class="govuk-button hidden" data-module="govuk-button"
-          onclick="return v4SubmitAnswer();">Return to feedback</a>
+          onclick="return v4HideQuestion();">Return to feedback</a>
       </div>
     </div>
 
@@ -187,7 +185,7 @@ NRS Prototype
 
     v4LockQuestion(question)
 
-    $('#question-form').addClass('hidden')
+    // $('#question-form').addClass('hidden')
     v4ShowFeedback(selectedId, correctAnswerId)
 
     window.scrollTo(0, 0)
@@ -203,6 +201,19 @@ NRS Prototype
     $('#button-show-feeedback').removeClass('hidden')
     $('#dont-know').addClass('hidden')
     $('#button-skip-action').addClass('hidden')
+    $('#sub-heading').removeClass('hidden')
+  }
+
+  function v4HideQuestion() {
+    const correctAnswerId = $('#_correct_answer_id').val()
+    const question = $('#_question_name').val()
+    const $radio = $('input[name=' + question + ']:checked')
+    const selectedId = $radio.attr('id')
+    if (!selectedId) {
+      v4ShowFeedback(question, 'skipped')
+    } else {
+      v4ShowFeedback(selectedId, correctAnswerId)
+    }
   }
 
   function v4ValidateQuestion() {
@@ -265,6 +276,7 @@ NRS Prototype
   }
 
   function v4ShowFeedback(selectedId, correctAnswer) {
+    $('#question-form').addClass('hidden')
     const correctAnswerId = $('#_correct_answer_id').val()
     const correctAnswerText = $('#' + correctAnswerId).val()
     $('.feedback-box p[name="correct-answer-text"]').text(correctAnswerText)

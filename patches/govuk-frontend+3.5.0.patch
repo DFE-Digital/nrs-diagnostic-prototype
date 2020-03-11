@@ -9,34 +9,49 @@ index 0000000..06283d9
 +{% endmacro %}
 diff --git a/node_modules/govuk-frontend/govuk/components/custom/actionLinks/template.njk b/node_modules/govuk-frontend/govuk/components/custom/actionLinks/template.njk
 new file mode 100644
-index 0000000..fa4bcb7
+index 0000000..2e7f550
 --- /dev/null
 +++ b/node_modules/govuk-frontend/govuk/components/custom/actionLinks/template.njk
-@@ -0,0 +1,24 @@
+@@ -0,0 +1,39 @@
 +{% set actions = params.actions %}
 +{% set links = actions.links %}
 +{% set title = actions.title %}
-+{% for link in links %}
-+{% if link %}
-+{% set isButton = link.isButton %}
-+{% set linkHref = link.href %}
-+{% set linkText = link.text %}
-+{% set linkHtml = link.html %}
-+{% if link.isButton %}
-+<a href="{{ link.href }}" class="govuk-button" data-module="govuk-button">{{ link.text }}</a>
-+<hr />
-+<h2 class="govuk-heading-l">{{ title }}</h3>
-+{% else %}
-+<div style="margin-bottom: 5px;">
-+  {% if link.html %}
-+  {{ link.html | safe if link.html else heading.main }}
++{% if links | length == 1 %}
++  {% set link = links | first %}
++  {% if link.isButton %}
++    <a href="{{ link.href }}" class="govuk-button" data-module="govuk-button">{{ link.text }}</a>
 +  {% else %}
-+  <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br />
++    <div style="margin-bottom: 5px;">
++      {% if link.html %}
++        {{ link.html | safe if link.html else heading.main }}
++      {% else %}
++        <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br/>
++      {% endif %}
++    </div>
 +  {% endif %}
-+</div>
++{% else %}
++  {% for link in links %}
++    {% if link %}
++      {% set isButton = link.isButton %}
++      {% set linkHref = link.href %}
++      {% set linkText = link.text %}
++      {% set linkHtml = link.html %}
++      {% if link.isButton %}
++        <a href="{{ link.href }}" class="govuk-button" data-module="govuk-button">{{ link.text }}</a>
++        <hr/>
++        <h2 class="govuk-heading-l">{{ title }}</h3>
++      {% else %}
++        <div style="margin-bottom: 5px;">
++          {% if link.html %}
++            {{ link.html | safe if link.html else heading.main }}
++          {% else %}
++            <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br/>
++          {% endif %}
++        </div>
++      {% endif %}
++    {% endif %}
++  {% endfor %}
 +{% endif %}
-+{% endif %}
-+{% endfor %}
 \ No newline at end of file
 diff --git a/node_modules/govuk-frontend/govuk/components/custom/badgePanel/macro.njk b/node_modules/govuk-frontend/govuk/components/custom/badgePanel/macro.njk
 new file mode 100644

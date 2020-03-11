@@ -144,9 +144,19 @@ NRS Prototype
       <div class="govuk-grid-column-two-thirds">
         <button id="button-submit" class="govuk-button" data-module="govuk-button">Submit answer</button>
         <a id="button-show-feeedback" class="govuk-button hidden" data-module="govuk-button"
-          onclick="return v4SubmitAnswer();">Return to feedback</a>
+          onclick="return v4HideInputQuestion();">Return to feedback</a>
       </div>
     </div>
+
+    {% if saveAnswers and skipAction %}
+    <div class="govuk-grid-row" style="margin-bottom: 20px;" id="button-skip-action">
+      <div class="govuk-grid-column-two-thirds">
+        <hr />
+        <h2 class="govuk-heading-l">{{ skipAction.title }}</h3>
+          <a class="small-link" onClick="{{ skipAction.link.onClick }}">{{ skipAction.link.text }}</a>
+      </div>
+    </div>
+    {% endif %}
   </form>
 </div>
 
@@ -171,7 +181,7 @@ NRS Prototype
 
     v4LockQuestion(question)
 
-    $('#question-form').addClass('hidden')
+    // $('#question-form').addClass('hidden')
     v4ShowInputFeedback(question, result)
 
     window.scrollTo(0, 0)
@@ -187,6 +197,18 @@ NRS Prototype
     $('#button-show-feeedback').removeClass('hidden')
     $('#dont-know').addClass('hidden')
     $('#button-skip-action').addClass('hidden')
+    $('#sub-heading').removeClass('hidden')
+  }
+
+  function v4HideInputQuestion() {
+    const question = $('#_question_name').val()
+    const answer = $('input[name=' + question + ']').val()
+    if (!answer) {
+      v4ShowInputFeedback(question, 'skipped')
+    } else {
+      const result = getResult(question, answer)
+      v4ShowInputFeedback(question, result)
+    }
   }
 
   function v4ValidateInputQuestion() {
@@ -204,15 +226,15 @@ NRS Prototype
     }
 
     const currentAnswer = lesson.answers.find(x => x.question === question)
+    console.log('currentAnswer: ', currentAnswer)
     if (!currentAnswer) {
       return
     } else {
-      const result = getResult(question, currentAnswer.answer)
-
-      if (currentAnswer.result === 'skipped') {
+      if (!currentAnswer.answer || currentAnswer.result === 'skipped') {
         v4LockQuestion(question)
         v4ShowInputFeedback(question, 'skipped')
       } else {
+        const result = getResult(question, currentAnswer.answer)
         $('input[name=' + question + ']').val(currentAnswer.answer)
         v4LockQuestion(question)
         v4ShowInputFeedback(question, result)
@@ -254,6 +276,7 @@ NRS Prototype
   }
 
   function v4ShowInputFeedback(question, result) {
+    $('#question-form').addClass('hidden')
     $('#' + question + '-feedback-' + result).removeClass('hidden')
     $('#sub-heading').addClass('hidden')
     // $('#helplinks-primary').addClass('hidden')
