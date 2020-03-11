@@ -39,7 +39,8 @@ NRS Prototype
           <h3 class="govuk-heading-m">The correct answer is:</h3>
           <p name="correct-answer-text"></p>
           {% endif %}
-          <a class="small-link" href="#question-anchor">See your answer</a>
+          <!-- <a class="small-link" href="#question-anchor">See your answer</a> -->
+          <a class="small-link" onclick="return v4ShowQuestion();">See your answer</a>
       </div>
     </div>
     {% endif %}
@@ -50,7 +51,8 @@ NRS Prototype
         <hr />
         <h3 class="govuk-heading-m">The correct answer is:</h3>
         <p name="correct-answer-text"></p>
-        <a class="small-link" href="#question-anchor">See your answer</a>
+        <!-- <a class="small-link" href="#question-anchor">See your answer</a> -->
+        <a class="small-link" onclick="return v4ShowQuestion();">See your answer</a>
       </div>
     </div>
   </div>
@@ -64,7 +66,7 @@ NRS Prototype
   </div>
 </div>
 
-<div id="helplinks-secondary" class="hidden">
+<!-- <div id="helplinks-secondary" class="hidden">
   {{ helpLinks({
     helpSections: help
   }) }}
@@ -73,84 +75,90 @@ NRS Prototype
       <hr />
     </div>
   </div>
-</div>
+</div> -->
 
-<div class="govuk-grid-row" id="section-headings">
-  <div class="govuk-grid-column-two-thirds">
-    <div id="sub-heading">
-      {{ headingSuper({
+<div id="question-form">
+  <div class="govuk-grid-row" id="section-headings">
+    <div class="govuk-grid-column-two-thirds">
+      <div id="sub-heading">
+        {{ headingSuper({
         text: heading.sub
       }) }}
-    </div>
-
-    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-      {{ heading.html | safe if heading.html else heading.main }}
-    </h1>
-  </div>
-</div>
-
-{% if description %}
-<div class="govuk-grid-row" id="question-description">
-  <div class="govuk-grid-column-two-thirds">
-    <p>
-      {{ description }}
-    </p>
-    <hr />
-  </div>
-</div>
-{% endif %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    {{ question.html | safe if question.html else question.text }}
-  </div>
-</div>
-
-<form class="form" onsubmit="return v4SubmitAnswer();">
-  <a name="question-anchor"></a>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <input type="hidden" id="_lesson_id" value="{{ lessonId }}" />
-      <input type="hidden" id="_correct_answer_id" value="{{ question.name }}-{{ question.correctAnswerId }}" />
-      <input type="hidden" id="_question_name" value="{{ question.name }}" />
-      <input type="hidden" id="_save_answers" value="{{ saveAnswers }}" />
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <div class="govuk-radios">
-            {% for answer in question.answers %}
-            {% if answer %}
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="{{ question.name }}-{{ answer.id }}" name="{{ question.name }}"
-                type="radio" value="{{ answer.value }}">
-              <label id="{{ question.name }}-{{ answer.id }}-label" class="govuk-label govuk-radios__label"
-                for="{{ question.name }}">
-                {{ answer.text }}
-              </label>
-            </div>
-            {% endif %}
-            {% endfor %}
-          </div>
-        </fieldset>
       </div>
+
+      <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+        {{ heading.html | safe if heading.html else heading.main }}
+      </h1>
     </div>
   </div>
 
-  <div class="govuk-grid-row">
+  {% if description %}
+  <div class="govuk-grid-row" id="question-description">
     <div class="govuk-grid-column-two-thirds">
-      <button id="button-submit" class="govuk-button" data-module="govuk-button">Submit answer</button>
-      <a href="#help" id="button-skip" class="govuk-button" data-module="govuk-button">I don't know</a>
-    </div>
-  </div>
-
-  {% if saveAnswers and skipAction %}
-  <div class="govuk-grid-row" style="margin-bottom: 20px;" id="button-skip">
-    <div class="govuk-grid-column-two-thirds">
+      <p>
+        {{ description }}
+      </p>
       <hr />
-      <h2 class="govuk-heading-l">{{ skipAction.title }}</h3>
-        <a class="small-link" onClick="{{ skipAction.link.onClick }}">{{ skipAction.link.text }}</a>
     </div>
   </div>
   {% endif %}
-</form>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ question.html | safe if question.html else question.text }}
+    </div>
+  </div>
+
+  <form class="form" onsubmit="return v4SubmitAnswer();">
+    <a name="question-anchor"></a>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <input type="hidden" id="_lesson_id" value="{{ lessonId }}" />
+        <input type="hidden" id="_correct_answer_id" value="{{ question.name }}-{{ question.correctAnswerId }}" />
+        <input type="hidden" id="_question_name" value="{{ question.name }}" />
+        <input type="hidden" id="_save_answers" value="{{ saveAnswers }}" />
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-radios">
+              {% for answer in question.answers %}
+              {% if answer %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="{{ question.name }}-{{ answer.id }}" name="{{ question.name }}"
+                  type="radio" value="{{ answer.value }}">
+                <label id="{{ question.name }}-{{ answer.id }}-label" class="govuk-label govuk-radios__label"
+                  for="{{ question.name }}">
+                  {{ answer.text }}
+                </label>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <button id="button-submit" class="govuk-button" data-module="govuk-button">Submit answer</button>
+        {% if not saveAnswers %}
+        <a href="#help" id="button-dont-know" class="govuk-button" data-module="govuk-button">I don't know</a>
+        {% endif %}
+        <a id="button-show-feeedback" class="govuk-button hidden" data-module="govuk-button"
+          onclick="return v4SubmitAnswer();">Return to feedback</a>
+      </div>
+    </div>
+
+    {% if saveAnswers and skipAction %}
+    <div class="govuk-grid-row" style="margin-bottom: 20px;" id="button-skip-action">
+      <div class="govuk-grid-column-two-thirds">
+        <hr />
+        <h2 class="govuk-heading-l">{{ skipAction.title }}</h3>
+          <a class="small-link" onClick="{{ skipAction.link.onClick }}">{{ skipAction.link.text }}</a>
+      </div>
+    </div>
+    {% endif %}
+  </form>
+</div>
 
 {% endblock %} {% block pageScripts %}
 <script type="text/javascript">
@@ -181,11 +189,23 @@ NRS Prototype
     saveResult(question, selectedId, selectedAnswer, result)
 
     v4LockQuestion(question)
+
+    $('#question-form').addClass('hidden')
     v4ShowFeedback(selectedId, correctAnswerId)
 
     window.scrollTo(0, 0)
 
     return false
+  }
+
+  function v4ShowQuestion() {
+    $('[name=question-feedback]').addClass('hidden')
+    $('#question-form').removeClass('hidden')
+    $('#section-actions').addClass('hidden')
+    $('#question-description').removeClass('hidden')
+    $('#button-show-feeedback').removeClass('hidden')
+    $('#dont-know').addClass('hidden')
+    $('#button-skip-action').addClass('hidden')
   }
 
   function v4ValidateQuestion() {
@@ -258,8 +278,8 @@ NRS Prototype
       $('#' + selectedId + '-feedback').removeClass('hidden')
     }
     $('#sub-heading').addClass('hidden')
-    $('#helplinks-primary').addClass('hidden')
-    $('#helplinks-secondary').removeClass('hidden')
+    // $('#helplinks-primary').addClass('hidden')
+    // $('#helplinks-secondary').removeClass('hidden')
     $('#section-actions').removeClass('hidden')
     $('#question-description').addClass('hidden')
     $('#skip-link').addClass('hidden')
@@ -268,7 +288,8 @@ NRS Prototype
   function v4LockQuestion(question) {
     $('input[name=' + question + ']').attr('disabled', true)
     $('#button-submit').addClass('hidden')
-    $('#button-skip').addClass('hidden')
+    $('#dont-know').addClass('hidden')
+    $('#button-skip-action').addClass('hidden')
     $('#button-continue').removeClass('hidden')
   }
 
