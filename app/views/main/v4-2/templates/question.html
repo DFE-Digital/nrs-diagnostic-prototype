@@ -140,6 +140,16 @@ NRS Prototype
       <a href="#help" id="button-skip" class="govuk-button" data-module="govuk-button">I don't know</a>
     </div>
   </div>
+
+  {% if saveAnswers and skipAction %}
+  <div class="govuk-grid-row" style="margin-bottom: 20px;" id="button-skip">
+    <div class="govuk-grid-column-two-thirds">
+      <hr />
+      <h2 class="govuk-heading-l">{{ skipAction.title }}</h3>
+        <a class="small-link" onClick="{{ skipAction.link.onClick }}">{{ skipAction.link.text }}</a>
+    </div>
+  </div>
+  {% endif %}
 </form>
 
 {% endblock %} {% block pageScripts %}

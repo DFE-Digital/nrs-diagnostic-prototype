@@ -26,7 +26,7 @@ module.exports = {
             description:
               'In this video, you will learn how to write the main part of an email.',
             url: 'https://www.youtube.com/embed/Ckgy0yrL6VE',
-            backLink: '/v4-2/topic/lesson/1/video/1',
+            backLink: '/v4-2/topic/lesson/1/video/practice/1',
             nextLink: '/v4-2/topic/lesson/1/video/practice/2'
           },
           {
@@ -34,7 +34,7 @@ module.exports = {
             description:
               'In this final video, you will learn how to end a formal email appropriately.',
             url: 'https://www.youtube.com/embed/kZIrEVDYPOI',
-            backLink: '/v4-2/topic/lesson/1/video/2',
+            backLink: '/v4-2/topic/lesson/1/video/practice/2',
             nextLink: '/v4-2/topic/lesson/1/video/practice/3'
           }
         ],
@@ -68,7 +68,7 @@ module.exports = {
               '/public/images/slideshow/1/slideshow-2-slide-2.jpeg'
               // '/public/images/slideshow/1/slideshow-2-slide-3.jpeg'
             ],
-            backLink: '/v4-2/topic/lesson/1/slideshow/1',
+            backLink: '/v4-2/topic/lesson/1/slideshow/practice/1',
             nextLink: '/v4-2/topic/lesson/1/slideshow/practice/2'
           },
           {
@@ -81,7 +81,7 @@ module.exports = {
               '/public/images/slideshow/1/slideshow-3-slide-3.jpeg',
               '/public/images/slideshow/1/slideshow-3-slide-4.jpeg'
             ],
-            backLink: '/v4-2/topic/lesson/1/slideshow/2',
+            backLink: '/v4-2/topic/lesson/1/slideshow/practice/2',
             nextLink: '/v4-2/topic/lesson/1/slideshow/practice/3'
           }
         ],
@@ -138,7 +138,8 @@ module.exports = {
               }
             ],
             backLink: '/v4-2/topic/lesson/1/video/1',
-            nextLink: '/v4-2/topic/lesson/1/video/2'
+            nextLink: '/v4-2/topic/lesson/1/video/2',
+            nextLinkText: 'Continue with lesson'
           },
           {
             id: '2',
@@ -182,7 +183,8 @@ module.exports = {
               }
             ],
             backLink: '/v4-2/topic/lesson/1/video/2',
-            nextLink: '/v4-2/topic/lesson/1/video/3'
+            nextLink: '/v4-2/topic/lesson/1/video/3',
+            nextLinkText: 'Continue with lesson'
           },
           {
             id: '3',
@@ -197,21 +199,17 @@ module.exports = {
             inputAnswers: [],
             genericFeedback: {
               html:
-                '<h3 class="govuk-heading-m">Compare the end of your email to the example below:</h3><p>It would be greatly appreciated if you could take a moment to consider my CV, which is attached to this email. I look forward to hearing from you and I hope to discuss the role with you in more detail.<br /><br />Yours sincerely,<br />Paul Smith</p><hr /><h3 class="govuk-heading-m">How did you do on this question?</h3><p>Feedback: When you are writing a formal email, you should use a closing line such as ‘I look forward to hearing from you’ rather than ‘speak soon!’</p><p>When you do not know the name of the person you are writing to then you should use either of the following sign offs:</p><ul class="govuk-list govuk-list--bullet"><li>Yours sincerely</li><li>Yours faithfully</li></ul><p>If you did not give either of these answers, perhaps return to the learning content to remind yourself of this part of a formal email.</p>',
+                '<h3 class="govuk-heading-m">How did you do on this question?</h3>' +
+                '<p>When you are writing a formal email, you should use a closing line such as ' +
+                '‘I look forward to hearing from you’ rather than ‘speak soon!’</p>' +
+                '<p>When you do not know the name of the person you are writing to then you should use either of the following sign offs:</p>' +
+                '<ul class="govuk-list govuk-list--bullet"><li>Yours sincerely</li><li>Yours faithfully</li></ul>' +
+                '<p>If you did not give either of these answers, perhaps return to the learning content to remind yourself of this part of a formal email.</p>',
               main: ''
             },
-            // correctFeedback: {
-            //   html:
-            //     "<p>When you do not know the name of the person you are writing to, you should use a sign off such as 'Yours sincerely' or 'Yours faithfully'</p>",
-            //   main: ''
-            // },
-            // incorrectFeedback: {
-            //   html:
-            //     "<p>When you do not know the name of the person you are writing to, you should use a sign off such as 'Yours sincerely' or 'Yours faithfully'</p>",
-            //   main: ''
-            // },
             backLink: '/v4-2/topic/lesson/1/video/3',
-            nextLink: '/v4-2/topic/lesson/1/start-quiz'
+            nextLink: '/v4-2/topic/lesson/1/start-quiz',
+            nextLinkText: 'Continue with lesson'
           }
         ],
         practiceSlideshowQuestions: [
@@ -267,7 +265,8 @@ module.exports = {
               }
             ],
             backLink: '/v4-2/topic/lesson/1/slideshow/1',
-            nextLink: '/v4-2/topic/lesson/1/slideshow/2'
+            nextLink: '/v4-2/topic/lesson/1/slideshow/2',
+            nextLinkText: 'Continue with lesson'
           },
           {
             id: '2',
@@ -311,7 +310,8 @@ module.exports = {
               }
             ],
             backLink: '/v4-2/topic/lesson/1/slideshow/2',
-            nextLink: '/v4-2/topic/lesson/1/slideshow/3'
+            nextLink: '/v4-2/topic/lesson/1/slideshow/3',
+            nextLinkText: 'Continue with lesson'
           },
           {
             id: '3',
@@ -326,21 +326,17 @@ module.exports = {
             inputAnswers: [],
             genericFeedback: {
               html:
-                '<h3 class="govuk-heading-m">Compare the end of your email to the example below:</h3><p>It would be greatly appreciated if you could take a moment to consider my CV, which is attached to this email. I look forward to hearing from you and I hope to discuss the role with you in more detail.<br /><br />Yours sincerely,<br />Paul Smith</p><hr /><h3 class="govuk-heading-m">How did you do on this question?</h3><p>Feedback: When you are writing a formal email, you should use a closing line such as ‘I look forward to hearing from you’ rather than ‘speak soon!’</p><p>When you do not know the name of the person you are writing to then you should use either of the following sign offs:</p><ul class="govuk-list govuk-list--bullet"><li>Yours sincerely</li><li>Yours faithfully</li></ul><p>If you did not give either of these answers, perhaps return to the learning content to remind yourself of this part of a formal email.</p>',
+                '<h3 class="govuk-heading-m">How did you do on this question?</h3>' +
+                '<p>When you are writing a formal email, you should use a closing line such as ' +
+                '‘I look forward to hearing from you’ rather than ‘speak soon!’</p>' +
+                '<p>When you do not know the name of the person you are writing to then you should use either of the following sign offs:</p>' +
+                '<ul class="govuk-list govuk-list--bullet"><li>Yours sincerely</li><li>Yours faithfully</li></ul>' +
+                '<p>If you did not give either of these answers, perhaps return to the learning content to remind yourself of this part of a formal email.</p>',
               main: ''
             },
-            // correctFeedback: {
-            //   html:
-            //     "<p>When you do not know the name of the person you are writing to, you should use a sign off such as 'Yours sincerely' or 'Yours faithfully'</p>",
-            //   main: ''
-            // },
-            // incorrectFeedback: {
-            //   html:
-            //     "<p>When you do not know the name of the person you are writing to, you should use a sign off such as 'Yours sincerely' or 'Yours faithfully'</p>",
-            //   main: ''
-            // },
             backLink: '/v4-2/topic/lesson/1/slideshow/3',
-            nextLink: '/v4-2/topic/lesson/1/start-quiz'
+            nextLink: '/v4-2/topic/lesson/1/start-quiz',
+            nextLinkText: 'Continue with lesson'
           }
         ],
         practiceTextQuestions: [
@@ -396,7 +392,8 @@ module.exports = {
               }
             ],
             backLink: '/v4-2/topic/lesson/1/text/1',
-            nextLink: '/v4-2/topic/lesson/1/text/2'
+            nextLink: '/v4-2/topic/lesson/1/text/2',
+            nextLinkText: 'Continue with lesson'
           },
           {
             id: '2',
@@ -440,7 +437,8 @@ module.exports = {
               }
             ],
             backLink: '/v4-2/topic/lesson/1/text/2',
-            nextLink: '/v4-2/topic/lesson/1/text/3'
+            nextLink: '/v4-2/topic/lesson/1/text/3',
+            nextLinkText: 'Continue with lesson'
           },
           {
             id: '3',
@@ -455,21 +453,17 @@ module.exports = {
             inputAnswers: [],
             genericFeedback: {
               html:
-                '<h3 class="govuk-heading-m">Compare the end of your email to the example below:</h3><p>It would be greatly appreciated if you could take a moment to consider my CV, which is attached to this email. I look forward to hearing from you and I hope to discuss the role with you in more detail.<br /><br />Yours sincerely,<br />Paul Smith</p><hr /><h3 class="govuk-heading-m">How did you do on this question?</h3><p>Feedback: When you are writing a formal email, you should use a closing line such as ‘I look forward to hearing from you’ rather than ‘speak soon!’</p><p>When you do not know the name of the person you are writing to then you should use either of the following sign offs:</p><ul class="govuk-list govuk-list--bullet"><li>Yours sincerely</li><li>Yours faithfully</li></ul><p>If you did not give either of these answers, perhaps return to the learning content to remind yourself of this part of a formal email.</p>',
+                '<h3 class="govuk-heading-m">How did you do on this question?</h3>' +
+                '<p>When you are writing a formal email, you should use a closing line such as ' +
+                '‘I look forward to hearing from you’ rather than ‘speak soon!’</p>' +
+                '<p>When you do not know the name of the person you are writing to then you should use either of the following sign offs:</p>' +
+                '<ul class="govuk-list govuk-list--bullet"><li>Yours sincerely</li><li>Yours faithfully</li></ul>' +
+                '<p>If you did not give either of these answers, perhaps return to the learning content to remind yourself of this part of a formal email.</p>',
               main: ''
             },
-            // correctFeedback: {
-            //   html:
-            //     "<p>When you do not know the name of the person you are writing to, you should use a sign off such as 'Yours sincerely' or 'Yours faithfully'</p>",
-            //   main: ''
-            // },
-            // incorrectFeedback: {
-            //   html:
-            //     "<p>When you do not know the name of the person you are writing to, you should use a sign off such as 'Yours sincerely' or 'Yours faithfully'</p>",
-            //   main: ''
-            // },
             backLink: '/v4-2/topic/lesson/1/text/3',
-            nextLink: '/v4-2/topic/lesson/1/start-quiz'
+            nextLink: '/v4-2/topic/lesson/1/start-quiz',
+            nextLinkText: 'Continue with lesson'
           }
         ],
         assessmentQuestions: [
@@ -517,7 +511,8 @@ module.exports = {
               }
             ],
             backLink: '#',
-            nextLink: '/v4-2/topic/lesson/1/assessment/2'
+            nextLink: '/v4-2/topic/lesson/1/assessment/2',
+            nextLinkText: 'Continue with quiz'
           },
           {
             id: '2',
@@ -563,7 +558,8 @@ module.exports = {
               }
             ],
             backLink: '#',
-            nextLink: '/v4-2/topic/lesson/1/assessment/3'
+            nextLink: '/v4-2/topic/lesson/1/assessment/3',
+            nextLinkText: 'Continue with quiz'
           },
           {
             id: '3',
@@ -614,7 +610,8 @@ module.exports = {
               }
             ],
             backLink: '#',
-            nextLink: '/v4-2/topic/lesson/1/assessment/4'
+            nextLink: '/v4-2/topic/lesson/1/assessment/4',
+            nextLinkText: 'Continue with quiz'
           },
           {
             id: '4',
@@ -662,7 +659,8 @@ module.exports = {
               }
             ],
             backLink: '#',
-            nextLink: '/v4-2/topic/lesson/1/assessment/5'
+            nextLink: '/v4-2/topic/lesson/1/assessment/5',
+            nextLinkText: 'Continue with quiz'
           },
           {
             id: '5',
@@ -700,7 +698,8 @@ module.exports = {
               main: ''
             },
             backLink: '#',
-            nextLink: '/v4-2/topic/lesson/1/feedback'
+            nextLink: '/v4-2/topic/lesson/1/feedback',
+            nextLinkText: 'See results'
           }
         ]
       },
@@ -1039,6 +1038,7 @@ module.exports = {
         title: 'How would you like to learn?',
         description:
           'Once you’re ready, select how you would like the lesson delivered.',
+        deadLink: '/v4-2/prototype-limit/' + encodeURIComponent(req.path),
         help: helpLinks(req.path)
       })
     })
@@ -1078,8 +1078,9 @@ module.exports = {
               isButton: true
             },
             {
-              text: 'Change learning material',
-              href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`
+              // text: 'Click here to change to slideshow, article or audio',
+              // href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Clear here</a> to change to slideshow, article or audio</p>`
             }
           ]
         },
@@ -1123,8 +1124,9 @@ module.exports = {
               isButton: true
             },
             {
-              text: 'Change learning material',
-              href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`
+              // text: 'Click here to change to video, article or audio',
+              // href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Clear here</a> to change to video, article or audio</p>`
             }
           ]
         },
@@ -1161,7 +1163,7 @@ module.exports = {
 
         res.render(template, {
           back: {
-            text: `Back to ${media}`,
+            text: 'Back', // `Back to ${media}`,
             href: question.backLink
           },
           heading: {
@@ -1182,16 +1184,12 @@ module.exports = {
             title: 'You can also:',
             links: [
               {
-                text: 'Continue with lesson',
+                text: question.nextLinkText, // 'Continue with lesson',
                 href: question.nextLink,
                 isButton: true
               },
               {
-                text: 'Change learning material',
-                href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`
-              },
-              {
-                text: 'Return to material',
+                text: `Return to ${media}`,
                 href: question.backLink
               }
             ]
@@ -1277,10 +1275,10 @@ module.exports = {
           : 'main/v4-2/templates/question'
 
       res.render(template, {
-        back: {
-          text: 'Back to lesson',
-          href: '/v4-2/prototype-limit/' + encodeURIComponent(req.path) // videoContent.backLink
-        },
+        // back: {
+        //   text: 'Back to lesson',
+        //   href: '/v4-2/prototype-limit/' + encodeURIComponent(req.path) // videoContent.backLink
+        // },
         heading: {
           sub: lesson.title,
           main: `Question ${questionId} (out of ${totalQuestions})`,
@@ -1296,7 +1294,7 @@ module.exports = {
           title: 'You can also:',
           links: [
             {
-              text: 'Continue with quiz',
+              text: question.nextLinkText, // 'Continue with quiz',
               href: question.nextLink,
               isButton: true
             },
@@ -1305,6 +1303,14 @@ module.exports = {
               href: question.backLink
             }
           ]
+        },
+        skipAction: {
+          title: 'You can also:',
+          link: {
+            text: 'Skip this question',
+            // href: question.backLink,
+            onClick: 'return v4SkipQuestion();'
+          }
         },
         help: [
           {
@@ -1319,12 +1325,12 @@ module.exports = {
               {
                 text: 'Speak to a tutor (via email)',
                 href: '/v4-2/prototype-limit/' + encodeURIComponent(req.path)
-              },
-              {
-                text: 'Skip this question',
-                onClick: 'return v4SkipQuestion();',
-                id: 'skip-link'
               }
+              // {
+              //   text: 'Skip this question',
+              //   onClick: 'return v4SkipQuestion();',
+              //   id: 'skip-link'
+              // }
             ]
           }
         ]
@@ -1341,12 +1347,11 @@ module.exports = {
       res.render('main/v4-2/topic/lesson/feedback', {
         back: {
           text: 'Exit lesson',
-          href: '/v4-2/prototype-limit/' + encodeURIComponent(req.path) // videoContent.backLink
+          href: '/v4-2/prototype-limit/' + encodeURIComponent(req.path)
         },
         heading: {
           sub: lesson.title,
           main: 'Lesson complete'
-          // html: `Question<br />(${questionNo} of 10)`
         },
         lesson,
         actions: {
@@ -1377,7 +1382,7 @@ module.exports = {
       res.render('main/v4-2/topic/lesson/text/1', {
         back: {
           text: 'Back',
-          href: `/v4-2/topic/lesson/${lessonId}/select-learning-content` // videoContent.backLink
+          href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`
         },
         heading: {
           sub: lesson.title
@@ -1392,8 +1397,7 @@ module.exports = {
               isButton: true
             },
             {
-              text: 'Change learning material',
-              href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Clear here</a> to change to slideshow, video or audio</p>`
             }
           ]
         },
@@ -1411,7 +1415,7 @@ module.exports = {
       res.render('main/v4-2/topic/lesson/text/2', {
         back: {
           text: 'Back',
-          href: `/v4-2/topic/lesson/${lessonId}/text/1` // videoContent.backLink
+          href: `/v4-2/topic/lesson/${lessonId}/text/practice/1`
         },
         heading: {
           sub: lesson.title
@@ -1426,8 +1430,7 @@ module.exports = {
               isButton: true
             },
             {
-              text: 'Change learning material',
-              href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Clear here</a> to change to slideshow, video or audio</p>`
             }
           ]
         },
@@ -1445,7 +1448,7 @@ module.exports = {
       res.render('main/v4-2/topic/lesson/text/3', {
         back: {
           text: 'Back',
-          href: `/v4-2/topic/lesson/${lessonId}/text/2` // videoContent.backLink
+          href: `/v4-2/topic/lesson/${lessonId}/text/practice/2`
         },
         heading: {
           sub: lesson.title
@@ -1460,8 +1463,7 @@ module.exports = {
               isButton: true
             },
             {
-              text: 'Change learning material',
-              href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Clear here</a> to change to slideshow, video or audio</p>`
             }
           ]
         },
