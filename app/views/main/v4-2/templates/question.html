@@ -140,9 +140,6 @@ NRS Prototype
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <button id="button-submit" class="govuk-button" data-module="govuk-button">Submit answer</button>
-        {% if not saveAnswers %}
-        <a href="#help" id="button-dont-know" class="govuk-button" data-module="govuk-button">I don't know</a>
-        {% endif %}
         <a id="button-show-feeedback" class="govuk-button hidden" data-module="govuk-button"
           onclick="return v4SubmitAnswer();">Return to feedback</a>
       </div>

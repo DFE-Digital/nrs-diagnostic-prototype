@@ -30,7 +30,7 @@ NRS Prototype
         {% else %}
         {{ question.correctFeedback.html | safe if question.correctFeedback.html else question.correctFeedback.main }}
         {% endif %}
-        <a class="small-link" href="#question-anchor">See your answer</a>
+        <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
       </div>
     </div>
     {% endif %}
@@ -41,7 +41,7 @@ NRS Prototype
 
         <h3 class="govuk-heading-m">Incorrect answer!</h3>
         {{ question.incorrectFeedback.html | safe if question.incorrectFeedback.html else question.incorrectFeedback.main }}
-        <a class="small-link" href="#question-anchor">See your answer</a>
+        <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
       </div>
     </div>
     {% endif %}
@@ -49,9 +49,8 @@ NRS Prototype
     {% if question.genericFeedback %}
     <div id="{{ question.name }}-feedback-generic" name="question-feedback" class="feedback-box hidden">
       <div style="padding: 15px;">
-        <!-- <h3 class="govuk-heading-m">How did you do on this question?</h3> -->
         {{ question.genericFeedback.html | safe if question.genericFeedback.html else question.genericFeedback.main }}
-        <a class="small-link" href="#question-anchor">See your answer</a>
+        <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
       </div>
     </div>
     {% endif %}
@@ -60,7 +59,7 @@ NRS Prototype
       <div style="padding: 15px;">
         <h3 class="govuk-heading-m">You have skipped the question</h3>
         {{ question.genericFeedback.html | safe if question.genericFeedback.html else question.genericFeedback.main }}
-        <a class="small-link" href="#question-anchor">See your answer</a>
+        <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
       </div>
     </div>
   </div>
@@ -74,7 +73,7 @@ NRS Prototype
   </div>
 </div>
 
-<div id="helplinks-secondary" class="hidden">
+<!-- <div id="helplinks-secondary" class="hidden">
   {{ helpLinks({
     helpSections: help
   }) }}
@@ -83,70 +82,73 @@ NRS Prototype
       <hr />
     </div>
   </div>
-</div>
+</div> -->
 
-<div class="govuk-grid-row" id="section-headings">
-  <div class="govuk-grid-column-two-thirds">
-    <div id="sub-heading">
-      {{ headingSuper({
+<div id="question-form">
+  <div class="govuk-grid-row" id="section-headings">
+    <div class="govuk-grid-column-two-thirds">
+      <div id="sub-heading">
+        {{ headingSuper({
         text: heading.sub
       }) }}
+      </div>
+
+      <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+        {{ heading.html | safe if heading.html else heading.main }}
+      </h1>
     </div>
-
-    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-      {{ heading.html | safe if heading.html else heading.main }}
-    </h1>
   </div>
-</div>
 
-{% if description %}
-<div class="govuk-grid-row" id="question-description">
-  <div class="govuk-grid-column-two-thirds">
-    <p>
-      {{ description }}
-    </p>
-    <hr />
+  {% if description %}
+  <div class="govuk-grid-row" id="question-description">
+    <div class="govuk-grid-column-two-thirds">
+      <p>
+        {{ description }}
+      </p>
+      <hr />
+    </div>
   </div>
-</div>
-{% endif %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    {{ question.html | safe if question.html else question.text }}
-  </div>
-</div>
-
-<form class="form" onsubmit="return v4SubmitAnswer();">
-  <a name="question-anchor"></a>
+  {% endif %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <input type="hidden" id="_lesson_id" value="{{ lessonId }}" />
-      <input type="hidden" id="_question_name" value="{{ question.name }}" />
-      <input type="hidden" id="_save_answers" value="{{ saveAnswers }}" />
+      {{ question.html | safe if question.html else question.text }}
+    </div>
+  </div>
 
-      {% for answer in question.inputAnswers %}
-      {% if answer %}
-      <input type="hidden" name="_valid_answer" value="{{ answer }}" />
-      {% endif %}
-      {% endfor %}
+  <form class="form" onsubmit="return v4SubmitAnswer();">
+    <a name="question-anchor"></a>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <input type="hidden" id="_lesson_id" value="{{ lessonId }}" />
+        <input type="hidden" id="_question_name" value="{{ question.name }}" />
+        <input type="hidden" id="_save_answers" value="{{ saveAnswers }}" />
+
+        {% for answer in question.inputAnswers %}
+        {% if answer %}
+        <input type="hidden" name="_valid_answer" value="{{ answer }}" />
+        {% endif %}
+        {% endfor %}
 
 
-      <div class="govuk-form-group">
-        <span id="event-name-hint" class="govuk-hint">
-          Enter answer here
-        </span>
-        <input id="{{ question.name }}" name="{{ question.name }}" class="govuk-input" id="event-name" name="event-name"
-          type="text" aria-describedby="event-name-hint">
+        <div class="govuk-form-group">
+          <span id="event-name-hint" class="govuk-hint">
+            Enter answer here
+          </span>
+          <input id="{{ question.name }}" name="{{ question.name }}" class="govuk-input" id="event-name"
+            name="event-name" type="text" aria-describedby="event-name-hint">
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <button id="button-submit" class="govuk-button" data-module="govuk-button">Submit answer</button>
-      <a href="#help" id="button-skip" class="govuk-button" data-module="govuk-button">I don't know</a>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <button id="button-submit" class="govuk-button" data-module="govuk-button">Submit answer</button>
+        <a id="button-show-feeedback" class="govuk-button hidden" data-module="govuk-button"
+          onclick="return v4SubmitAnswer();">Return to feedback</a>
+      </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>
 
 {% endblock %} {% block pageScripts %}
 <script type="text/javascript">
@@ -168,11 +170,23 @@ NRS Prototype
 
 
     v4LockQuestion(question)
+
+    $('#question-form').addClass('hidden')
     v4ShowInputFeedback(question, result)
 
     window.scrollTo(0, 0)
 
     return false
+  }
+
+  function v4ShowInputQuestion() {
+    $('[name=question-feedback]').addClass('hidden')
+    $('#question-form').removeClass('hidden')
+    $('#section-actions').addClass('hidden')
+    $('#question-description').removeClass('hidden')
+    $('#button-show-feeedback').removeClass('hidden')
+    $('#dont-know').addClass('hidden')
+    $('#button-skip-action').addClass('hidden')
   }
 
   function v4ValidateInputQuestion() {
@@ -242,8 +256,8 @@ NRS Prototype
   function v4ShowInputFeedback(question, result) {
     $('#' + question + '-feedback-' + result).removeClass('hidden')
     $('#sub-heading').addClass('hidden')
-    $('#helplinks-primary').addClass('hidden')
-    $('#helplinks-secondary').removeClass('hidden')
+    // $('#helplinks-primary').addClass('hidden')
+    // $('#helplinks-secondary').removeClass('hidden')
     $('#section-actions').removeClass('hidden')
     $('#question-description').addClass('hidden')
     $('#skip-link').addClass('hidden')
