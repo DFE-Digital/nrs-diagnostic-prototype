@@ -1345,10 +1345,10 @@ module.exports = {
       }
 
       res.render('main/v4-2/topic/lesson/feedback', {
-        back: {
-          text: 'Exit lesson',
-          href: '/v4-2/prototype-limit/' + encodeURIComponent(req.path)
-        },
+        // back: {
+        //   text: 'Exit lesson',
+        //   href: '/v4-2/prototype-limit/' + encodeURIComponent(req.path)
+        // },
         heading: {
           sub: lesson.title,
           main: 'Lesson complete'
@@ -1363,8 +1363,14 @@ module.exports = {
               isButton: true
             },
             {
-              text: 'Retry lesson',
-              href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`
+              // text: 'Retry lesson',
+              // href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`,
+              html: `<a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content" onClick="return clearDataAndFollowLink();">Retry lesson</a><br/>`
+            },
+            {
+              // text: 'Retry quiz',
+              // href: `/v4-2/topic/lesson/${lessonId}/start-quiz`,
+              html: `<a class="small-link" href="/v4-2/topic/lesson/${lessonId}/start-quiz" onClick="return clearDataAndFollowLink();">Retry quiz</a><br/>`
             }
           ]
         },

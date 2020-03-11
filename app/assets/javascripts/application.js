@@ -10,7 +10,8 @@ $(document).ready(function() {
 })
 
 function clearLocalStorageData() {
-  localStorage.clear()
+  // localStorage.clear()
+  localStorage.removeItem('lesson-1')
 }
 
 function setLocalStorageObject(name, value) {
@@ -265,4 +266,9 @@ function v4GetNewOrExistingLessonFromStorage(lessonId) {
   }
   setLocalStorageObject('lesson-' + lessonId, lesson)
   return lesson
+}
+
+function clearDataAndFollowLink() {
+  clearLocalStorageData()
+  return true
 }
