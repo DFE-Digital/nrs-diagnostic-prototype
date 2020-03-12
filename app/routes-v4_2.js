@@ -1102,7 +1102,7 @@ module.exports = {
             {
               // text: 'Click here to change to slideshow, article or audio',
               // href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`
-              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Click here</a> to change to slideshow, article or audio</p>`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Change to slideshow, article or audio</a></p>`
             }
           ]
         },
@@ -1148,7 +1148,7 @@ module.exports = {
             {
               // text: 'Click here to change to video, article or audio',
               // href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`
-              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Click here</a> to change to video, article or audio</p>`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Change to video, article or audio</a></p>`
             }
           ]
         },
@@ -1425,7 +1425,7 @@ module.exports = {
               isButton: true
             },
             {
-              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Click here</a> to change to slideshow, video or audio</p>`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Change to slideshow, video or audio</a></p>`
             }
           ]
         },
@@ -1458,7 +1458,7 @@ module.exports = {
               isButton: true
             },
             {
-              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Click here</a> to change to slideshow, video or audio</p>`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Change to slideshow, video or audio</a></p>`
             }
           ]
         },
@@ -1491,7 +1491,7 @@ module.exports = {
               isButton: true
             },
             {
-              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Click here</a> to change to slideshow, video or audio</p>`
+              html: `<span class="govuk-body-m"><a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content">Change to slideshow, video or audio</a></p>`
             }
           ]
         },
