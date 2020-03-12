@@ -1142,7 +1142,7 @@ module.exports = {
             }
           ]
         },
-        help: helpLinks(req.path)
+        side: helpLinks(req.path)
       })
     })
 

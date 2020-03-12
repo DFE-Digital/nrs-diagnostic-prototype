@@ -11,96 +11,114 @@ Prototype {% endblock %} {% block beforeContent %}
 {% endblock %} {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
 
-    {{ headingSuper({
-      text: heading
-    }) }}
+        {{ headingSuper({
+          text: heading
+        }) }}
 
-    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-      Slideshow (Part {{ slideshowNo }} of {{ totalSlideshows }})
-    </h1>
+        <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+          Slideshow (Part {{ slideshowNo }} of {{ totalSlideshows }})
+        </h1>
 
-  </div>
-</div>
+      </div>
+    </div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <p>
-      {{ slideshow.description }}
-    </p>
-    <!-- <p><strong>To use this slideshow, you can:</strong></p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>
-        Press the expand button to make the slideshow go fullscreen
-      </li>
-      <li>
-        Swipe to go back and forth between slides
-      </li>
-      <li>
-        Rotate your device to make the slideshow larger
-      </li>
-    </ul> -->
-  </div>
-</div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p>
+          {{ slideshow.description }}
+        </p>
+        <!-- <p><strong>To use this slideshow, you can:</strong></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            Press the expand button to make the slideshow go fullscreen
+          </li>
+          <li>
+            Swipe to go back and forth between slides
+          </li>
+          <li>
+            Rotate your device to make the slideshow larger
+          </li>
+        </ul> -->
+      </div>
+    </div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        {% for slide in slideshow.slides %}
-        {% if slide %}
-        <div class="swiper-slide"><img width="100%" src="{{ slide }}" /></div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            {% for slide in slideshow.slides %}
+            {% if slide %}
+            <div class="swiper-slide"><img width="100%" src="{{ slide }}" /></div>
+            {% endif %}
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-scrollbar"></div>
+        </div>
+      </div>
+    </div>
+    <div style="width: 100%; height: 42px;">
+      <div id="button-fullscreen" style="float: right; padding: 5px;" onclick="return toggleFullscreen();">
+        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.20239 4.01613V1H4.21852" stroke="#C2C2C2" stroke-linejoin="bevel" />
+          <path d="M4.21852 18H1.20239V14.9839" stroke="#C2C2C2" stroke-linejoin="bevel" />
+          <path d="M18.2024 14.9839V18H15.1863" stroke="#C2C2C2" stroke-linejoin="bevel" />
+          <path d="M15.1863 1H18.2024V4.01613" stroke="#C2C2C2" stroke-linejoin="bevel" />
+          <path d="M1.47656 1.27417L6.96043 6.75804" stroke="#C2C2C2" />
+          <path d="M12.4443 12.2419L17.9282 17.7258" stroke="#C2C2C2" />
+          <path d="M1.47656 17.7258L6.96043 12.2419" stroke="#C2C2C2" />
+          <path d="M12.4443 6.75804L17.9282 1.27417" stroke="#C2C2C2" />
+        </svg>
+
+      </div>
+    </div>
+
+    <div class="govuk-grid-row" id="section-actions">
+      <div class="govuk-grid-column-full">
+        {{ actionLinks({
+          actions: actions
+        }) }}
+      </div>
+    </div>
+
+    <!-- <div class="govuk-grid-row" id="section-actions" style="margin-bottom: 0px;">
+      <div class="govuk-grid-column-two-thirds">
+        <hr />
+        <h2 class="govuk-heading-l">{{ actions.title }}</h2>
+        {% for link in actions.links %}
+        {% if link %}
+        <div style="margin-bottom: 5px;">
+          {% if link.html %}
+          {{ link.html | safe if link.html else heading.main }}
+          {% else %}
+          <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br />
+          {% endif %}
+        </div>
         {% endif %}
         {% endfor %}
       </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-scrollbar"></div>
+    </div> -->
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
     </div>
-  </div>
-</div>
-<div style="width: 100%; height: 42px;">
-  <div id="button-fullscreen" style="float: right; padding: 5px;" onclick="return toggleFullscreen();">
-    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1.20239 4.01613V1H4.21852" stroke="#C2C2C2" stroke-linejoin="bevel" />
-      <path d="M4.21852 18H1.20239V14.9839" stroke="#C2C2C2" stroke-linejoin="bevel" />
-      <path d="M18.2024 14.9839V18H15.1863" stroke="#C2C2C2" stroke-linejoin="bevel" />
-      <path d="M15.1863 1H18.2024V4.01613" stroke="#C2C2C2" stroke-linejoin="bevel" />
-      <path d="M1.47656 1.27417L6.96043 6.75804" stroke="#C2C2C2" />
-      <path d="M12.4443 12.2419L17.9282 17.7258" stroke="#C2C2C2" />
-      <path d="M1.47656 17.7258L6.96043 12.2419" stroke="#C2C2C2" />
-      <path d="M12.4443 6.75804L17.9282 1.27417" stroke="#C2C2C2" />
-    </svg>
 
-  </div>
-</div>
-
-<div class="govuk-grid-row" id="section-actions">
-  <div class="govuk-grid-column-two-thirds">
-    {{ actionLinks({
-      actions: actions
-    }) }}
-  </div>
-</div>
-
-<!-- <div class="govuk-grid-row" id="section-actions" style="margin-bottom: 0px;">
-  <div class="govuk-grid-column-two-thirds">
-    <hr />
-    <h2 class="govuk-heading-l">{{ actions.title }}</h2>
-    {% for link in actions.links %}
-    {% if link %}
-    <div style="margin-bottom: 5px;">
-      {% if link.html %}
-      {{ link.html | safe if link.html else heading.main }}
-      {% else %}
-      <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br />
-      {% endif %}
-    </div>
     {% endif %}
-    {% endfor %}
   </div>
-</div> -->
+</div>
+
+
 
 <div class="slide-overlay hidden"></div>
 {% endblock %} {% block pageScripts %}
