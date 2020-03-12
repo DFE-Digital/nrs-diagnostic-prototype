@@ -19,145 +19,161 @@ NRS Prototype
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
-    {% if question.correctFeedback %}
-    <div id="{{ question.name }}-feedback-correct" name="question-feedback" class="feedback-box hidden">
-      <div style="padding: 15px;">
-
-        <h3 class="govuk-heading-m">Correct answer!</h3>
-        {% if saveAnswers %}
-        <p>You answered this question correctly</p>
-        {% else %}
-        {{ question.correctFeedback.html | safe if question.correctFeedback.html else question.correctFeedback.main }}
-        {% endif %}
-        <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
-      </div>
-    </div>
-    {% endif %}
-
-    {% if question.incorrectFeedback %}
-    <div id="{{ question.name }}-feedback-incorrect" name="question-feedback" class="feedback-box hidden">
-      <div style="padding: 15px;">
-
-        <h3 class="govuk-heading-m">Incorrect answer!</h3>
-        {{ question.incorrectFeedback.html | safe if question.incorrectFeedback.html else question.incorrectFeedback.main }}
-        <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
-      </div>
-    </div>
-    {% endif %}
-
-    {% if question.genericFeedback %}
-    <div id="{{ question.name }}-feedback-generic" name="question-feedback" class="feedback-box hidden">
-      <div style="padding: 15px;">
-        {{ question.genericFeedback.html | safe if question.genericFeedback.html else question.genericFeedback.main }}
-        <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
-      </div>
-    </div>
-    {% endif %}
-
-    <div id="{{ question.name }}-feedback-skipped" name="question-feedback" class="feedback-box hidden">
-      <div style="padding: 15px;">
-        <h3 class="govuk-heading-m">You have skipped the question</h3>
-        {{ question.genericFeedback.html | safe if question.genericFeedback.html else question.genericFeedback.main }}
-        <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="govuk-grid-row hidden" id="section-actions" style="margin-bottom: 20px;">
-  <div class="govuk-grid-column-two-thirds">
-    {{ actionLinks({
-      actions: actions
-    }) }}
-  </div>
-</div>
-
-<!-- <div id="helplinks-secondary" class="hidden">
-  {{ helpLinks({
-    helpSections: help
-  }) }}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <hr />
-    </div>
-  </div>
-</div> -->
-
-<div id="question-form">
-  <div class="govuk-grid-row" id="section-headings">
-    <div class="govuk-grid-column-two-thirds">
-      <div id="sub-heading">
-        {{ headingSuper({
-        text: heading.sub
-      }) }}
-      </div>
-
-      <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-        {{ heading.html | safe if heading.html else heading.main }}
-      </h1>
-    </div>
-  </div>
-
-  {% if description %}
-  <div class="govuk-grid-row" id="question-description">
-    <div class="govuk-grid-column-two-thirds">
-      <p>
-        {{ description }}
-      </p>
-      <hr />
-    </div>
-  </div>
-  {% endif %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      {{ question.html | safe if question.html else question.text }}
-    </div>
-  </div>
-
-  <form class="form" onsubmit="return v4SubmitAnswer();">
-    <a name="question-anchor"></a>
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <input type="hidden" id="_lesson_id" value="{{ lessonId }}" />
-        <input type="hidden" id="_question_name" value="{{ question.name }}" />
-        <input type="hidden" id="_save_answers" value="{{ saveAnswers }}" />
+      <div class="govuk-grid-column-full">
 
-        {% for answer in question.inputAnswers %}
-        {% if answer %}
-        <input type="hidden" name="_valid_answer" value="{{ answer }}" />
+        {% if question.correctFeedback %}
+        <div id="{{ question.name }}-feedback-correct" name="question-feedback" class="feedback-box hidden">
+          <div style="padding: 15px;">
+
+            <h3 class="govuk-heading-m">Correct answer!</h3>
+            {% if saveAnswers %}
+            <p>You answered this question correctly</p>
+            {% else %}
+            {{ question.correctFeedback.html | safe if question.correctFeedback.html else question.correctFeedback.main }}
+            {% endif %}
+            <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
+          </div>
+        </div>
         {% endif %}
-        {% endfor %}
 
+        {% if question.incorrectFeedback %}
+        <div id="{{ question.name }}-feedback-incorrect" name="question-feedback" class="feedback-box hidden">
+          <div style="padding: 15px;">
 
-        <div class="govuk-form-group">
-          <span id="event-name-hint" class="govuk-hint">
-            Enter answer here
-          </span>
-          <input id="{{ question.name }}" name="{{ question.name }}" class="govuk-input" id="event-name"
-            name="event-name" type="text" aria-describedby="event-name-hint">
+            <h3 class="govuk-heading-m">Incorrect answer!</h3>
+            {{ question.incorrectFeedback.html | safe if question.incorrectFeedback.html else question.incorrectFeedback.main }}
+            <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if question.genericFeedback %}
+        <div id="{{ question.name }}-feedback-generic" name="question-feedback" class="feedback-box hidden">
+          <div style="padding: 15px;">
+            {{ question.genericFeedback.html | safe if question.genericFeedback.html else question.genericFeedback.main }}
+            <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
+          </div>
+        </div>
+        {% endif %}
+
+        <div id="{{ question.name }}-feedback-skipped" name="question-feedback" class="feedback-box hidden">
+          <div style="padding: 15px;">
+            <h3 class="govuk-heading-m">You have skipped the question</h3>
+            {{ question.genericFeedback.html | safe if question.genericFeedback.html else question.genericFeedback.main }}
+            <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <button id="button-submit" class="govuk-button" data-module="govuk-button">Submit answer</button>
-        <a id="button-show-feeedback" class="govuk-button hidden" data-module="govuk-button"
-          onclick="return v4HideInputQuestion();">Return to feedback</a>
+    <div class="govuk-grid-row hidden" id="section-actions" style="margin-bottom: 20px;">
+      <div class="govuk-grid-column-full">
+        {{ actionLinks({
+          actions: actions
+        }) }}
       </div>
     </div>
 
-    {% if saveAnswers and skipAction %}
-    <div class="govuk-grid-row" style="margin-bottom: 20px;" id="button-skip-action">
-      <div class="govuk-grid-column-two-thirds">
-        <hr />
-        <h2 class="govuk-heading-l">{{ skipAction.title }}</h3>
-          <a class="small-link" onClick="{{ skipAction.link.onClick }}">{{ skipAction.link.text }}</a>
+    <!-- <div id="helplinks-secondary" class="hidden">
+      {{ helpLinks({
+        helpSections: help
+      }) }}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <hr />
+        </div>
       </div>
+    </div> -->
+
+    <div id="question-form">
+      <div class="govuk-grid-row" id="section-headings">
+        <div class="govuk-grid-column-full">
+          <div id="sub-heading">
+            {{ headingSuper({
+            text: heading.sub
+          }) }}
+          </div>
+
+          <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+            {{ heading.html | safe if heading.html else heading.main }}
+          </h1>
+        </div>
+      </div>
+
+      {% if description %}
+      <div class="govuk-grid-row" id="question-description">
+        <div class="govuk-grid-column-full">
+          <p>
+            {{ description }}
+          </p>
+          <hr />
+        </div>
+      </div>
+      {% endif %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          {{ question.html | safe if question.html else question.text }}
+        </div>
+      </div>
+
+      <form class="form" onsubmit="return v4SubmitAnswer();">
+        <a name="question-anchor"></a>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <input type="hidden" id="_lesson_id" value="{{ lessonId }}" />
+            <input type="hidden" id="_question_name" value="{{ question.name }}" />
+            <input type="hidden" id="_save_answers" value="{{ saveAnswers }}" />
+
+            {% for answer in question.inputAnswers %}
+            {% if answer %}
+            <input type="hidden" name="_valid_answer" value="{{ answer }}" />
+            {% endif %}
+            {% endfor %}
+
+
+            <div class="govuk-form-group">
+              <span id="event-name-hint" class="govuk-hint">
+                Enter answer here
+              </span>
+              <input id="{{ question.name }}" name="{{ question.name }}" class="govuk-input" id="event-name"
+                name="event-name" type="text" aria-describedby="event-name-hint">
+            </div>
+          </div>
+        </div>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <button id="button-submit" class="govuk-button" data-module="govuk-button">Submit answer</button>
+            <a id="button-show-feeedback" class="govuk-button hidden" data-module="govuk-button"
+              onclick="return v4HideInputQuestion();">Return to feedback</a>
+          </div>
+        </div>
+
+        {% if saveAnswers and skipAction %}
+        <div class="govuk-grid-row" style="margin-bottom: 20px;" id="button-skip-action">
+          <div class="govuk-grid-column-full">
+            <hr />
+            <h2 class="govuk-heading-l">{{ skipAction.title }}</h3>
+              <a class="small-link" onClick="{{ skipAction.link.onClick }}">{{ skipAction.link.text }}</a>
+          </div>
+        </div>
+        {% endif %}
+      </form>
     </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
+
     {% endif %}
-  </form>
+  </div>
 </div>
 
 {% endblock %} {% block pageScripts %}

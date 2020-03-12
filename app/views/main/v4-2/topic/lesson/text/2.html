@@ -11,42 +11,58 @@ Prototype {% endblock %} {% block beforeContent %}
 {% endblock %} {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
 
-    {{ headingSuper({
-      text: heading.sub
-    }) }}
+        {{ headingSuper({
+          text: heading.sub
+        }) }}
 
-    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-      Article (Part 2 of 3)
-    </h1>
+        <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+          Article (Part 2 of 3)
+        </h1>
 
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p>
+          In the next section of this lesson, you will learn how to write the main part of an email.
+        </p>
+        <hr />
+        <p>The main part of your email needs to give clear information.</p>
+        <p>This lesson is demonstrating how to write an email for a job application, so you need to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Explain why you are applying for the role.</li>
+          <li>Describe the experience and skills you currently have.</li>
+        </ul>
+        <img class="image-border" src="/public/images/text-1-image-1.png" width="100%" />
+        <p>You should use formal language throughout your email. This means you should write using full sentences,
+          paragraphs and correct spellings.</p>
+        <img class="image-border" src="/public/images/text-1-image-2.png" width="100%" />
+      </div>
+    </div>
+
+    <div class="govuk-grid-row" id="section-actions">
+      <div class="govuk-grid-column-full">
+        {{ actionLinks({
+          actions: actions
+        }) }}
+      </div>
+    </div>
   </div>
-</div>
+  <div class="govuk-grid-column-one-third">
+    {% if side %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <p>
-      In the next section of this lesson, you will learn how to write the main part of an email.
-    </p>
-    <hr />
-    <p>The main part of your email needs to give clear information.</p>
-    <p>This lesson is demonstrating how to write an email for a job application, so you need to:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>Explain why you are applying for the role.</li>
-      <li>Describe the experience and skills you currently have.</li>
-    </ul>
-    <img class="image-border" src="/public/images/text-1-image-1.png" width="100%" />
-    <p>You should use formal language throughout your email. This means you should write using full sentences,
-      paragraphs and correct spellings.</p>
-    <img class="image-border" src="/public/images/text-1-image-2.png" width="100%" />
-  </div>
-</div>
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
 
-<div class="govuk-grid-row" id="section-actions">
-  <div class="govuk-grid-column-two-thirds">
-    {{ actionLinks({
-      actions: actions
-    }) }}
+    {% endif %}
   </div>
 </div>
 

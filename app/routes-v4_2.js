@@ -891,7 +891,7 @@ module.exports = {
         },
         description:
           'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or by downloading a practice paper.',
-        help: [
+        side: [
           {
             title: 'Need help?',
             description:
@@ -928,7 +928,7 @@ module.exports = {
         description:
           'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or by downloading a practice paper.',
         lessonUrl: '/v4-2/topic/lesson/1/lesson-objective',
-        help: [
+        side: [
           {
             title: 'Need help?',
             description:
@@ -962,7 +962,7 @@ module.exports = {
           main: 'Search results'
         },
         lessonUrl: '/v4-2/topic/lesson/1/lesson-objective',
-        help: [
+        side: [
           {
             title: 'Need help?',
             description:
@@ -1096,7 +1096,7 @@ module.exports = {
             }
           ]
         },
-        help: helpLinks(req.path)
+        side: helpLinks(req.path)
       })
     })
 
@@ -1206,7 +1206,7 @@ module.exports = {
               }
             ]
           },
-          help: helpLinks(req.path)
+          side: helpLinks(req.path)
         })
       }
     )
@@ -1324,7 +1324,7 @@ module.exports = {
             onClick: 'return v4SkipQuestion();'
           }
         },
-        help: [
+        side: [
           {
             title: 'Need help?',
             description:
@@ -1386,7 +1386,7 @@ module.exports = {
             }
           ]
         },
-        help: [helpLinks(req.path)[0]]
+        side: [helpLinks(req.path)[0]]
       })
     })
 
@@ -1419,7 +1419,7 @@ module.exports = {
             }
           ]
         },
-        help: helpLinks(req.path)
+        side: helpLinks(req.path)
       })
     })
 
@@ -1452,7 +1452,7 @@ module.exports = {
             }
           ]
         },
-        help: helpLinks(req.path)
+        side: helpLinks(req.path)
       })
     })
 
@@ -1485,7 +1485,7 @@ module.exports = {
             }
           ]
         },
-        help: helpLinks(req.path)
+        side: helpLinks(req.path)
       })
     })
 

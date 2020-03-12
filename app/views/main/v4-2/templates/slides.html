@@ -85,24 +85,6 @@ Prototype {% endblock %} {% block beforeContent %}
         }) }}
       </div>
     </div>
-
-    <!-- <div class="govuk-grid-row" id="section-actions" style="margin-bottom: 0px;">
-      <div class="govuk-grid-column-two-thirds">
-        <hr />
-        <h2 class="govuk-heading-l">{{ actions.title }}</h2>
-        {% for link in actions.links %}
-        {% if link %}
-        <div style="margin-bottom: 5px;">
-          {% if link.html %}
-          {{ link.html | safe if link.html else heading.main }}
-          {% else %}
-          <a class="small-link" href="{{ link.href }}">{{ link.text }}</a><br />
-          {% endif %}
-        </div>
-        {% endif %}
-        {% endfor %}
-      </div>
-    </div> -->
   </div>
   <div class="govuk-grid-column-one-third">
     {% if side %}

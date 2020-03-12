@@ -11,49 +11,65 @@ Prototype {% endblock %} {% block beforeContent %}
 {% endblock %} {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
 
-    {{ headingSuper({
-      text: heading
-    }) }}
+        {{ headingSuper({
+          text: heading
+        }) }}
 
-    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-      Video (Part {{ videoNo }} of {{ totalVideos }})
-    </h1>
+        <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+          Video (Part {{ videoNo }} of {{ totalVideos }})
+        </h1>
 
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p>
+          {{ video.description }}
+        </p>
+        <!-- <p><strong>To use this video, you should:</strong></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            Tap the screen to bring up video controls
+          </li>
+          <li>
+            Rotate your device to make the video go fullscreen
+          </li>
+        </ul> -->
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <iframe width="100%" src="{{ video.url }}" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br />
+        <br />
+      </div>
+    </div>
+
+    <div class="govuk-grid-row" id="section-actions" style="margin-bottom: 20px;">
+      <div class="govuk-grid-column-full">
+        {{ actionLinks({
+          actions: actions
+        }) }}
+      </div>
+    </div>
   </div>
-</div>
+  <div class="govuk-grid-column-one-third">
+    {% if side %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <p>
-      {{ video.description }}
-    </p>
-    <!-- <p><strong>To use this video, you should:</strong></p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>
-        Tap the screen to bring up video controls
-      </li>
-      <li>
-        Rotate your device to make the video go fullscreen
-      </li>
-    </ul> -->
-  </div>
-</div>
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <iframe width="100%" src="{{ video.url }}" frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <br />
-    <br />
-  </div>
-</div>
-
-<div class="govuk-grid-row" id="section-actions" style="margin-bottom: 20px;">
-  <div class="govuk-grid-column-two-thirds">
-    {{ actionLinks({
-      actions: actions
-    }) }}
+    {% endif %}
   </div>
 </div>
 {% endblock %}
