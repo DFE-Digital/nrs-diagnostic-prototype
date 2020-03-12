@@ -1051,7 +1051,7 @@ module.exports = {
         description:
           'Once you’re ready, select how you would like the lesson delivered.',
         deadLink: '/v4-2/prototype-limit/' + encodeURIComponent(req.path),
-        help: helpLinks(req.path)
+        side: helpLinks(req.path)
       })
     })
 

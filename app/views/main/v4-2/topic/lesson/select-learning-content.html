@@ -9,80 +9,98 @@ Prototype {% endblock %} {% block beforeContent %}
 
 {% endif %}
 {% endblock %} {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    {{ headingSuper({
-      text: lesson.title
-    }) }}
-
-    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-      {{ title }}
-    </h1>
-
-  </div>
-</div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p>
-      {{ description }}
-    </p>
-  </div>
-</div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-l">Learning material</h3>
-      <div style="display: flex; margin-bottom: 10px;">
-        <div style="padding-right: 16px;">
-          <img src="/public/images/media-slideshow.png" width="66px" height="88px" />
+        {{ headingSuper({
+          text: lesson.title
+        }) }}
+
+        <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+          {{ title }}
+        </h1>
+
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p>
+          {{ description }}
+        </p>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l">Learning material</h3>
+          <div style="display: flex; margin-bottom: 10px;">
+            <div style="padding-right: 16px;">
+              <img src="/public/images/media-slideshow.png" width="66px" height="88px" />
+            </div>
+            <div style="padding-top: 10px;">
+              <a class="large-link" href="/v4-2/topic/lesson/{{ lesson.id }}/slideshow/1">Slideshow</a><br />
+              <span class="media-type-label">Data: 3mb | Duration: 8 mins</span>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div style="display: flex; margin-bottom: 10px;">
+          <div style="padding-right: 16px;">
+            <img src="/public/images/media-html.png" width="66px" height="88px" />
+          </div>
+          <div style="padding-top: 10px;">
+            <a class="large-link" href="/v4-2/topic/lesson/{{ lesson.id }}/text/1">Article</a><br />
+            <span class="media-type-label">Data: 30kb | Duration: 5 mins</span>
+          </div>
         </div>
-        <div style="padding-top: 10px;">
-          <a class="large-link" href="/v4-2/topic/lesson/{{ lesson.id }}/slideshow/1">Slideshow</a><br />
-          <span class="media-type-label">Data: 3mb | Duration: 8 mins</span>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div style="display: flex; margin-bottom: 10px;">
+          <div style="padding-right: 16px;">
+            <img src="/public/images/media-video.png" width="66px" height="88px" />
+          </div>
+          <div style="padding-top: 10px;">
+            <a class="large-link" href="/v4-2/topic/lesson/{{ lesson.id }}/video/1">Video</a><br />
+            <span class="media-type-label">Data: 30mb | Duration: 7 mins</span>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div style="display: flex; margin-bottom: 10px;">
+          <div style="padding-right: 16px;">
+            <img src="/public/images/media-mp3.png" width="66px" height="88px" />
+          </div>
+          <div style="padding-top: 10px;">
+            <a href="{{ deadLink }}" class="large-link">Audio</a><br />
+            <span class="media-type-label">Data: 1mb | Duration: 10 mins</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
+
+    {% endif %}
   </div>
 </div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <div style="display: flex; margin-bottom: 10px;">
-      <div style="padding-right: 16px;">
-        <img src="/public/images/media-html.png" width="66px" height="88px" />
-      </div>
-      <div style="padding-top: 10px;">
-        <a class="large-link" href="/v4-2/topic/lesson/{{ lesson.id }}/text/1">Article</a><br />
-        <span class="media-type-label">Data: 30kb | Duration: 5 mins</span>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <div style="display: flex; margin-bottom: 10px;">
-      <div style="padding-right: 16px;">
-        <img src="/public/images/media-video.png" width="66px" height="88px" />
-      </div>
-      <div style="padding-top: 10px;">
-        <a class="large-link" href="/v4-2/topic/lesson/{{ lesson.id }}/video/1">Video</a><br />
-        <span class="media-type-label">Data: 30mb | Duration: 7 mins</span>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <div style="display: flex; margin-bottom: 10px;">
-      <div style="padding-right: 16px;">
-        <img src="/public/images/media-mp3.png" width="66px" height="88px" />
-      </div>
-      <div style="padding-top: 10px;">
-        <a href="{{ deadLink }}" class="large-link">Audio</a><br />
-        <span class="media-type-label">Data: 1mb | Duration: 10 mins</span>
-      </div>
-    </div>
-  </div>
-</div>
 {% endblock %}
