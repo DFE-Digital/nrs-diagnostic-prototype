@@ -1,6 +1,6 @@
 module.exports = {
   generateRoutesv4_2: function generateRoutesv4_2(router) {
-    const COURSE_NAME = 'English Functional Skills 2'
+    const COURSE_NAME = 'English Functional Skills Level 2'
     const TOPIC_NAME = 'different forms of writing'
     const lessonList = [
       {
@@ -769,7 +769,7 @@ module.exports = {
             'Choose one of the options below if you need any help with the lesson.',
           links: [
             {
-              text: 'View knowledge base',
+              text: 'View learning support pages',
               href: '/v4-2/prototype-limit/' + encodeURIComponent(path)
             },
             {
@@ -831,7 +831,7 @@ module.exports = {
     router.get('/v4-2/context', function(req, res) {
       res.render('main/v4-2/context-page', {
         heading: {
-          main: 'English Functional Skills 2 course'
+          main: 'English Functional Skills Level 2 course'
         },
         nextLink: '/v4-2/topic/select-lesson'
       })
@@ -1319,7 +1319,7 @@ module.exports = {
               'Choose one of the options below if you need any help with the lesson.',
             links: [
               {
-                text: 'View knowledge base',
+                text: 'View learning support pages',
                 href: '/v4-2/prototype-limit/' + encodeURIComponent(req.path)
               },
               {
