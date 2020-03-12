@@ -21,7 +21,7 @@ Prototype {% endblock %} {% block beforeContent %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <p>
-      You are now about to start the next part of the prototype
+      {{ description }}
     </p>
   </div>
 </div>
@@ -29,7 +29,7 @@ Prototype {% endblock %} {% block beforeContent %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     {{ govukButton({
-      text: "Continue",
+      text: "Finish course",
       href: nextLink,
       isStartButton: true
     }) }}

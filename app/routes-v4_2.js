@@ -840,8 +840,9 @@ module.exports = {
     router.get('/v4-2/start-part-two', function(req, res) {
       res.render('main/v4-2/start-part-two', {
         heading: {
-          main: 'This is the end of this part of the prototype'
+          main: "You've completed the course"
         },
+        description: 'You did 60 lessons over a few months.',
         nextLink: '/v4-2/course/completed'
       })
     })
