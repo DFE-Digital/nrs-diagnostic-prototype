@@ -815,6 +815,15 @@ module.exports = {
         heading: {
           main: 'This is a prototype'
         },
+        nextLink: '/v4-2/prototype-context'
+      })
+    })
+
+    router.get('/v4-2/prototype-context', function(req, res) {
+      res.render('main/v4-2/prototype-context', {
+        heading: {
+          main: 'This is a prototype'
+        },
         nextLink: '/v4-2/context'
       })
     })
