@@ -1376,6 +1376,23 @@ module.exports = {
           main: 'Lesson complete'
         },
         lesson,
+        sideActions: [
+          {
+            title: 'You can also:',
+            links: [
+              {
+                // text: 'Retry lesson',
+                // href: `/v4-2/topic/lesson/${lessonId}/select-learning-content`,
+                html: `<a class="small-link" href="/v4-2/topic/lesson/${lessonId}/select-learning-content" onClick="return clearDataAndFollowLink();">Retry lesson</a><br/>`
+              },
+              {
+                // text: 'Retry quiz',
+                // href: `/v4-2/topic/lesson/${lessonId}/start-quiz`,
+                html: `<a class="small-link" href="/v4-2/topic/lesson/${lessonId}/start-quiz" onClick="return clearDataAndFollowLink();">Retry quiz</a><br/>`
+              }
+            ]
+          }
+        ],
         actions: {
           title: 'You can also:',
           links: [

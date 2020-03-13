@@ -65,9 +65,22 @@ NRS Prototype
 
     <div class="govuk-grid-row" id="section-actions" style="margin-bottom: 20px;">
       <div class="govuk-grid-column-full">
-        {{ actionLinks({
+        <a href="{{ slideshow.nextLink }}" class="govuk-button" data-module="govuk-button">Continue with lesson</a>
+        <!-- {{ actionLinks({
           actions: actions
-        }) }}
+        }) }} -->
+        <div class="also-links-main">
+          <hr />
+          <h2 class="govuk-heading-l">You can also</h2>
+          <div style="margin-bottom: 5px;">
+            <a class="small-link" href="/v4-2/topic/lesson/1/select-learning-content"
+              onClick="return clearDataAndFollowLink();">Retry lesson</a><br />
+          </div>
+          <div style="margin-bottom: 5px;">
+            <a class="small-link" href="/v4-2/topic/lesson/${lessonId}/start-quiz"
+              onClick="return clearDataAndFollowLink();">Retry quiz</a><br />
+          </div>
+        </div>
       </div>
     </div>
 
@@ -219,6 +232,11 @@ NRS Prototype
     </div>
   </div>
   <div class="govuk-grid-column-one-third">
+    <div class="also-links-side" name="button-skip-action">
+      {{ sideLinks({
+        helpSections: sideActions
+      }) }}
+    </div>
     {% if side %}
 
     <a name="help"></a>
