@@ -863,7 +863,7 @@ module.exports = {
           main: 'You have found a limit to our prototype'
         },
         description:
-          'As this system is just a prototype, certain links do not work. You can click the button below to return back to where you were.',
+          'As this a prototype, certain links do not work. You can click the button below to return back to where you were.',
         nextLink: returnUrl
       })
     })
@@ -875,7 +875,7 @@ module.exports = {
           main: 'You emailed a tutor and they got back to you a few hours later'
         },
         // description:
-        //   'As this system is just a prototype, certain links do not work. You can click the button below to return back to where you were.',
+        //   'As this is a prototype, certain links do not work. You can click the button below to return back to where you were.',
         nextLink: returnUrl
       })
     })
