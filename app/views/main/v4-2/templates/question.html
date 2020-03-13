@@ -147,11 +147,13 @@ NRS Prototype
         </div>
 
         {% if saveAnswers and skipAction %}
-        <div class="govuk-grid-row" style="margin-bottom: 20px;" id="button-skip-action">
+        <div class="govuk-grid-row" style="margin-bottom: 20px;" id="button-skip-action" name="button-skip-action">
           <div class="govuk-grid-column-full">
-            <hr />
-            <h2 class="govuk-heading-l">{{ skipAction.title }}</h3>
-              <a class="small-link" onClick="{{ skipAction.link.onClick }}">{{ skipAction.link.text }}</a>
+            <div class="also-links-main">
+              <hr />
+              <h2 class="govuk-heading-l">{{ skipAction.title }}</h3>
+                <a class="small-link" onClick="{{ skipAction.link.onClick }}">{{ skipAction.link.text }}</a>
+            </div>
           </div>
         </div>
         {% endif %}
@@ -159,6 +161,19 @@ NRS Prototype
     </div>
   </div>
   <div class="govuk-grid-column-one-third">
+    <div class="also-links-side" name="button-skip-action">
+      {{ sideLinks({
+        helpSections: [{
+          title: skipAction.title,
+          links: [
+            {
+              text: skipAction.link.text,
+              onClick: skipAction.link.onClick
+            }
+          ]
+        }]
+      }) }}
+    </div>
     {% if side %}
 
     <a name="help"></a>
@@ -218,6 +233,7 @@ NRS Prototype
     $('#button-show-feeedback').removeClass('hidden')
     $('#dont-know').addClass('hidden')
     $('#button-skip-action').addClass('hidden')
+    $('div[name="button-skip-action"]').addClass('hidden')
     $('#sub-heading').removeClass('hidden')
   }
 
@@ -316,6 +332,7 @@ NRS Prototype
     $('#button-submit').addClass('hidden')
     $('#dont-know').addClass('hidden')
     $('#button-skip-action').addClass('hidden')
+    $('div[name="button-skip-action"]').addClass('hidden')
     $('#button-continue').removeClass('hidden')
   }
 

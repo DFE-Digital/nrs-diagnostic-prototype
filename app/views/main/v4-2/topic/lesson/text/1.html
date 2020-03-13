@@ -100,13 +100,35 @@ Prototype {% endblock %} {% block beforeContent %}
 
     <div class="govuk-grid-row" id="section-actions">
       <div class="govuk-grid-column-full">
-        {{ actionLinks({
+        <a href="{{ slideshow.nextLink }}" class="govuk-button" data-module="govuk-button">Continue with lesson</a>
+        <!-- {{ actionLinks({
           actions: actions
-        }) }}
+        }) }} -->
+        <div class="also-links-main">
+          <hr />
+          <h2 class="govuk-heading-l">You can also</h2>
+          <div style="margin-bottom: 5px;">
+            <a class="small-link" href="/v4-2/topic/lesson/1/select-learning-content">Change to slideshow, video or
+              audio</a><br /><br />
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="govuk-grid-column-one-third">
+    <div class="also-links-side">
+      {{ sideLinks({
+        helpSections: [{
+          title: 'You can also',
+          links: [
+            {
+              text: 'Change to slideshow, video or audio',
+              href: '/v4-2/topic/lesson/1/select-learning-content'
+            }
+          ]
+        }]
+      }) }}
+    </div>
     {% if side %}
 
     <a name="help"></a>
