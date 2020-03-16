@@ -1,0 +1,46 @@
+{% extends "layout-v6.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ heading.main }}
+    </h1>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>
+      You are looking for a new job and have been told you need a functional skills level 2 qualification in English to
+      apply.
+    </p>
+    <p>To help you get this qualification, you have signed up to a new online training course.</p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukButton({
+      text: "Next",
+      href: nextLink,
+      isStartButton: false
+    }) }}
+  </div>
+</div>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function () {
+    clearLocalStorageData()
+  })
+</script>
+{% endblock %}
