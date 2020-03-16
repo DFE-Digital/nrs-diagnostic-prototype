@@ -1,0 +1,47 @@
+{% extends "layout-v5.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ headingSuper({
+      text: heading.sub
+    }) }}
+
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ heading.main }}
+    </h1>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p><strong>You will do the following:</strong></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        Answer 5 questions, testing you on certain areas of the lesson.
+      </li>
+      <li>
+        During the quiz, you will receive feedback on whether you are correct or incorrect
+      </li>
+      <li>
+        Once finished, you will be able to see your result and review your answers.
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/v5/topic/lesson/{{ lesson.id }}/assessment/1" class="govuk-button">Start quiz</a>
+  </div>
+</div>
+{% endblock %}

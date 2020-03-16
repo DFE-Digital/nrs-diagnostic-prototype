@@ -1,0 +1,64 @@
+{% extends "layout-v5.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ lesson.title }}
+    </h1>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">
+      Lesson objective
+    </h3>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Learn how to write a formal email</li>
+      <li>Identify the key features of a formal email</li>
+      <li>Practice writing a formal email</li>
+    </ul>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">
+      How can this be used in your target job?
+    </h3>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        Writing a job application
+      </li>
+      <li>
+        Writing to a colleague at work (to request time off or arrange a meeting)
+      </li>
+      <li>
+        Writing a complaint and/or asking for a refund (usually to a company who has failed to provide their services
+        as you would expect)
+      </li>
+    </ul>
+
+    <p>After the lesson, there will be a test for you to check what you have learnt.</p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/v5/topic/lesson/{{ lesson.id }}/select-learning-content" class="govuk-button">Continue with
+      lesson</a>
+  </div>
+</div>
+{% endblock %}
