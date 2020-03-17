@@ -770,11 +770,13 @@ module.exports = {
           links: [
             {
               text: 'View learning support pages',
-              href: '/v5/prototype-limit/' + encodeURIComponent(path)
+              href: '#'
+              // href: '/v5/prototype-limit/' + encodeURIComponent(path)
             },
             {
               text: 'Speak to a tutor (via email)',
-              href: '/v5/speak-to-tutor/' + encodeURIComponent(path)
+              href: '#'
+              // href: '/v5/speak-to-tutor/' + encodeURIComponent(path)
             }
           ]
         },
@@ -909,11 +911,11 @@ module.exports = {
             links: [
               {
                 text: 'Finding a test centre',
-                href: '/v5/course/find-a-centre'
+                href: '#'
               },
               {
                 text: 'Getting a qualification',
-                href: '/v5/prototype-limit/' + encodeURIComponent(req.path)
+                href: '#'
               },
               {
                 html:
@@ -946,11 +948,11 @@ module.exports = {
             links: [
               {
                 text: 'Finding a test centre',
-                href: '/v5/course/find-a-centre'
+                href: '#'
               },
               {
                 text: 'Getting a qualification',
-                href: '/v5/prototype-limit/' + encodeURIComponent(req.path)
+                href: '#'
               },
               {
                 html:
@@ -980,11 +982,11 @@ module.exports = {
             links: [
               {
                 text: 'Finding a test centre',
-                href: '/v5/course/find-a-centre'
+                href: '#'
               },
               {
                 text: 'Getting a qualification',
-                href: '/v5/prototype-limit/' + encodeURIComponent(req.path)
+                href: '#'
               },
               {
                 html:
@@ -1388,12 +1390,14 @@ module.exports = {
               {
                 // text: 'Retry lesson',
                 // href: `/v5/topic/lesson/${lessonId}/select-learning-content`,
-                html: `<a class="small-link" href="/v5/topic/lesson/${lessonId}/select-learning-content" onClick="return clearDataAndFollowLink();">Retry lesson</a><br/>`
+                html: `<a class="small-link">Retry lesson</a><br/>`
+                // html: `<a class="small-link" href="/v5/topic/lesson/${lessonId}/select-learning-content" onClick="return clearDataAndFollowLink();">Retry lesson</a><br/>`
               },
               {
                 // text: 'Retry quiz',
                 // href: `/v5/topic/lesson/${lessonId}/start-quiz`,
-                html: `<a class="small-link" href="/v5/topic/lesson/${lessonId}/start-quiz" onClick="return clearDataAndFollowLink();">Retry quiz</a><br/>`
+                html: `<a class="small-link">Retry quiz</a><br/>`
+                // html: `<a class="small-link" href="/v5/topic/lesson/${lessonId}/start-quiz" onClick="return clearDataAndFollowLink();">Retry quiz</a><br/>`
               }
             ]
           }
@@ -1403,18 +1407,21 @@ module.exports = {
           links: [
             {
               text: 'Next lesson',
-              href: '/v5/start-part-two',
+              href: '#',
+              // href: '/v5/start-part-two',
               isButton: true
             },
             {
               // text: 'Retry lesson',
               // href: `/v5/topic/lesson/${lessonId}/select-learning-content`,
-              html: `<a class="small-link" href="/v5/topic/lesson/${lessonId}/select-learning-content" onClick="return clearDataAndFollowLink();">Retry lesson</a><br/>`
+              html: `<a class="small-link">Retry lesson</a><br/>`
+              // html: `<a class="small-link" href="/v5/topic/lesson/${lessonId}/select-learning-content" onClick="return clearDataAndFollowLink();">Retry lesson</a><br/>`
             },
             {
               // text: 'Retry quiz',
               // href: `/v5/topic/lesson/${lessonId}/start-quiz`,
-              html: `<a class="small-link" href="/v5/topic/lesson/${lessonId}/start-quiz" onClick="return clearDataAndFollowLink();">Retry quiz</a><br/>`
+              html: `<a class="small-link">Retry quiz</a><br/>`
+              // html: `<a class="small-link" href="/v5/topic/lesson/${lessonId}/start-quiz" onClick="return clearDataAndFollowLink();">Retry quiz</a><br/>`
             }
           ]
         },
