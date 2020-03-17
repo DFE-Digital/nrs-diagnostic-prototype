@@ -698,7 +698,7 @@ module.exports = {
               main: ''
             },
             backLink: '#',
-            nextLink: '/v5/topic/lesson/1/feedback',
+            nextLink: '#',
             nextLinkText: 'See results'
           }
         ]

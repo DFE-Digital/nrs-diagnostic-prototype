@@ -65,7 +65,8 @@ NRS Prototype
 
     <div class="govuk-grid-row" id="section-actions" style="margin-bottom: 20px;">
       <div class="govuk-grid-column-full">
-        <a href="/v5/start-part-two" class="govuk-button" data-module="govuk-button">Next lesson</a>
+        <!-- <a href="/v5-ul/start-part-two" class="govuk-button" data-module="govuk-button">Next lesson</a> -->
+        <a class="govuk-button" data-module="govuk-button">Next lesson</a>
         <!-- {{ actionLinks({
           actions: actions
         }) }} -->
@@ -73,12 +74,14 @@ NRS Prototype
           <hr />
           <h2 class="govuk-heading-l">You can also</h2>
           <div style="margin-bottom: 5px;">
-            <a class="small-link" href="/v5/topic/lesson/1/select-learning-content"
-              onClick="return clearDataAndFollowLink();">Retry lesson</a><br />
+            <a class="small-link" onClick="return clearDataAndFollowLink();">Retry lesson</a><br />
+            <!-- <a class="small-link" href="/v5-ul/topic/lesson/1/select-learning-content"
+              onClick="return clearDataAndFollowLink();">Retry lesson</a><br /> -->
           </div>
           <div style="margin-bottom: 5px;">
-            <a class="small-link" href="/v5/topic/lesson/${lessonId}/start-quiz"
-              onClick="return clearDataAndFollowLink();">Retry quiz</a><br />
+            <a class="small-link" onClick="return clearDataAndFollowLink();">Retry quiz</a><br />
+            <!-- <a class="small-link" href="/v5-ul/topic/lesson/${lessonId}/start-quiz"
+              onClick="return clearDataAndFollowLink();">Retry quiz</a><br /> -->
           </div>
         </div>
       </div>
