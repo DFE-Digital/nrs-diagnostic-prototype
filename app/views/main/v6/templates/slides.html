@@ -19,7 +19,7 @@ Prototype {% endblock %} {% block beforeContent %}
         }) }}
 
         <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-          Slideshow (Part {{ slideshowNo }} of {{ totalSlideshows }})
+          Slideshow (part {{ slideshowNo }} of {{ totalSlideshows }})
         </h1>
 
       </div>
@@ -77,7 +77,8 @@ Prototype {% endblock %} {% block beforeContent %}
 
     <div class="govuk-grid-row section-actions" id="section-actions">
       <div class="govuk-grid-column-full">
-        <a href="{{ slideshow.nextLink }}" class="govuk-button" data-module="govuk-button">Continue with lesson</a>
+        <a href="{{ slideshow.nextLink }}" class="govuk-button" data-module="govuk-button">Continue to practice
+          question</a>
         <!-- {{ actionLinks({
           actions: actions
         }) }} -->

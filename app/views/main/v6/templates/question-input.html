@@ -21,7 +21,7 @@ NRS Prototype
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-
+        <h1 class="govuk-heading-xl hidden" id="feedback-heading">{{ feedbackTitle }}</h1>
         {% if question.correctFeedback %}
         <div id="{{ question.name }}-feedback-correct" name="question-feedback" class="feedback-box hidden">
           <div style="padding: 15px;">
@@ -144,7 +144,7 @@ NRS Prototype
 
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-full">
-            <button id="button-submit" class="govuk-button" data-module="govuk-button">Submit answer</button>
+            <button id="button-submit" class="govuk-button" data-module="govuk-button">{{ submitButtonText }}</button>
             <a id="button-show-feeedback" class="govuk-button hidden" data-module="govuk-button"
               onclick="return v4HideInputQuestion();">Return to feedback</a>
           </div>
@@ -316,6 +316,7 @@ NRS Prototype
     $('#section-actions').removeClass('hidden')
     $('#question-description').addClass('hidden')
     $('#skip-link').addClass('hidden')
+    $('#feedback-heading').removeClass('hidden')
   }
 
   function v4LockQuestion(question) {

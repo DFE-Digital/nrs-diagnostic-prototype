@@ -11,37 +11,69 @@ Prototype {% endblock %} {% block beforeContent %}
 {% endblock %} {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    {{ headingSuper({
-      text: heading.sub
-    }) }}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ headingSuper({
+          text: heading.sub
+        }) }}
 
-    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-      {{ heading.main }}
-    </h1>
+        <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+          {{ heading.main }}
+        </h1>
+      </div>
+    </div>
+    <br />
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p class="govuk-body-l">Now you have learned about emails, test your knowledge with a short quiz where you will:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            answer 5 questions, testing you on certain areas of the lesson
+          </li>
+          <li>
+            during the quiz, you will receive feedback on whether you are correct or incorrect
+          </li>
+          <li>
+            once finished, you will be able to see your result and review your answers
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <a href="/v6/topic/lesson/{{ lesson.id }}/assessment/1" class="govuk-button">Start quiz</a>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <!-- <div class="also-links-side" name="button-skip-action">
+      {{ sideLinks({
+        helpSections: [{
+          title: skipAction.title,
+          links: [
+            {
+              text: skipAction.link.text,
+              onClick: skipAction.link.onClick
+            }
+          ]
+        }]
+      }) }}
+    </div> -->
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
+
+    {% endif %}
   </div>
 </div>
-<br />
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <p><strong>You will do the following:</strong></p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>
-        Answer 5 questions, testing you on certain areas of the lesson.
-      </li>
-      <li>
-        During the quiz, you will receive feedback on whether you are correct or incorrect
-      </li>
-      <li>
-        Once finished, you will be able to see your result and review your answers.
-      </li>
-    </ul>
-  </div>
-</div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <a href="/v6/topic/lesson/{{ lesson.id }}/assessment/1" class="govuk-button">Start quiz</a>
-  </div>
-</div>
 {% endblock %}

@@ -11,8 +11,12 @@ Prototype {% endblock %} {% block beforeContent %}
 {% endblock %} {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    {{ headingSuper({
+      text: lesson.title
+    }) }}
+
     <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
-      {{ lesson.title }}
+      What will you do in this lesson
     </h1>
   </div>
 </div>
@@ -20,45 +24,38 @@ Prototype {% endblock %} {% block beforeContent %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h3 class="govuk-heading-m">
-      Lesson objective
-    </h3>
+    <p class="govuk-body-l">
+      During this lesson you will:
+    </p>
 
     <ul class="govuk-list govuk-list--bullet">
-      <li>Learn how to write a formal email</li>
-      <li>Identify the key features of a formal email</li>
-      <li>Practice writing a formal email</li>
+      <li>learn how to write a formal email</li>
+      <li>identify the key features of a formal email</li>
+      <li>practice writing a formal email</li>
+      <li>be quizzed on what you have learnt throughout the lesson. You will receive a score at the end along with
+        feedback</li>
     </ul>
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h3 class="govuk-heading-m">
-      How can this be used in your target job?
-    </h3>
+    <p class="govuk-body-l">
+      The following skills may be useful in your target job:
+    </p>
 
     <ul class="govuk-list govuk-list--bullet">
-      <li>
-        Writing a job application
-      </li>
-      <li>
-        Writing to a colleague at work (to request time off or arrange a meeting)
-      </li>
-      <li>
-        Writing a complaint and/or asking for a refund (usually to a company who has failed to provide their services
-        as you would expect)
-      </li>
+      <li>writing a job application</li>
+      <li>writing to a colleague at work (to request time off or arrange a meeting)</li>
+      <li>making a complaint or asking for a refund (usually to a company who has failed to provide their services as
+        you would expect)</li>
     </ul>
-
-    <p>After the lesson, there will be a test for you to check what you have learnt.</p>
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <a href="/v6/topic/lesson/{{ lesson.id }}/select-learning-content" class="govuk-button">Continue with
-      lesson</a>
+    <a href="/v6/topic/lesson/{{ lesson.id }}/select-learning-content" class="govuk-button">Continue</a>
   </div>
 </div>
 {% endblock %}

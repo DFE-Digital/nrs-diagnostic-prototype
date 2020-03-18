@@ -1,11 +1,11 @@
 module.exports = {
   generateRoutesV6: function generateRoutesV6(router) {
     const COURSE_NAME = 'English Functional Skills Level 2'
-    const TOPIC_NAME = 'different forms of writing'
+    const TOPIC_NAME = 'different types of writing'
     const lessonList = [
       {
         id: '1',
-        title: 'Writing an email',
+        title: 'Emails',
         description: [
           'In this lesson you will be learning about how to write a formal email.',
           'Knowing how to write a formal email is a key skill required in many industries and in everyday life.',
@@ -93,7 +93,7 @@ module.exports = {
             title: '',
             text: '',
             html:
-              '<p>You are writing an email to apply for a job as a Construction Manager at Red Bricks Builders. The name of the person you are sending your email to is Mr Jones.</p><p><strong>Which of the following would be an appropriate way to start your email?</strong></p>',
+              '<p>You are sending an email to Mr Jones to apply for a job as a Construction Manager at Red Bricks Builders.</p><p><strong>Which of the following would be an appropriate way to start your email?</strong></p>',
             correctAnswerId: '1',
             answers: [
               {
@@ -134,12 +134,12 @@ module.exports = {
                   'Hi Mr Jones, I am writing to apply for the Construction Manager role with Red Bricks Builders.',
                 isCorrect: false,
                 feedback:
-                  'Using the greeting ‘Hi’ or ‘Hello’ is too informal for a formal email. You might use this greeting in an email to a friend. You should use the greeting ‘Dear...’ when writing a formal email.'
+                  '‘Hi’ or ‘Hello’ is too informal for a formal email. You should use the greeting ‘Dear...’ when writing a formal email.'
               }
             ],
             backLink: '/v6/topic/lesson/1/video/1',
             nextLink: '/v6/topic/lesson/1/video/2',
-            nextLinkText: 'Continue with lesson'
+            nextLinkText: 'Continue to part 2'
           },
           {
             id: '2',
@@ -184,7 +184,7 @@ module.exports = {
             ],
             backLink: '/v6/topic/lesson/1/video/2',
             nextLink: '/v6/topic/lesson/1/video/3',
-            nextLinkText: 'Continue with lesson'
+            nextLinkText: 'Continue to part 3'
           },
           {
             id: '3',
@@ -199,7 +199,6 @@ module.exports = {
             inputAnswers: [],
             genericFeedback: {
               html:
-                '<h3 class="govuk-heading-m">How did you do on this question?</h3>' +
                 '<p>When you are writing a formal email, you should use a closing line such as ' +
                 '‘I look forward to hearing from you’ rather than ‘speak soon!’</p>' +
                 '<p>When you do not know the name of the person you are writing to then you should use either of the following sign offs:</p>' +
@@ -209,7 +208,7 @@ module.exports = {
             },
             backLink: '/v6/topic/lesson/1/video/3',
             nextLink: '/v6/topic/lesson/1/start-quiz',
-            nextLinkText: 'Continue with lesson'
+            nextLinkText: 'Continue to quiz'
           }
         ],
         practiceSlideshowQuestions: [
@@ -220,7 +219,7 @@ module.exports = {
             title: '',
             text: '',
             html:
-              '<p>You are writing an email to apply for a job as a Construction Manager at Red Bricks Builders. The name of the person you are sending your email to is Mr Jones.</p><p><strong>Which of the following would be an appropriate way to start your email?</strong></p>',
+              '<p>You are sending an email to Mr Jones to apply for a job as a Construction Manager at Red Bricks Builders.</p><p><strong>Which of the following would be an appropriate way to start your email?</strong></p>',
             correctAnswerId: '1',
             answers: [
               {
@@ -261,12 +260,12 @@ module.exports = {
                   'Hi Mr Jones, I am writing to apply for the Construction Manager role with Red Bricks Builders.',
                 isCorrect: false,
                 feedback:
-                  'Using the greeting ‘Hi’ or ‘Hello’ is too informal for a formal email. You might use this greeting in an email to a friend. You should use the greeting ‘Dear...’ when writing a formal email.'
+                  '‘Hi’ or ‘Hello’ is too informal for a formal email. You should use the greeting ‘Dear...’ when writing a formal email.'
               }
             ],
             backLink: '/v6/topic/lesson/1/slideshow/1',
             nextLink: '/v6/topic/lesson/1/slideshow/2',
-            nextLinkText: 'Continue with lesson'
+            nextLinkText: 'Continue to part 2'
           },
           {
             id: '2',
@@ -311,7 +310,7 @@ module.exports = {
             ],
             backLink: '/v6/topic/lesson/1/slideshow/2',
             nextLink: '/v6/topic/lesson/1/slideshow/3',
-            nextLinkText: 'Continue with lesson'
+            nextLinkText: 'Continue to part 3'
           },
           {
             id: '3',
@@ -326,7 +325,6 @@ module.exports = {
             inputAnswers: [],
             genericFeedback: {
               html:
-                '<h3 class="govuk-heading-m">How did you do on this question?</h3>' +
                 '<p>When you are writing a formal email, you should use a closing line such as ' +
                 '‘I look forward to hearing from you’ rather than ‘speak soon!’</p>' +
                 '<p>When you do not know the name of the person you are writing to then you should use either of the following sign offs:</p>' +
@@ -336,7 +334,7 @@ module.exports = {
             },
             backLink: '/v6/topic/lesson/1/slideshow/3',
             nextLink: '/v6/topic/lesson/1/start-quiz',
-            nextLinkText: 'Continue with lesson'
+            nextLinkText: 'Continue to quiz'
           }
         ],
         practiceTextQuestions: [
@@ -347,7 +345,7 @@ module.exports = {
             title: '',
             text: '',
             html:
-              '<p>You are writing an email to apply for a job as a Construction Manager at Red Bricks Builders. The name of the person you are sending your email to is Mr Jones.</p><p><strong>Which of the following would be an appropriate way to start your email?</strong></p>',
+              '<p>You are sending an email to Mr Jones to apply for a job as a Construction Manager at Red Bricks Builders.</p><p><strong>Which of the following would be an appropriate way to start your email?</strong></p>',
             correctAnswerId: '1',
             answers: [
               {
@@ -388,12 +386,12 @@ module.exports = {
                   'Hi Mr Jones, I am writing to apply for the Construction Manager role with Red Bricks Builders.',
                 isCorrect: false,
                 feedback:
-                  'Using the greeting ‘Hi’ or ‘Hello’ is too informal for a formal email. You might use this greeting in an email to a friend. You should use the greeting ‘Dear...’ when writing a formal email.'
+                  '‘Hi’ or ‘Hello’ is too informal for a formal email. You should use the greeting ‘Dear...’ when writing a formal email.'
               }
             ],
             backLink: '/v6/topic/lesson/1/text/1',
             nextLink: '/v6/topic/lesson/1/text/2',
-            nextLinkText: 'Continue with lesson'
+            nextLinkText: 'Continue to part 2'
           },
           {
             id: '2',
@@ -438,7 +436,7 @@ module.exports = {
             ],
             backLink: '/v6/topic/lesson/1/text/2',
             nextLink: '/v6/topic/lesson/1/text/3',
-            nextLinkText: 'Continue with lesson'
+            nextLinkText: 'Continue to part 3'
           },
           {
             id: '3',
@@ -453,7 +451,6 @@ module.exports = {
             inputAnswers: [],
             genericFeedback: {
               html:
-                '<h3 class="govuk-heading-m">How did you do on this question?</h3>' +
                 '<p>When you are writing a formal email, you should use a closing line such as ' +
                 '‘I look forward to hearing from you’ rather than ‘speak soon!’</p>' +
                 '<p>When you do not know the name of the person you are writing to then you should use either of the following sign offs:</p>' +
@@ -463,7 +460,7 @@ module.exports = {
             },
             backLink: '/v6/topic/lesson/1/text/3',
             nextLink: '/v6/topic/lesson/1/start-quiz',
-            nextLinkText: 'Continue with lesson'
+            nextLinkText: 'Continue to quiz'
           }
         ],
         assessmentQuestions: [
@@ -474,7 +471,7 @@ module.exports = {
             title: '',
             text: '',
             html:
-              '<p>You are writing an email to apply for a job as a Salon Assistant at a local hair salon.</p><p>You need to write a subject line to summarise the contents of your email.</p><p><strong>Which of the following would be an appropriate subject line for this email?</strong></p>',
+              '<p>You are writing an email to apply for a job as a Salon Assistant at a local hair salon.</p><p>You need to write a subject line to summarise the contents of your email.</p><p><strong>Which would be an appropriate subject line for this email?</strong></p>',
             correctAnswerId: '1',
             answers: [
               {
@@ -512,7 +509,7 @@ module.exports = {
             ],
             backLink: '#',
             nextLink: '/v6/topic/lesson/1/assessment/2',
-            nextLinkText: 'Continue with quiz'
+            nextLinkText: 'Continue to question 2'
           },
           {
             id: '2',
@@ -521,7 +518,7 @@ module.exports = {
             title: '',
             text: '',
             html:
-              '<p>You are writing an email to apply for a job as a Sales Assistant at a local retailer. You do not know the name of the person you are sending the email to.</p><p><strong>Which of the following greetings would you use at the start of your email?</strong></p>',
+              '<p>You are writing an email to apply for a job as a Sales Assistant at a local retailer. You do not know the name of the person you are sending the email to.</p><p><strong>Which greetings would you use at the start of your email?</strong></p>',
             correctAnswerId: '1',
             answers: [
               {
@@ -559,7 +556,7 @@ module.exports = {
             ],
             backLink: '#',
             nextLink: '/v6/topic/lesson/1/assessment/3',
-            nextLinkText: 'Continue with quiz'
+            nextLinkText: 'Continue to question 3'
           },
           {
             id: '3',
@@ -568,7 +565,7 @@ module.exports = {
             title: '',
             text: '',
             html:
-              '<p>You are asked to write an email applying for a job as a social worker at a local community centre.</p><p>After your greeting, the first line of your email should introduce your purpose for writing.</p><p><strong>Which of the following would be an appropriate first sentence to introduce your purpose for writing?</strong></p>',
+              '<p>You are asked to write an email applying for a job as a social worker at a local community centre.</p><p>After your greeting, the first line of your email should introduce your purpose for writing.</p><p><strong>Which would be an appropriate first sentence to introduce your purpose for writing?</strong></p>',
             correctAnswerId: '1',
             answers: [
               {
@@ -611,7 +608,7 @@ module.exports = {
             ],
             backLink: '#',
             nextLink: '/v6/topic/lesson/1/assessment/4',
-            nextLinkText: 'Continue with quiz'
+            nextLinkText: 'Continue to question 4'
           },
           {
             id: '4',
@@ -620,7 +617,7 @@ module.exports = {
             title: '',
             text: '',
             html:
-              '<p>You are applying for a job as a secretary at the local gym.</p><p><strong>Which of the following would be an appropriate closing line to include in your email?</strong></p>',
+              '<p>You are applying for a job as a secretary at the local gym.</p><p><strong>Which would be an appropriate closing line to include in your email?</strong></p>',
             correctAnswerId: '1',
             answers: [
               {
@@ -660,7 +657,7 @@ module.exports = {
             ],
             backLink: '#',
             nextLink: '/v6/topic/lesson/1/assessment/5',
-            nextLinkText: 'Continue with quiz'
+            nextLinkText: 'Continue to question 5'
           },
           {
             id: '5',
@@ -765,8 +762,7 @@ module.exports = {
       return [
         {
           title: 'Need help?',
-          description:
-            'Choose one of the options below if you need any help with the lesson.',
+          description: 'Choose one of the options below if you need any help:',
           links: [
             {
               text: 'View learning support pages',
@@ -781,7 +777,7 @@ module.exports = {
         {
           title: 'Feeling confident?',
           description:
-            'If you’re confident, you may skip the learning material and go straight to the lesson quiz.',
+            'If you’re confident, skip the lesson and go straight to the quiz',
           links: [
             {
               text: 'Skip lesson and go to quiz',
@@ -840,7 +836,7 @@ module.exports = {
     router.get('/v6/context', function(req, res) {
       res.render('main/v6/context-page', {
         heading: {
-          main: 'English Functional Skills Level 2 course'
+          main: 'English Functional Skills Level 2'
         },
         nextLink: '/v6/topic/select-lesson'
       })
@@ -884,7 +880,7 @@ module.exports = {
       res.render('main/v6/course/completed', {
         heading: {
           sub: COURSE_NAME,
-          main: 'Congratulations, you have completed the course!'
+          main: 'Congratulations, you have completed the course'
         },
         deadLink: '/v6/prototype-limit/' + encodeURIComponent(req.path)
       })
@@ -905,7 +901,7 @@ module.exports = {
           {
             title: 'Need help?',
             description:
-              'We can help you book an exam and apply for jobs. Find out more about the different ways we can support you.',
+              'We can help you book an exam and apply for jobs. Find out more about how we can support you.',
             links: [
               {
                 text: 'Finding a test centre',
@@ -917,7 +913,7 @@ module.exports = {
               },
               {
                 html:
-                  '<span class="govuk-body-s"><a class="small-link">Use webchat </a><strong>or Call</strong> 0800 100 900</span><br /><span class="media-type-label">9am to 10pm, 7 days a week</span><br />'
+                  '<span class="govuk-body-s"><a class="small-link">Use webchat or email</a></span><br /><span class="media-type-label">9am to 7pm, Monday to Sunday</span><br />'
               }
             ]
           }
@@ -935,14 +931,14 @@ module.exports = {
         heading: {
           main: 'Find a test centre'
         },
-        description:
-          'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or by downloading a practice paper.',
+        // description:
+        //   'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or by downloading a practice paper.',
         lessonUrl: '/v6/topic/lesson/1/lesson-objective',
         side: [
           {
             title: 'Need help?',
             description:
-              'We can help you book an exam and apply for jobs. Find out more about the different ways we can support you.',
+              'We can help you book an exam and apply for jobs. Find out more about how we can support you.',
             links: [
               {
                 text: 'Finding a test centre',
@@ -954,7 +950,7 @@ module.exports = {
               },
               {
                 html:
-                  '<span class="govuk-body-s"><a class="small-link">Use webchat </a><strong>or Call</strong> 0800 100 900</span><br /><span class="media-type-label">9am to 10pm, 7 days a week</span><br />'
+                  '<span class="govuk-body-s"><a class="small-link">Use webchat or email</a></span><br /><span class="media-type-label">9am to 7pm, Monday to Sunday</span><br />'
               }
             ]
           }
@@ -976,7 +972,7 @@ module.exports = {
           {
             title: 'Need help?',
             description:
-              'We can help you book an exam and apply for jobs. Find out more about the different ways we can support you.',
+              'We can help you book an exam and apply for jobs. Find out more about how we can support you.',
             links: [
               {
                 text: 'Finding a test centre',
@@ -988,7 +984,7 @@ module.exports = {
               },
               {
                 html:
-                  '<span class="govuk-body-s"><a class="small-link">Use webchat </a><strong>or Call</strong> 0800 100 900</span><br /><span class="media-type-label">9am to 10pm, 7 days a week</span><br />'
+                  '<span class="govuk-body-s"><a class="small-link">Use webchat or email</a></span><br /><span class="media-type-label">9am to 7pm, Monday to Sunday</span><br />'
               }
             ]
           }
@@ -1001,7 +997,7 @@ module.exports = {
         heading: COURSE_NAME,
         topicName: TOPIC_NAME,
         description:
-          'The lessons in this section will develop your skills in multiple forms of writing. These writing skills will be useful in both your everyday and professional life.',
+          'This topic contains 8 lessons which will help you develop skills in multiple types of writing. These writing skills will be useful in both your everyday and professional life.',
         lessonUrl: '/v6/topic/lesson/1/lesson-objective'
         // lessons
         // lessons: [
@@ -1059,7 +1055,7 @@ module.exports = {
         lesson,
         title: 'How would you like to learn?',
         description:
-          'Once you’re ready, select how you would like the lesson delivered.',
+          'Choose the format that’s best for you. It’s the same lesson, but presented in different formats.',
         deadLink: '/v6/prototype-limit/' + encodeURIComponent(req.path),
         side: helpLinks(req.path)
       })
@@ -1221,7 +1217,9 @@ module.exports = {
               // onClick: 'return v4SkipQuestion();'
             }
           },
-          side: helpLinks(req.path)
+          side: helpLinks(req.path),
+          submitButtonText: 'Check your answer',
+          feedbackTitle: 'Check your answer'
         })
       }
     )
@@ -1266,9 +1264,26 @@ module.exports = {
         },
         heading: {
           sub: lesson.title,
-          main: "Let's test your knowledge"
+          main: 'Take the quiz'
         },
-        lesson
+        lesson,
+        side: [
+          {
+            title: 'Need help?',
+            description:
+              'Choose one of the options below if you need any help:',
+            links: [
+              {
+                text: 'View learning support pages',
+                href: '/v6/prototype-limit/' + encodeURIComponent(req.path)
+              },
+              {
+                text: 'Speak to a tutor (via email)',
+                href: '/v6/speak-to-tutor/' + encodeURIComponent(req.path)
+              }
+            ]
+          }
+        ]
       })
     })
 
@@ -1309,7 +1324,7 @@ module.exports = {
         heading: {
           sub: lesson.title,
           main: `Question ${questionId} (out of ${totalQuestions})`,
-          html: `Question<br />(${questionNo} of ${totalQuestions})`
+          html: `Question (${questionNo} of ${totalQuestions})`
         },
         lessonId,
         question: {
@@ -1343,7 +1358,7 @@ module.exports = {
           {
             title: 'Need help?',
             description:
-              'Choose one of the options below if you need any help with the lesson.',
+              'Choose one of the options below if you need any help:',
             links: [
               {
                 text: 'View learning support pages',
@@ -1360,7 +1375,9 @@ module.exports = {
               // }
             ]
           }
-        ]
+        ],
+        submitButtonText: 'Submit your answer',
+        feedbackTitle: `Question ${questionNo} feedback`
       })
     })
 
@@ -1378,7 +1395,7 @@ module.exports = {
         // },
         heading: {
           sub: lesson.title,
-          main: 'Lesson complete'
+          main: 'You have completed the lesson'
         },
         lesson,
         sideActions: [
