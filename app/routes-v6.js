@@ -762,7 +762,7 @@ module.exports = {
       return [
         {
           title: 'Need help?',
-          description: 'Choose one of the options below if you need any help:',
+          description: 'Choose one of the options if you need any help:',
           links: [
             {
               text: 'View learning support pages',
@@ -1270,8 +1270,7 @@ module.exports = {
         side: [
           {
             title: 'Need help?',
-            description:
-              'Choose one of the options below if you need any help:',
+            description: 'Choose one of the options if you need any help:',
             links: [
               {
                 text: 'View learning support pages',
@@ -1357,8 +1356,7 @@ module.exports = {
         side: [
           {
             title: 'Need help?',
-            description:
-              'Choose one of the options below if you need any help:',
+            description: 'Choose one of the options if you need any help:',
             links: [
               {
                 text: 'View learning support pages',
