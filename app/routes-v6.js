@@ -880,7 +880,7 @@ module.exports = {
       res.render('main/v6/course/completed', {
         heading: {
           sub: COURSE_NAME,
-          main: 'Congratulations, you have completed the course'
+          main: 'Congratulations, you have completed the course!'
         },
         deadLink: '/v6/prototype-limit/' + encodeURIComponent(req.path)
       })
@@ -1264,7 +1264,7 @@ module.exports = {
         },
         heading: {
           sub: lesson.title,
-          main: 'Take the quiz'
+          main: "Let's test your knowledge"
         },
         lesson,
         side: [

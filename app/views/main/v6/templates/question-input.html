@@ -280,7 +280,7 @@ NRS Prototype
       validAnswers.push($(validAnswer).val().toLowerCase()))
     const result = validAnswers.length <= 0
       ? 'generic'
-      : validAnswers.includes(answer.toLowerCase())
+      : validAnswers.includes(answer.trim().toLowerCase())
         ? 'correct'
         : 'incorrect'
 
