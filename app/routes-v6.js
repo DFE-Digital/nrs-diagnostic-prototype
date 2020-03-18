@@ -518,7 +518,7 @@ module.exports = {
             title: '',
             text: '',
             html:
-              '<p>You are writing an email to apply for a job as a Sales Assistant at a local retailer. You do not know the name of the person you are sending the email to.</p><p><strong>Which greetings would you use at the start of your email?</strong></p>',
+              '<p>You are writing an email to apply for a job as a Sales Assistant at a local retailer.</p><p>You do not know the name of the person you are sending the email to.</p><p><strong>Which greetings would you use at the start of your email?</strong></p>',
             correctAnswerId: '1',
             answers: [
               {
@@ -666,7 +666,7 @@ module.exports = {
             title: '',
             text: '',
             html:
-              '<p>You are writing an email to apply for a job at a restaurant. When you do not know the name of the person you are writing to.</p><p>Fill in the word to complete the appropriate sign off to this email.</p><p><strong>Yours __________</strong></p>',
+              '<p>You are writing an email to apply for a job at a restaurant.</p><p>When you do not know the name of the person you are writing to.</p><p>Fill in the word to complete the appropriate sign off to this email.</p><p><strong>Yours __________</strong></p>',
             correctAnswerId: '1',
             answers: [],
             inputAnswers: [
