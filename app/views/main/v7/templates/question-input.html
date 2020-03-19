@@ -1,0 +1,337 @@
+{% extends "layout-v7.html" %}
+
+{% block pageTitle %}
+NRS Prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div id="sub-heading">
+          {{ headingSuper({
+          text: heading.sub
+        }) }}
+        </div>
+        <h1 class="govuk-heading-xl hidden" id="feedback-heading">{{ feedbackTitle }}</h1>
+        {% if question.correctFeedback %}
+        <div id="{{ question.name }}-feedback-correct" name="question-feedback" class="feedback-box hidden">
+          <div style="padding: 15px;">
+
+            <h3 class="govuk-heading-m">Correct answer!</h3>
+            {% if saveAnswers %}
+            <p>You answered this question correctly</p>
+            {% else %}
+            {{ question.correctFeedback.html | safe if question.correctFeedback.html else question.correctFeedback.main }}
+            {% endif %}
+            <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if question.incorrectFeedback %}
+        <div id="{{ question.name }}-feedback-incorrect" name="question-feedback" class="feedback-box hidden">
+          <div style="padding: 15px;">
+
+            <h3 class="govuk-heading-m">Incorrect answer!</h3>
+            {{ question.incorrectFeedback.html | safe if question.incorrectFeedback.html else question.incorrectFeedback.main }}
+            <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if question.genericFeedback %}
+        <div id="{{ question.name }}-feedback-generic" name="question-feedback" class="feedback-box hidden">
+          <div style="padding: 15px;">
+            {{ question.genericFeedback.html | safe if question.genericFeedback.html else question.genericFeedback.main }}
+            <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
+          </div>
+        </div>
+        {% endif %}
+
+        <div id="{{ question.name }}-feedback-skipped" name="question-feedback" class="feedback-box hidden">
+          <div style="padding: 15px;">
+            <h3 class="govuk-heading-m">You have skipped the question</h3>
+            {{ question.genericFeedback.html | safe if question.genericFeedback.html else question.genericFeedback.main }}
+            <a class="small-link" onclick="return v4ShowInputQuestion();">See your answer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row hidden" id="section-actions" style="margin-bottom: 20px;">
+      <div class="govuk-grid-column-full">
+        {{ actionLinks({
+          actions: actions
+        }) }}
+      </div>
+    </div>
+
+    <!-- <div id="helplinks-secondary" class="hidden">
+      {{ helpLinks({
+        helpSections: help
+      }) }}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <hr />
+        </div>
+      </div>
+    </div> -->
+
+    <div id="question-form">
+      <div class="govuk-grid-row" id="section-headings">
+        <div class="govuk-grid-column-full">
+          <!-- <div id="sub-heading">
+            {{ headingSuper({
+            text: heading.sub
+          }) }}
+          </div> -->
+
+          <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+            {{ heading.html | safe if heading.html else heading.main }}
+          </h1>
+        </div>
+      </div>
+
+      {% if description %}
+      <div class="govuk-grid-row" id="question-description">
+        <div class="govuk-grid-column-full">
+          <p>
+            {{ description }}
+          </p>
+          <hr />
+        </div>
+      </div>
+      {% endif %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          {{ question.html | safe if question.html else question.text }}
+        </div>
+      </div>
+
+      <form class="form" onsubmit="return v4SubmitAnswer();">
+        <a name="question-anchor"></a>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <input type="hidden" id="_lesson_id" value="{{ lessonId }}" />
+            <input type="hidden" id="_question_name" value="{{ question.name }}" />
+            <input type="hidden" id="_save_answers" value="{{ saveAnswers }}" />
+
+            {% for answer in question.inputAnswers %}
+            {% if answer %}
+            <input type="hidden" name="_valid_answer" value="{{ answer }}" />
+            {% endif %}
+            {% endfor %}
+
+
+            <div class="govuk-form-group">
+              <span id="event-name-hint" class="govuk-hint">
+                Enter answer here
+              </span>
+              <input id="{{ question.name }}" name="{{ question.name }}" class="govuk-input" id="event-name"
+                name="event-name" type="text" aria-describedby="event-name-hint">
+            </div>
+          </div>
+        </div>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <button id="button-submit" class="govuk-button" data-module="govuk-button">{{ submitButtonText }}</button>
+            <a id="button-show-feeedback" class="govuk-button hidden" data-module="govuk-button"
+              onclick="return v4HideInputQuestion();">Return to feedback</a>
+          </div>
+        </div>
+
+        {% if saveAnswers and skipAction %}
+        <div class="govuk-grid-row" style="margin-bottom: 20px;" id="button-skip-action" name="button-skip-action">
+          <div class="govuk-grid-column-full">
+            <div class="also-links-main">
+              <hr />
+              <h2 class="govuk-heading-l">{{ skipAction.title }}</h3>
+                <a class="small-link" onClick="{{ skipAction.link.onClick }}">{{ skipAction.link.text }}</a>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <div class="also-links-side" name="button-skip-action">
+      {{ sideLinks({
+        helpSections: [{
+          title: skipAction.title,
+          links: [
+            {
+              text: skipAction.link.text,
+              onClick: skipAction.link.onClick
+            }
+          ]
+        }]
+      }) }}
+    </div>
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+
+  $(document).ready(function () {
+    v4ValidateInputQuestion()
+  })
+
+  function v4SubmitAnswer() {
+    const question = $('#_question_name').val()
+    const answer = $('input[name=' + question + ']').val()
+    if (!answer) {
+      return false
+    }
+
+    $('[name=question-feedback]').addClass('hidden')
+
+    const result = getResult(question, answer)
+
+
+    v4LockQuestion(question)
+
+    // $('#question-form').addClass('hidden')
+    v4ShowInputFeedback(question, result)
+
+    window.scrollTo(0, 0)
+
+    return false
+  }
+
+  function v4ShowInputQuestion() {
+    $('[name=question-feedback]').addClass('hidden')
+    $('#question-form').removeClass('hidden')
+    $('#section-actions').addClass('hidden')
+    $('#question-description').removeClass('hidden')
+    $('#button-show-feeedback').removeClass('hidden')
+    $('#dont-know').addClass('hidden')
+    $('#button-skip-action').addClass('hidden')
+    $('div[name="button-skip-action"]').addClass('hidden')
+    // $('#sub-heading').removeClass('hidden')
+  }
+
+  function v4HideInputQuestion() {
+    const question = $('#_question_name').val()
+    const answer = $('input[name=' + question + ']').val()
+    if (!answer) {
+      v4ShowInputFeedback(question, 'skipped')
+    } else {
+      const result = getResult(question, answer)
+      v4ShowInputFeedback(question, result)
+    }
+  }
+
+  function v4ValidateInputQuestion() {
+    const saveAnswers = $('#_save_answers').val()
+    const question = $('#_question_name').val()
+    if (saveAnswers !== 'true') {
+      $('input[name=' + question + ']').val('')
+      return
+    }
+
+    const lessonId = $('#_lesson_id').val()
+    const lesson = getLocalStorageObject('lesson-' + lessonId)
+    if (!lesson) {
+      return
+    }
+
+    const currentAnswer = lesson.answers.find(x => x.question === question)
+    console.log('currentAnswer: ', currentAnswer)
+    if (!currentAnswer) {
+      return
+    } else {
+      if (!currentAnswer.answer || currentAnswer.result === 'skipped') {
+        v4LockQuestion(question)
+        v4ShowInputFeedback(question, 'skipped')
+      } else {
+        const result = getResult(question, currentAnswer.answer)
+        $('input[name=' + question + ']').val(currentAnswer.answer)
+        v4LockQuestion(question)
+        v4ShowInputFeedback(question, result)
+      }
+    }
+  }
+
+  function getResult(question, answer) {
+    let validAnswers = []
+    $('input[name="_valid_answer"]').each((_, validAnswer) =>
+      validAnswers.push($(validAnswer).val().toLowerCase()))
+    const result = validAnswers.length <= 0
+      ? 'generic'
+      : validAnswers.includes(answer.trim().toLowerCase())
+        ? 'correct'
+        : 'incorrect'
+
+    saveResult(question, answer, result)
+
+    return result
+  }
+
+  function saveResult(question, answer, result) {
+    const saveAnswers = $('#_save_answers').val()
+    if (saveAnswers === 'true' && v4ResultIsValid(result)) {
+      const lessonId = $('#_lesson_id').val()
+      v4SaveAnswerToLocalStorage(lessonId, question, null, answer, result === 'correct' ? true : false, result)
+    }
+  }
+
+  function v4SkipQuestion() {
+    const question = $('#_question_name').val()
+    saveResult(question, null, 'skipped')
+
+    v4LockQuestion(question)
+    v4ShowInputFeedback(question, 'skipped')
+
+    window.scrollTo(0, 0)
+  }
+
+  function v4ShowInputFeedback(question, result) {
+    $('#question-form').addClass('hidden')
+    $('#' + question + '-feedback-' + result).removeClass('hidden')
+    // $('#sub-heading').addClass('hidden')
+    // $('#helplinks-primary').addClass('hidden')
+    // $('#helplinks-secondary').removeClass('hidden')
+    $('#section-actions').removeClass('hidden')
+    $('#question-description').addClass('hidden')
+    $('#skip-link').addClass('hidden')
+    $('#feedback-heading').removeClass('hidden')
+  }
+
+  function v4LockQuestion(question) {
+    $('input[name=' + question + ']').attr('disabled', true)
+    $('#button-submit').addClass('hidden')
+    $('#button-skip').addClass('hidden')
+    $('#button-skip-action').addClass('hidden')
+    $('div[name="button-skip-action"]').addClass('hidden')
+    $('#button-continue').removeClass('hidden')
+  }
+
+</script>
+{% endblock %}

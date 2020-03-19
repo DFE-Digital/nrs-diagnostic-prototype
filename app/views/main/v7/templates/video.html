@@ -1,0 +1,97 @@
+{% extends "layout-v7.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        {{ headingSuper({
+          text: heading
+        }) }}
+
+        <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+          Video (part {{ videoNo }} of {{ totalVideos }})
+        </h1>
+
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p>
+          {{ video.description }}
+        </p>
+        <!-- <p><strong>To use this video, you should:</strong></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            Tap the screen to bring up video controls
+          </li>
+          <li>
+            Rotate your device to make the video go fullscreen
+          </li>
+        </ul> -->
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <iframe class="embedded-video" src="{{ video.url }}" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br />
+        <br />
+      </div>
+    </div>
+
+    <div class="govuk-grid-row" id="section-actions" style="margin-bottom: 20px;">
+      <div class="govuk-grid-column-full">
+        <a href="{{ video.nextLink }}" class="govuk-button" data-module="govuk-button">Continue to practice question</a>
+        <!-- {{ actionLinks({
+          actions: actions
+        }) }} -->
+        <div class="also-links-main">
+          <hr />
+          <h2 class="govuk-heading-l">You can also</h2>
+          <div style="margin-bottom: 5px;">
+            <a class="small-link" href="/v7/topic/lesson/1/select-learning-content">Change to slideshow, article or
+              audio</a><br /><br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <div class="also-links-side">
+      {{ sideLinks({
+        helpSections: [{
+          title: 'You can also',
+          links: [
+            {
+              text: 'Change to slideshow, article or audio',
+              href: '/v7/topic/lesson/1/select-learning-content'
+            }
+          ]
+        }]
+      }) }}
+    </div>
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

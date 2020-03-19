@@ -1,0 +1,349 @@
+{% extends "layout-v4_2.html" %}
+
+{% block pageTitle %}
+NRS Prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div id="sub-heading">
+          {{ headingSuper({
+          text: heading.sub
+        }) }}
+        </div>
+
+        <h1 class="govuk-heading-xl hidden" id="feedback-heading">{{ feedbackTitle }}</h1>
+        {% for answer in question.answers %}
+        {% if answer %}
+
+        <div id="{{ question.name }}-{{ answer.id }}-feedback" name="question-feedback" class="feedback-box hidden">
+          <div style="padding: 15px;">
+
+            <h3 class="govuk-heading-m">{% if answer.isCorrect %} Correct answer! {% else %} Incorrect answer!
+              {% endif %}
+            </h3>
+            {% if answer.isCorrect %}
+            <p>You have answered this correctly.</p>{% if not saveAnswers %}
+            <p>{{ answer.feedback }}</p>
+            {% endif %}
+            {% else %}
+            {% if not saveAnswers and not answer.isCorrect %}
+            <p>{{ answer.feedback }}
+              {% endif %}
+              <hr />
+              <h3 class="govuk-heading-m">The correct answer is:</h3>
+              <p name="correct-answer-text"></p>
+              {% endif %}
+              <a class="small-link" onclick="return v4ShowQuestion();">See your answer</a>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        <div id="skipped-feedback" name="question-feedback" class="feedback-box hidden">
+          <div style="padding: 15px;">
+            <h3 class="govuk-heading-m">You have skipped the question</h3>
+            <hr />
+            <h3 class="govuk-heading-m">The correct answer is:</h3>
+            <p name="correct-answer-text"></p>
+            <a class="small-link" onclick="return v4ShowQuestion();">See your answer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row hidden" id="section-actions">
+      <div class="govuk-grid-column-full">
+        {{ actionLinks({
+          actions: actions
+        }) }}
+      </div>
+    </div>
+
+    <!-- <div id="helplinks-secondary" class="hidden">
+      {{ helpLinks({
+        helpSections: help
+      }) }}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <hr />
+        </div>
+      </div>
+    </div> -->
+
+    <div id="question-form">
+      <div class="govuk-grid-row" id="section-headings">
+        <div class="govuk-grid-column-full">
+          <!-- <div id="sub-heading">
+            {{ headingSuper({
+            text: heading.sub
+          }) }}
+          </div> -->
+
+          <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+            {{ heading.html | safe if heading.html else heading.main }}
+          </h1>
+        </div>
+      </div>
+
+      {% if description %}
+      <div class="govuk-grid-row" id="question-description">
+        <div class="govuk-grid-column-full">
+          <p>
+            {{ description }}
+          </p>
+          <hr />
+        </div>
+      </div>
+      {% endif %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          {{ question.html | safe if question.html else question.text }}
+        </div>
+      </div>
+
+      <form class="form" onsubmit="return v4SubmitAnswer();">
+        <a name="question-anchor"></a>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <input type="hidden" id="_lesson_id" value="{{ lessonId }}" />
+            <input type="hidden" id="_correct_answer_id" value="{{ question.name }}-{{ question.correctAnswerId }}" />
+            <input type="hidden" id="_question_name" value="{{ question.name }}" />
+            <input type="hidden" id="_save_answers" value="{{ saveAnswers }}" />
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <div class="govuk-radios">
+                  {% for answer in question.answers %}
+                  {% if answer %}
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="{{ question.name }}-{{ answer.id }}"
+                      name="{{ question.name }}" type="radio" value="{{ answer.value }}">
+                    <label id="{{ question.name }}-{{ answer.id }}-label" class="govuk-label govuk-radios__label"
+                      for="{{ question.name }}">
+                      {{ answer.text }}
+                    </label>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <button id="button-submit" class="govuk-button" data-module="govuk-button">{{ submitButtonText }}</button>
+            <a id="button-show-feeedback" class="govuk-button hidden" data-module="govuk-button"
+              onclick="return v4HideQuestion();">Return to feedback</a>
+          </div>
+        </div>
+
+        {% if saveAnswers and skipAction %}
+        <div class="govuk-grid-row" style="margin-bottom: 20px;" id="button-skip-action" name="button-skip-action">
+          <div class="govuk-grid-column-full">
+            <div class="also-links-main">
+              <hr />
+              <h2 class="govuk-heading-l">{{ skipAction.title }}</h3>
+                <a class="small-link" onClick="{{ skipAction.link.onClick }}">{{ skipAction.link.text }}</a>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <div class="also-links-side" name="button-skip-action">
+      {{ sideLinks({
+        helpSections: [{
+          title: skipAction.title,
+          links: [
+            {
+              text: skipAction.link.text,
+              href: skipAction.link.href,
+              onClick: skipAction.link.onClick
+            }
+          ]
+        }]
+      }) }}
+    </div>
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+
+  $(document).ready(function () {
+    v4ValidateQuestion()
+  })
+
+  function v4SubmitAnswer() {
+    const question = $('#_question_name').val()
+    if (!$('input:radio[name=' + question + ']').is(':checked')) {
+      return false
+    }
+
+    $('[name=question-feedback]').addClass('hidden')
+
+    const lessonId = $('#_lesson_id').val()
+    const correctAnswerId = $('#_correct_answer_id').val()
+    const saveAnswers = $('#_save_answers').val()
+    const $radio = $('input[name=' + question + ']:checked')
+    const selectedId = $radio.attr('id')
+    const selectedAnswer = $radio.val()
+
+    const correctAnswerText = $('#' + correctAnswerId).val()
+    $('.feedback-box p[name="correct-answer-text"]').text(correctAnswerText)
+
+    const result = getResult(question, selectedId, selectedAnswer)
+    saveResult(question, selectedId, selectedAnswer, result)
+
+    v4LockQuestion(question)
+
+    // $('#question-form').addClass('hidden')
+    v4ShowFeedback(selectedId, correctAnswerId)
+
+    window.scrollTo(0, 0)
+
+    return false
+  }
+
+  function v4ShowQuestion() {
+    $('[name=question-feedback]').addClass('hidden')
+    $('#question-form').removeClass('hidden')
+    $('#section-actions').addClass('hidden')
+    $('#question-description').removeClass('hidden')
+    $('#button-show-feeedback').removeClass('hidden')
+    $('#dont-know').addClass('hidden')
+    $('#button-skip-action').addClass('hidden')
+    $('div[name="button-skip-action"]').addClass('hidden')
+    // $('#sub-heading').removeClass('hidden')
+  }
+
+  function v4HideQuestion() {
+    const correctAnswerId = $('#_correct_answer_id').val()
+    const question = $('#_question_name').val()
+    const $radio = $('input[name=' + question + ']:checked')
+    const selectedId = $radio.attr('id')
+    if (!selectedId) {
+      v4ShowFeedback(question, 'skipped')
+    } else {
+      v4ShowFeedback(selectedId, correctAnswerId)
+    }
+  }
+
+  function v4ValidateQuestion() {
+    const saveAnswers = $('#_save_answers').val()
+    const question = $('#_question_name').val()
+    if (saveAnswers !== 'true') {
+      $('input[name=' + question + ']').prop('checked', false)
+      return
+    }
+
+    const lessonId = $('#_lesson_id').val()
+    const lesson = getLocalStorageObject('lesson-' + lessonId)
+    if (!lesson) {
+      return
+    }
+
+    const currentAnswer = lesson.answers.find(x => x.question === question)
+    if (!currentAnswer) {
+      return
+    } else {
+      const correctAnswerId = $('#_correct_answer_id').val()
+      const selectedId = currentAnswer.answerId
+
+      if (!selectedId) {
+        v4ShowFeedback(question, 'skipped')
+        $('#skipped-feedback').removeClass('hidden')
+      } else {
+        $('#' + currentAnswer.answerId).prop('checked', true)
+        v4ShowFeedback(selectedId, correctAnswerId)
+      }
+
+      v4LockQuestion(question)
+    }
+  }
+
+  function getResult(question, selectedId, selectedAnswer) {
+    const correctAnswerId = $('#_correct_answer_id').val()
+    const result = selectedId === correctAnswerId ? 'correct' : 'incorrect'
+    return result
+  }
+
+  function saveResult(question, answerId, answer, result) {
+    const saveAnswers = $('#_save_answers').val()
+    if (saveAnswers === 'true' && v4ResultIsValid(result)) {
+      const lessonId = $('#_lesson_id').val()
+      v4SaveAnswerToLocalStorage(lessonId, question, answerId, answer, result === 'correct' ? true : false, result)
+    }
+  }
+
+  function v4SkipQuestion() {
+    const question = $('#_question_name').val()
+    saveResult(question, null, null, 'skipped')
+
+    v4LockQuestion(question)
+    v4ShowFeedback(question, 'skipped')
+
+    $('#skipped-feedback').removeClass('hidden')
+
+    window.scrollTo(0, 0)
+  }
+
+  function v4ShowFeedback(selectedId, correctAnswer) {
+    $('#question-form').addClass('hidden')
+    const correctAnswerId = $('#_correct_answer_id').val()
+    const correctAnswerText = $('#' + correctAnswerId).val()
+    $('.feedback-box p[name="correct-answer-text"]').text(correctAnswerText)
+
+    if (correctAnswer === 'skipped') {
+      $('#' + correctAnswer + '-feedback').removeClass('hidden')
+    } else {
+      $('#' + selectedId + '-feedback').removeClass('hidden')
+    }
+    // $('#sub-heading').addClass('hidden')
+    // $('#helplinks-primary').addClass('hidden')
+    // $('#helplinks-secondary').removeClass('hidden')
+    $('#section-actions').removeClass('hidden')
+    $('#question-description').addClass('hidden')
+    $('#skip-link').addClass('hidden')
+    $('#feedback-heading').removeClass('hidden')
+  }
+
+  function v4LockQuestion(question) {
+    $('input[name=' + question + ']').attr('disabled', true)
+    $('#button-submit').addClass('hidden')
+    $('#dont-know').addClass('hidden')
+    $('#button-skip-action').addClass('hidden')
+    $('div[name="button-skip-action"]').addClass('hidden')
+    $('#button-continue').removeClass('hidden')
+  }
+
+</script>
+{% endblock %}
