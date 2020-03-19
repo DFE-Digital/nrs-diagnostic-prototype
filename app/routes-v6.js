@@ -695,7 +695,7 @@ module.exports = {
               main: ''
             },
             backLink: '#',
-            nextLink: '/v6/topic/lesson/1/feedback',
+            nextLink: '#',
             nextLinkText: 'See results'
           }
         ]
@@ -766,7 +766,7 @@ module.exports = {
           links: [
             {
               text: 'View learning support pages',
-              href: '/v6/prototype-limit/' + encodeURIComponent(path)
+              href: '#'
             },
             {
               text: 'Speak to a tutor (via email)',
@@ -922,11 +922,11 @@ module.exports = {
             links: [
               {
                 text: 'Finding a test centre',
-                href: '/v6/course/find-a-centre'
+                href: '#'
               },
               {
                 text: 'Getting a qualification',
-                href: '/v6/prototype-limit/' + encodeURIComponent(req.path)
+                href: '#'
               },
               {
                 html:
@@ -959,11 +959,11 @@ module.exports = {
             links: [
               {
                 text: 'Finding a test centre',
-                href: '/v6/course/find-a-centre'
+                href: '#'
               },
               {
                 text: 'Getting a qualification',
-                href: '/v6/prototype-limit/' + encodeURIComponent(req.path)
+                href: '#'
               },
               {
                 html:
@@ -993,11 +993,11 @@ module.exports = {
             links: [
               {
                 text: 'Finding a test centre',
-                href: '/v6/course/find-a-centre'
+                href: '#'
               },
               {
                 text: 'Getting a qualification',
-                href: '/v6/prototype-limit/' + encodeURIComponent(req.path)
+                href: '#'
               },
               {
                 html:
@@ -1420,12 +1420,12 @@ module.exports = {
               {
                 // text: 'Retry lesson',
                 // href: `/v6/topic/lesson/${lessonId}/select-learning-content`,
-                html: `<a class="small-link" href="/v6/topic/lesson/${lessonId}/select-learning-content" onClick="return clearDataAndFollowLink();">Retry lesson</a><br/>`
+                html: `<a class="small-link">Retry lesson</a><br/>`
               },
               {
                 // text: 'Retry quiz',
                 // href: `/v6/topic/lesson/${lessonId}/start-quiz`,
-                html: `<a class="small-link" href="/v6/topic/lesson/${lessonId}/start-quiz" onClick="return clearDataAndFollowLink();">Retry quiz</a><br/>`
+                html: `<a class="small-link">Retry quiz</a><br/>`
               }
             ]
           }
@@ -1435,18 +1435,18 @@ module.exports = {
           links: [
             {
               text: 'Next lesson',
-              href: '/v6/start-part-two',
+              href: '#',
               isButton: true
             },
             {
               // text: 'Retry lesson',
               // href: `/v6/topic/lesson/${lessonId}/select-learning-content`,
-              html: `<a class="small-link" href="/v6/topic/lesson/${lessonId}/select-learning-content" onClick="return clearDataAndFollowLink();">Retry lesson</a><br/>`
+              html: `<a class="small-link">Retry lesson</a><br/>`
             },
             {
               // text: 'Retry quiz',
               // href: `/v6/topic/lesson/${lessonId}/start-quiz`,
-              html: `<a class="small-link" href="/v6/topic/lesson/${lessonId}/start-quiz" onClick="return clearDataAndFollowLink();">Retry quiz</a><br/>`
+              html: `<a class="small-link">Retry quiz</a><br/>`
             }
           ]
         },
