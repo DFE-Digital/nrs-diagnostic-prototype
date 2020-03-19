@@ -771,6 +771,10 @@ module.exports = {
             {
               text: 'Speak to a tutor (via email)',
               href: '/v6/speak-to-tutor/' + encodeURIComponent(path)
+            },
+            {
+              text: 'Technical support',
+              href: '/v6/technical-support/' + encodeURIComponent(path)
             }
           ]
         },
@@ -869,6 +873,19 @@ module.exports = {
       res.render('main/v6/speak-to-tutor', {
         heading: {
           main: 'You emailed a tutor and they got back to you a few hours later'
+        },
+        // description:
+        //   'As this is a prototype, certain links do not work. You can click the button below to return back to where you were.',
+        nextLink: returnUrl
+      })
+    })
+
+    router.get('/v6/technical-support/:returnUrl', function(req, res) {
+      const returnUrl = req.params.returnUrl
+      res.render('main/v6/technical-support', {
+        heading: {
+          main:
+            'You spoke with an IT technician who was able to help you solve your technical issue.'
         },
         // description:
         //   'As this is a prototype, certain links do not work. You can click the button below to return back to where you were.',
