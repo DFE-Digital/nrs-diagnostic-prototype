@@ -1,0 +1,140 @@
+{% extends "layout-v6-demo.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        {{ headingSuper({
+          text: heading.sub
+        }) }}
+
+        <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+          Article (part 3 of 3)
+        </h1>
+
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p>
+          In the final part of this lesson, you will learn how to end a formal email appropriately.
+        </p>
+        <hr />
+        <p>Once you have written the main body of your email, it is important to end the email appropriately with a
+          closing
+          statement and a formal sign off.</p>
+        <p><strong>Closing</strong></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>You must end your email with a brief summary statement and an appropriate closing such as ‘I look forward
+            to
+            hearing from you.’</li>
+        </ul>
+        <p><strong>Sign off</strong></p>
+        <p>Finally, a formal email needs to sign-off appropriately.</p>
+        <p>If you do not know the name of person you are writing to, you must use:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Yours faithfully,</li>
+          <li>Your sincerely,</li>
+        </ul>
+        <p>Or, if you know the name of the person you are writing to use:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Kind regards,</li>
+          <li>Best wishes,</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row" id="section-actions">
+      <div class="govuk-grid-column-full">
+        <a href="{{ slideshow.nextLink }}" class="govuk-button" data-module="govuk-button">Continue to practice
+          question</a>
+        <!-- {{ actionLinks({
+          actions: actions
+        }) }} -->
+        <div class="also-links-main">
+          <hr />
+          <h2 class="govuk-heading-l">You can also</h2>
+          <div style="margin-bottom: 5px;">
+            <a class="small-link" href="/v6-demo/topic/lesson/1/select-learning-content">Change to slideshow, video or
+              audio</a><br /><br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <div class="also-links-side">
+      {{ sideLinks({
+        helpSections: [{
+          title: 'You can also',
+          links: [
+            {
+              text: 'Change to slideshow, video or audio',
+              href: '/v6-demo/topic/lesson/1/select-learning-content'
+            }
+          ]
+        }]
+      }) }}
+    </div>
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+            helpSections: side
+          }) }}
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+
+<div class="slide-overlay hidden"></div>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+
+  function toggleFullscreen() {
+    const slideshow = $('.swiper-container')
+    if ((slideshow).hasClass('swiper-fullscreen')) {
+      $('.slide-overlay').addClass('hidden')
+      $('.swiper-container').removeClass('swiper-fullscreen')
+      $('#button-fullscreen').removeClass('swiper-fullscreen-button')
+      $('.swiper-slide').width('100%')
+      window.scrollTo(0, 0)
+    } else {
+      $('.slide-overlay').removeClass('hidden')
+      $('.swiper-container').addClass('swiper-fullscreen')
+      $('#button-fullscreen').addClass('swiper-fullscreen-button')
+      $('.swiper-slide').width('100%')
+      window.scrollTo(0, 0)
+    }
+  }
+
+  $(document).ready(function () {
+
+    var mySwiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    })
+
+  })
+</script>
+{% endblock %}

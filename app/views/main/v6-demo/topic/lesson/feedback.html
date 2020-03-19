@@ -1,0 +1,337 @@
+{% extends "layout-v6-demo.html" %}
+
+{% block pageTitle %}
+NRS Prototype
+{% endblock %}
+
+{% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }} {% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ headingSuper({
+          text: heading.sub
+        }) }}
+
+        <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+          {{ heading.main }}
+        </h1>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <span class="small-link" style="text-decoration: none;">Your score</span>
+        <h1 class="govuk-heading-xl results-percentage" id="results-percentage">
+          0%
+        </h1>
+        <p id="results-summary"></p>
+
+        <div id="badge-panel-success" class="hidden">
+          {{ badgePanel({
+            title: "You got the 'Email Expert' badge",
+            text: 'Congratulations! You have unlocked this badge.',
+            locked: false
+          }) }}
+        </div>
+        <div id="badge-panel-unsuccessful" class="hidden">
+          {{ badgePanel({
+            title: 'Email Expert',
+            text: 'Score 70% or more in the lesson’s quiz to unlock this badge.',
+            locked: true
+          }) }}
+        </div>
+
+        <input type="hidden" id="_lesson_id" value="{{ lesson.id }}" />
+      </div>
+    </div>
+
+    <div class="govuk-grid-row" id="section-actions" style="margin-bottom: 20px;">
+      <div class="govuk-grid-column-full">
+        <a href="/v6-demo/start-part-two" class="govuk-button" data-module="govuk-button">Next lesson</a>
+        <!-- {{ actionLinks({
+          actions: actions
+        }) }} -->
+        <div class="also-links-main">
+          <hr />
+          <h2 class="govuk-heading-l">You can also</h2>
+          <div style="margin-bottom: 5px;">
+            <a class="small-link" href="/v6-demo/topic/lesson/1/select-learning-content"
+              onClick="return clearDataAndFollowLink();">Retry lesson</a><br />
+          </div>
+          <div style="margin-bottom: 5px;">
+            <a class="small-link" href="/v6-demo/topic/lesson/${lessonId}/start-quiz"
+              onClick="return clearDataAndFollowLink();">Retry quiz</a><br />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l">Feedback on your answers</h2>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+          {% for question in lesson.assessmentQuestions %}
+          {% if question %}
+          <div class="govuk-accordion__section ">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span style="display: inline;" class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                  Question {{ question.id }}
+                </span>
+                <!-- <div class="hidden" style="float: right; padding-left: 5px; padding-right: 5px;"
+                  id="{{ question.name }}-icon-incorrect">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.8114 8.9989L17.62 2.20228C18.1237 1.69848 18.1237 0.881652 17.62 0.377851C17.1163 -0.12595 16.2995 -0.12595 15.7958 0.377851L9 7.18733L2.2042 0.377851C1.70046 -0.12595 0.883737 -0.12595 0.379997 0.377851C-0.123742 0.881652 -0.123742 1.69848 0.379997 2.20228L7.18864 8.9989L0.379997 15.7955C0.136797 16.0368 0 16.3652 0 16.7077C0 17.0503 0.136797 17.3787 0.379997 17.62C0.621212 17.8632 0.949563 18 1.2921 18C1.63463 18 1.96299 17.8632 2.2042 17.62L9 10.8105L15.7958 17.62C16.037 17.8632 16.3654 18 16.7079 18C17.0504 18 17.3788 17.8632 17.62 17.62C17.8632 17.3787 18 17.0503 18 16.7077C18 16.3652 17.8632 16.0368 17.62 15.7955L10.8114 8.9989Z"
+                      fill="#0B0C0C" />
+                  </svg>
+                </div> -->
+
+                <!-- <div class="hidden" style="float: right; padding-left: 5px; padding-right: 5px;"
+                  id="{{ question.name }}-icon-correct">
+                  <svg width="24" height="19" viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0 10.5195L3.4541 7.14258L8.41113 12.3467L20.3564 0L23.8208 3.50488L8.41113 18.937L0 10.5195Z"
+                      fill="#0B0C0C" />
+                  </svg>
+                </div> -->
+
+                <!-- <div class="hidden" style="float: right; padding-left: 5px; padding-right: 5px;"
+                  id="{{ question.name }}-icon-skipped">
+                  <svg width="16" height="25" viewBox="0 0 16 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M7.21956 0.344118C2.61808 0.621793 0.198339 3.23987 0 7.96035H4.64114C4.68081 6.33397 5.63284 5.10426 7.29889 4.90593C8.96494 4.74725 10.5517 5.14393 11.0277 6.25463C11.5434 7.48434 10.393 8.91238 9.83764 9.5074C8.80627 10.6181 7.14022 11.4511 6.26753 12.6412C5.4345 13.8312 5.27583 15.3782 5.19649 17.2823H9.28229C9.32195 16.0526 9.40129 14.9022 9.95664 14.1485C10.869 12.9188 12.2177 12.3635 13.3284 11.3718C14.3994 10.4594 15.5498 9.34873 15.7085 7.60334C16.3828 2.48618 12.178 0.0267745 7.21956 0.344118Z"
+                      fill="#0B0C0C" />
+                    <path
+                      d="M7.33867 24.1052C8.76268 24.1052 9.91708 22.9686 9.91708 21.5665C9.91708 20.1643 8.76268 19.0277 7.33867 19.0277C5.91465 19.0277 4.76025 20.1643 4.76025 21.5665C4.76025 22.9686 5.91465 24.1052 7.33867 24.1052Z"
+                      fill="#0B0C0C" />
+                  </svg>
+                </div> -->
+
+                <span class="feedback-accordion-status" id="{{ question.name }}-result">Incorrect</span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-1" class="govuk-accordion__section-content"
+              aria-labelledby="accordion-default-heading-1">
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                  {{ question.html | safe if question.html else question.text }}
+                </div>
+              </div>
+
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+
+                  {% for answer in question.answers %}
+                  {% if answer %}
+                  {% if answer.isCorrect %}
+                  <input type="hidden" id="{{ question.name }}-correct-text" value="{{ answer.text }}" />
+                  <input type="hidden" id="{{ question.name }}-feedback-text" value="{{ answer.feedback }}" />
+                  {% endif %}
+                  <div id="{{ question.name }}-{{ answer.id }}-feedback" name="question-feedback"
+                    class="feedback-box hidden">
+                    <div style="padding: 15px;">
+                      <h3 class="govuk-heading-m">{% if answer.isCorrect %} You correctly selected: {% else %} You
+                        incorrectly
+                        selected: {% endif %}</h3>
+                      {% if not answer.isCorrect %}
+                      <p>{{ answer.text }}</p>
+                      <p id="{{ question.name }}-selected-answer-output"></p>
+                      <h3 class="govuk-heading-m">Feedback:</h3>
+                      <p>{{ answer.feedback }}</p>
+                      <hr />
+                      <h3 class="govuk-heading-m">The correct answer is:</h3>
+                      {% endif %}
+                      <p id="{{ question.name }}-{{ answer.id }}-correct-answer-output"></p>
+                      <h3 class="govuk-heading-m">Feedback:</h3>
+                      <p id="{{ question.name }}-{{ answer.id }}-correct-feedback-output"></p>
+                    </div>
+                  </div>
+                  {% if answer.isCorrect and question.type === 'multiplechoice' %}
+                  <div id="{{ question.name }}-skipped-feedback" name="question-feedback" class="feedback-box hidden">
+                    <div style="padding: 15px;">
+                      <h3 class="govuk-heading-m">You have skipped the question</h3>
+                      <hr />
+                      <h3 class="govuk-heading-m">The correct answer is:</h3>
+                      <p>{{ answer.text }}</p>
+                      <h3 class="govuk-heading-m">Feedback:</h3>
+                      <p>{{ answer.feedback }}</p>
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% endif %}
+                  {% endfor %}
+                  {% if question.correctFeedback %}
+                  <div id="{{ question.name }}-input-correct-feedback" name="question-feedback"
+                    class="feedback-box hidden">
+                    <div style="padding: 15px;">
+                      <h3 class="govuk-heading-m">You correctly answered:</h3>
+                      <p id="{{ question.name }}-selected-answer-correct-output"></p>
+                      <hr />
+                      <h3 class="govuk-heading-m">Feedback:</h3>
+                      {{ question.correctFeedback.html | safe if question.correctFeedback.html else question.correctFeedback.main }}
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% if question.incorrectFeedback %}
+                  <div id="{{ question.name }}-input-incorrect-feedback" name="question-feedback"
+                    class="feedback-box hidden">
+                    <div style="padding: 15px;">
+                      <h3 class="govuk-heading-m">You incorrectly answered:</h3>
+                      <p id="{{ question.name }}-selected-answer-incorrect-output"></p>
+                      <hr />
+                      <h3 class="govuk-heading-m">Feedback:</h3>
+                      {{ question.incorrectFeedback.html | safe if question.incorrectFeedback.html else question.incorrectFeedback }}
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% if question.type === 'input' %}
+                  <div id="{{ question.name }}-input-skipped-feedback" name="question-feedback"
+                    class="feedback-box hidden">
+                    <div style="padding: 15px;">
+                      <h3 class="govuk-heading-m">You have skipped the question</h3>
+                      <hr />
+                      <h3 class="govuk-heading-m">Feedback:</h3>
+                      {{ question.incorrectFeedback.html | safe if question.incorrectFeedback.html else question.incorrectFeedback }}
+                    </div>
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <div class="also-links-side" name="button-skip-action">
+      {{ sideLinks({
+        helpSections: sideActions
+      }) }}
+    </div>
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+
+
+
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function () {
+    const lessonId = $('#_lesson_id').val()
+    v4GetAnswersForLesson(lessonId)
+  })
+
+  function v4GetAnswersForLesson(lessonId) {
+    var lesson = getLocalStorageObject('lesson-' + lessonId)
+    if (!lesson) {
+      return
+    }
+
+    const totalAnswers = lesson.answers.length
+    let correctAnswerCount = 0
+    lesson.answers.forEach(answer => {
+      $('#' + answer.question + '-result').text(capitalizeResult(answer.result))
+      $('#' + answer.question + '-icon-' + answer.result).removeClass('hidden')
+
+      const correctAnswerText = $('#' + answer.question + '-correct-text').val()
+      const correctFeedbackText = $('#' + answer.question + '-feedback-text').val()
+
+      $('#' + answer.answerId + '-correct-answer-output').text(correctAnswerText)
+      $('#' + answer.answerId + '-correct-feedback-output').text(correctFeedbackText)
+
+      if (answer.result === 'skipped') {
+        $('#' + answer.question + '-skipped-feedback').removeClass('hidden')
+      } else {
+        $('#' + answer.answerId + '-feedback').removeClass('hidden')
+      }
+
+      // Input question types
+      if (answer.answerId === null) {
+        if (answer.result === 'correct') {
+          $('#' + answer.question + '-input-correct-feedback').removeClass('hidden')
+          $('#' + answer.question + '-selected-answer-correct-output').text(answer.answer)
+        } else if (answer.result === 'skipped') {
+          $('#' + answer.question + '-input-skipped-feedback').removeClass('hidden')
+        } else {
+          $('#' + answer.question + '-input-incorrect-feedback').removeClass('hidden')
+          $('#' + answer.question + '-selected-answer-incorrect-output').text(answer.answer)
+        }
+      }
+
+      if (!answer.isCorrect) {
+        $('#' + answer.selectedAnswer + '-label').removeClass('govuk-radios__label')
+        $('#' + answer.selectedAnswer + '-label').addClass('govuk-radios__label__incorrect')
+      } else {
+        correctAnswerCount++
+      }
+    });
+
+    const percentage = ((correctAnswerCount / totalAnswers) * 100).toFixed(0)
+
+    if (percentage >= 70) {
+      $('#badge-panel-success').removeClass('hidden')
+
+      $('#results-percentage').addClass('results-percentage')
+      $('#results-percentage').removeClass('results-percentage-fail')
+    } else {
+      $('#badge-panel-unsuccessful').removeClass('hidden')
+
+      $('#results-percentage').removeClass('results-percentage')
+      $('#results-percentage').addClass('results-percentage-fail')
+    }
+
+    $('#results-percentage').text(percentage + '%')
+    $('#results-summary').text(
+      'You answered ' +
+      correctAnswerCount +
+      ' out of ' +
+      totalAnswers +
+      ' questions correctly.'
+    )
+  }
+
+  function capitalizeResult(result) {
+    return result.length > 1
+      ? result.charAt(0).toUpperCase() + result.substring(1)
+      : result
+  }
+</script>
+{% endblock %}

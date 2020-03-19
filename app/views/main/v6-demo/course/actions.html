@@ -1,0 +1,126 @@
+{% extends "layout-v6-demo.html" %}
+
+{% block pageTitle %}
+NRS Prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ headingSuper({
+          text: heading.sub
+        }) }}
+
+        <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+          {{ heading.main }}
+        </h1>
+      </div>
+    </div>
+
+    {% if description %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p>{{ description }}</p>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <ol class="app-task-list">
+          <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">1. </span> Prepare for exam
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span style="display: inline;" class="app-task-list__task-name">
+                  <a href="{{ deadLink }}" aria-describedby="eligibility-completed">
+                    English functional skills 2
+                  </a>
+                </span>
+                <strong style="float: right; margin: auto;" class="govuk-tag app-task-list__task-completed"
+                  id="eligibility-completed">Completed</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="{{ deadLink }}" aria-describedby="read-declaration-completed">
+                    Download a practice paper.pdf (3mb)
+                  </a>
+                </span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">2. </span> Get a qualification
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="/v6-demo/course/find-a-centre" aria-describedby="company-information-completed">
+                    Find a test centre
+                  </a>
+                </span>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="{{ deadLink }}" aria-describedby="contact-details-completed">
+                    Book an exam
+                  </a>
+                </span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">3. </span> Apply for your target job
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="{{ deadLink }}">
+                    Search for job vacancies
+                  </a>
+                </span>
+              </li>
+            </ul>
+          </li>
+        </ol>
+
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+
+
+
+
+{% endblock %}

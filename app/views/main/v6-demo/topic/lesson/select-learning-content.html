@@ -1,0 +1,106 @@
+{% extends "layout-v6-demo.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        {{ headingSuper({
+          text: lesson.title
+        }) }}
+
+        <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+          {{ title }}
+        </h1>
+
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p>
+          {{ description }}
+        </p>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l">Learning material</h3>
+          <div style="display: flex; margin-bottom: 10px;">
+            <div style="padding-right: 16px;">
+              <img src="/public/images/media-slideshow.png" width="66px" height="88px" />
+            </div>
+            <div style="padding-top: 10px;">
+              <a class="large-link" href="/v6-demo/topic/lesson/{{ lesson.id }}/slideshow/1">View a slideshow</a><br />
+              <span class="media-type-label">Data: 3mb</span>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div style="display: flex; margin-bottom: 10px;">
+          <div style="padding-right: 16px;">
+            <img src="/public/images/media-html.png" width="66px" height="88px" />
+          </div>
+          <div style="padding-top: 10px;">
+            <a class="large-link" href="/v6-demo/topic/lesson/{{ lesson.id }}/text/1">Read an article</a><br />
+            <span class="media-type-label">Data: 30kb</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div style="display: flex; margin-bottom: 10px;">
+          <div style="padding-right: 16px;">
+            <img src="/public/images/media-video.png" width="66px" height="88px" />
+          </div>
+          <div style="padding-top: 10px;">
+            <a class="large-link" href="/v6-demo/topic/lesson/{{ lesson.id }}/video/1">Watch a video</a><br />
+            <span class="media-type-label">Data: 30mb</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div style="display: flex; margin-bottom: 10px;">
+          <div style="padding-right: 16px;">
+            <img src="/public/images/media-mp3.png" width="66px" height="88px" />
+          </div>
+          <div style="padding-top: 10px;">
+            <a href="{{ deadLink }}" class="large-link">Listen to a recording</a><br />
+            <span class="media-type-label">Data: 1mb</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

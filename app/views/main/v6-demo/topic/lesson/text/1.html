@@ -1,0 +1,183 @@
+{% extends "layout-v6-demo.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        {{ headingSuper({
+          text: heading.sub
+        }) }}
+
+        <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+          Article (part 1 of 3)
+        </h1>
+
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p>
+          In the first part of this lesson, you will learn how to start a formal email.
+          Knowing how to write a formal email is a key skill required in many industries and in everyday life.
+          You may already write emails, so some of the information in this lesson may be familiar to you, but some of it
+          might be new.
+        </p>
+        <hr />
+        <img class="image-border" src="/public/images/text-1-image-0.png" width="100%" />
+        <p>An email is a written message sent online to another person or a group of people.</p>
+        <p><strong>Some common reasons to send an email are:</strong></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Writing an application (for a job)</li>
+          <li>Writing to a colleague at work (to request time off work or to arrange a meeting)</li>
+          <li>Writing a complaint and/ or asking for a refund (usually to a company who has failed to provide their
+            services
+            as you would expect)</li>
+          <li>Replying to an email from your child’s school</li>
+        </ul>
+        <p>The email example we are going to work through in this lesson will be based on a template for a job
+          application.
+        </p>
+        <p>However, this lesson will be really useful no matter what type of email you are writing.</p>
+
+        <p><strong>Read the following scenario:</strong></p>
+        <p>You are currently a retail assistant and you want to improve your career prospects.Whilst browsing on a job
+          centre website, you see a Sales Manager role advertised at Sony Electronics.</p>
+        <p>You need to <strong>write an email to apply for a job</strong> at Sony Electronics as a Sales Manager.</p>
+        <p><strong>What are the key parts of an email?</strong></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>The email address of the recipient spelt correctly</li>
+          <li>A subject line</li>
+          <li>A formal greeting</li>
+          <li>An opening line (clearly explaining your reason for writing)</li>
+          <li>Clear and relevant information</li>
+          <li>A formal closing and sign off</li>
+        </ul>
+        <p><strong>Recipient email address</strong></p>
+        <p>In the ‘To:’ section of your email, you must write the email of the person you are sending it to.
+          Remember, it is important to check the email is spelt correctly. </p>
+
+        <p><strong>To: recruitment@sony.com</strong></p>
+        <p><strong>Subject line</strong></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Emails should include a formal subject line. </li>
+          <li>This should summarise the contents of the email.</li>
+        </ul>
+        <p>Subject: Jane Smith - Application for Sales Manager role at Sony</p>
+
+        <p>Greeting</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>A formal email needs to use a greeting such as “Dear….” rather than “Hi” or “Hello”. This is because you
+            may
+            not have met the person you are writing to.</li>
+          <li>If you do not know the name of the person you are sending the application to (e.g. Mr Jones), you should
+            use
+            the title Sir/ Madam.</li>
+        </ul>
+
+        <p>Opening line</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>The first sentence of your email should clearly introduce your purpose for writing.</li>
+          <li>In this example, it is clear this is an application for the role of Sales Manager at Sony.</li>
+        </ul>
+
+        <p>Dear Sir/ Madam,</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>I am writing to apply for the position of Sales Manager at Sony Electronics. </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row" id="section-actions">
+      <div class="govuk-grid-column-full">
+        <a href="{{ slideshow.nextLink }}" class="govuk-button" data-module="govuk-button">Continue to practice
+          question</a>
+        <!-- {{ actionLinks({
+          actions: actions
+        }) }} -->
+        <div class="also-links-main">
+          <hr />
+          <h2 class="govuk-heading-l">You can also</h2>
+          <div style="margin-bottom: 5px;">
+            <a class="small-link" href="/v6-demo/topic/lesson/1/select-learning-content">Change to slideshow, video or
+              audio</a><br /><br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <div class="also-links-side">
+      {{ sideLinks({
+        helpSections: [{
+          title: 'You can also',
+          links: [
+            {
+              text: 'Change to slideshow, video or audio',
+              href: '/v6-demo/topic/lesson/1/select-learning-content'
+            }
+          ]
+        }]
+      }) }}
+    </div>
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+
+<div class="slide-overlay hidden"></div>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+
+  function toggleFullscreen() {
+    const slideshow = $('.swiper-container')
+    if ((slideshow).hasClass('swiper-fullscreen')) {
+      $('.slide-overlay').addClass('hidden')
+      $('.swiper-container').removeClass('swiper-fullscreen')
+      $('#button-fullscreen').removeClass('swiper-fullscreen-button')
+      $('.swiper-slide').width('100%')
+      window.scrollTo(0, 0)
+    } else {
+      $('.slide-overlay').removeClass('hidden')
+      $('.swiper-container').addClass('swiper-fullscreen')
+      $('#button-fullscreen').addClass('swiper-fullscreen-button')
+      $('.swiper-slide').width('100%')
+      window.scrollTo(0, 0)
+    }
+  }
+
+  $(document).ready(function () {
+
+    var mySwiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    })
+
+  })
+</script>
+{% endblock %}
