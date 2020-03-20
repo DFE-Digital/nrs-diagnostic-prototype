@@ -824,6 +824,17 @@ module.exports = {
         heading: {
           main: 'This is a prototype'
         },
+        nextLink: '/v7/step-by-step'
+      })
+    })
+
+    router.get('/v7/step-by-step', function(req, res) {
+      res.render('main/v7/step-by-step', {
+        heading: {
+          main: 'English Functional Skills Level 2 qualification'
+        },
+        description:
+          'Check what you need to do to get a qualification in English Functional Skills Level 2',
         nextLink: '/v7/context'
       })
     })
