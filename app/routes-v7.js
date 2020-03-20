@@ -1,6 +1,6 @@
 module.exports = {
   generateRoutesV7: function generateRoutesV7(router) {
-    const COURSE_NAME = 'English Functional Skills Level 2'
+    const COURSE_NAME = 'Functional Skills English Level 2'
     const TOPIC_NAME = 'different types of writing'
     const lessonList = [
       {
@@ -840,6 +840,18 @@ module.exports = {
       })
     })
 
+    router.get('/v7/step-by-step-end', function(req, res) {
+      res.render('main/v7/step-by-step-end', {
+        heading: {
+          main:
+            'Get a qualification in functional skills English level 2: step by step'
+        },
+        description:
+          'Do this course online and in your own time to get a qualification in functional skills English level 2.',
+        nextLink: '/v7/context'
+      })
+    })
+
     router.get('/v7/end', function(req, res) {
       res.render('main/v7/end', {
         heading: {
@@ -852,7 +864,7 @@ module.exports = {
     router.get('/v7/context', function(req, res) {
       res.render('main/v7/context-page', {
         heading: {
-          main: 'English Functional Skills Level 2'
+          main: 'Functional Skills English Level 2'
         },
         nextLink: '/v7/topic/select-lesson'
       })
@@ -1562,6 +1574,156 @@ module.exports = {
           ]
         },
         side: helpLinks(req.path)
+      })
+    })
+
+    router.get('/v7/static/step-by-step', function(req, res) {
+      res.render('main/v7/static/step-by-step', {
+        heading: {
+          main:
+            'Get a qualification in functional skills English level 2: step by step'
+        },
+        description:
+          'Do this course online and in your own time to get a qualification in functional skills English level 2.'
+        // nextLink: '/v7/context'
+      })
+    })
+
+    router.get('/v7/static/feedback', function(req, res) {
+      const lessonId = '1'
+      const lesson = lessonList.find(x => x.id === lessonId)
+      if (!lesson) {
+        res.redirect('/v7/topic/select-lesson')
+      }
+
+      res.render('main/v7/static/feedback', {
+        // back: {
+        //   text: 'Exit lesson',
+        //   href: '/v7/prototype-limit/' + encodeURIComponent(req.path)
+        // },
+        heading: {
+          sub: lesson.title,
+          main: 'You have completed the lesson'
+        },
+        lesson,
+        sideActions: [
+          {
+            title: 'You can also:',
+            links: [
+              {
+                // text: 'Retry lesson',
+                // href: `/v7/topic/lesson/${lessonId}/select-learning-content`,
+                html: `<a class="small-link">Retry lesson</a><br/>`
+              },
+              {
+                // text: 'Retry quiz',
+                // href: `/v7/topic/lesson/${lessonId}/start-quiz`,
+                html: `<a class="small-link">Retry quiz</a><br/>`
+              }
+            ]
+          }
+        ],
+        actions: {
+          title: 'You can also:',
+          links: [
+            {
+              text: 'Next lesson',
+              href: '/v7/start-part-two',
+              isButton: true
+            },
+            {
+              // text: 'Retry lesson',
+              // href: `/v7/topic/lesson/${lessonId}/select-learning-content`,
+              html: `<a class="small-link" href="/v7/topic/lesson/${lessonId}/select-learning-content" onClick="return clearDataAndFollowLink();">Retry lesson</a><br/>`
+            },
+            {
+              // text: 'Retry quiz',
+              // href: `/v7/topic/lesson/${lessonId}/start-quiz`,
+              html: `<a class="small-link" href="/v7/topic/lesson/${lessonId}/start-quiz" onClick="return clearDataAndFollowLink();">Retry quiz</a><br/>`
+            }
+          ]
+        },
+        side: [helpLinks(req.path)[0]]
+      })
+    })
+
+    router.get('/v7/static/find-a-centre', function(req, res) {
+      res.render('main/v7/static/find-a-centre', {
+        back: {
+          text: 'Back',
+          href: `#`
+        },
+        heading: {
+          main: 'Find a test centre'
+        },
+        // description:
+        //   'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or by downloading a practice paper.',
+        lessonUrl: '#',
+        side: [
+          {
+            title: 'Need help?',
+            description:
+              'We can help you book an exam and apply for jobs. Find out more about how we can support you.',
+            links: [
+              {
+                text: 'Finding a test centre',
+                href: '#'
+              },
+              {
+                text: 'Getting a qualification',
+                href: '#'
+              },
+              {
+                html:
+                  '<span class="govuk-body-s"><a class="small-link">Use webchat or email</a></span><br /><span class="media-type-label">9am to 7pm, Monday to Sunday</span><br />'
+              }
+            ]
+          }
+        ]
+      })
+    })
+
+    router.get('/v7/static/search-results', function(req, res) {
+      res.render('main/v7/static/search-results', {
+        back: {
+          text: 'Back',
+          href: `#`
+        },
+        heading: {
+          main: 'Search results'
+        },
+        lessonUrl: '#',
+        side: [
+          {
+            title: 'Need help?',
+            description:
+              'We can help you book an exam and apply for jobs. Find out more about how we can support you.',
+            links: [
+              {
+                text: 'Finding a test centre',
+                href: '#'
+              },
+              {
+                text: 'Getting a qualification',
+                href: '#'
+              },
+              {
+                html:
+                  '<span class="govuk-body-s"><a class="small-link">Use webchat or email</a></span><br /><span class="media-type-label">9am to 7pm, Monday to Sunday</span><br />'
+              }
+            ]
+          }
+        ]
+      })
+    })
+
+    router.get('/v7/static/completed', function(req, res) {
+      res.render('main/v7/static/completed', {
+        heading: {
+          sub: COURSE_NAME,
+          main: 'Congratulations, you have completed the course!'
+        },
+        deadLink: '#'
       })
     })
 

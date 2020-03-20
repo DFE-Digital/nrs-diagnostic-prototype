@@ -1,0 +1,110 @@
+{% extends "layout-v7.html" %}
+
+{% block pageTitle %}
+NRS Prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ headingSuper({
+          text: heading.sub
+        }) }}
+
+        <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+          {{ heading.main }}
+        </h1>
+      </div>
+    </div>
+
+    {% if description %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p>{{ description }}</p>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h3 class="govuk-heading-m">Location</h3>
+        <div class="govuk-form-group">
+          <input class="govuk-input" type="text" aria-describedby="event-name-hint"
+            value="{{ data['centre-location'] }}">
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <a class="small-link" style="font-weight: bold;">Local Test Centre</a>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <span class="media-type-label">Distance: <strong>12.7 miles</strong></span>
+            </dd>
+            <!-- <dd class="govuk-summary-list__actions">
+              <span class="media-type-label">Location: <strong>2-3 Burrell Way, Thetford IP24 3RW</strong></span>
+            </dd> -->
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <a class="small-link" style="font-weight: bold;">Local Academy</a>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <span class="media-type-label">Distance: <strong>2 miles</strong></span>
+            </dd>
+            <!-- <dd class="govuk-summary-list__actions">
+              <span class="media-type-label">Location: <strong>The Thetford Academy, Croxton Rd, Thetford IP24
+                  1LH</strong></span>
+            </dd> -->
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <a class="small-link" style="font-weight: bold;">Charles Burrell Centre</a>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <span class="media-type-label">Distance: <strong>0.7 miles</strong></span>
+            </dd>
+            <!-- <dd class="govuk-summary-list__actions">
+              <span class="media-type-label">Location: <strong>The Charles Burrell Centre, Staniforth Road, Thetford
+                  IP24
+                  3LH</strong></span>
+            </dd> -->
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
