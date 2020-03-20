@@ -831,10 +831,11 @@ module.exports = {
     router.get('/v7/step-by-step', function(req, res) {
       res.render('main/v7/step-by-step', {
         heading: {
-          main: 'English Functional Skills Level 2 qualification'
+          main:
+            'Get a qualification in functional skills English level 2: step by step'
         },
         description:
-          'Check what you need to do to get a qualification in English Functional Skills Level 2',
+          'Do this course online and in your own time to get a qualification in functional skills English level 2.',
         nextLink: '/v7/context'
       })
     })
