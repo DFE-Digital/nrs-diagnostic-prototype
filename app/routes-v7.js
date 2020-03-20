@@ -1643,7 +1643,26 @@ module.exports = {
             }
           ]
         },
-        side: [helpLinks(req.path)[0]]
+        side: [
+          {
+            title: 'Need help?',
+            description: 'Choose one of the options if you need any help:',
+            links: [
+              {
+                text: 'View learning support pages',
+                href: '#'
+              },
+              {
+                text: 'Speak to a tutor (via email)',
+                href: '#'
+              },
+              {
+                text: 'Technical support',
+                href: '#'
+              }
+            ]
+          }
+        ]
       })
     })
 
