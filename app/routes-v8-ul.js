@@ -193,7 +193,8 @@ module.exports = {
             title: '',
             text: '',
             html:
-              '<p>You are writing an email to a local restaurant applying for a job as Front of House Manager. You need to end your email with an appropriate closing line and sign off. You <strong>do not know</strong> the name of the person you are writing to.</p><p><strong>Write the end of your email, making sure you include closing line and a sign off.  use for this email?</strong></p>',
+              '<p>You are writing an email to a local restaurant applying for a job as Front of House Manager. You need to end your email with an appropriate closing line and sign off. You <strong>do not know</strong> the name of the person you are writing to.</p>' +
+              '<p><strong>Write the end of your email, making sure you include a closing line and a sign off.</strong></p>',
             correctAnswerId: '1',
             answers: [],
             inputAnswers: [],
@@ -319,7 +320,8 @@ module.exports = {
             title: '',
             text: '',
             html:
-              '<p>You are writing an email to a local restaurant applying for a job as Front of House Manager. You need to end your email with an appropriate closing line and sign off. You <strong>do not know</strong> the name of the person you are writing to.</p><p><strong>Write the end of your email, making sure you include closing line and a sign off.  use for this email?</strong></p>',
+              '<p>You are writing an email to a local restaurant applying for a job as Front of House Manager. You need to end your email with an appropriate closing line and sign off. You <strong>do not know</strong> the name of the person you are writing to.</p>' +
+              '<p><strong>Write the end of your email, making sure you include a closing line and a sign off.</strong></p>',
             correctAnswerId: '1',
             answers: [],
             inputAnswers: [],
@@ -445,7 +447,8 @@ module.exports = {
             title: '',
             text: '',
             html:
-              '<p>You are writing an email to a local restaurant applying for a job as Front of House Manager. You need to end your email with an appropriate closing line and sign off. You <strong>do not know</strong> the name of the person you are writing to.</p><p><strong>Write the end of your email, making sure you include closing line and a sign off.  use for this email?</strong></p>',
+              '<p>You are writing an email to a local restaurant applying for a job as Front of House Manager. You need to end your email with an appropriate closing line and sign off. You <strong>do not know</strong> the name of the person you are writing to.</p>' +
+              '<p><strong>Write the end of your email, making sure you include a closing line and a sign off.</strong></p>',
             correctAnswerId: '1',
             answers: [],
             inputAnswers: [],
@@ -565,7 +568,9 @@ module.exports = {
             title: '',
             text: '',
             html:
-              '<p>You are asked to write an email applying for a job as a social worker at a local community centre.</p><p>After your greeting, the first line of your email should introduce your purpose for writing.</p><p><strong>Which would be an appropriate first sentence to introduce your purpose for writing?</strong></p>',
+              '<p>You are asked to write an email applying for a job as a social worker at a local community centre.</p>' +
+              '<p>After your greeting, the first line of your email should introduce your purpose for writing.</p>' +
+              '<p><strong>Which would be an appropriate first sentence to introduce your purpose for writing?</strong></p>',
             correctAnswerId: '1',
             answers: [
               {
@@ -598,9 +603,9 @@ module.exports = {
               {
                 id: '4',
                 value:
-                  'I believe I have the appropraite skills to make me eligible for a role as a social worker.',
+                  'I believe I have the appropriate skills to make me eligible for a role as a social worker.',
                 text:
-                  'I believe I have the appropraite skills to make me eligible for a role as a social worker.',
+                  'I believe I have the appropriate skills to make me eligible for a role as a social worker.',
                 isCorrect: false,
                 feedback:
                   'Before giving more detail about your skills and experience, a formal email should begin with an opening line which clearly explains your reason for writing. The sentence you have selected would be good to use after your opening line.'
@@ -666,7 +671,9 @@ module.exports = {
             title: '',
             text: '',
             html:
-              '<p>You are writing an email to apply for a job at a restaurant.</p><p>When you do not know the name of the person you are writing to.</p><p>Fill in the word to complete the appropriate sign off to this email.</p><p><strong>Yours __________</strong></p>',
+              '<p>You are writing an email to apply for a job at a restaurant. You do not know the name of the person you are writing to. </p>' +
+              '<p>Fill in the word to complete the appropriate sign off to this email.</p>' +
+              '<p><strong>Yours __________</strong></p>',
             correctAnswerId: '1',
             answers: [],
             inputAnswers: [
@@ -967,7 +974,7 @@ module.exports = {
       res.render('main/v8-ul/course/find-a-centre', {
         back: {
           text: 'Back',
-          href: `/v8-ul/course/actions`
+          href: `/v8-ul/course/completed`
         },
         heading: {
           main: 'Find a test centre'
