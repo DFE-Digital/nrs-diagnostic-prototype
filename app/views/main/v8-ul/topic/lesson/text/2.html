@@ -1,0 +1,129 @@
+{% extends "layout-v8-ul.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %} {% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        {{ headingSuper({
+          text: heading.sub
+        }) }}
+
+        <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+          Article (part 2 of 3)
+        </h1>
+
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p>
+          In the next section of this lesson, you will learn how to write the main part of an email.
+        </p>
+        <hr />
+        <p>The main part of your email needs to give clear information.</p>
+        <p>This lesson is demonstrating how to write an email for a job application, so you need to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Explain why you are applying for the role.</li>
+          <li>Describe the experience and skills you currently have.</li>
+        </ul>
+        <img class="image-border" src="/public/images/text-1-image-1.png" width="100%" />
+        <p>You should use formal language throughout your email. This means you should write using full sentences,
+          paragraphs and correct spellings.</p>
+        <img class="image-border" src="/public/images/text-1-image-2.png" width="100%" />
+      </div>
+    </div>
+
+    <div class="govuk-grid-row" id="section-actions">
+      <div class="govuk-grid-column-full">
+        <a href="{{ slideshow.nextLink }}" class="govuk-button" data-module="govuk-button">Continue to practice
+          question</a>
+        <!-- {{ actionLinks({
+          actions: actions
+        }) }} -->
+        <div class="also-links-main">
+          <hr />
+          <h2 class="govuk-heading-l">You can also</h2>
+          <div style="margin-bottom: 5px;">
+            <a class="small-link" href="/v8-ul/topic/lesson/1/select-learning-content">Change to slideshow, video or
+              audio</a><br /><br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <div class="also-links-side">
+      {{ sideLinks({
+        helpSections: [{
+          title: 'You can also',
+          links: [
+            {
+              text: 'Change to slideshow, video or audio',
+              href: '/v8-ul/topic/lesson/1/select-learning-content'
+            }
+          ]
+        }]
+      }) }}
+    </div>
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+
+<div class="slide-overlay hidden"></div>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+
+  function toggleFullscreen() {
+    const slideshow = $('.swiper-container')
+    if ((slideshow).hasClass('swiper-fullscreen')) {
+      $('.slide-overlay').addClass('hidden')
+      $('.swiper-container').removeClass('swiper-fullscreen')
+      $('#button-fullscreen').removeClass('swiper-fullscreen-button')
+      $('.swiper-slide').width('100%')
+      window.scrollTo(0, 0)
+    } else {
+      $('.slide-overlay').removeClass('hidden')
+      $('.swiper-container').addClass('swiper-fullscreen')
+      $('#button-fullscreen').addClass('swiper-fullscreen-button')
+      $('.swiper-slide').width('100%')
+      window.scrollTo(0, 0)
+    }
+  }
+
+  $(document).ready(function () {
+
+    var mySwiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    })
+
+  })
+</script>
+{% endblock %}

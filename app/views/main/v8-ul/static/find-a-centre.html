@@ -1,0 +1,78 @@
+{% extends "layout-v8-ul.html" %}
+
+{% block pageTitle %}
+NRS Prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ headingSuper({
+          text: heading.sub
+        }) }}
+
+        <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+          {{ heading.main }}
+        </h1>
+      </div>
+    </div>
+
+    {% if description %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p>{{ description }}</p>
+      </div>
+    </div>
+    {% endif %}
+
+    <form class="form" action="/v8-ul/course/search-results" method="post">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <h3 class="govuk-heading-m">Your location</h3>
+          {{ govukInput({
+            hint: {
+              text: "Enter your postcode to find a test centre near you"
+            },
+            id: "centre-location",
+            name: "centre-location"
+          }) }}
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <a class="govuk-button" data-module="govuk-button">Find a test centre</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% if side %}
+
+    <a name="help"></a>
+    <div id="helplinks-primary">
+      {{ sideLinks({
+          helpSections: side
+        }) }}
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
