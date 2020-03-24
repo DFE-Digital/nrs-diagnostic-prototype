@@ -1,0 +1,97 @@
+{% extends "layout-v8-hj.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %}
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ heading.main }}
+    </h1>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>Thank you very much for agreeing to take part in this test of our latest prototype. Your help is very much
+      appreciated and will help to inform research for the Department for Education (DfE).
+    </p>
+    <p>Email me stating your name (as some email addresses do not include it) so that I can tell the market research
+      recruiter to pay you.</p>
+    <h3 class="govuk-heading-m">How we are collecting data</h3>
+    <!-- <p><strong>How we are collecting data</strong></p> -->
+    <p><i>In this case the research team is asking you to use a prototype and that usage will be recorded through a tool
+        called Hotjar. Data collected includes where you click and scroll, what you do on screen (a reconstructed
+        recording), answers you provide to <u>popup questions</u> and a <u>questionnaire at the end.</u> All data you
+        input is
+        anonymised by Hotjar and it reconstructs your session from that data and does not actually record your computer
+        screen. </i></p>
+    <p><i>Hotjar <strong>WILL NOT</strong> be installing anything on your computer or phone.</i></p>
+    <p><i>Please accept all cookies so that Hotjar can collect data on what you do.</i></p>
+    <p><strong>Please DO NOT put any personal identifiable data which could be used to identify you or anyone else.
+        Examples include name, phone number, full address, email address, financial information, criminal convictions,
+        school attended, teacher’s name etc. into the popup questions and questionnaire. In the open questions please do
+        not make comments about others which may be libellous or defamatory. </strong></p>
+    <h3 class="govuk-heading-m">Taking part in Research: Your Rights</h3>
+    <!-- <p><strong>Taking part in Research: Your Rights</strong></p> -->
+    <p><strong>Could you please read the consent form and then email <a
+          href="mailto:ian.franklin@digital.education.gov.uk">ian.franklin@digital.education.gov.uk</a> telling me
+        that you are still happy to continue with the research:</strong></p>
+    <p>‘I agree to take part in the research and I consent to the personal data I give being used for research to
+      improve government services.’</p>
+    <p>Clearly stating your name.</p>
+    <h3 class="govuk-heading-m">Your safeguarding</h3>
+    <p>Some people find that doing something learning and education related can make them upset if previous learning
+      experiences were not good ones. The organisations listed below can help if you need to talk to somebody:</p>
+    <p>
+      <u>The Samaritans</u><br />
+      Website: http://www.samaritans.org/ <br />
+      Phone: UK and ROI: 116 123 This number is free to callers from landlines, mobiles and payphones and does not show
+      up on itemised phone bills <br />
+      Email: jo@samaritans.org
+    </p>
+    <p>
+      <u>Mind</u><br />
+      Website: http://www.mind.org.uk/ <br />
+      Phone: 0845 7660163 <br />
+      Email: info@mind.org.uk
+    </p>
+    <p>
+      <u>Mental Health Foundation</u><br />
+      Website: http://www.mentalhealth.org.uk/
+    </p>
+    <p>
+      <u>Choose Life</u><br />
+      Website: http://www.chooselife.net
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukButton({
+      text: "Continue",
+      href: nextLink,
+      isStartButton: false
+    }) }}
+  </div>
+</div>
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function () {
+    clearLocalStorageData()
+  })
+</script>
+{% endblock %}

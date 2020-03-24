@@ -818,6 +818,15 @@ module.exports = {
 
     // Add your routes here - above the module.exports line
     router.get('/v8-hj', function(req, res) {
+      res.render('main/v8-hj/vignette/hotjar', {
+        heading: {
+          main: 'Please read these instructions'
+        },
+        nextLink: '/v8-hj/hotjar-start'
+      })
+    })
+
+    router.get('/v8-hj/hotjar-start', function(req, res) {
       res.render('main/v8-hj/vignette/hotjar-start', {
         heading: {
           main: 'Please read these instructions'
