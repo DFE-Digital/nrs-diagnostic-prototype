@@ -33,7 +33,7 @@ Prototype {% endblock %} {% block pageScripts %}
       data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all" data-hide-all-text="Hide all">
       <ol class="app-step-nav__steps">
 
-        <li class="app-step-nav__step js-step" id="check-youre-allowed-to-drive">
+        <li class="app-step-nav__step js-step" id="diagnostic">
           <div class="app-step-nav__header js-toggle-panel" data-position="1">
             <h2 class="app-step-nav__title">
               <span class="app-step-nav__circle app-step-nav__circle--number">
@@ -45,19 +45,21 @@ Prototype {% endblock %} {% block pageScripts %}
               </span>
 
               <span class="js-step-title">
-                Start functional skills English level 2
+                See how good you are at English now
               </span>
             </h2>
           </div>
 
-          <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-check-youre-allowed-to-drive-1">
-            <p class="app-step-nav__paragraph">Take this course online in bite-size 15-minute chunks over a few months.
-              The whole course takes between 30 and 60 hours to complete.</p>
+          <div class="app-step-nav__panel js-panel js-hidden" id="diagnostic-1">
+            <p class="app-step-nav__paragraph">Take this quiz to find out what you are good at and what you need to
+              improve. After the quiz you will only see the lessons that you need to work on. It takes around 30 minutes
+              and could save you hours in the course. </p>
 
-            <ol class="app-step-nav__list " data-length="3">
+            <ol class="app-step-nav__list " data-length="1">
               <li class="app-step-nav__list-item js-list-item ">
-                <a data-position="1.1" class="app-step-nav__link js-link" href="/v8-ul/context">Start the course
-                  online</a>
+                <a data-position="1.1" class="app-step-nav__link js-link" href="/v8-ul/diagnostic">Start quiz</a><span
+                  style="color: #6f777b;"> -
+                  optional</span>
               </li>
               <!-- <li class="app-step-nav__list-item js-list-item ">
                 <a data-position="1.2" class="app-step-nav__link js-link" href="#">Requirements for driving legally </a>
@@ -70,7 +72,7 @@ Prototype {% endblock %} {% block pageScripts %}
 
         </li>
 
-        <li class="app-step-nav__step js-step" id="get-a-provisional-licence">
+        <li class="app-step-nav__step js-step" id="start-course">
           <div class="app-step-nav__header js-toggle-panel" data-position="2">
             <h2 class="app-step-nav__title">
               <span class="app-step-nav__circle app-step-nav__circle--number">
@@ -82,32 +84,30 @@ Prototype {% endblock %} {% block pageScripts %}
               </span>
 
               <span class="js-step-title">
-                When you have completed the course
+                Start functional skills English level 2
               </span>
             </h2>
           </div>
 
-          <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-get-a-provisional-licence-2">
-            <p class="app-step-nav__paragraph">Get ready to take your exams. You need to take 3 exams to get a
-              qualification.</p>
+          <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-start-course-2">
+            <p class="app-step-nav__paragraph">Take this course online in bite-size 15-minute chunks and at your own
+              pace. The whole course takes between 30 and 60 hours to complete.</p>
+
             <ol class="app-step-nav__list " data-length="1">
-              <!-- <li class="app-step-nav__list-item js-list-item ">
-                <a data-position="2.1" class="app-step-nav__link js-link" href="#">Print or download a course
-                  certificate</a>
-              </li> -->
               <li class="app-step-nav__list-item js-list-item ">
-                <a data-position="2.2" class="app-step-nav__link js-link" href="#">Prepare for your exams by trying a
-                  practice paper</a>
+                <a data-position="2.1" class="app-step-nav__link js-link" href="/v8-ul/context">Start the course
+                  online</a>
               </li>
               <li class="app-step-nav__list-item js-list-item ">
-                <a data-position="2.3" class="app-step-nav__link js-link" href="#">Get help with revision</a>
+                <a data-position="2.2" class="app-step-nav__link js-link" href="#">Order a paper version of the course
+                  for free</a>
               </li>
             </ol>
           </div>
 
         </li>
 
-        <li class="app-step-nav__step js-step" id="driving-lessons-and-practice">
+        <li class="app-step-nav__step js-step" id="course-completed">
           <div class="app-step-nav__header js-toggle-panel" data-position="3">
             <h2 class="app-step-nav__title">
               <span class="app-step-nav__circle app-step-nav__circle--number">
@@ -119,25 +119,58 @@ Prototype {% endblock %} {% block pageScripts %}
               </span>
 
               <span class="js-step-title">
+                When you have completed the course
+              </span>
+            </h2>
+          </div>
+
+          <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-course-completed-3">
+            <p class="app-step-nav__paragraph">Get ready to take your exams. You need to take 3 exams to get a
+              qualification.</p>
+            <ol class="app-step-nav__list " data-length="2">
+              <li class="app-step-nav__list-item js-list-item ">
+                <a data-position="3.1" class="app-step-nav__link js-link" href="#">Prepare for your exams by trying a
+                  practice paper</a>
+              </li>
+              <li class="app-step-nav__list-item js-list-item ">
+                <a data-position="3.2" class="app-step-nav__link js-link" href="#">Get help with revision</a>
+              </li>
+            </ol>
+          </div>
+
+        </li>
+
+        <li class="app-step-nav__step js-step" id="book-exam">
+          <div class="app-step-nav__header js-toggle-panel" data-position="4">
+            <h2 class="app-step-nav__title">
+              <span class="app-step-nav__circle app-step-nav__circle--number">
+                <span class="app-step-nav__circle-inner">
+                  <span class="app-step-nav__circle-background">
+                    <span class="govuk-visually-hidden">Step</span> 4
+                  </span>
+                </span>
+              </span>
+
+              <span class="js-step-title">
                 Book and take your exams
               </span>
             </h2>
           </div>
 
-          <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-driving-lessons-and-practice-3">
+          <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-book-exam-4">
             <p class="app-step-nav__paragraph">Taking the exams is free and there are test centres around the UK.</p>
 
-            <ol class="app-step-nav__list " data-length="4">
+            <ol class="app-step-nav__list " data-length="3">
               <li class="app-step-nav__list-item js-list-item ">
-                <a data-position="3.1" class="app-step-nav__link js-link" href="/v8-ul/course/find-a-centre">Book your
+                <a data-position="4.1" class="app-step-nav__link js-link" href="/v8-ul/course/find-a-centre">Book your
                   free
                   exams</a>
               </li>
               <li class="app-step-nav__list-item js-list-item ">
-                <a data-position="3.2" class="app-step-nav__link js-link" href="#">What you will need for your exams</a>
+                <a data-position="4.2" class="app-step-nav__link js-link" href="#">What you will need for your exams</a>
               </li>
               <li class="app-step-nav__list-item js-list-item ">
-                <a data-position="3.3" class="app-step-nav__link js-link" href="#">View or change your exam
+                <a data-position="4.3" class="app-step-nav__link js-link" href="#">View or change your exam
                   appointment</a>
               </li>
               <!-- <li class="app-step-nav__list-item js-list-item ">
@@ -149,8 +182,8 @@ Prototype {% endblock %} {% block pageScripts %}
 
         </li>
 
-        <li class="app-step-nav__step js-step" id="prepare-for-your-theory-test">
-          <div class="app-step-nav__header js-toggle-panel" data-position="4">
+        <li class="app-step-nav__step js-step" id="whan-you-pass">
+          <div class="app-step-nav__header js-toggle-panel" data-position="5">
             <h2 class="app-step-nav__title">
               <span class="app-step-nav__circle app-step-nav__circle--number">
                 <span class="app-step-nav__circle-inner">
@@ -158,7 +191,7 @@ Prototype {% endblock %} {% block pageScripts %}
                     and
                   </span> -->
                   <span class="app-step-nav__circle-background">
-                    <span class="govuk-visually-hidden">Step</span> 4
+                    <span class="govuk-visually-hidden">Step</span> 5
                   </span>
                 </span>
               </span>
@@ -169,18 +202,18 @@ Prototype {% endblock %} {% block pageScripts %}
             </h2>
           </div>
 
-          <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-prepare-for-your-theory-test-4">
+          <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-whan-you-pass-5">
             <p class="app-step-nav__paragraph">You’ll be able to share your qualification with potential employers.</p>
             <ol class="app-step-nav__list " data-length="3">
               <li class="app-step-nav__list-item js-list-item ">
-                <a data-position="4.1" class="app-step-nav__link js-link" href="#">Search for job vacancies</a>
+                <a data-position="5.1" class="app-step-nav__link js-link" href="#">Search for job vacancies</a>
               </li>
               <li class="app-step-nav__list-item js-list-item ">
-                <a data-position="4.2" class="app-step-nav__link js-link" href="#">Return to your personal action
+                <a data-position="5.2" class="app-step-nav__link js-link" href="#">Return to your personal action
                   plan</a>
               </li>
               <li class="app-step-nav__list-item js-list-item ">
-                <a rel="external" data-position="4.3" class="app-step-nav__link js-link" href="#">Get help to apply for
+                <a rel="external" data-position="5.3" class="app-step-nav__link js-link" href="#">Get help to apply for
                   a job</a>
               </li>
             </ol>

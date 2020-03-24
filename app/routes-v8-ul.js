@@ -924,6 +924,18 @@ module.exports = {
       })
     })
 
+    router.get('/v8-ul/diagnostic', function(req, res) {
+      const returnUrl = req.params.returnUrl
+      res.render('main/v8-ul/vignette/diagnostic', {
+        heading: {
+          main: 'You have completed the quiz'
+        },
+        // description:
+        //   'As this is a prototype, certain links do not work. You can click the button below to return back to where you were.',
+        nextLink: '/v8-ul/step-by-step'
+      })
+    })
+
     router.get('/v8-ul/course/completed', function(req, res) {
       res.render('main/v8-ul/course/completed', {
         heading: {
