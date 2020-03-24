@@ -37,6 +37,7 @@
 
 {% block head %}
 {% include "includes/head.html" %}
+{% include "includes/hotjar.html" %}
 {% endblock %}
 
 {% block pageTitle %}
@@ -47,7 +48,7 @@ GOV.UK Prototype Kit
 {% include "includes/cookie-banner.html" %}
 {# Set serviceName in config.js. #}
 {{ govukHeader({
-    homepageUrl: "/v8-ul/step-by-step",
+    homepageUrl: "/v8-hj/step-by-step",
     serviceUrl: "/",
     containerClasses: "govuk-width-container"
   }) }}

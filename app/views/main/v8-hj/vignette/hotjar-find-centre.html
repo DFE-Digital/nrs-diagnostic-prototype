@@ -1,0 +1,47 @@
+{% extends "layout-v8-hj.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %}
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ heading.main }}
+    </h1>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>
+      On the next page please try and find a test centre near you. Please use this fake postcode (not your own post
+      code):
+    </p>
+    <p>
+      <strong>TD1 6WL</strong>
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukButton({
+      text: "Continue",
+      href: nextLink,
+      isStartButton: false
+    }) }}
+  </div>
+</div>
+{% endblock %}

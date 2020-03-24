@@ -818,7 +818,25 @@ module.exports = {
 
     // Add your routes here - above the module.exports line
     router.get('/v8-hj', function(req, res) {
-      res.render('main/v8-hj/start', {
+      res.render('main/v8-hj/vignette/hotjar-start', {
+        heading: {
+          main: 'Please read these instructions'
+        },
+        nextLink: '/v8-hj/instruction'
+      })
+    })
+
+    router.get('/v8-hj/instruction', function(req, res) {
+      res.render('main/v8-hj/vignette/hotjar-instruction', {
+        heading: {
+          main: 'Please read these instructions'
+        },
+        nextLink: '/v8-hj/step-by-step'
+      })
+    })
+
+    router.get('/v8-hj/start', function(req, res) {
+      res.render('main/v8-hj/vignette/start-prototype', {
         heading: {
           main: 'This is a prototype'
         },
@@ -859,6 +877,24 @@ module.exports = {
       })
     })
 
+    router.get('/v8-hj/hotjar-find-centre', function(req, res) {
+      res.render('main/v8-hj/vignette/hotjar-find-centre', {
+        heading: {
+          main: 'Please read these instructions'
+        },
+        nextLink: '/v8-hj/course/find-a-centre'
+      })
+    })
+
+    router.get('/v8-hj/hotjar-end', function(req, res) {
+      res.render('main/v8-hj/vignette/hotjar-end', {
+        heading: {
+          main: 'Please read these instructions'
+        },
+        nextLink: '/v8-hj/course/find-a-centre'
+      })
+    })
+
     router.get('/v8-hj/end', function(req, res) {
       res.render('main/v8-hj/end', {
         heading: {
@@ -883,6 +919,15 @@ module.exports = {
           main: "You've completed the course"
         },
         description: 'You did 60 lessons over a few months.',
+        nextLink: '/v8-hj/hotjar-course-complete'
+      })
+    })
+
+    router.get('/v8-hj/hotjar-course-complete', function(req, res) {
+      res.render('main/v8-hj/vignette/hotjar-course-complete', {
+        heading: {
+          main: 'Please read these instructions'
+        },
         nextLink: '/v8-hj/course/completed'
       })
     })
@@ -986,7 +1031,7 @@ module.exports = {
       res.render('main/v8-hj/course/find-a-centre', {
         back: {
           text: 'Back',
-          href: `/v8-hj/course/completed`
+          href: `/v8-hj/hotjar-find-centre`
         },
         heading: {
           main: 'Find a test centre'
@@ -1022,7 +1067,7 @@ module.exports = {
       res.render('main/v8-hj/course/search-results', {
         back: {
           text: 'Back',
-          href: `main/v8-hj/course/find-a-centre`
+          href: `/v8-hj/course/find-a-centre`
         },
         heading: {
           main: 'Search results'

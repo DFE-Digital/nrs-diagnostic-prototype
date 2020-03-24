@@ -1,0 +1,48 @@
+{% extends "layout-v8-hj.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %}
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ heading.main }}
+    </h1>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>
+      Before you click 'Start’ please read these instructions.
+    </p>
+    <p>Imagine that you are looking for a new job. To apply for the new job, you need a qualification called English
+      Functional Skills at a Level 2.</p>
+    <p>To help you get this qualification, you have signed up to an online training course.</p>
+    <p><strong>Please complete the ‘Writing Emails’ lesson and go as far as booking an exam.</strong></p>
+    <p>When ready please click ‘Start’ and please work through as if you were actually doing the course.</p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukButton({
+      text: "Start",
+      href: nextLink,
+      isStartButton: true
+    }) }}
+  </div>
+</div>
+{% endblock %}

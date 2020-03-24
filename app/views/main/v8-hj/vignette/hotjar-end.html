@@ -1,0 +1,52 @@
+{% extends "layout-v8-hj.html" %} {% block pageTitle %} NRS Diagnostic
+Prototype {% endblock %}
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% if back %}
+
+{{ govukBackLink({
+      text: back.text,
+      href: back.href
+    }) }}
+
+{% endif %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
+      {{ heading.main }}
+    </h1>
+  </div>
+</div>
+<br />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>
+      Thank you very much for working through our new prototype. We would like you to answer a short questionnaire.
+    </p>
+    <p>
+      An invite will popup after about 20 seconds; please click the link and complete the questionnaire.
+    </p>
+  </div>
+</div>
+
+<!-- <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukButton({
+      text: "Continue",
+      href: nextLink,
+      isStartButton: false
+    }) }}
+  </div>
+</div> -->
+{% endblock %} {% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function () {
+    clearLocalStorageData()
+  })
+</script>
+{% endblock %}
