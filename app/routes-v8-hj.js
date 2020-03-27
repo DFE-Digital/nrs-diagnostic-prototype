@@ -50,7 +50,6 @@ module.exports = {
               '/public/images/slideshow/1/slideshow-1-slide-4.jpeg',
               '/public/images/slideshow/1/slideshow-1-slide-5.jpeg',
               '/public/images/slideshow/1/slideshow-1-slide-6.jpeg',
-              // '/public/images/slideshow/1/slideshow-1-slide-7.jpeg',
               '/public/images/slideshow/1/slideshow-1-slide-8.jpeg',
               '/public/images/slideshow/1/slideshow-1-slide-9.jpeg',
               '/public/images/slideshow/1/slideshow-1-slide-10.jpeg',
@@ -66,7 +65,6 @@ module.exports = {
             slides: [
               '/public/images/slideshow/1/slideshow-2-slide-1.jpeg',
               '/public/images/slideshow/1/slideshow-2-slide-2.jpeg'
-              // '/public/images/slideshow/1/slideshow-2-slide-3.jpeg'
             ],
             backLink: '/v8-hj/topic/lesson/1/slideshow/practice/1',
             nextLink: '/v8-hj/topic/lesson/1/slideshow/practice/2'
@@ -76,7 +74,6 @@ module.exports = {
             description:
               'In this final slideshow, you will learn how to end a formal email appropriately.',
             slides: [
-              // '/public/images/slideshow/1/slideshow-3-slide-1.jpeg',
               '/public/images/slideshow/1/slideshow-3-slide-2.jpeg',
               '/public/images/slideshow/1/slideshow-3-slide-3.jpeg',
               '/public/images/slideshow/1/slideshow-3-slide-4.jpeg'
@@ -959,8 +956,6 @@ module.exports = {
         heading: {
           main: 'You emailed a tutor and they got back to you a few hours later'
         },
-        // description:
-        //   'As this is a prototype, certain links do not work. You can click the button below to return back to where you were.',
         nextLink: returnUrl
       })
     })
@@ -972,8 +967,6 @@ module.exports = {
           main:
             'You spoke with an IT technician who was able to help you solve your technical issue.'
         },
-        // description:
-        //   'As this is a prototype, certain links do not work. You can click the button below to return back to where you were.',
         nextLink: returnUrl
       })
     })
@@ -984,8 +977,6 @@ module.exports = {
         heading: {
           main: 'You have completed the quiz'
         },
-        // description:
-        //   'As this is a prototype, certain links do not work. You can click the button below to return back to where you were.',
         nextLink: '/v8-hj/step-by-step'
       })
     })
@@ -1045,8 +1036,6 @@ module.exports = {
         heading: {
           main: 'Find a test centre'
         },
-        // description:
-        //   'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or by downloading a practice paper.',
         lessonUrl: '/v8-hj/topic/lesson/1/lesson-objective',
         side: [
           {
@@ -1113,24 +1102,6 @@ module.exports = {
         description:
           'This topic contains 8 lessons which will help you develop skills in multiple types of writing. These writing skills will be useful in both your everyday and professional life.',
         lessonUrl: '/v8-hj/topic/lesson/1/lesson-objective'
-        // lessons
-        // lessons: [
-        //   {
-        //     title: '[lesson name]',
-        //     description:
-        //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada arcu nibh sit.'
-        //   },
-        //   {
-        //     title: '[lesson name]',
-        //     description:
-        //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada arcu nibh sit.'
-        //   },
-        //   {
-        //     title: '[lesson name]',
-        //     description:
-        //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada arcu nibh sit.'
-        //   }
-        // ]
       })
     })
 
@@ -1297,7 +1268,7 @@ module.exports = {
 
         res.render(template, {
           back: {
-            text: 'Back', // `Back to ${media}`,
+            text: 'Back',
             href: question.backLink
           },
           heading: {
@@ -1318,7 +1289,7 @@ module.exports = {
             title: 'You can also:',
             links: [
               {
-                text: question.nextLinkText, // 'Continue with lesson',
+                text: question.nextLinkText,
                 href: question.nextLink,
                 isButton: true
               },
@@ -1333,7 +1304,6 @@ module.exports = {
             link: {
               text: `Return to ${media}`,
               href: question.backLink
-              // onClick: 'return v4SkipQuestion();'
             }
           },
           side: helpLinks(req.path),
@@ -1425,11 +1395,6 @@ module.exports = {
         res.redirect(`/v8-hj/topic/lesson/${lessonId}/select-learning-content`)
       }
 
-      // question = question.reduce(q => ({
-      //   ...q,
-      //   backLink: '/v8-hj/prototype-limit/' + encodeURIComponent(req.path)
-      // }))
-
       const questionNo = lesson.assessmentQuestions.indexOf(question) + 1
       const totalQuestions = lesson.assessmentQuestions.length
 
@@ -1441,7 +1406,7 @@ module.exports = {
       res.render(template, {
         // back: {
         //   text: 'Back to lesson',
-        //   href: '/v8-hj/prototype-limit/' + encodeURIComponent(req.path) // videoContent.backLink
+        //   href: '/v8-hj/prototype-limit/' + encodeURIComponent(req.path)
         // },
         heading: {
           sub: lesson.title,
@@ -1458,21 +1423,16 @@ module.exports = {
           title: 'You can also:',
           links: [
             {
-              text: question.nextLinkText, // 'Continue with quiz',
+              text: question.nextLinkText,
               href: question.nextLink,
               isButton: true
             }
-            // {
-            //   text: 'Return to lesson',
-            //   href: question.backLink
-            // }
           ]
         },
         skipAction: {
           title: 'You can also:',
           link: {
             text: 'Skip this question',
-            // href: question.backLink,
             onClick: 'return v4SkipQuestion();'
           }
         },
@@ -1489,11 +1449,6 @@ module.exports = {
                 text: 'Speak to a tutor (via email)',
                 href: '/v8-hj/speak-to-tutor/' + encodeURIComponent(req.path)
               }
-              // {
-              //   text: 'Skip this question',
-              //   onClick: 'return v4SkipQuestion();',
-              //   id: 'skip-link'
-              // }
             ]
           }
         ],
@@ -1667,7 +1622,6 @@ module.exports = {
         },
         description:
           'Do this course online and in your own time to get a qualification in functional skills English level 2.'
-        // nextLink: '/v8-hj/context'
       })
     })
 
@@ -1757,8 +1711,6 @@ module.exports = {
         heading: {
           main: 'Find a test centre'
         },
-        // description:
-        //   'You have completed a course. Now you can look for a test centre to sit an exam. Alternatively, if you don’t feel quite ready, you can continue learning by going back through the course or by downloading a practice paper.',
         lessonUrl: '#',
         side: [
           {

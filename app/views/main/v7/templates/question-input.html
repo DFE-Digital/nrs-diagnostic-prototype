@@ -216,8 +216,6 @@ NRS Prototype
 
 
     v4LockQuestion(question)
-
-    // $('#question-form').addClass('hidden')
     v4ShowInputFeedback(question, result)
 
     window.scrollTo(0, 0)
@@ -234,7 +232,6 @@ NRS Prototype
     $('#dont-know').addClass('hidden')
     $('#button-skip-action').addClass('hidden')
     $('div[name="button-skip-action"]').addClass('hidden')
-    // $('#sub-heading').removeClass('hidden')
   }
 
   function v4HideInputQuestion() {
@@ -315,9 +312,6 @@ NRS Prototype
   function v4ShowInputFeedback(question, result) {
     $('#question-form').addClass('hidden')
     $('#' + question + '-feedback-' + result).removeClass('hidden')
-    // $('#sub-heading').addClass('hidden')
-    // $('#helplinks-primary').addClass('hidden')
-    // $('#helplinks-secondary').removeClass('hidden')
     $('#section-actions').removeClass('hidden')
     $('#question-description').addClass('hidden')
     $('#skip-link').addClass('hidden')

@@ -74,26 +74,9 @@ NRS Prototype
       </div>
     </div>
 
-    <!-- <div id="helplinks-secondary" class="hidden">
-      {{ helpLinks({
-        helpSections: help
-      }) }}
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-          <hr />
-        </div>
-      </div>
-    </div> -->
-
     <div id="question-form">
       <div class="govuk-grid-row" id="section-headings">
         <div class="govuk-grid-column-full">
-          <!-- <div id="sub-heading">
-            {{ headingSuper({
-            text: heading.sub
-          }) }}
-          </div> -->
-
           <h1 class="govuk-heading-xl" style="margin-bottom: 20px;">
             {{ heading.html | safe if heading.html else heading.main }}
           </h1>
@@ -224,8 +207,6 @@ NRS Prototype
     saveResult(question, selectedId, selectedAnswer, result)
 
     v4LockQuestion(question)
-
-    // $('#question-form').addClass('hidden')
     v4ShowFeedback(selectedId, correctAnswerId)
 
     window.scrollTo(0, 0)
@@ -242,7 +223,6 @@ NRS Prototype
     $('#dont-know').addClass('hidden')
     $('#button-skip-action').addClass('hidden')
     $('div[name="button-skip-action"]').addClass('hidden')
-    // $('#sub-heading').removeClass('hidden')
   }
 
   function v4HideQuestion() {
@@ -327,9 +307,6 @@ NRS Prototype
     } else {
       $('#' + selectedId + '-feedback').removeClass('hidden')
     }
-    // $('#sub-heading').addClass('hidden')
-    // $('#helplinks-primary').addClass('hidden')
-    // $('#helplinks-secondary').removeClass('hidden')
     $('#section-actions').removeClass('hidden')
     $('#question-description').addClass('hidden')
     $('#skip-link').addClass('hidden')

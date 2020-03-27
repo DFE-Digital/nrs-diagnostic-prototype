@@ -17,36 +17,16 @@ Prototype {% endblock %} {% block header %}
       need to acquire before being in a position to apply for the role.
     </p>
 
-    <!-- <form class="form" action="/main/v2/intro/select-skills" method="post"> -->
-    <form
-      class="form"
-      onclick="return submitTargetJob();"
-      action="/main/v2/intro/select-skills"
-      method="post"
-    >
+    <form class="form" onclick="return submitTargetJob();" action="/main/v2/intro/select-skills" method="post">
       <div class="govuk-form-group">
-        <input
-          class="govuk-input"
-          id="target-job"
-          name="target-job"
-          type="text"
-        />
+        <input class="govuk-input" id="target-job" name="target-job" type="text" />
       </div>
 
-      <button
-        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
-        data-module="govuk-button"
-      >
+      <button class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+        data-module="govuk-button">
         Search
-        <svg
-          class="govuk-button__start-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="17.5"
-          height="19"
-          viewBox="0 0 33 40"
-          role="presentation"
-          focusable="false"
-        >
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19"
+          viewBox="0 0 33 40" role="presentation" focusable="false">
           <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
         </svg>
       </button>
@@ -55,10 +35,6 @@ Prototype {% endblock %} {% block header %}
 </div>
 {% endblock %} {% block pageScripts %}
 <script type="text/javascript">
-  // $(document).ready(function() {
-  //   validateQuestion('english', 'english-question-one')
-  // })
-
   function submitTargetJob() {
     var targetJob = $('#target-job').val()
 

@@ -11,14 +11,10 @@ Prototype {% endblock %} {% block header %}
       <a class="govuk-breadcrumbs__link" href="#">My Jobs</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="/main/v1/job-search"
-        >Target job</a
-      >
+      <a class="govuk-breadcrumbs__link" href="/main/v1/job-search">Target job</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="/main/v1/maths-course"
-        >Math skills</a
-      >
+      <a class="govuk-breadcrumbs__link" href="/main/v1/maths-course">Math skills</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
       <a class="govuk-breadcrumbs__link">Functional Skills 2</a>
@@ -27,7 +23,6 @@ Prototype {% endblock %} {% block header %}
 </div>
 {% endblock %} {% block content %}
 <form class="form" onsubmit="return submitAnswer();">
-  <!-- action="/main/v1/question/2" -->
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-form-group">
@@ -50,71 +45,33 @@ Prototype {% endblock %} {% block header %}
             </p>
 
             <p>
-              <strong
-                >How much cement will Tina need to make 50kg of
-                concrete?</strong
-              >
+              <strong>How much cement will Tina need to make 50kg of
+                concrete?</strong>
             </p>
           </span>
 
           <div class="govuk-radios">
             <div class="govuk-radios__item">
-              <input
-                class="govuk-radios__input"
-                id="question-one-a"
-                name="question-one"
-                type="radio"
-                value="15kg"
-              />
-              <label
-                class="govuk-label govuk-radios__label"
-                for="question-one-a"
-              >
+              <input class="govuk-radios__input" id="question-one-a" name="question-one" type="radio" value="15kg" />
+              <label class="govuk-label govuk-radios__label" for="question-one-a">
                 15kg
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input
-                class="govuk-radios__input"
-                id="question-one-b"
-                name="question-one"
-                type="radio"
-                value="20kg"
-              />
-              <label
-                class="govuk-label govuk-radios__label"
-                for="question-one-b"
-              >
+              <input class="govuk-radios__input" id="question-one-b" name="question-one" type="radio" value="20kg" />
+              <label class="govuk-label govuk-radios__label" for="question-one-b">
                 20kg
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input
-                class="govuk-radios__input"
-                id="question-one-c"
-                name="question-one"
-                type="radio"
-                value="42kg"
-              />
-              <label
-                class="govuk-label govuk-radios__label"
-                for="question-one-c"
-              >
+              <input class="govuk-radios__input" id="question-one-c" name="question-one" type="radio" value="42kg" />
+              <label class="govuk-label govuk-radios__label" for="question-one-c">
                 42kg
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input
-                class="govuk-radios__input"
-                id="question-one-d"
-                name="question-one"
-                type="radio"
-                value="10kg"
-              />
-              <label
-                class="govuk-label govuk-radios__label"
-                for="question-one-d"
-              >
+              <input class="govuk-radios__input" id="question-one-d" name="question-one" type="radio" value="10kg" />
+              <label class="govuk-label govuk-radios__label" for="question-one-d">
                 10kg
               </label>
             </div>
@@ -126,39 +83,22 @@ Prototype {% endblock %} {% block header %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <div
-        id="question-one-a-feedback"
-        name="question-feedback"
-        class="govuk-inset-text hidden"
-        style="border-left: 10px solid #D4351C;"
-      >
+      <div id="question-one-a-feedback" name="question-feedback" class="govuk-inset-text hidden"
+        style="border-left: 10px solid #D4351C;">
         This is how much sand she will need.
       </div>
-      <div
-        id="question-one-b-feedback"
-        name="question-feedback"
-        class="govuk-inset-text hidden"
-        style="border-left: 10px solid #D4351C;"
-      >
+      <div id="question-one-b-feedback" name="question-feedback" class="govuk-inset-text hidden"
+        style="border-left: 10px solid #D4351C;">
         This is how much stone she will need.
       </div>
-      <div
-        id="question-one-c-feedback"
-        name="question-feedback"
-        class="govuk-inset-text hidden"
-        style="border-left: 10px solid #D4351C;"
-      >
+      <div id="question-one-c-feedback" name="question-feedback" class="govuk-inset-text hidden"
+        style="border-left: 10px solid #D4351C;">
         Remember, when working with ratios you must always use multiplication
         and division.
       </div>
-      <div
-        id="question-one-d-feedback"
-        name="question-feedback"
-        class="govuk-inset-text hidden"
-        style="border-left: 10px solid #00703c; 
+      <div id="question-one-d-feedback" name="question-feedback" class="govuk-inset-text hidden" style="border-left: 10px solid #00703c; 
           font-size: 24px;
-          line-height: 28px;"
-      >
+          line-height: 28px;">
         Well done.
       </div>
     </div>
@@ -166,43 +106,21 @@ Prototype {% endblock %} {% block header %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <button
-        id="submitButton"
-        class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-2"
-        data-module="govuk-button"
-      >
+      <button id="submitButton" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-2"
+        data-module="govuk-button">
         Submit answer
-        <svg
-          class="govuk-button__start-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="17.5"
-          height="19"
-          viewBox="0 0 33 40"
-          role="presentation"
-          focusable="false"
-        >
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19"
+          viewBox="0 0 33 40" role="presentation" focusable="false">
           <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
         </svg>
       </button>
 
-      <a
-        id="continueButton"
-        href="/main/v2/assessment/exact-answer"
-        role="button"
-        draggable="false"
+      <a id="continueButton" href="/main/v2/assessment/exact-answer" role="button" draggable="false"
         class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6 hidden"
-        data-module="govuk-button"
-      >
+        data-module="govuk-button">
         Continue
-        <svg
-          class="govuk-button__start-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="17.5"
-          height="19"
-          viewBox="0 0 33 40"
-          role="presentation"
-          focusable="false"
-        >
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19"
+          viewBox="0 0 33 40" role="presentation" focusable="false">
           <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
         </svg>
       </a>
@@ -211,23 +129,12 @@ Prototype {% endblock %} {% block header %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <a
-        href="/main/v2/prototype-end"
-        role="button"
-        draggable="false"
+      <a href="/main/v2/prototype-end" role="button" draggable="false"
         class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-6"
-        data-module="govuk-button"
-      >
+        data-module="govuk-button">
         I don't know
-        <svg
-          class="govuk-button__start-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="17.5"
-          height="19"
-          viewBox="0 0 33 40"
-          role="presentation"
-          focusable="false"
-        >
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19"
+          viewBox="0 0 33 40" role="presentation" focusable="false">
           <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
         </svg>
       </a>

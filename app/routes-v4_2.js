@@ -50,7 +50,6 @@ module.exports = {
               '/public/images/slideshow/1/slideshow-1-slide-4.jpeg',
               '/public/images/slideshow/1/slideshow-1-slide-5.jpeg',
               '/public/images/slideshow/1/slideshow-1-slide-6.jpeg',
-              // '/public/images/slideshow/1/slideshow-1-slide-7.jpeg',
               '/public/images/slideshow/1/slideshow-1-slide-8.jpeg',
               '/public/images/slideshow/1/slideshow-1-slide-9.jpeg',
               '/public/images/slideshow/1/slideshow-1-slide-10.jpeg',
@@ -66,7 +65,6 @@ module.exports = {
             slides: [
               '/public/images/slideshow/1/slideshow-2-slide-1.jpeg',
               '/public/images/slideshow/1/slideshow-2-slide-2.jpeg'
-              // '/public/images/slideshow/1/slideshow-2-slide-3.jpeg'
             ],
             backLink: '/v4-2/topic/lesson/1/slideshow/practice/1',
             nextLink: '/v4-2/topic/lesson/1/slideshow/practice/2'
@@ -76,7 +74,6 @@ module.exports = {
             description:
               'In this final slideshow, you will learn how to end a formal email appropriately.',
             slides: [
-              // '/public/images/slideshow/1/slideshow-3-slide-1.jpeg',
               '/public/images/slideshow/1/slideshow-3-slide-2.jpeg',
               '/public/images/slideshow/1/slideshow-3-slide-3.jpeg',
               '/public/images/slideshow/1/slideshow-3-slide-4.jpeg'
@@ -874,8 +871,6 @@ module.exports = {
         heading: {
           main: 'You emailed a tutor and they got back to you a few hours later'
         },
-        // description:
-        //   'As this is a prototype, certain links do not work. You can click the button below to return back to where you were.',
         nextLink: returnUrl
       })
     })
@@ -1003,24 +998,6 @@ module.exports = {
         description:
           'The lessons in this section will develop your skills in multiple forms of writing. These writing skills will be useful in both your everyday and professional life.',
         lessonUrl: '/v4-2/topic/lesson/1/lesson-objective'
-        // lessons
-        // lessons: [
-        //   {
-        //     title: '[lesson name]',
-        //     description:
-        //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada arcu nibh sit.'
-        //   },
-        //   {
-        //     title: '[lesson name]',
-        //     description:
-        //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada arcu nibh sit.'
-        //   },
-        //   {
-        //     title: '[lesson name]',
-        //     description:
-        //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada arcu nibh sit.'
-        //   }
-        // ]
       })
     })
 
@@ -1185,7 +1162,7 @@ module.exports = {
 
         res.render(template, {
           back: {
-            text: 'Back', // `Back to ${media}`,
+            text: 'Back',
             href: question.backLink
           },
           heading: {

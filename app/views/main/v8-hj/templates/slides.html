@@ -30,18 +30,6 @@ Prototype {% endblock %} {% block beforeContent %}
         <p>
           {{ slideshow.description }}
         </p>
-        <!-- <p><strong>To use this slideshow, you can:</strong></p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>
-            Press the expand button to make the slideshow go fullscreen
-          </li>
-          <li>
-            Swipe to go back and forth between slides
-          </li>
-          <li>
-            Rotate your device to make the slideshow larger
-          </li>
-        </ul> -->
       </div>
     </div>
 
@@ -79,9 +67,6 @@ Prototype {% endblock %} {% block beforeContent %}
       <div class="govuk-grid-column-full">
         <a href="{{ slideshow.nextLink }}" class="govuk-button" data-module="govuk-button">Continue to practice
           question</a>
-        <!-- {{ actionLinks({
-          actions: actions
-        }) }} -->
         <div class="also-links-main">
           <hr />
           <h2 class="govuk-heading-l">You can also</h2>
@@ -158,7 +143,6 @@ Prototype {% endblock %} {% block beforeContent %}
         el: '.swiper-pagination',
       },
 
-      // Navigation arrows
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
