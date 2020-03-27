@@ -1,6 +1,6 @@
 const v4 = require('./routes-v4')
 const v4_2 = require('./routes-v4_2')
-const v5 = require('./routes-v5')
+const v5 = require('./views/main/v5/routes-v5')
 const v6 = require('./views/main/v6/routes-v6')
 const v6_demo = require('./views/main/v6-demo/routes-v6-demo')
 const v7 = require('./views/main/v7/routes-v7')
