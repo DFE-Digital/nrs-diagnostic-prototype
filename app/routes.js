@@ -1,4 +1,4 @@
-const v4 = require('./routes-v4')
+const v4 = require('./views/main/v4/routes-v4')
 const v4_2 = require('./views/main/v4-2/routes-v4_2')
 const v5 = require('./views/main/v5/routes-v5')
 const v6 = require('./views/main/v6/routes-v6')
