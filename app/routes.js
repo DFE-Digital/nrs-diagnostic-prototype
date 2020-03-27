@@ -5,7 +5,7 @@ const v6 = require('./routes-v6')
 const v6_demo = require('./routes-v6-demo')
 const v7 = require('./routes-v7')
 const v8_ul = require('./views/main/v8-ul/routes-v8-ul')
-const v8_hj = require('./routes-v8-hj')
+const v8_hj = require('./views/main/v8-hj/routes-v8-hj')
 
 const express = require('express')
 let router = express.Router()
