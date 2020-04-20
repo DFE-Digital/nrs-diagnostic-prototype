@@ -53,7 +53,18 @@ module.exports = {
               '/public/images/slideshow/1/slideshow-1-slide-8.jpeg',
               '/public/images/slideshow/1/slideshow-1-slide-9.jpeg',
               '/public/images/slideshow/1/slideshow-1-slide-10.jpeg',
-              '/public/images/slideshow/1/slideshow-1-slide-11.jpeg'
+              '/public/images/slideshow/1/slideshow-1-slide-11.jpeg',
+              '/public/images/slideshow/1/slideshow-1-slide-12.jpeg',
+              '/public/images/slideshow/1/slideshow-1-slide-13.jpeg',
+              '/public/images/slideshow/1/slideshow-1-slide-14.jpeg',
+              '/public/images/slideshow/1/slideshow-1-slide-15.jpeg',
+              '/public/images/slideshow/1/slideshow-1-slide-16.jpeg',
+              '/public/images/slideshow/1/slideshow-1-slide-17.jpeg',
+              '/public/images/slideshow/1/slideshow-1-slide-18.jpeg',
+              '/public/images/slideshow/1/slideshow-1-slide-19.jpeg',
+              '/public/images/slideshow/1/slideshow-1-slide-20.jpeg',
+              '/public/images/slideshow/1/slideshow-1-slide-21.jpeg',
+              '/public/images/slideshow/1/slideshow-1-slide-22.jpeg'
             ],
             backLink: '/v8-ul/topic/lesson/1/select-learning-content',
             nextLink: '/v8-ul/topic/lesson/1/slideshow/practice/1'
@@ -64,7 +75,11 @@ module.exports = {
               'In this slideshow, you will learn how to write the main part of an email.',
             slides: [
               '/public/images/slideshow/1/slideshow-2-slide-1.jpeg',
-              '/public/images/slideshow/1/slideshow-2-slide-2.jpeg'
+              '/public/images/slideshow/1/slideshow-2-slide-2.jpeg',
+              '/public/images/slideshow/1/slideshow-2-slide-3.jpeg',
+              '/public/images/slideshow/1/slideshow-2-slide-4.jpeg',
+              '/public/images/slideshow/1/slideshow-2-slide-5.jpeg',
+              '/public/images/slideshow/1/slideshow-2-slide-6.jpeg'
             ],
             backLink: '/v8-ul/topic/lesson/1/slideshow/practice/1',
             nextLink: '/v8-ul/topic/lesson/1/slideshow/practice/2'
@@ -74,9 +89,16 @@ module.exports = {
             description:
               'In this final slideshow, you will learn how to end a formal email appropriately.',
             slides: [
+              '/public/images/slideshow/1/slideshow-3-slide-1.jpeg',
               '/public/images/slideshow/1/slideshow-3-slide-2.jpeg',
               '/public/images/slideshow/1/slideshow-3-slide-3.jpeg',
-              '/public/images/slideshow/1/slideshow-3-slide-4.jpeg'
+              '/public/images/slideshow/1/slideshow-3-slide-4.jpeg',
+              '/public/images/slideshow/1/slideshow-3-slide-5.jpeg',
+              '/public/images/slideshow/1/slideshow-3-slide-6.jpeg',
+              '/public/images/slideshow/1/slideshow-3-slide-8.jpeg',
+              '/public/images/slideshow/1/slideshow-3-slide-9.jpeg',
+              '/public/images/slideshow/1/slideshow-3-slide-10.jpeg',
+              '/public/images/slideshow/1/slideshow-3-slide-11.jpeg'
             ],
             backLink: '/v8-ul/topic/lesson/1/slideshow/practice/2',
             nextLink: '/v8-ul/topic/lesson/1/slideshow/practice/3'
