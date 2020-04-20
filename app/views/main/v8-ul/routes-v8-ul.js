@@ -17,7 +17,7 @@ module.exports = {
             id: '1',
             description:
               'In this video, you will learn how to start a formal email.',
-            url: 'https://www.youtube.com/embed/DzjrzefdYOw?rel=0',
+            url: 'https://www.youtube.com/embed/H207-zObsPQ?rel=0',
             backLink: '/v8-ul/topic/lesson/1/select-learning-content',
             nextLink: '/v8-ul/topic/lesson/1/video/practice/1'
           },
@@ -25,7 +25,7 @@ module.exports = {
             id: '2',
             description:
               'In this video, you will learn how to write the main part of an email.',
-            url: 'https://www.youtube.com/embed/Ckgy0yrL6VE?rel=0',
+            url: 'https://www.youtube.com/embed/AwA75t7cGeQ?rel=0',
             backLink: '/v8-ul/topic/lesson/1/video/practice/1',
             nextLink: '/v8-ul/topic/lesson/1/video/practice/2'
           },
@@ -33,7 +33,7 @@ module.exports = {
             id: '3',
             description:
               'In this final video, you will learn how to end a formal email appropriately.',
-            url: 'https://www.youtube.com/embed/kZIrEVDYPOI?rel=0',
+            url: 'https://www.youtube.com/embed/ZwEIs9eqUFM?rel=0',
             backLink: '/v8-ul/topic/lesson/1/video/practice/2',
             nextLink: '/v8-ul/topic/lesson/1/video/practice/3'
           }
