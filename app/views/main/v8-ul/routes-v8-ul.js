@@ -1507,7 +1507,7 @@ module.exports = {
         heading: {
           sub: lesson.title
         },
-        nextLink: '/v8-ul/context',
+        nextLink: `/v8-ul/topic/lesson/${lessonId}/text/practice/1`,
         actions: {
           title: 'You can also:',
           links: [
